@@ -1,5 +1,5 @@
 # Schema for the theme setting configuration file of the THEMETITLE theme.
 
-THEMENAME.settings:
+swedishamerican.settings:
   type: theme_settings
   label: 'Swedish American settings'
