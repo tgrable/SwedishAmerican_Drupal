@@ -57,6 +57,7 @@
  */
 #}
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+{{ page.search }}
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}
   {% block navbar %}
@@ -68,9 +69,9 @@
       ]
     %}
     <header{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-      {% if not navbar_attributes.hasClass(container) %}
+      {#{% if not navbar_attributes.hasClass(container) %}
         <div class="{{ container }}">
-      {% endif %}
+      {% endif %}#}
       <div class="navbar-header">
         {{ page.navigation }}
         {# .btn-navbar is used as the toggle for collapsed navbar content #}
@@ -82,7 +83,7 @@
             <span class="icon-bar"></span>
           </button>
         {% endif %}
-      </div>
+      {#</div>#}
 
       {# Navigation (collapsible) #}
       {% if page.navigation_collapsible %}
