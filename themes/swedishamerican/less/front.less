@@ -1,5 +1,5 @@
 header {
-    background-image: url(../images/banner_green.png);
+    background-image: url(../images/img-HdrHome-01.png);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -7,5 +7,39 @@ header {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    height: 1024px;
+    height: 615px;
+}
+
+.view-front-cards {
+    .views-row {
+        margin: 15px;
+    }
+
+    .view-header {
+        float: left;
+        width: 255px;
+        margin-right: 15px;
+
+        h1, p {
+            text-align: right;
+        }
+    }
+    article {
+        height: 315px;
+
+        .field--name-body, .card-main-ico {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .field--name-body {
+            margin: 0 auto 20px auto;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .card-main-ico {
+            margin: 0 auto 72px auto;
+        }
+    }
 }

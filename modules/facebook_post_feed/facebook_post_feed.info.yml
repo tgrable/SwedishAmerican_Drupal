@@ -1,0 +1,5 @@
+name: Social Media Feeds
+type: module
+description: Social Media Feeds
+package: Custom
+core: 8.x

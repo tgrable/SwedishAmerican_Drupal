@@ -1,0 +1,46 @@
+.fb_article {
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  padding: 12px;
+}
+.ig_article {
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+}
+.fb_article .post_image img, .ig_article .post_image img{
+  width: 100%;
+}
+.ig_article .profile-data {
+    height: 64px;
+    padding: 14px 20px;
+}
+.ig_article .profile-data img {
+    border-radius: 50%;
+    width: 30px;
+}
+.fb_article .post-message {
+  margin: 8px 0;
+}
+.ig_article .post-message, .ig_article .post_reactions {
+  padding: 0 24px;
+}
+.ig_article .post_reactions {
+  margin: 20px 0 7px 0;
+}
+.fb_article .inline, .ig_article .inline {
+  display: inline-block;
+  margin-right: 8px;
+}
+.fb_article .profile-data a, .ig_article .profile-data a {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: larger;
+}
+.fb_article .profile-data img, .ig_article .profile-data img {
+  margin-right: 8px;
+  float: left;
+}
+.fb_article hr, .ig_article hr {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
