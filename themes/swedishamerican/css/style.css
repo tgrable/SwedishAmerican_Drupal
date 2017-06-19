@@ -206,29 +206,33 @@ li {
   height: 65px;
   background: #ffffff;
 }
-/* NAV */
-#nav-container {
-  height: 52px;
-  background: rgba(63, 63, 63, 0.5);
+/* FOOTER */
+#footer-container {
+  padding: 60px 30px;
+  background-color: #92318f;
 }
+.footer-content {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.5em;
+}
+.copyright {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 12px;
+  color: #3f3f3f;
+  text-transform: uppercase;
+  padding: 30px;
+}
+/* NAV */
 #nav-container2 {
   height: 52px;
   background: #3f3f3f;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
-}
-.nav {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  color: #ffffff;
-  text-transform: uppercase;
-  padding: 16px 16px 15px 16px;
-}
-.navbar {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 .navbar {
   border: none;
@@ -238,8 +242,32 @@ li {
 .navbar-btn {
   margin-top: 0;
   margin-bottom: 0;
+  padding-right: 30px;
 }
-.nav-rollover {
+.navbar .logo {
+  padding-right: 30px;
+}
+.navbar-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 52px;
+  background: rgba(63, 63, 63, 0.5);
+}
+.navbar-header nav {
+  width: 1170px;
+  margin: auto;
+}
+.navbar-inverse .navbar-nav > li > a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 16px 16px 15px 16px;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
@@ -272,38 +300,16 @@ li {
   font-size: 16px;
   border-right: 1px solid #bebebe;
 }
-/* FOOTER */
-#footer-container {
-  padding: 60px 30px;
-  background-color: #92318f;
-}
-.footer-content {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 14px;
-  color: #ffffff;
-  line-height: 1.5em;
-}
-.copyright {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 12px;
-  color: #3f3f3f;
-  text-transform: uppercase;
-  padding: 30px;
-}
 header {
   background-image: url(../images/img-HdrHome-01.png);
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center 65px;
+  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: inherit;
   -o-background-size: cover;
-  height: 680px;
+  height: 615px;
 }
 .view-front-cards .views-row {
   margin: 15px;
