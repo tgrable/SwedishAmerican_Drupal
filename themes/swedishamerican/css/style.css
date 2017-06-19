@@ -289,12 +289,12 @@ header {
   background-image: url(../images/img-HdrHome-01.png);
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
+  background-position: center 65px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-size: cover;
+  background-size: inherit;
   -o-background-size: cover;
-  height: 615px;
+  height: 680px;
 }
 .view-front-cards .views-row {
   margin: 15px;
