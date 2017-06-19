@@ -274,8 +274,10 @@ li {
   font-size: 16px;
   color: #ffffff;
   text-transform: uppercase;
-  padding: 16px 15px 14px 15px;
   border-bottom: 2px solid #92318f;
+}
+ul.menu.nav.navbar-nav {
+  margin-left: 115px;
 }
 .dropdown-content {
   display: none;
