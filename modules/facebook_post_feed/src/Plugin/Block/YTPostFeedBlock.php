@@ -26,7 +26,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
   public function build() {
     return array(
       '#markup' => $this->get_youtube_data(),
-      '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr'],
+      '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'span'],
       '#attached' => array(
         'library' => array('facebook_post_feed/facebook_post_feed'),
       ),
@@ -40,17 +40,43 @@ use Drupal\Core\Datetime\DrupalDateTime;
   
     $vid_array = $youtube_obj['items'];
 
-    $markup = '<hr /><div class="row">';
-    for ($i = 0; $i < 3; $i++) {
-      $vid_id = $vid_array[$i]['id']['videoId'];
-      $vid_title = $vid_array[$i]['snippet']['title'];
-      $markup .= '<div class="col-md-4">';
-        $markup .= '<a href="#" target="_blank">' . $vid_title . '</a>';
-        $markup .= '<iframe class="embed-responsive-item" src="//www.youtube.com/embed/' . $vid_id . '"></iframe>';
+    $markup = '<div class="large-padding"></div>';
+    $markup .= '<div class="social-block">';
+      $markup .= '<div class="header-title">';
+        $markup .= '<div class="fa-social-background yt-red inline">';
+          $markup .= '<h5 class="fa fa-youtube-play">&nbsp;</h5>';
+        $markup .= '</div>';
+        $markup .= '<div class="inline">';
+          $markup .= '<h3>youtube</h3>';
+        $markup .= '</div>';
       $markup .= '</div>';
-    }
+      $markup .= '<div class="youtube-container">';
+        for ($i = 0; $i < 3; $i++) {
+          $vid_id = $vid_array[$i]['id']['videoId'];
+          $vid_title = $vid_array[$i]['snippet']['title'];
+          $markup .= '<div class="social-card youtube-content inline">';
+            $markup .= '<iframe class="embed-responsive-item" src="//www.youtube.com/embed/' . $vid_id . '"></iframe>';
+            $markup .= '<div class="title-container">';
+              $markup .= '<a href="https://www.youtube.com/watch?v=' . $vid_id . '" target="_blank">' . $this->break_up_title_string($vid_title) . '</a>';
+            $markup .= '</div>';
+          $markup .= '</div>';
+        }
+        $markup .= '</div>';
     $markup .= '</div>';
+    $markup .= '<div class="med-padding"></div>';
+
     return $markup;
   }
 
+  private function break_up_title_string($title) {
+    $markup = $title;
+    if (strpos($title, ':') !== false) {
+        $new_title = explode(':', $title);
+        $markup = $new_title[0] . ':<p class="subtitle">' . $new_title[1] . '</p>';
+    }
+
+    return $markup;
+  }
  }
+
+ // TODO: Look into making the videos an overlay using the image thumbnail instead of the iframe.

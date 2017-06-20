@@ -39,21 +39,35 @@ use Drupal\Core\Datetime\DrupalDateTime;
 
     // dsm($obj);
     $post_array = $obj['data'];
-    $markup = '<hr /><div class="row">';
-    for ($i = 0; $i < 3; $i++) {
-        $markup .= '<div class="col-md-4">';
-            $markup .= '<div class="ig_article">';
-                $markup .= '<div class="profile-data">';
-                    $markup .= '<img src="' . $post_array[$i]['user']['profile_picture'] . '" />';
-                    $markup .= '<a href="https://www.instagram.com/swedish_american/" target="_blank">' . $post_array[$i]['user']['username'] . '</a>';
-                $markup .= '</div>';
-                $markup .= '<div class="post_image"><img src="' . $post_array[$i]['images']['low_resolution']['url'] . '" /></div>';
-                $markup .= '<div class="post_reactions"><div class="reactions inline">' . $post_array[$i]['likes']['count'] . ' Likes</div></div>' ;
-                $markup .= '<div class="post-message"><strong>' . $post_array[$i]['user']['username'] . '</strong> ' . $post_array[$i]['caption']['text'] . '</div>';
-            $markup .= '</div>';
+    $markup = '<hr />';
+     $markup .= '<div class="med-padding"></div>';
+    $markup .= '<div class="social-block">';
+      $markup .= '<div class="header-title">';
+        $markup .= '<div class="fa-social-background ig-blue inline">';
+          $markup .= '<h5 class="fa fa-instagram">&nbsp;</h5>';
         $markup .= '</div>';
-    }
+        $markup .= '<div class="inline">';
+          $markup .= '<h3>Instagram</h3>';
+        $markup .= '</div>';
+      $markup .= '</div>';
+      $markup .= '<div class="instagram-container">';
+        for ($i = 0; $i < 8; $i++) {
+            if (isset($post_array[$i])) {
+              if ($i < 2) {
+                $markup .= '<div class="ig_article ig-content inline">';
+                  $markup .= '<div class="post_image"><img src="' . $post_array[$i]['images']['low_resolution']['url'] . '" /></div>';
+              }
+              else {
+                $markup .= '<div class="small_ig_article small_ig-content inline">';
+                  $markup .= '<div class="small_post_image inline"><img src="' . $post_array[$i]['images']['low_resolution']['url'] . '" /></div>';
+              }
+            }
+          $markup .= '</div>';
+      }
+        $markup .= '</div>';
     $markup .= '</div>';
+    $markup .= '<div class="med-padding"></div>';
+
     return $markup;
   }
 

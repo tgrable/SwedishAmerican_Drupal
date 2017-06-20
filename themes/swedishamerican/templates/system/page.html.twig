@@ -56,8 +56,18 @@
  * @see html.html.twig
  */
 #}
+<div id="preheader" class="topbar">
+  <div class="inline top-align logo">
+    <a href="/"><img src="{{ base_path ~ directory }}/images/logo.png" alt="Swedish American" /></a>
+  </div>
+  <div class="inline top-align search">
+    {{ block_search_form }}
+  </div>
+  <div class="inline top-align phone">
+    <span class="fa fa-phone">&nbsp;</span> 1 (779) 696-440
+  </div>
+</div>
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-{{ page.search }}
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}
   {% block navbar %}
