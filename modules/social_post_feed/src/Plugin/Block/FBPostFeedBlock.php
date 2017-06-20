@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Contains Drupal\facebook_post_feed\Plugin\Block\FBPostFeedBlock.
+ * Contains Drupal\social_post_feed\Plugin\Block\FBPostFeedBlock.
  */
 
-namespace Drupal\facebook_post_feed\Plugin\Block;
+namespace Drupal\social_post_feed\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -13,7 +13,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  * Provides a 'Facebook Post Feed' Block.
  *
  * @Block(
- *   id = "facebook_post_feed",
+ *   id = "social_post_feed",
  *   admin_label = @Translation("Facebook Post Feed"),
  * )
  */
@@ -26,7 +26,7 @@ class FBPostFeedBlock extends BlockBase {
     return array(
       '#markup' => $this->get_facebook_data(),
       '#attached' => array(
-        'library' => array('facebook_post_feed/facebook_post_feed'),
+        'library' => array('social_post_feed/social_post_feed'),
       ),
     );
   }

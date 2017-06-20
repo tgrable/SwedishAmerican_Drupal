@@ -1,4 +1,4 @@
-facebook_post_feed:
+social_post_feed:
  version: 1.x
  css:
   layout:

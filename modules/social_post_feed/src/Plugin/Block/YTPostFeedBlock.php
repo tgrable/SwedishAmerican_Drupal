@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Contains Drupal\facebook_post_feed\Plugin\Block\YTPostFeedBlock.
+ * Contains Drupal\social_post_feed\Plugin\Block\YTPostFeedBlock.
  */
 
-namespace Drupal\facebook_post_feed\Plugin\Block;
+namespace Drupal\social_post_feed\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -28,7 +28,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
       '#markup' => $this->get_youtube_data(),
       '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'span'],
       '#attached' => array(
-        'library' => array('facebook_post_feed/facebook_post_feed'),
+        'library' => array('social_post_feed/social_post_feed'),
       ),
     );
   }
