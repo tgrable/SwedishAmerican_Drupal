@@ -7,11 +7,21 @@
  */
 
 /**
+ * Implements hook_preprocess_html() for page.html.twig.
+ */
+ function swedishamerican_preprocess_html(array &$variables) {}
+
+/**
  * Implements hook_preprocess_page() for page.html.twig.
  */
 function swedishamerican_preprocess_page(array &$variables) {
   // Inject a flag based on the current message queue.
   $variables['available_messages'] = !empty(drupal_get_messages(NULL, FALSE));
+
+  $block = \Drupal\block\Entity\Block::load('swedishamerican_search'); 
+  $variables['block_search_form'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block);
 }
 
 /**
@@ -28,7 +38,9 @@ function swedishamerican_preprocess_node(array &$variables) {
 function swedishamerican_preprocess_block(&$variables) {
   if (isset($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content']->toArray();
-    $variables['customWidthVariable'] = $block['field_column_width'][0]['value'];
+    if (isset($block['field_column_width'])) {
+      $variables['customWidthVariable'] = $block['field_column_width'][0]['value'];
+    } 
   }
 }
 
