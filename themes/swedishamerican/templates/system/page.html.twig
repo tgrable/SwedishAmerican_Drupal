@@ -191,8 +191,26 @@
 
 {% if page.footer %}
   {% block footer %}
-    <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
+    <footer class="footer" role="contentinfo">
+      <div class="footer-container {{ container }}">
+        {{ page.footer }}
+      </div>
     </footer>
+    <div class="footer-social">
+      <div class="footer-social-container {{ container }}">
+        <div class="date inline">
+          <span>&copy;{{ 'now'|date('Y') }} Sewdish American Hospital</span>
+        </div>
+        <div class="social inline">
+          <ul> <!-- TODO: Check their site for social links -->
+            <li class="social-button fb"><a href="https://www.facebook.com/swedishamericanrockford/"><i class="fa fa-facebook"></i></a></li>
+            <li class="social-button tw"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li> <!-- TODO: Get their Twitter Page -->
+            <li class="social-button ig"><a href="https://www.instagram.com/swedish_american/"><i class="fa fa-instagram"></i></a></li>
+            <li class="social-button li"><a href="https://www.linkedin.com/company-beta/1169024/"><i class="fa fa-linkedin"></i></a></li>
+            <li class="social-button yt"><a href="https://www.youtube.com/user/SwedishAmericanVideo"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   {% endblock %}
 {% endif %}
