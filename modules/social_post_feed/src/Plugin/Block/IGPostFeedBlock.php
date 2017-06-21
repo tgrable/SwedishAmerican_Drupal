@@ -44,14 +44,21 @@ use Drupal\Core\Datetime\DrupalDateTime;
     $markup .= '<div class="social-block">';
       $markup .= '<div class="header-title">';
         $markup .= '<div class="fa-social-background ig-blue inline">';
-          $markup .= '<h5 class="fa fa-instagram">&nbsp;</h5>';
+          $markup .= '<i class="fa fa-instagram">&nbsp;</i>';
         $markup .= '</div>';
         $markup .= '<div class="inline">';
-          $markup .= '<h3>Instagram</h3>';
+          $markup .= '<p class="social-hdr">Instagram</p>';
         $markup .= '</div>';
       $markup .= '</div>';
       $markup .= '<div class="instagram-container">';
-        for ($i = 0; $i < 8; $i++) {
+        $markup .= '<div class="ig_article ig-content inline">';
+          $markup .= '<div class="post_image"><img src="' . $post_array[0]['images']['low_resolution']['url'] . '" /></div>';
+        $markup .= '</div>';
+        $markup .= '<div class="ig_article ig-content inline">';
+          $markup .= '<div class="post_image"><img src="' . $post_array[1]['images']['low_resolution']['url'] . '" /></div>';
+        $markup .= '</div>';
+        $markup .= '<div class="ig_article ig-content-wide inline">';
+          for ($i = 2; $i < count($post_array); $i++) {
             if (isset($post_array[$i])) {
               if ($i < 2) {
                 $markup .= '<div class="ig_article ig-content inline">';
@@ -62,11 +69,12 @@ use Drupal\Core\Datetime\DrupalDateTime;
                   $markup .= '<div class="small_post_image inline"><img src="' . $post_array[$i]['images']['low_resolution']['url'] . '" /></div>';
               }
             }
-          $markup .= '</div>';
-      }
+            $markup .= '</div>';
+          }
         $markup .= '</div>';
+      $markup .= '</div>';
     $markup .= '</div>';
-    $markup .= '<div class="med-padding"></div>';
+    $markup .= '<div class="med-padding"></div><hr />';
 
     return $markup;
   }

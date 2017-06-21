@@ -26,7 +26,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
   public function build() {
     return array(
       '#markup' => $this->get_youtube_data(),
-      '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'span'],
+      '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'span', 'i'],
       '#attached' => array(
         'library' => array('social_post_feed/social_post_feed'),
       ),
@@ -44,10 +44,10 @@ use Drupal\Core\Datetime\DrupalDateTime;
     $markup .= '<div class="social-block">';
       $markup .= '<div class="header-title">';
         $markup .= '<div class="fa-social-background yt-red inline">';
-          $markup .= '<h5 class="fa fa-youtube-play">&nbsp;</h5>';
+          $markup .= '<i class="fa fa-youtube-play">&nbsp;</i>';
         $markup .= '</div>';
         $markup .= '<div class="inline">';
-          $markup .= '<h3>youtube</h3>';
+          $markup .= '<p class="social-hdr">youtube</p>';
         $markup .= '</div>';
       $markup .= '</div>';
       $markup .= '<div class="youtube-container">';
