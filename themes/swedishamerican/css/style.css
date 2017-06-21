@@ -2756,6 +2756,15 @@ header {
 footer {
   background-color: #92318f;
 }
+footer .footer-content {
+  width: 285px;
+  vertical-align: top;
+}
+footer .footer-content a,
+footer .footer-content p {
+  color: #ffffff;
+  font-size: 13px;
+}
 .footer-social {
   height: 90px;
   background-color: #ffffff;
