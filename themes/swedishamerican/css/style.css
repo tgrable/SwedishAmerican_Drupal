@@ -2398,12 +2398,26 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only .glyphicon-se
 hr.front {
   margin: 45px 0 60px 0;
 }
+hr {
+  color: #bebebe;
+  margin: 30px 0;
+}
 p {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
   color: #3f3f3f;
+  line-height: 1.4em;
+  margin-top: 0px;
+  margin-bottom: 0.6em;
+}
+.main-container a {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #92318f;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -2459,6 +2473,10 @@ ul {
 }
 li {
   padding-left: 0px;
+}
+.overlay {
+  width: 1490px;
+  margin: auto;
 }
 .inline {
   display: inline-block;
@@ -2530,14 +2548,6 @@ li {
   color: #92318f;
   margin-bottom: 1.5em;
   text-decoration: none;
-}
-.location-address {
-  font-family: 'AvenirNext-DemiBold';
-  font-weight: bold;
-  font-style: normal;
-  font-size: 30px;
-  text-transform: uppercase;
-  color: #3f3f3f;
 }
 .footnote {
   font-family: 'AvenirNext-Italic';
@@ -2618,6 +2628,38 @@ li {
   color: #3f3f3f;
   text-transform: uppercase;
   padding: 30px;
+}
+.social li {
+  display: inline;
+}
+.social .social-button {
+  color: #ffffff;
+  border-radius: 30px;
+  margin-left: 15px;
+}
+.social .email {
+  background-color: #92318f;
+  padding: 11px 14px;
+}
+.social .fb {
+  background-color: #413cc8;
+  padding: 10px 15px;
+}
+.social .tw {
+  background-color: #368fe2;
+  padding: 11px 13px;
+}
+.social .ig {
+  background-color: #507aae;
+  padding: 11px 14px;
+}
+.social .li {
+  background-color: #406ace;
+  padding: 11px 14px;
+}
+.social .yt {
+  background-color: #c52631;
+  padding: 11px 14px;
 }
 /* NAV */
 #nav-container2 {
@@ -2747,16 +2789,6 @@ header {
   text-align: right;
   margin-top: 0;
 }
-.social-block .header-title a {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  color: #92318f;
-  line-height: 1.4em;
-  margin-top: 0px;
-  margin-bottom: 0.6em;
-}
 footer {
   background-color: #92318f;
   margin-top: 60px !important;
@@ -2783,38 +2815,10 @@ footer .footer-content p {
   margin-top: 30px;
   line-height: 30px;
 }
-.footer-social .social {
+.footer-social .social-footer {
   width: 325px;
   float: right;
   margin-top: 30px;
-}
-.footer-social .social li {
-  display: inline;
-}
-.footer-social .social .social-button {
-  color: #ffffff;
-  border-radius: 30px;
-  margin-left: 15px;
-}
-.footer-social .social .fb {
-  background-color: #413cc8;
-  padding: 10px 15px;
-}
-.footer-social .social .tw {
-  background-color: #368fe2;
-  padding: 11px 13px;
-}
-.footer-social .social .ig {
-  background-color: #507aae;
-  padding: 11px 14px;
-}
-.footer-social .social .li {
-  background-color: #406ace;
-  padding: 11px 14px;
-}
-.footer-social .social .yt {
-  background-color: #c52631;
-  padding: 11px 14px;
 }
 .card {
   background: #fff;
@@ -3072,6 +3076,122 @@ footer .footer-content p {
 section#block-facebookpostfeed {
   float: left;
   width: 56%;
+}
+.location-address {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #3f3f3f;
+  line-height: 36px;
+}
+.location-address .field {
+  display: inline-block;
+}
+.location-container h1,
+.location-container h2 {
+  margin-top: 0;
+}
+.location-container .map-image-container .image {
+  width: 730px;
+}
+.location-container .term-content-container {
+  width: 75%;
+  margin: 45px 30px 0 0;
+}
+.location-container .term-contact-container div {
+  vertical-align: top;
+}
+.location-container .term-contact-container i {
+  margin-right: 15px;
+}
+.location-container .term-contact-container .phone-email {
+  width: 40%;
+}
+.location-container .term-services-container {
+  margin-top: 45px;
+  padding-left: 30px;
+  border-left: 1px solid #bebebe;
+  vertical-align: top;
+  min-height: 575px;
+}
+.location-container .term-services-container h2 {
+  margin-top: 0;
+}
+.provider-container h1,
+.provider-container h2 {
+  margin-top: 0;
+}
+.provider-container div {
+  vertical-align: top;
+}
+.provider-container .provider-image-container {
+  width: 635px;
+}
+.provider-container .provider-image-container .provider-image {
+  width: 505px;
+  margin: auto;
+}
+.provider-container .provider-image-container .provider-image img {
+  border-radius: 250px;
+}
+.provider-container .provider-image-container .provider-image .horizontal-divider {
+  height: 1px;
+  background-color: #bebebe;
+  width: 30%;
+  margin: 0 auto 15px auto;
+}
+.provider-container .provider-image-container .provider-image .share {
+  margin-top: 30px;
+  text-align: center;
+}
+.provider-container .provider-image-container .provider-image .social-provider {
+  width: 325px;
+  margin-top: 15px;
+}
+.provider-container .provider-image-container .provider-image .social-provider .social-button a {
+  color: #ffffff;
+}
+.provider-container .provider-image-container .provider-image .social-provider .social-button:hover {
+  cursor: pointer;
+}
+.provider-container .provider-details-container {
+  max-width: 805px;
+}
+.provider-container .provider-details-container i {
+  margin-right: 15px;
+}
+.provider-container .provider-details-container .provider-contact-container .contact {
+  margin-right: 30px;
+}
+.provider-container .provider-details-container .provider-contact-container .address {
+  margin-right: 30px;
+}
+.provider-container .provider-details-container .field--name-field-location-reference,
+.provider-container .provider-details-container .field--name-field-map {
+  display: inline-block;
+}
+.provider-container .provider-details-container .provider-background-container .field--label {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #92318f;
+  line-height: 1.4em;
+  margin-bottom: 0.6em;
+  margin-top: 30px;
+}
+.provider-container .provider-details-container .provider-background-container .field--item {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #3f3f3f;
+  line-height: 1.4em;
+  margin-top: 0px;
+  margin-bottom: 0.6em;
 }
 @media (max-width: 1200px) {
   .view-header {

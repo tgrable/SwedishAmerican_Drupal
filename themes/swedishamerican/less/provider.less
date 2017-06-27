@@ -1,0 +1,88 @@
+.provider-container {
+    h1, h2 {
+        margin-top: 0;
+    }
+    div {
+        vertical-align: top;
+    }
+
+    .provider-image-container {
+        width: 635px;
+
+        .provider-image {
+            width: 505px;
+            margin: auto;
+            
+
+            img {
+                border-radius: 250px;
+            }
+
+            .horizontal-divider {
+                height: 1px;
+                background-color: @gray-rules;
+                width: 30%;
+                margin: 0 auto 15px auto;
+            }
+
+            .share {
+                margin-top: 30px;
+                text-align: center;
+            }
+
+            .social-provider {
+                width: 325px;
+                margin-top: 15px;
+
+                .social-button {
+                    a{
+                        color: #ffffff;
+                    }
+                }
+                .social-button:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .provider-details-container {
+        max-width: 805px;
+
+        i {
+            margin-right: 15px;
+        }
+
+        .provider-contact-container {
+            .contact {
+                margin-right: 30px;
+            }
+            .address {
+                margin-right: 30px;
+            }
+        }
+        .field--name-field-location-reference, .field--name-field-map {
+            display: inline-block;
+        }
+
+        .provider-background-container {
+            .field--label {
+                .avenirNextDemiBold;
+                font-size: 18px;
+                text-transform: uppercase;
+                color: @brand-primary;
+                line-height: 1.4em;
+                margin-bottom: 0.6em;
+                margin-top: 30px;
+            }
+            .field--item {
+                .avenirNextRegular;
+                font-size: 16px;
+                color: @text-color;
+                line-height: 1.4em;
+                margin-top: 0px;
+                margin-bottom: 0.6em;
+            }
+        }
+
+    }
+}

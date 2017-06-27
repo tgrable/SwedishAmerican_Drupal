@@ -110,7 +110,11 @@
 
 {# Main #}
 {% block main %}
-  <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+  {% if content_width %}
+    <div role="main" class="main-container {{ content_width }} js-quickedit-main-content">
+  {% else %}
+    <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+  {% endif %}
     <div class="row">
 
       {# Header #}
@@ -174,6 +178,7 @@
         {% block content %}
           <a id="main-content"></a>
           {{ page.content }}
+
         {% endblock %}
       </section>
 
@@ -201,7 +206,7 @@
         <div class="date inline">
           <span>&copy;{{ 'now'|date('Y') }} Sewdish American Hospital</span>
         </div>
-        <div class="social inline">
+        <div class="social social-footer inline">
           <ul> <!-- TODO: Check their site for social links -->
             <li class="social-button fb"><a href="https://www.facebook.com/swedishamericanrockford/"><i class="fa fa-facebook"></i></a></li>
             <li class="social-button tw"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li> <!-- TODO: Get their Twitter Page -->
