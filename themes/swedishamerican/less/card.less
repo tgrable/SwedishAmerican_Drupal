@@ -2,10 +2,11 @@
     background: #fff;
     border-radius: 2px;
     display: inline-block;
-    height: 315px;
+    // height: 315px;
     margin: 1rem;
     position: relative;
     width: 255px;
+    vertical-align: top;
 }
 
 .card {
@@ -89,21 +90,31 @@
 	background-color: @brand-primary;
 	text-align: right;
 	padding: 10px;
-    font-color: @white;
     font-size: 14px;
+
+    a { 
+        color: @white;
+    }
 }
  
 .card-provider-btn {
     .avenirNextRegular;
-	background-color: @brand-primary;
+	background-color: @white;
 	text-align: right;
 	padding: 10px;
-    color: @gray-primary;
     font-size: 14px;
+
+    a {
+        color: @gray-primary;
+    }
 }
  
 .card-provider-btn-icon {
-	color: @brand-primary;
+    float: left;
+    background-image: url('/themes/swedishamerican/images/ico-pinwheel.png');
+    height: 30px;
+	width: 30px;
+    margin: 10px;
 }
  
 .card-image {
@@ -116,11 +127,13 @@
 }
  
 .card-provider-bkgrd-group {
-	background: #ECE4E9 // TODO: Define these
+	background: #ECE4E9;
+    padding: 0 15px 20px 15px;
 }
  
 .card-provider-bkgrd {
-	background: #F5F5F6 // TODO: Define these
+	background: #F5F5F6;
+    padding: 0 15px 20px 15px;
 }
 
 /* CARDS:LOCATIONS */ 

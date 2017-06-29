@@ -55,6 +55,7 @@
         .provider-contact-container {
             .contact {
                 margin-right: 30px;
+                min-width: 230px;
             }
             .address {
                 margin-right: 30px;
@@ -85,4 +86,64 @@
         }
 
     }
+}
+
+.provider-view-container {
+    width: 250px;
+
+    .provider-image {
+        width: 100px;
+        margin: auto;
+
+        img {
+            border-radius: 75px;
+        }
+    }
+}
+
+.new-provider {
+    float: right;
+    background-image: url(/themes/swedishamerican/images/ico-new.png);
+    height: 65px;
+    width: 65px;
+}
+
+.internal-provider {
+    background-image: url(/themes/swedishamerican/images/img-cardTopGroup.png);
+    background-size: 100%;
+    padding: 15px 0 0 0;
+}
+
+.external-provider {
+    background-image: url(/themes/swedishamerican/images/img-cardTop.png);
+    background-size: 100%;
+    padding: 15px 0 0 0;
+}
+
+.views-field-field-image {
+    width: 100px;
+    margin: 15px auto;
+
+    img {
+        border-radius: 75px;
+    }
+}
+
+.view-filters {
+    width: 15%;
+    padding: 30px;
+    float: left;
+    margin-right: 30px;
+    display: inline-table;
+    border-right: 1px solid @gray-primary;
+}
+
+
+#dependant-fields-wrapper {
+    margin: 15px;
+    width: 20%;
+}
+
+.select-wrapper:after {
+    font-size: 0;
 }

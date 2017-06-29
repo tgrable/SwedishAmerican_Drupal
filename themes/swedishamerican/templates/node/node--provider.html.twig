@@ -83,7 +83,7 @@
     'provider-container'
   ]
 %}
-<articleid='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
+<article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
     <div{{ content_attributes }} class="provider-image-container inline">
         <div class="provider-image">
             {{ content.field_image }}
@@ -108,26 +108,7 @@
         </div>
     <hr />
     <div class="provider-contact-container">
-        <div class="contact inline">
-            <h2>Contact</h2>
-            <div class="phone">
-                <div class="icon inline">
-                    <p><i class="fa fa-phone"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ node.field_phone.0.value }}</p>
-                </div>
-            </div>
-            <div class="email">
-                <div class="icon inline">
-                    <p><i class="fa fa-envelope"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ node.field_email_address.0.value }}</p>
-                </div>
-            </div>        
-        </div>
-        <div class="location inline">
+        <div class="location">
             {{ content.field_location }}
         </div>
     </div>

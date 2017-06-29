@@ -1,0 +1,7 @@
+swedishamerican_providers.form:
+ path: '/example-form'
+ defaults:
+   _title: 'Think Print Provider form'
+   _form: '\Drupal\swedishamerican_providers\Form\ProvidersForm'
+ requirements:
+   _permission: 'access content'

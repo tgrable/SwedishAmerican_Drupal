@@ -2412,6 +2412,9 @@ p {
   margin-top: 0px;
   margin-bottom: 0.6em;
 }
+.main-container div {
+  line-height: 1.4em;
+}
 .main-container a {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
@@ -2639,7 +2642,7 @@ li {
 }
 .social .email {
   background-color: #92318f;
-  padding: 11px 14px;
+  padding: 11px 12px;
 }
 .social .fb {
   background-color: #413cc8;
@@ -2824,10 +2827,10 @@ footer .footer-content p {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
-  height: 315px;
   margin: 1rem;
   position: relative;
   width: 255px;
+  vertical-align: top;
 }
 .card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -2914,21 +2917,29 @@ footer .footer-content p {
   background-color: #92318f;
   text-align: right;
   padding: 10px;
-  font-color: #ffffff;
   font-size: 14px;
+}
+.card-provider-btn-group a {
+  color: #ffffff;
 }
 .card-provider-btn {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  background-color: #92318f;
+  background-color: #ffffff;
   text-align: right;
   padding: 10px;
-  color: #3f3f3f;
   font-size: 14px;
 }
+.card-provider-btn a {
+  color: #3f3f3f;
+}
 .card-provider-btn-icon {
-  color: #92318f;
+  float: left;
+  background-image: url('/themes/swedishamerican/images/ico-pinwheel.png');
+  height: 30px;
+  width: 30px;
+  margin: 10px;
 }
 .card-image {
   border-radius: 50px;
@@ -2938,10 +2949,12 @@ footer .footer-content p {
   height: 100px;
 }
 .card-provider-bkgrd-group {
-  background: #ece4e9;
+  background: #ECE4E9;
+  padding: 0 15px 20px 15px;
 }
 .card-provider-bkgrd {
-  background: #f5f5f6;
+  background: #F5F5F6;
+  padding: 0 15px 20px 15px;
 }
 /* CARDS:LOCATIONS */
 /* use standard material specs for cards with the following exceptions:*/
@@ -3164,6 +3177,7 @@ section#block-facebookpostfeed {
 }
 .provider-container .provider-details-container .provider-contact-container .contact {
   margin-right: 30px;
+  min-width: 230px;
 }
 .provider-container .provider-details-container .provider-contact-container .address {
   margin-right: 30px;
@@ -3192,6 +3206,54 @@ section#block-facebookpostfeed {
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
+}
+.provider-view-container {
+  width: 250px;
+}
+.provider-view-container .provider-image {
+  width: 100px;
+  margin: auto;
+}
+.provider-view-container .provider-image img {
+  border-radius: 75px;
+}
+.new-provider {
+  float: right;
+  background-image: url(/themes/swedishamerican/images/ico-new.png);
+  height: 65px;
+  width: 65px;
+}
+.internal-provider {
+  background-image: url(/themes/swedishamerican/images/img-cardTopGroup.png);
+  background-size: 100%;
+  padding: 15px 0 0 0;
+}
+.external-provider {
+  background-image: url(/themes/swedishamerican/images/img-cardTop.png);
+  background-size: 100%;
+  padding: 15px 0 0 0;
+}
+.views-field-field-image {
+  width: 100px;
+  margin: 15px auto;
+}
+.views-field-field-image img {
+  border-radius: 75px;
+}
+.view-filters {
+  width: 15%;
+  padding: 30px;
+  float: left;
+  margin-right: 30px;
+  display: inline-table;
+  border-right: 1px solid #3f3f3f;
+}
+#dependant-fields-wrapper {
+  margin: 15px;
+  width: 20%;
+}
+.select-wrapper:after {
+  font-size: 0;
 }
 @media (max-width: 1200px) {
   .view-header {

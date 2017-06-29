@@ -1,0 +1,5 @@
+name: Swedish American Providers
+type: module
+description: Creates a block to display Swedish American Providers
+package: Custom
+core: 8.x

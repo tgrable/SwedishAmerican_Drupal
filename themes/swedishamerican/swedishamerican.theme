@@ -31,7 +31,13 @@ function swedishamerican_preprocess_page(array &$variables) {
   else if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
     if (strcmp ($variables['node']->getType(), 'provider') === 0) {
       $variables['content_width'] = 'overlay';
+      $variables['content_view_mode'] = 'full';
     }
+    else if (strcmp ($variables['node']->getTitle(), 'Providers') === 0) {
+       $variables['content_width'] = 'full';
+       $variables['content_view_mode'] = 'full';
+    }
+    else {}
   }
 }
 
@@ -75,11 +81,8 @@ function swedishamerican_theme_suggestions_block_alter(array &$suggestions, arra
 }
 
 function swedishamerican_preprocess_paragraph(array &$variables) {
-  // dsm($variables['node']->get('field_location')->getValue());
-  // dsm($variables['elements']['#paragraph']);
   if (strcmp ($variables['elements']['#paragraph']->getType(), 'provider_location') === 0) {
       $paragraph = $variables['elements']['#paragraph'];
-    
       $term = $paragraph->get('field_location_reference')->entity;
 
       $variables['paragraph_field_name'] = $term->getName();
@@ -87,6 +90,8 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
       $variables['paragraph_field_city'] = $term->get('field_city')->value;
       $variables['paragraph_field_state'] = $term->get('field_state')->value;
       $variables['paragraph_field_zip'] = $term->get('field_zip')->value;
+      $variables['paragraph_field_phone'] = $term->get('field_phone')->value;
+      $variables['paragraph_field_email'] = $term->get('field_email_address')->value;
 
       $path = '/term/' . $term->id();
       $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);

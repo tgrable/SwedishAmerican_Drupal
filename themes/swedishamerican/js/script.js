@@ -3,6 +3,8 @@
 
   Drupal.behaviors.swedishamerican = {
     attach: function(context, settings) {
+			$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
+			
       $('.facebook-share').on('click', function(e) {
 				var tag = $(e.target).parent().parent().parent().parent(),
 				sib = tag.siblings().children(),
