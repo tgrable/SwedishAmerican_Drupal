@@ -2664,7 +2664,20 @@ li {
   background-color: #c52631;
   padding: 11px 14px;
 }
+header {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: inherit;
+  -o-background-size: cover;
+}
 /* NAV */
+.navbar {
+  min-height: 52px;
+  margin-bottom: 0;
+}
 #nav-container2 {
   height: 52px;
   background: #3f3f3f;
@@ -2693,6 +2706,14 @@ li {
 .navbar-header nav {
   width: 1170px;
   margin: auto;
+}
+.navbar-inverse {
+  background-color: transparent;
+  border-color: transparent;
+}
+.navbar-inverse .navbar-nav .active a,
+.navbar-inverse .navbar-nav .active a:hover {
+  background-color: transparent;
 }
 .navbar-inverse .navbar-nav > li > a {
   font-family: 'AvenirNext-Regular';
@@ -2740,17 +2761,6 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   color: #92318f;
   font-size: 16px;
   border-right: 1px solid #bebebe;
-}
-header {
-  background-image: url(../images/img-HdrHome-01.png);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: inherit;
-  -o-background-size: cover;
-  height: 615px;
 }
 .view-front-cards .views-row {
   margin: 15px;
@@ -2887,6 +2897,7 @@ footer .footer-content p {
   font-style: normal;
   font-size: 16px;
   color: #92318f;
+  padding-top: 15px;
 }
 .card-provider-special {
   font-family: 'AvenirNext-Italic';
@@ -3251,6 +3262,7 @@ section#block-facebookpostfeed {
 #dependant-fields-wrapper {
   margin: 15px;
   width: 20%;
+  vertical-align: top;
 }
 .select-wrapper:after {
   font-size: 0;

@@ -44,7 +44,7 @@ class ProvidersForm extends FormBase {
 
     $form['wrapper']['sag'] = array(
         '#type' => 'checkbox',
-        '#title' => $this->t('Swedish American Group Providers'),
+        '#title' => '',
         '#ajax' => [
           'callback' => array($this, 'filterProvidersAjax'),
           'event' => 'change',
