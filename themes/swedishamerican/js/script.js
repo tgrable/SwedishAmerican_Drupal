@@ -14,7 +14,7 @@
 						$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
 						$('header').css("height", "615px");
 					}
-					else if (this.pathname.includes("providers")) {
+					else if (this.pathname.includes("provider")) {
 						$('header').css("background-image", "url(/themes/swedishamerican/images/img-hdrProvider.png)");
 						$('header').css("height", "335px");
 

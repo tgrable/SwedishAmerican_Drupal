@@ -2477,9 +2477,6 @@ ul {
 li {
   padding-left: 0px;
 }
-i {
-  margin-right: 15px;
-}
 .overlay {
   width: 1490px;
   margin: auto;
@@ -3185,6 +3182,9 @@ section#block-facebookpostfeed {
 }
 .provider-container .provider-details-container {
   max-width: 805px;
+}
+.provider-container .provider-details-container i {
+  margin-right: 15px;
 }
 .provider-container .provider-details-container .provider-contact-container .contact {
   margin-right: 30px;
