@@ -15,6 +15,9 @@
 						$('header').css("height", "615px");
 					}
 					else if (this.pathname.includes("providers")) {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/img-hdrProvider.png)");
+						$('header').css("height", "335px");
+
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 
 						$('.facebook-share').on('click', function(e) {
@@ -44,6 +47,12 @@
 							var path = $(this).data("href");
 							window.open("http://www.linkedin.com/shareArticle?mini=true&url=" + urlRoot + path + "&title=" + title, "_blank", "width=575, height=250"); 
 						});
+					}
+					else if (this.pathname.includes("locations") || this.pathname.includes("services")) {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/img-hdrLocation.png)");
+						$('header').css("height", "335px");
+
+						// $('.service-nav-container').height($('.service-container').height());
 					}
 					else {
 						console.log('Else');

@@ -2477,6 +2477,9 @@ ul {
 li {
   padding-left: 0px;
 }
+i {
+  margin-right: 15px;
+}
 .overlay {
   width: 1490px;
   margin: auto;
@@ -3183,9 +3186,6 @@ section#block-facebookpostfeed {
 .provider-container .provider-details-container {
   max-width: 805px;
 }
-.provider-container .provider-details-container i {
-  margin-right: 15px;
-}
 .provider-container .provider-details-container .provider-contact-container .contact {
   margin-right: 30px;
   min-width: 230px;
@@ -3266,6 +3266,24 @@ section#block-facebookpostfeed {
 }
 .select-wrapper:after {
   font-size: 0;
+}
+.service-container .service-nav-container,
+.service-container .service-resources-container {
+  width: 160px;
+  margin: 0 30px;
+  vertical-align: top;
+}
+.service-container .phone-email {
+  border-right: 1px solid #bebebe;
+  padding-right: 30px;
+  vertical-align: top;
+}
+.service-container .location-address {
+  padding-left: 30px;
+  vertical-align: top;
+}
+.service-container .address {
+  vertical-align: top;
 }
 @media (max-width: 1200px) {
   .view-header {
