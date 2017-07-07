@@ -2669,7 +2669,7 @@ li {
 }
 .carousel {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 15px 30px 15px;
 }
 .carousel a {
   color: #ffffff;
