@@ -25,8 +25,11 @@ function swedishamerican_preprocess_page(array &$variables) {
 
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
     $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
-    $variables['term_page'] = $term_id;
-    $variables['content_width'] = 'overlay';
+    $term = \Drupal\taxonomy\Entity\Term::load($term_id);
+    if (strcmp ($term->getVocabularyId(), 'locations') === 0) {
+      $variables['term_page'] = $term_id;
+      $variables['content_width'] = 'overlay';
+    }
   }
   else if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
     if (strcmp ($variables['node']->getType(), 'provider') === 0) {
@@ -81,10 +84,11 @@ function swedishamerican_theme_suggestions_block_alter(array &$suggestions, arra
 }
 
 function swedishamerican_preprocess_paragraph(array &$variables) {
-  if (strcmp ($variables['elements']['#paragraph']->getType(), 'provider_location') === 0) {
-      $paragraph = $variables['elements']['#paragraph'];
-      $term = $paragraph->get('field_location_reference')->entity;
-
+  if (strcmp ($variables['elements']['#paragraph']->getType(), 'provider_location') === 0 || strcmp ($variables['elements']['#paragraph']->getType(), 'service_location') === 0) {
+    $paragraph = $variables['elements']['#paragraph'];
+    $term = $paragraph->get('field_location_reference')->entity;
+    
+    if (isset($term)) {
       $variables['paragraph_field_name'] = $term->getName();
       $variables['paragraph_field_address'] = $term->get('field_address')->value;
       $variables['paragraph_field_city'] = $term->get('field_city')->value;
@@ -96,5 +100,14 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
       $path = '/term/' . $term->id();
       $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
       $variables['term_path_alias'] = $path_alias;
+
+      if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+        $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+        $term = \Drupal\taxonomy\Entity\Term::load($term_id);
+        if (strcmp ($term->getVocabularyId(), 'service') === 0) {
+          $variables['term_page'] = 'service_page';
+        }
+      }
+    }
   }  
 }

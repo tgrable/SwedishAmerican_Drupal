@@ -1,4 +1,19 @@
+header {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: inherit;
+    -o-background-size: cover;
+}
+
 /* NAV */
+.navbar {
+    min-height: 52px;
+    margin-bottom: 0;
+}
+
 #nav-container2 {
     height: 52px;
     background:  rgba(63, 63, 63, 1);
@@ -32,6 +47,19 @@
         width: 1170px;
         margin: auto;
     }
+}
+
+.navbar-inverse {
+    background-color: transparent;
+    border-color: transparent;
+
+    .navbar-nav {
+        .active {
+            a, a:hover {
+                background-color: transparent;
+            }
+        }
+    }    
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -78,4 +106,17 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     color: @brand-primary;
     font-size: 16px;
     border-right: 1px solid @gray-rules;   
+}
+
+.service-sub-nav {
+    li {
+        padding-left: 15px;
+
+        a {
+            .avenirNextRegular;
+            color: @gray-primary;
+            font-size: 14px;
+            text-decoration: none;  
+        }
+    }
 }
