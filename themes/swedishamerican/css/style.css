@@ -2664,9 +2664,12 @@ li {
   background-color: #c52631;
   padding: 11px 14px;
 }
+.block_body {
+  margin-bottom: 30px;
+}
 .carousel {
   display: inline-block;
-  margin: 15px;
+  margin: 0 15px;
 }
 .carousel a {
   color: #ffffff;
