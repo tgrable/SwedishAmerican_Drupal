@@ -3315,6 +3315,10 @@ section#block-facebookpostfeed {
 .service-events p {
   margin-top: 15px;
 }
+.article .field--name-field-image {
+  float: left;
+  margin: 0 15px 0 0;
+}
 @media (max-width: 1200px) {
   .view-header {
     height: 715px;
