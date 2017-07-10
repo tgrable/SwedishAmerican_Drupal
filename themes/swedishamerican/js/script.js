@@ -51,8 +51,10 @@
 					else if (this.pathname.includes("locations") || this.pathname.includes("services")) {
 						$('header').css("background-image", "url(/themes/swedishamerican/images/img-hdrLocation.png)");
 						$('header').css("height", "335px");
-
-						// $('.service-nav-container').height($('.service-container').height());
+					}
+					else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/img-hdrLocation.png)");
+						$('header').css("height", "335px");
 					}
 					else {
 						console.log('Else');
