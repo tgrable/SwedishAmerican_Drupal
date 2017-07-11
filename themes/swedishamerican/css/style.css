@@ -2743,6 +2743,10 @@ header {
   text-transform: uppercase;
   border-bottom: 2px solid #92318f;
 }
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover {
+  color: #3f3f3f;
+}
 ul.menu.nav.navbar-nav {
   margin-left: 115px;
 }
@@ -2772,6 +2776,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   font-size: 16px;
   border-right: 1px solid #bebebe;
 }
+.dropdown-menu > li > a,
+.dropdown-menu > li > a:hover {
+  color: #92318f;
+}
 .service-sub-nav li {
   padding-left: 15px;
 }
@@ -2782,6 +2790,44 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   color: #3f3f3f;
   font-size: 14px;
   text-decoration: none;
+}
+ul.menu.dropdown-menu:hover {
+  border-top: 2px solid #92318f;
+}
+.bs-menu {
+  border-left: 1px solid #bebebe;
+  padding: 0 15px;
+  margin: 15px 0;
+}
+.bs-menu ul {
+  margin-right: 30px;
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 4;
+  column-gap: 30px;
+}
+.bs-menu ul li {
+  width: 160px;
+  margin-right: 15px;
+}
+.bs-menu ul li a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.846;
+  color: #666666;
+  white-space: nowrap;
+}
+li.extra-services {
+  top: 0;
+  right: 0px;
+  margin: -75px 0 0 150px;
+}
+.dropdown-menu > li > a:hover {
+  background-color: #ffffff;
 }
 .view-front-cards .views-row {
   margin: 15px;
@@ -3021,14 +3067,8 @@ footer .footer-content p {
   font-size: 16px;
   color: #92318f;
 }
-.fb_article {
-  width: 285px;
-}
 .twitter-container {
   width: 215px;
-}
-.fb_article,
-.twitter-container {
   float: left;
 }
 .fb_article .profile-data img,
@@ -3044,6 +3084,23 @@ footer .footer-content p {
   color: #92318f;
   vertical-align: top;
   font-weight: bold;
+}
+.fb-container {
+  display: inline-block;
+  width: 255px;
+  margin: 0 30px 0 0;
+  vertical-align: top;
+}
+.fb-container .profile-data,
+.fb-container .post-message,
+.fb-container .post_reactions {
+  padding: 8px;
+}
+.fb-container hr {
+  margin: 15px 8px 7px 8px;
+}
+.fb-container .post_reactions .reactions {
+  margin-right: 30px;
 }
 .ig_article {
   margin: 0 2px 2px 0;
@@ -3118,7 +3175,7 @@ footer .footer-content p {
   background-color: #BEBEBE;
   margin: 15px 30px;
 }
-section#block-facebookpostfeed {
+section#block-youtubepostfeed {
   float: left;
   width: 56%;
 }
@@ -3318,6 +3375,9 @@ section#block-facebookpostfeed {
 .article .field--name-field-image {
   float: left;
   margin: 0 15px 0 0;
+}
+.article .article-footer {
+  margin-bottom: 15px;
 }
 @media (max-width: 1200px) {
   .view-header {
