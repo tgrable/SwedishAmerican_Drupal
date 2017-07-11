@@ -51,9 +51,9 @@ class FBPostFeedBlock extends BlockBase {
     // user's custom message
     $message = $obj['data'][0]['message'];
     $trim_message = strlen($message) > 450 ? substr($message,0,450)."..." : $message;
-    
-    $markup = '<div class="med-padding"></div>';
-      $markup .= '<div class="social-block">';
+
+    $markup = '<div class="large-padding"></div>';
+    $markup .= '<div class="social-block">';
         $markup .= '<div class="header-title">';
           $markup .= '<div class="fa-social-background fb-blue inline">';
             $markup .= '<i class="fa fa-facebook">&nbsp;</i>';
@@ -62,62 +62,50 @@ class FBPostFeedBlock extends BlockBase {
           $markup .= '<p class="social-hdr">Facebook</p>';
         $markup .= '</div>';
       $markup .= '</div>';
-      $markup .= '<div class="fb-container">';
-        $markup .= '<div class="fb_article">';
+
+    for($x = 0; $x < count($obj['data']); $x++){
+
+        // to get the post id
+        $id = $obj['data'][$x]['id'];
+        $post_id_arr = explode('_', $id);
+        $post_id = $post_id_arr[1];
+
+        $reactions_url = 'https://graph.facebook.com/' . $id . '/?&access_token=751723765008561|f6c472d01ed65f420988cf67d0f40eb4&fields=reactions.type(LIKE).limit(0).summary(total_count).as(reactions_like),reactions.type(LOVE).limit(0).summary(total_count).as(reactions_love),reactions.type(WOW).limit(0).summary(total_count).as(reactions_wow),reactions.type(SAD).limit(0).summary(total_count).as(reactions_sad),reactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry),reactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)';
+        $reactions_json =  file_get_contents($reactions_url);
+        $reactions_obj = json_decode($reactions_json, true);
+
+        // user's custom message
+        $message = $obj['data'][$x]['message'];
+        $trim_message = strlen($message) > 250 ? substr($message,0,250)."..." : $message;
+    
+        // picture from the link
+        $picture = $obj['data'][$x]['full_picture'];
+    
+        // when it was posted
+        $created_time = $obj['data'][$x]['created_time'];
+        $converted_date_time = date( 'Y-m-d H:i:s', strtotime($created_time));
+        $ago_value = $this->time_elapsed_string($converted_date_time);
+    
+        $likes = $obj['data'][$x]['likes'];
+        // dsm($likes['data']);
+
+        $shares = (isset($obj['data'][$x]['shares'])) ? $obj['data'][$x]['shares']['count'] : 0;
+
+        $markup .= '<div class="fb-container social-card">';
+          $markup .= '<div class="fb_article">';
           $markup .= '<div class="profile-data">';
             $markup .= '<img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16998879_1235916839789725_5701019738556990953_n.jpg?oh=aa1f12c6d2b71c8759b92aa63c1ec4de&oe=59B389D7" />';
             $markup .= '<a href="https://www.facebook.com/swedishamericanrockford" target="_blank">SwedishAmerican</a>';
-            $markup .= "<div class='post-time'>{$ago_value}</div>";
+            $markup .= "<p class='post-time'>{$ago_value}</p>";
           $markup .= '</div>';
-          $markup .= "<div class='post-message'>{$trim_message}</div>";
-        $markup .= '</div>';
-      $markup .= '</div>';
-      $markup .= '<div class="divider inline"></div>';
-    $markup .= '</div>';
-
-    // for($x = 0; $x < $feed_item_count; $x++){
- 
-    //     // to get the post id
-    //     $id = $obj['data'][$x]['id'];
-    //     $post_id_arr = explode('_', $id);
-    //     $post_id = $post_id_arr[1];
-
-    //     $reactions_url = 'https://graph.facebook.com/' . $id . '/?&access_token=751723765008561|f6c472d01ed65f420988cf67d0f40eb4&fields=reactions.type(LIKE).limit(0).summary(total_count).as(reactions_like),reactions.type(LOVE).limit(0).summary(total_count).as(reactions_love),reactions.type(WOW).limit(0).summary(total_count).as(reactions_wow),reactions.type(SAD).limit(0).summary(total_count).as(reactions_sad),reactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry),reactions.type(THANKFUL).limit(0).summary(total_count).as(reactions_thankful)';
-    //     $reactions_json =  file_get_contents($reactions_url);
-    //     $reactions_obj = json_decode($reactions_json, true);
-
-    //     // user's custom message
-    //     $message = $obj['data'][$x]['message'];
-    //     $trim_message = strlen($message) > 250 ? substr($message,0,250)."..." : $message;
-    
-    //     // picture from the link
-    //     $picture = $obj['data'][$x]['full_picture'];
-    
-    //     // when it was posted
-    //     $created_time = $obj['data'][$x]['created_time'];
-    //     $converted_date_time = date( 'Y-m-d H:i:s', strtotime($created_time));
-    //     $ago_value = $this->time_elapsed_string($converted_date_time);
-    
-    //     $likes = $obj['data'][$x]['likes'];
-    //     // dsm($likes['data']);
-
-    //     $shares = $obj['data'][$x]['shares']['count'];
-        
-    //     $markup .= '<div class="col-md-4">';
-    //       $markup .= '<div class="fb_article">';
-    //       $markup .= '<div class="profile-data">';
-    //         $markup .= '<img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16998879_1235916839789725_5701019738556990953_n.jpg?oh=aa1f12c6d2b71c8759b92aa63c1ec4de&oe=59B389D7" />';
-    //         $markup .= '<a href="https://www.facebook.com/swedishamericanrockford" target="_blank">SwedishAmerican</a>';
-    //         $markup .= "<p class='post-time'>{$ago_value}</p>";
-    //       $markup .= '</div>';
-    //         $markup .= "<div class='post-message'>{$trim_message}</div>";
-    //         $markup .= "<div class='post_image'><img src='{$picture}' /></div>";
-    //         $markup .= '<hr />';
-    //         $markup .= '<div class="post_reactions"><div class="reactions inline">' . $this->getReactionCount($reactions_obj) . ' Reactions</div><div class="shares inline">' . $shares . ' Shares</div></div>' ;
-    //       $markup .= "</div>";
-    //     $markup .= "</div>";
-    // }
-    // $markup .= "</div>";
+            $markup .= "<div class='post-message'>{$trim_message}</div>";
+            $markup .= "<div class='post_image'><img src='{$picture}' /></div>";
+            $markup .= '<hr />';
+            $markup .= '<div class="post_reactions"><div class="reactions inline">' . $this->getReactionCount($reactions_obj) . ' Reactions</div><div class="shares inline">' . $shares . ' Shares</div></div>' ;
+          $markup .= "</div>";
+        $markup .= "</div>";
+    }
+    $markup .= "</div>";
     return $markup;
   }
 

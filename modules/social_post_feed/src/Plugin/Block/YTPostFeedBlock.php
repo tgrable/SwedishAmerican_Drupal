@@ -40,7 +40,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
   
     $vid_array = $youtube_obj['items'];
 
-    $markup = '<div class="large-padding"></div>';
+    $markup = '<div class="med-padding"></div>';
     $markup .= '<div class="social-block">';
       $markup .= '<div class="header-title">';
         $markup .= '<div class="fa-social-background yt-red inline">';
@@ -51,7 +51,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
         $markup .= '</div>';
       $markup .= '</div>';
       $markup .= '<div class="youtube-container">';
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 1; $i++) {
           $vid_id = $vid_array[$i]['id']['videoId'];
           $vid_title = $vid_array[$i]['snippet']['title'];
           $markup .= '<div class="social-card youtube-content inline">';
