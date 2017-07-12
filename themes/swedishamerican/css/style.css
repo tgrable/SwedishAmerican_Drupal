@@ -2780,17 +2780,6 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .dropdown-menu > li > a:hover {
   color: #92318f;
 }
-.service-sub-nav li {
-  padding-left: 15px;
-}
-.service-sub-nav li a {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
-  font-style: normal;
-  color: #3f3f3f;
-  font-size: 14px;
-  text-decoration: none;
-}
 ul.menu.dropdown-menu:hover {
   border-top: 2px solid #92318f;
 }
@@ -3369,8 +3358,48 @@ section#block-youtubepostfeed {
 .service-container i {
   margin-right: 15px;
 }
+.service-sub-nav li {
+  padding-left: 15px;
+}
+.service-sub-nav li a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
+  font-size: 14px;
+  text-decoration: none;
+}
 .service-events p {
   margin-top: 15px;
+}
+.resources-list li {
+  padding-left: 0px;
+  margin-bottom: 15px;
+}
+.resources-list li a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
+  font-size: 14px;
+  text-decoration: none;
+}
+.special-services-container,
+.provider-container {
+  margin-bottom: 30px;
+}
+.special-services-container .field--item,
+.provider-container .field--item {
+  margin-bottom: 15px;
+}
+.special-services-container .field--item a,
+.provider-container .field--item a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
+  font-size: 14px;
+  text-decoration: none;
 }
 .article .field--name-field-image {
   float: left;
