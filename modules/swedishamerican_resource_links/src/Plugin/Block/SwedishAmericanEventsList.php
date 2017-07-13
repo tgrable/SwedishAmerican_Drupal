@@ -20,11 +20,11 @@ class SwedishAmericanEventsList extends BlockBase {
    */
   public function build() {
     return array(
-      '#markup' => $this->getTaxonomyTree(),
+      '#markup' => $this->queryEventNodes(),
     );
   }
 
-  private function getTaxonomyTree() {
+  private function queryEventNodes() {
     if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
       $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
       $query = \Drupal::entityQuery('node');
@@ -40,11 +40,11 @@ class SwedishAmericanEventsList extends BlockBase {
         array_push($nodes, $node);
       }
 
-      return $this->getTermMenuMarkup($nodes);
+      return $this->getEventNodeMarkup($nodes);
     }
   }
 
-  private function getTermMenuMarkup($nodes) {
+  private function getEventNodeMarkup($nodes) {
     $markup = '<div class="service-events"><h2>Events</h2>';
     foreach ($nodes as $node) {
       $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'. $node->id());

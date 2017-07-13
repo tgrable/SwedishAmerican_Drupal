@@ -2477,6 +2477,9 @@ ul {
 li {
   padding-left: 0px;
 }
+header#navbar {
+  z-index: 49;
+}
 .overlay {
   width: 1490px;
   margin: auto;
@@ -2825,10 +2828,14 @@ li.extra-services {
   float: left;
   width: 255px;
   margin-right: 15px;
+  min-height: 350px;
 }
 .view-front-cards .view-header h1,
 .view-front-cards .view-header p {
   text-align: right;
+}
+.view-front-cards .view-header h1 {
+  font-size: 26px;
 }
 .view-front-cards article {
   height: 315px;
@@ -2985,6 +2992,7 @@ footer .footer-content p {
   text-align: right;
   padding: 10px;
   font-size: 14px;
+  color: #ffffff;
 }
 .card-provider-btn-group a {
   color: #ffffff;
@@ -2997,6 +3005,7 @@ footer .footer-content p {
   text-align: right;
   padding: 10px;
   font-size: 14px;
+  color: #3f3f3f;
 }
 .card-provider-btn a {
   color: #3f3f3f;
@@ -3333,6 +3342,103 @@ section#block-youtubepostfeed {
 }
 .select-wrapper:after {
   font-size: 0;
+}
+.form-item-sag .input-group-addon {
+  padding: 0 80px 0 0;
+}
+.form-item-sag input[type="checkbox"] {
+  margin-right: 15px;
+}
+.form-item-sag input[type="checkbox"]:after {
+  border: 1px solid #666666;
+}
+.form-item-sag input[type="checkbox"]:checked:after {
+  background-color: #92318f;
+  border-color: #92318f;
+}
+.form-item-sag .sag-markup div {
+  vertical-align: top;
+}
+.form-item-sag .sag-markup .image {
+  margin-right: 15px;
+}
+.form-item-sag .sag-markup .text {
+  text-align: left;
+}
+.dependant-fields-footer {
+  padding-top: 37px;
+}
+.dependant-fields-footer .icon {
+  font-size: 28px;
+  color: #92318f;
+  margin: 23px 15px 0 0;
+  vertical-align: top;
+}
+.dependant-fields-footer .text {
+  width: 88%;
+  vertical-align: top;
+}
+.filter-item-container {
+  min-height: 90px;
+}
+.filter-item-container .filter-object.inline {
+  padding: 10px 15px;
+  background-color: #92318f;
+  color: #ffffff;
+  font-size: 14px;
+  margin: 15px 15px 30px 15px;
+  min-width: 185px;
+  text-align: center;
+}
+.lightBox {
+  cursor: pointer;
+}
+.thumb {
+  width: 400px;
+}
+.backDrop {
+  background-color: #000;
+  display: none;
+  filter: alpha(opacity=0);
+  height: 100%;
+  left: 0px;
+  opacity: .0;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 50;
+}
+.box {
+  display: none;
+  margin: 0 auto;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 51;
+  width: 1490px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.largeImage {
+  width: 100%;
+  height: 100%;
+}
+.close {
+  cursor: pointer;
+  float: left;
+  font-size: 32px;
+  margin: 15px -35px;
+}
+.clear {
+  clear: both;
+}
+.top-bar {
+  height: 60px;
+  margin-bottom: 45px;
+  border-bottom: 1px solid #bebebe;
 }
 .service-container h1 {
   margin-top: 0;

@@ -84,7 +84,6 @@
                 margin-bottom: 0.6em;
             }
         }
-
     }
 }
 
@@ -149,6 +148,65 @@
     font-size: 0;
 }
 
+.form-item-sag {
+    .input-group-addon {
+        padding: 0 80px 0 0;
+    }
+    input[type="checkbox"] {
+        margin-right: 15px;
+    }
+    input[type="checkbox"]:after {
+        border: 1px solid #666666;
+    }
+    input[type="checkbox"]:checked:after {
+        background-color: @brand-primary;
+        border-color: @brand-primary;
+    }
+    .sag-markup {
+        div {
+            vertical-align: top;
+        }
+        .image {
+            margin-right: 15px;
+        }
+        .text {
+            text-align: left;
+        }
+    } 
+}
+
+.dependant-fields-footer {
+    padding-top: 37px;
+
+    .icon {
+        font-size: 28px;
+        color: @brand-primary;
+        margin: 23px 15px 0 0;  
+        vertical-align: top;
+    }
+
+    .text {
+        width: 88%;
+        vertical-align: top;
+    }
+}
+
+.filter-item-container {
+    min-height: 90px;
+
+    .filter-object.inline {
+        padding: 10px 15px;
+        background-color: @brand-primary;
+        color: @white;
+        font-size: 14px;
+        margin: 15px 15px 30px 15px;
+        min-width: 185px;
+        text-align: center;
+    }
+}
+
+
+
 // .form-item-sag {
 //     .input-group {
 //         .input-group-addon {
@@ -160,3 +218,67 @@
 //         text-align: left;
 //     }
 // }
+
+
+.lightBox {
+	cursor: pointer;
+}
+
+.thumb {
+	width: 400px;
+}
+
+.backDrop{
+	background-color: #000;
+	display: none;
+	filter: alpha(opacity=0);
+	height: 100%;
+	left: 0px;
+	opacity: .0;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 50;
+}
+
+.box{
+    display: none;
+    left: 0;
+    margin: 0 auto;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 51;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    width: 1490px;
+
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.largeImage {
+	width: 100%;
+    height: 100%;
+}
+
+.close{
+	cursor: pointer;
+	float: left;
+	font-size: 32px;
+	margin: 15px -35px;
+}
+
+.clear {
+	clear: both;
+}
+
+.top-bar {
+    height: 60px;
+    margin-bottom: 45px;
+    border-bottom: 1px solid @gray-rules;
+}

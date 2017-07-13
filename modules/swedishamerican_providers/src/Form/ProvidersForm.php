@@ -39,12 +39,12 @@ class ProvidersForm extends FormBase {
 
     $form['wrapper'] = array(
         '#prefix' => '<div id="dependant-fields-wrapper" class="inline"><h1>Providers</h1>',
-        '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div></div>'
+        '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
     );
 
     $form['wrapper']['sag'] = array(
         '#type' => 'checkbox',
-        '#title' => '',
+        '#field_prefix' => $this->getCheckBoxMarkup(),
         '#ajax' => [
           'callback' => array($this, 'filterProvidersAjax'),
           'event' => 'change',
@@ -53,7 +53,7 @@ class ProvidersForm extends FormBase {
 
     $form['wrapper']['name'] = array (
       '#type' => 'textfield',
-      '#placeholder' => 'Name, Keyword',
+      '#placeholder' => 'Name',
       '#ajax' => [
         'callback' => array($this, 'filterProvidersAjax'),
         'event' => 'change',
@@ -135,7 +135,7 @@ class ProvidersForm extends FormBase {
     
     if ($keyword != null) {
       $group = $query->orConditionGroup()
-        ->condition('field_specialty', $keyword, 'CONTAINS')
+        // ->condition('field_specialty', $keyword, 'CONTAINS')
         ->condition('title', $keyword, 'CONTAINS');
 
       $query->condition($group);
@@ -159,90 +159,145 @@ class ProvidersForm extends FormBase {
     $nodes = array();
 
     $markup = '<div class="providers-container">';
-    foreach($entity_ids as $nid) {
-      $node = \Drupal\node\Entity\Node::load($nid);
-      $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
 
-      $markup .= '<div class="card">';
-
-      if ($node->get('field_swedes_provider')->getValue() != null) {
-        $swedes_provider = $node->get('field_swedes_provider')->getValue();
-         
-        if ($swedes_provider[0]['value'] == 1) {
-           $markup .= '<div class="card-provider-btn-icon"></div>';
-           $swedes_provider_group = 'internal-provider';
-           $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
-           $swedes_provider_group_btn = 'card-provider-btn-group';
+      $markup .= '<div class="filter-item-container">';
+        if ($groupState == 1) {
+          $markup .= '<div class="filter-object inline">SwedishAmerican Group</div>';
         }
-        else {
-            $swedes_provider_group = 'external-provider';
-            $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
-            $swedes_provider_group_btn = 'card-provider-btn';
+
+        if ($keyword != null) {
+          $markup .= '<div class="filter-object inline">Name</div>';
         }
-      }
 
-      if ($node->get('field_display_as_new')->getValue() != null) {
-        $swedes_provider = $node->get('field_display_as_new')->getValue();
-        if ($swedes_provider[0]['value'] == 1) {
-           $markup .= '<div class="new-provider"></div>';
+        if ($location != null) {
+          $markup .= '<div class="filter-object inline">Location</div>';
         }
-      }
 
-      if ($node->get('field_image')->getValue() != null) {
-        $markup .= '<div class="views-field-field-image">';
-            $markup .= '<div class="field-content">';
-                $markup .= '<img src="' .file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" class="img-responsive">';
-            $markup .= '</div>';
-        $markup .= '</div>';
-      }
-
-      $title = $node->get('title')->getValue();
-      $specialty = '';
-      $termmarkup = '';
-
-      if ($node->get('field_location')->getValue() != null) {
-        $pid = $node->get('field_location')->getValue();
-        $paragraph = Paragraph::load($pid[0]['target_id']);
-        $tid = $paragraph->get('field_location_reference')->getValue();
-
-        if ($term = \Drupal\taxonomy\Entity\Term::load($tid[0]['target_id'])) {
-          $termNameArray = $term->get('name')->getValue();
-          $termAddressArray = $term->get('field_address')->getValue();
-          $termCityArray = $term->get('field_city')->getValue();
-          $termStateArray = $term->get('field_state')->getValue();
-          $termZipArray = $term->get('field_zip')->getValue();
-          $termPhoneArray = $term->get('field_phone')->getValue();
-
-          $termmarkup = '<div class="card-provider-location-name">';
-            $termmarkup .= $termNameArray[0]['value'];
-          $termmarkup .= '</div>';
-          $termmarkup .= '<div class="card-provider-location-info ">';
-          $termmarkup .= $termAddressArray[0]['value'] . '<br />';
-          $termmarkup .= $termCityArray[0]['value'] . ', ' . $termStateArray[0]['value'] . ' ' . $termZipArray[0]['value'] . '<br />';
-          $termmarkup .= $termPhoneArray[0]['value'];
-          $termmarkup .= '</div>';
+        if ($form_specialty != null) {
+          $markup .= '<div class="filter-object inline">Specialty</div>';
         }
-      }      
 
-      if ($node->get('field_specialty')->getValue() != null) {
-        $sp = $node->get('field_specialty')->getValue();
-        $term_specialty = \Drupal\taxonomy\Entity\Term::load($sp[0]['target_id']);
-        $termSpecialtyNameArray = $term_specialty->get('name')->getValue();
-        $specialty = $termSpecialtyNameArray[0]['value'];
-        // dsm($termSpecialtyNameArray);
+        if ($gender != null) {
+          $markup .= '<div class="filter-object inline">Gender</div>';
+        }
+      $markup .= '</div>';
+
+    if (count($entity_ids) > 0) {
+      foreach($entity_ids as $nid) {
+        $node = \Drupal\node\Entity\Node::load($nid);
+        $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+
+        $markup .= '<div class="card">';
+
+        if ($node->get('field_swedes_provider')->getValue() != null) {
+          $swedes_provider = $node->get('field_swedes_provider')->getValue();
+          
+          if ($swedes_provider[0]['value'] == 1) {
+            $markup .= '<div class="card-provider-btn-icon"></div>';
+            $swedes_provider_group = 'internal-provider';
+            $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
+            $swedes_provider_group_btn = 'card-provider-btn-group';
+          }
+          else {
+              $swedes_provider_group = 'external-provider';
+              $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
+              $swedes_provider_group_btn = 'card-provider-btn';
+          }
+        }
+
+        if ($node->get('field_display_as_new')->getValue() != null) {
+          $swedes_provider = $node->get('field_display_as_new')->getValue();
+          if ($swedes_provider[0]['value'] == 1) {
+            $markup .= '<div class="new-provider"></div>';
+          }
+        }
+
+        if ($node->get('field_image')->getValue() != null) {
+          $markup .= '<div class="views-field-field-image">';
+              $markup .= '<div class="field-content">';
+                  $markup .= '<img src="' .file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" class="img-responsive">';
+              $markup .= '</div>';
+          $markup .= '</div>';
+        }
+
+        $title = $node->get('title')->getValue();
+        $specialty = '';
+        $termmarkup = '';
+
+        if ($node->get('field_location')->getValue() != null) {
+          $pid = $node->get('field_location')->getValue();
+          $paragraph = Paragraph::load($pid[0]['target_id']);
+          $tid = $paragraph->get('field_location_reference')->getValue();
+
+          if ($term = \Drupal\taxonomy\Entity\Term::load($tid[0]['target_id'])) {
+            $termNameArray = $term->get('name')->getValue();
+            $termAddressArray = $term->get('field_address')->getValue();
+            $termCityArray = $term->get('field_city')->getValue();
+            $termStateArray = $term->get('field_state')->getValue();
+            $termZipArray = $term->get('field_zip')->getValue();
+            $termPhoneArray = $term->get('field_phone')->getValue();
+
+            $termmarkup = '<div class="card-provider-location-name">';
+              $termmarkup .= $termNameArray[0]['value'];
+            $termmarkup .= '</div>';
+            $termmarkup .= '<div class="card-provider-location-info ">';
+            $termmarkup .= $termAddressArray[0]['value'] . '<br />';
+            $termmarkup .= $termCityArray[0]['value'] . ', ' . $termStateArray[0]['value'] . ' ' . $termZipArray[0]['value'] . '<br />';
+            $termmarkup .= $termPhoneArray[0]['value'];
+            $termmarkup .= '</div>';
+          }
+        }      
+
+        if ($node->get('field_specialty')->getValue() != null) {
+          $sp = $node->get('field_specialty')->getValue();
+          $term_specialty = \Drupal\taxonomy\Entity\Term::load($sp[0]['target_id']);
+          $termSpecialtyNameArray = $term_specialty->get('name')->getValue();
+          $specialty = $termSpecialtyNameArray[0]['value'];
+          // dsm($termSpecialtyNameArray);
+        }
+
+        $markup .= '<div class="' . $swedes_provider_group . '">';
+          $markup .= '<div class="' .  $swedes_provider_group_bkgrd . '">';
+              $markup .= '<div class="card-provider-title"><strong>' . $title[0]['value'] . '</strong></div>';
+              $markup .= '<div class="card-provider-special ">' . $specialty . '</div>';
+              // $markup .= $termmarkup;
+          $markup .= '</div>'; // Close card-provider-bkgrd-groupcard div
+        $markup .= '</div>'; // Close swedes_provider_group div 
+        $markup .= '<div class="' . $swedes_provider_group_btn . '"><a href="' . $alias . '">More Information <i class="fa fa-angle-right"></i></a></div>';
+        $markup .= '</div>'; // Close card div
       }
-
-      $markup .= '<div class="' . $swedes_provider_group . '">';
-        $markup .= '<div class="' .  $swedes_provider_group_bkgrd . '">';
-            $markup .= '<div class="card-provider-title"><strong>' . $title[0]['value'] . '</strong></div>';
-            $markup .= '<div class="card-provider-special ">' . $specialty . '</div>';
-            $markup .= $termmarkup;
-        $markup .= '</div>'; // Close card-provider-bkgrd-groupcard div
-      $markup .= '</div>'; // Close swedes_provider_group div 
-      $markup .= '<div class="' . $swedes_provider_group_btn . '"><a href="' . $alias . '">More Information <i class="fa fa-angle-right"></i></a></div>';
-      $markup .= '</div>'; // Close card div
+    }
+    else {
+      $markup .= '<div class="no-results-container"><h1>No Results Found</h1></div>';
     }
 
+    $markup .= '</div>';
+
+    return $markup;
+  }
+
+  private function getCheckBoxMarkup() {
+    $markup = '<div class="sag-markup">';
+      $markup .= '<div class="image inline">';
+        $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" />';
+      $markup .= '</div>';
+      $markup .= '<div class="text inline">';
+        $markup .= '<span>Show <strong>ONLY</strong><br />SwedishAmerican Group Providers</span>';
+      $markup .= '</div>';
+    $markup .= '</div>';
+
+    return $markup;
+  }
+
+  private function getFormFooterMarkup() {
+    $markup = '<div class="dependant-fields-footer">';
+      $markup .= '<div class="icon inline">';
+        $markup .= '<i class="fa fa-warning"></i>';
+      $markup .= '</div>';
+      $markup .= '<div class="text inline">';
+        $markup .= '<h2>SwedishAmerican Medical Group Providers</h2>';
+        $markup .= '<span>By selecting "SwedishAmerican Group Providers," your search results will <strong>ONLY</strong> display providers directly employed by SwedishAmerican Medical Group, as opposed to providers who are independent or employed by another organization, but are members of our active medical staff with admitting privileges at SwedishAmerican Hospital.</span>';
+      $markup .= '</div>';
     $markup .= '</div>';
 
     return $markup;
