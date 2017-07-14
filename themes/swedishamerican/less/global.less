@@ -226,9 +226,23 @@ header#navbar {
 }
 
 /* use standard material specs for raised button with the following exceptions:*/
+.btn:hover, .btn:focus, .btn.focus {
+    color: @white;
+}
+
 .btn-standard {
-	background-color: @brand-primary;
+    background-color: @brand-primary;
+    color: @white;
 	.avenirNextRegular;
+}
+
+.btn-floating {
+    border-radius: 25px;
+    padding: 6px 13px;
+}
+
+button.btn.btn-standard.btn-floating {
+    outline: none;
 }
 
 /* PRE-HEADER */
