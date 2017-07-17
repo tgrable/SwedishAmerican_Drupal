@@ -36,7 +36,7 @@
 					$('header').css("height", "335px");
 				}
 				else if (this.pathname.includes("locations")) {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/img-hdrLocation.png)");
+					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
 					$('header').css("height", "335px");
 				}
 				else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
