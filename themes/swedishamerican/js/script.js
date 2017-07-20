@@ -36,8 +36,7 @@
 					$('header').css("height", "335px");
 				}
 				else if (this.pathname.includes("locations")) {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
-					$('header').css("height", "335px");
+					$('.footer').css("margin-top", "0");
 				}
 				else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
@@ -69,14 +68,12 @@
 					$(".backDrop").css("display", "block");
 				});
 				
-				$(".card").on("click", function(){
+				$(".card, .location-card").on("click", function() {
 					var urlpath = $(this).attr("data-tag");
 					$('#overlay-content').load(urlpath, function(data, status, xhr) {
 						if( status === 'success' ) {                        
 							$.getScript("/themes/swedishamerican/js/social.js", function(data, textStatus, jqxhr) {
 								$('.facebook-share').on('click', function(e) {
-									console.log('facebook-share');
-
 									var tag = $(e.target).parent().parent().parent().parent(),
 									sib = tag.siblings().children(),
 									url = sib.find('img').attr('src');
@@ -111,7 +108,6 @@
 				});
 				
 				$(".overlay-close, .backDrop, .btn-floating").on("click", function(){
-					console.log('click')
 					closeBox();
 				});
 

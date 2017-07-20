@@ -1,3 +1,9 @@
+.term-page {
+    .block {
+        margin: 0 95px 30px 94px;
+    }
+}
+
 .location-address {
 	.avenirNextDemiBold;
     font-size: 30px;
@@ -22,8 +28,8 @@
     }
     
     .term-content-container {
-        width: 75%;
-        margin: 45px 30px 0 0; 
+        width: 65%;
+        margin: 45px 30px 0 95px; 
     }
 
     .term-contact-container {
@@ -42,7 +48,7 @@
     }
 
     .term-services-container {
-        margin-top: 45px;
+        margin: 45px 0 95px 0;
         padding-left: 30px;
         border-left: 1px solid @gray-rules;
         vertical-align: top;
@@ -50,6 +56,78 @@
 
         h2 {
             margin-top: 0;
+        }
+    }
+}
+
+.view-display-id-page_1 {
+    height: 1000px;
+    // width: 20%;
+    // display: inline-block;
+    // border-right: 1px solid @gray-rules;
+    // z-index: 100;
+
+    .views-row {
+        border-bottom: 1px solid @gray-rules;
+    }
+
+    .view-content {
+        width: 20%;
+        display: inline-block;
+        overflow-y: scroll;
+        height: 694px;
+    }
+
+    .view-header {
+        padding-left: 30px;
+
+        h1 {
+            margin: 45px 0 30px 0;     
+        }
+    }
+
+    .view-filters.form-group {
+        max-width: 20%;
+        padding: 0 20px 0 0;
+    }
+
+    .form-inline .form-group {
+        display: block;
+        padding: 0 15px 15px 30px;    
+    }
+    
+    .form-inline .form-control,
+    .form-inline .select-wrapper {
+        width: 100%;
+    }
+
+    span.location-header {
+        .avenirNextDemiBold;
+        font-size: 16px;
+        color: @brand-primary;
+        padding: 15px 0;
+        display: block;
+    }
+
+    .views-field-name {
+        padding: 30px 15px 15px 40%;
+    }
+    .views-field-field-address {
+        padding: 0 15px 30px 40%;
+    }
+}
+
+.attachment-after {
+    width: 80%;
+    // float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .view-display-id-attachment_1 {
+        .view-content {
+            width: 100%;
+            overflow-y: visible;
         }
     }
 }

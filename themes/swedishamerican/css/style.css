@@ -2880,7 +2880,7 @@ li.extra-services {
 }
 footer {
   background-color: #92318f;
-  margin-top: 60px !important;
+  margin-top: 60px;
   padding-top: 60px !important;
   padding-bottom: 60px !important;
 }
@@ -3190,6 +3190,9 @@ section#block-youtubepostfeed {
   float: left;
   width: 56%;
 }
+.term-page .block {
+  margin: 0 95px 30px 94px;
+}
 .location-address {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
@@ -3210,8 +3213,8 @@ section#block-youtubepostfeed {
   width: 730px;
 }
 .location-container .term-content-container {
-  width: 75%;
-  margin: 45px 30px 0 0;
+  width: 65%;
+  margin: 45px 30px 0 95px;
 }
 .location-container .term-contact-container div {
   vertical-align: top;
@@ -3223,7 +3226,7 @@ section#block-youtubepostfeed {
   width: 40%;
 }
 .location-container .term-services-container {
-  margin-top: 45px;
+  margin: 45px 0 95px 0;
   padding-left: 30px;
   border-left: 1px solid #bebebe;
   vertical-align: top;
@@ -3231,6 +3234,61 @@ section#block-youtubepostfeed {
 }
 .location-container .term-services-container h2 {
   margin-top: 0;
+}
+.view-display-id-page_1 {
+  height: 1000px;
+}
+.view-display-id-page_1 .views-row {
+  border-bottom: 1px solid #bebebe;
+}
+.view-display-id-page_1 .view-content {
+  width: 20%;
+  display: inline-block;
+  overflow-y: scroll;
+  height: 694px;
+}
+.view-display-id-page_1 .view-header {
+  padding-left: 30px;
+}
+.view-display-id-page_1 .view-header h1 {
+  margin: 45px 0 30px 0;
+}
+.view-display-id-page_1 .view-filters.form-group {
+  max-width: 20%;
+  padding: 0 20px 0 0;
+}
+.view-display-id-page_1 .form-inline .form-group {
+  display: block;
+  padding: 0 15px 15px 30px;
+}
+.view-display-id-page_1 .form-inline .form-control,
+.view-display-id-page_1 .form-inline .select-wrapper {
+  width: 100%;
+}
+.view-display-id-page_1 span.location-header {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #92318f;
+  padding: 15px 0;
+  display: block;
+}
+.view-display-id-page_1 .views-field-name {
+  padding: 30px 15px 15px 40%;
+}
+.view-display-id-page_1 .views-field-field-address {
+  padding: 0 15px 30px 40%;
+}
+.attachment-after {
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.attachment-after .view-display-id-attachment_1 .view-content {
+  width: 100%;
+  overflow-y: visible;
 }
 .provider-container h1,
 .provider-container h2 {
@@ -3339,14 +3397,6 @@ section#block-youtubepostfeed {
 }
 .views-field-field-image img {
   border-radius: 75px;
-}
-.view-filters {
-  width: 15%;
-  padding: 30px;
-  float: left;
-  margin-right: 30px;
-  display: inline-table;
-  border-right: 1px solid #3f3f3f;
 }
 #dependant-fields-wrapper {
   margin: 15px;

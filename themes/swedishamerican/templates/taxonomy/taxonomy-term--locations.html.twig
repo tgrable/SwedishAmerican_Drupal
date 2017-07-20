@@ -26,70 +26,74 @@
  */
 #}
 
-<div{{ attributes }}>
-  {{ title_prefix }}
-  {% if not page %}
-    <h2><a href="{{ url }}">{{ name }}</a></h2>
-  {% endif %}
-  {{ title_suffix }}
-  
-  <div class="location-container inline">
-    <div class="map-image-container">
-        <div class="image inline">
-            {{ content.field_image }}
-        </div>
-        <div class="map inline">
-            {{ content.field_map }}
-        </div>
-    </div>
-    <div class="term-content-container inline">
-        <div class="title">
-            <h1>{{ name }}</h1>
-        </div>
-        <div class="location-address">
-            {{ term.field_address.0.value }} <br />
-            {{ term.field_city.0.value }}, {{ term.field_state.0.value }} {{ term.field_zip.0.value }}
-        </div>
-        <div class="term-contact-container">
-        <hr />
-        <div class="phone-email inline">
-            <h2>Contact</h2>
-            <div class="phone">
-                <div class="icon inline">
-                    <p><i class="fa fa-phone"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ term.field_phone.0.value }}</p>
-                </div>
+<article id='term_{{ term.id|raw }}' class="term-page">
+    <div class="top-bar"></div>
+    <div{{ attributes }}>
+    {{ title_prefix }}
+    {% if not page %}
+        <h2><a href="{{ url }}">{{ name }}</a></h2>
+    {% endif %}
+    {{ title_suffix }}
+    
+    <div class="location-container inline">
+        <div class="map-image-container">
+            <div class="image inline">
+                {{ content.field_image }}
             </div>
-            <div class="email">
-                <div class="icon inline">
-                    <p><i class="fa fa-envelope"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ term.field_email_address.0.value }}</p>
-                </div>
+            <div class="map inline">
+                {{ content.field_map }}
             </div>
         </div>
-            <div class="hours inline">
-                <h2>Hours</h2>
-                <div class="result">
-                    {% for hour in term.field_hours %}
-                        <p>{{ hour.value }}</p>
-                    {% endfor %}
-                </div>
+        <div class="term-content-container inline">
+            <div class="title">
+                <h1>{{ name }}</h1>
             </div>
-            <hr />
+            <div class="location-address">
+                {{ term.field_address.0.value }} <br />
+                {{ term.field_city.0.value }}, {{ term.field_state.0.value }} {{ term.field_zip.0.value }}
+            </div>
             <div class="term-contact-container">
-                {{ content.description }}
+            <hr />
+            <div class="phone-email inline">
+                <h2>Contact</h2>
+                <div class="phone">
+                    <div class="icon inline">
+                        <p><i class="fa fa-phone"></i></p>
+                    </div>
+                    <div class="result inline">
+                        <p>{{ term.field_phone.0.value }}</p>
+                    </div>
+                </div>
+                <div class="email">
+                    <div class="icon inline">
+                        <p><i class="fa fa-envelope"></i></p>
+                    </div>
+                    <div class="result inline">
+                        <p>{{ term.field_email_address.0.value }}</p>
+                    </div>
+                </div>
+            </div>
+                <div class="hours inline">
+                    <h2>Hours</h2>
+                    <div class="result">
+                        {% for hour in term.field_hours %}
+                            <p>{{ hour.value }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr />
+                <div class="term-contact-container">
+                    {{ content.description }}
+                </div>
+            </div>
+        </div>
+        <div class="term-services-container inline">
+            <div class="special-services-container">
+                <h2>Services</h2>
+                {{ content.field_service_reference }}
             </div>
         </div>
     </div>
-    <div class="term-services-container inline">
-        <div class="special-services-container">
-            <h2>Services</h2>
-            {{ content.field_service_reference }}
-        </div>
     </div>
-  </div>
-</div>
+    {{ render_block('swedishamericanlocationproviders') }}
+</article>

@@ -22,13 +22,18 @@ function swedishamerican_preprocess_page(array &$variables) {
   $variables['block_search_form'] = \Drupal::entityTypeManager()
       ->getViewBuilder('block')
       ->view($block);
-
+  
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
     $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
     $term = \Drupal\taxonomy\Entity\Term::load($term_id);
     if (strcmp ($term->getVocabularyId(), 'locations') === 0) {
       $variables['term_page'] = $term_id;
       $variables['content_width'] = 'overlay';
+
+      $block = \Drupal\block\Entity\Block::load('swedishamericanlocationproviders');
+      $variables['block_output'] = \Drupal::entityTypeManager()
+        ->getViewBuilder('block')
+        ->view($block);
     }
   }
   else if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
@@ -41,6 +46,10 @@ function swedishamerican_preprocess_page(array &$variables) {
        $variables['content_view_mode'] = 'full';
     }
     else {}
+  }
+  else if (\Drupal::routeMatch()->getRouteName() == 'view.locations.page_1') {  
+       $variables['content_width'] = 'full';
+       $variables['content_view_mode'] = 'full';
   }
 }
 
@@ -97,7 +106,7 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
       $variables['paragraph_field_phone'] = $term->get('field_phone')->value;
       $variables['paragraph_field_email'] = $term->get('field_email_address')->value;
 
-      $path = '/term/' . $term->id();
+      $path = '/taxonomy/term/' . $term->id();
       $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
       $variables['term_path_alias'] = $path_alias;
 
@@ -110,4 +119,30 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
       }
     }
   }  
+}
+
+function swedishamerican_form_alter(&$form, &$form_state, $form_id){
+  if($form_id == "views_exposed_form"){
+    // dsm($form);
+
+    //name
+    if (isset($form['name'])) {
+      $form['name']['#attributes'] = array('placeholder' => array(t('Location Name')), 'class' => array('views-auto-submit'));
+    }
+
+    //field_city_value
+    if (isset($form['field_city_value'])) {
+      $form['field_city_value']['#attributes'] = array('placeholder' => array(t('City')), 'class' => array('views-auto-submit'));
+    }
+
+    //field_service_reference_target_id
+    if (isset($form['field_service_reference_target_id'])) {
+      $form['field_service_reference_target_id']['#attributes'] = array('class' => array('views-auto-submit'));
+      foreach ($form['field_service_reference_target_id']['#options'] as $key => &$option) {
+        if ($key == 'All') {
+          $option = 'Specialty';
+        }
+      }
+    }
+  }
 }
