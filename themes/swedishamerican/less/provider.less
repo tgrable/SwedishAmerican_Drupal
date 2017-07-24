@@ -195,47 +195,6 @@
     }
 }
 
-.lightBox {
-	cursor: pointer;
-}
-
-.thumb {
-	width: 400px;
-}
-
-.backDrop{
-	background-color: #000;
-	display: none;
-	filter: alpha(opacity=0);
-	height: 100%;
-	left: 0px;
-	opacity: .0;
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	z-index: 50;
-}
-
-.box{
-    display: none;
-    left: 0;
-    margin: 0 auto;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 51;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    width: 1490px;
-
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-}
-
 .largeImage {
 	width: 100%;
     height: 100%;
@@ -255,4 +214,32 @@
     height: 60px;
     margin-bottom: 45px;
     border-bottom: 1px solid @gray-rules;
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) and (max-width : 1500px) {
+    /* Styles */
+    .provider-container {
+        .provider-image-container {
+            width: 335px;
+            margin-left: 30px;
+
+            .provider-image {
+                width: 305px;
+            }
+        }
+        .provider-details-container {
+            max-width: 625px;
+            margin-left: 45px;
+
+            .map {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
 }

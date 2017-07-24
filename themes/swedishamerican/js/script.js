@@ -46,7 +46,7 @@
 					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
 					$('header').css("height", "335px");
 				}
-				else if (this.pathname.includes("about-us")) {
+				else if (this.pathname.includes("about")) {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
 					$('header').css("height", "335px");
 				}

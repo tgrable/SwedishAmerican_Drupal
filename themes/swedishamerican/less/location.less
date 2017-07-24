@@ -23,7 +23,7 @@
     
     .map-image-container {
         .image {
-            width: 730px;
+            width: 50%;
         } 
     }
     
@@ -59,13 +59,8 @@
         }
     }
 }
-
-.view-display-id-page_1 {
+.view-id-locations {
     height: 1000px;
-    // width: 20%;
-    // display: inline-block;
-    // border-right: 1px solid @gray-rules;
-    // z-index: 100;
 
     .views-row {
         border-bottom: 1px solid @gray-rules;
@@ -87,7 +82,7 @@
     }
 
     .view-filters.form-group {
-        max-width: 20%;
+        width: 20%;
         padding: 0 20px 0 0;
     }
 
@@ -131,3 +126,35 @@
         }
     }
 }
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) and (max-width : 1500px) {
+    /* Styles */
+    #overlay-content {
+        .map {
+            iframe {
+                width: 554px;
+                height: 314px;
+            }
+        }
+    }
+
+    .view-id-locations {
+        .view-content,
+        .view-filters.form-group {
+            width: 25%;
+        }
+
+        .attachment-after {
+            width: 75%;
+
+            .view-display-id-attachment_1 {
+                .view-content {
+                    width: 100%;
+                    overflow-y: visible;
+                }
+            }
+        }
+    }
+}
+
