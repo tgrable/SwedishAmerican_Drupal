@@ -48,30 +48,32 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      {% if paragraph_field_phone or paragraph_field_email %}
-        <div class="contact inline">  
-          <h2>Contact</h2>
-          {% if paragraph_field_phone %}
-            <div class="phone">
-                <div class="icon inline">
-                    <p><i class="fa fa-phone"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ paragraph_field_phone }}</p>
-                </div>
-            </div>
-          {% endif %}
-          {% if paragraph_field_email %}
-            <div class="email">
-                <div class="icon inline">
-                    <p><i class="fa fa-envelope"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ paragraph_field_email }}</p>
-                </div>
-            </div>
-          {% endif %}
-        </div>
+      {% if term_page != 'service_page' %}
+        {% if paragraph_field_phone or paragraph_field_email %}
+          <div class="contact inline">  
+            <h2>Contact</h2>
+            {% if paragraph_field_phone %}
+              <div class="phone">
+                  <div class="icon inline">
+                      <p><i class="fa fa-phone"></i></p>
+                  </div>
+                  <div class="result inline">
+                      <p>{{ paragraph_field_phone }}</p>
+                  </div>
+              </div>
+            {% endif %}
+            {% if paragraph_field_email %}
+              <div class="email">
+                  <div class="icon inline">
+                      <p><i class="fa fa-envelope"></i></p>
+                  </div>
+                  <div class="result inline">
+                      <p>{{ paragraph_field_email }}</p>
+                  </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
       {% endif %}
       {% if paragraph_field_address %}
         <div class="address inline">
