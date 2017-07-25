@@ -3597,10 +3597,12 @@ section#block-facebookpostfeed {
 .service-events p {
   margin-top: 15px;
 }
+.view-id-resources_list li,
 .views-field-field-resource-link li {
   padding-left: 0px;
   margin-bottom: 15px;
 }
+.view-id-resources_list li a,
 .views-field-field-resource-link li a {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
