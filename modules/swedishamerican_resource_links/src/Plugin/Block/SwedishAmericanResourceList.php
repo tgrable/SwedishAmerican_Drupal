@@ -44,15 +44,27 @@ class SwedishAmericanResourceList extends BlockBase {
   }
 
   private function getResourceTermMarkup($terms) {
-    $markup = '<div class="resources-list"><h2>Resources</h2>';
-    $markup .= '<ul>';
-      foreach ($terms as $key => $value) {
-        $url = $value->get('field_resource_link')->getValue();
-        $li = '<li><a href="' . $url[0]['uri'] . '" target="_blank">' . $value->getName() .  '</a></li>';
-        $markup .= $li;
-      }
-    $markup .= '</ul></div>';
+    if (count($terms) > 0) {
+      $markup = '<div class="resources-list"><h2>Resources</h2>';
+      $markup .= '<ul>';
+    }
+    else {
+      $markup = '<div>';
+    }
+  
+    foreach ($terms as $key => $value) {
+      $url = $value->get('field_resource_link')->getValue();
+      $li = '<li><a href="' . $url[0]['uri'] . '" target="_blank">' . $value->getName() .  '</a></li>';
+      $markup .= $li;
+    }
 
+    if (count($terms) > 0) {
+      $markup .= '</ul></div>';
+    }
+    else {
+      $markup = '<div>';
+    }
+    
     return $markup;
   }
 }

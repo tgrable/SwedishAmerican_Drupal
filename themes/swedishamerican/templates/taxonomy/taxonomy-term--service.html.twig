@@ -41,35 +41,41 @@
         <hr />
 
         <div class="phone-email inline">
-            <h2>Contact</h2>
-            <div class="phone">
-                <div class="icon inline">
-                    <p><i class="fa fa-phone"></i></p>
+            {% if term.field_phone.0.value %}
+                <h2>Contact</h2>
+                <div class="phone">
+                    <div class="icon inline">
+                        <p><i class="fa fa-phone"></i></p>
+                    </div>
+                    <div class="result inline">
+                        <p>{{ term.field_phone.0.value }}</p>
+                    </div>
                 </div>
-                <div class="result inline">
-                    <p>{{ term.field_phone.0.value }}</p>
+            {% endif %}
+            {% if term.field_email_address.0.value %}
+                <div class="email">
+                    <div class="icon inline">
+                        <p><i class="fa fa-envelope"></i></p>
+                    </div>
+                    <div class="result inline">
+                        <p>{{ term.field_email_address.0.value }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="email">
-                <div class="icon inline">
-                    <p><i class="fa fa-envelope"></i></p>
+            {% endif %}
+            {% if term.field_hours %}
+                <h2>Hours</h2>
+                <div class="hours">
+                    <div class="result inline">
+                        {% for hour in term.field_hours %}
+                            <p>{{ hour.value }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
-                <div class="result inline">
-                    <p>{{ term.field_email_address.0.value }}</p>
-                </div>
-            </div>
-            <h2>Hours</h2>
-            <div class="hours">
-                <div class="result inline">
-                    {% for hour in term.field_hours %}
-                        <p>{{ hour.value }}</p>
-                    {% endfor %}
-                </div>
-            </div>
+            {% endif %}
         </div>
         <div class="location-address inline">
             <div class="location">
-                {{ content.field_location }}
+                  {{ content.field_location }}  
             </div>
         </div>
 

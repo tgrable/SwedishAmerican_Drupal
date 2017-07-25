@@ -45,7 +45,13 @@ class SwedishAmericanEventsList extends BlockBase {
   }
 
   private function getEventNodeMarkup($nodes) {
-    $markup = '<div class="service-events"><h2>Events</h2>';
+    if (count($nodes) > 0) {
+      $markup = '<div class="service-events"><h2>Events</h2>';
+    }
+    else {
+      $markup = '<div>';
+    }
+    
     foreach ($nodes as $node) {
       $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'. $node->id());
       $title = $node->get('title')->getValue();

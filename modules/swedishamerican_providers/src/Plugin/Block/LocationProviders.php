@@ -20,18 +20,27 @@ class LocationProviders extends BlockBase {
    */
   public function build() {
     return array(
-      '#markup' => $this->queryProviderNodes(),
-      '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'span', 'i']
+      '#markup' => $this->queryProviderNodes()
     );
   }
 
   private function queryProviderNodes() {
     if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
       $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+      $term = \Drupal\taxonomy\Entity\Term::load($term_id);
+      
       $query = \Drupal::entityQuery('node');
       $query->condition('status', 1);
       $query->condition('type', 'provider');
-      $query->condition('field_searchable_location_refere', $term_id);
+      if (strcmp ($term->getVocabularyId(), 'locations') === 0) {
+        $query->condition('field_searchable_location_refere', $term_id);
+      }
+      else if (strcmp ($term->getVocabularyId(), 'service') === 0) {
+        $query->condition('field_service_reference', $term_id);
+      }
+      else {
+
+      }
       $entity_ids = $query->execute();
 
       $nodes = array();
@@ -46,10 +55,12 @@ class LocationProviders extends BlockBase {
   }
 
   private function getProviderNodeMarkup($nodes) {
+    $markup = '<div class="providers-container">';
+
     foreach($nodes as $node) {
       $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->id());
 
-      $markup = '<div class="lightBox">';
+      $markup .= '<div class="lightBox inline">';
         $markup .= '<div class="card" data-tag="' . $alias . ' #node_' . $node->id() . '">';
 
         if ($node->get('field_swedes_provider')->getValue() != null) {
@@ -103,6 +114,8 @@ class LocationProviders extends BlockBase {
         $markup .= '</div>'; // Close card div
       $markup .= '</div>'; // Close lightbox div
     }
+
+    $markup .= '</div>'; // Close providers-container
 
     return $markup;
   }
