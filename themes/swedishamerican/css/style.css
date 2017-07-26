@@ -2694,6 +2694,9 @@ button.btn.btn-standard.btn-floating {
 .block_body {
   margin-bottom: 30px;
 }
+.full .page {
+  margin: 0 15px;
+}
 .carousel {
   display: inline-block;
   margin: 0 15px 30px 15px;
@@ -3547,6 +3550,9 @@ section#block-youtubepostfeed {
   height: 60px;
   margin-bottom: 45px;
   border-bottom: 1px solid #bebebe;
+}
+.providers-container {
+  max-width: 1250px;
 }
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) and (max-width: 1500px) {
