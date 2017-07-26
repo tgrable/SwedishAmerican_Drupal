@@ -3029,6 +3029,22 @@ footer .footer-content p {
 }
 /* CARDS: PROVIDER */
 /* use standard material specs for cards with the following exceptions:*/
+.card-provider {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  width: 230px;
+  vertical-align: top;
+}
+.card-provider {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.card-provider:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
 .card-provider-title {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;

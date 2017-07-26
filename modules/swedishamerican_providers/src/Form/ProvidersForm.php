@@ -186,7 +186,7 @@ class ProvidersForm extends FormBase {
         $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
 
         $markup .= '<div class="lightBox inline">';
-          $markup .= '<div class="card" data-tag="' . $alias . ' #node_' . $node->id() . '">';
+          $markup .= '<div class="card-provider" data-tag="' . $alias . ' #node_' . $node->id() . '">';
 
           if ($node->get('field_swedes_provider')->getValue() != null) {
             $swedes_provider = $node->get('field_swedes_provider')->getValue();
