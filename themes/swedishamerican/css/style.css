@@ -3137,14 +3137,8 @@ footer .footer-content p {
   font-size: 16px;
   color: #92318f;
 }
-.fb_article {
-  width: 285px;
-}
 .twitter-container {
   width: 215px;
-}
-.fb_article,
-.twitter-container {
   float: left;
 }
 .fb_article .profile-data img,
@@ -3160,6 +3154,23 @@ footer .footer-content p {
   color: #92318f;
   vertical-align: top;
   font-weight: bold;
+}
+.fb-container {
+  display: inline-block;
+  width: 255px;
+  margin: 0 30px 0 0;
+  vertical-align: top;
+}
+.fb-container .profile-data,
+.fb-container .post-message,
+.fb-container .post_reactions {
+  padding: 8px;
+}
+.fb-container hr {
+  margin: 15px 8px 7px 8px;
+}
+.fb-container .post_reactions .reactions {
+  margin-right: 30px;
 }
 .ig_article {
   margin: 0 2px 2px 0;
@@ -3234,7 +3245,7 @@ footer .footer-content p {
   background-color: #BEBEBE;
   margin: 15px 30px;
 }
-section#block-facebookpostfeed {
+section#block-youtubepostfeed {
   float: left;
   width: 56%;
 }
