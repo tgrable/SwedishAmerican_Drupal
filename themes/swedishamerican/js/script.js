@@ -69,7 +69,7 @@
 					$(".backDrop").css("display", "block");
 				});
 				
-				$(".card, .location-card").on("click", function() {
+				$(".card-provider, .location-card").on("click", function() {
 					var urlpath = $(this).attr("data-tag");
 					$('#overlay-content').load(urlpath, function(data, status, xhr) {
 						if( status === 'success' ) {                        
