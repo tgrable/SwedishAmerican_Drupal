@@ -3633,12 +3633,14 @@ section#block-youtubepostfeed {
   margin-top: 15px;
 }
 .view-id-resources_list li,
-.views-field-field-resource-link li {
+.views-field-field-resource-link li,
+.block-swedishamerican-related-documents-list li {
   padding-left: 0px;
   margin-bottom: 15px;
 }
 .view-id-resources_list li a,
-.views-field-field-resource-link li a {
+.views-field-field-resource-link li a,
+.block-swedishamerican-related-documents-list li a {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
