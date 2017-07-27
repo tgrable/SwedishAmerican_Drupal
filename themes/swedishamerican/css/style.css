@@ -2694,6 +2694,12 @@ button.btn.btn-standard.btn-floating {
 .block_body {
   margin-bottom: 30px;
 }
+.block_body ul {
+  margin-right: 30px;
+}
+.block_body li {
+  list-style-type: disc;
+}
 .full article {
   margin: 0 15px;
 }
