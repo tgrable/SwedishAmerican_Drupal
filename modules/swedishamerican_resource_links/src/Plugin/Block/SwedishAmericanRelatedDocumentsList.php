@@ -27,41 +27,42 @@ class SwedishAmericanRelatedDocumentsList extends BlockBase {
   private function queryNodes() {
     if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
       $nid = \Drupal::routeMatch()->getRawParameter('node');
+
       $query = \Drupal::entityQuery('node');
       $query->condition('status', 1);
       $query->condition('type', 'page');
       $query->condition('nid', $nid);
       $entity_ids = $query->execute();
 
-      $nodes = array();
+      $array_keys = array_keys($entity_ids);
+      $first_key = $array_keys[0];
+      $nid = $entity_ids[$first_key];
+      $node = \Drupal\node\Entity\Node::load($nid);
 
-      foreach($entity_ids as $nid) {
-        $node = \Drupal\node\Entity\Node::load($nid);
-        array_push($nodes, $node);
-      }
-
-      return $this->getNodeMarkup($nodes);
+      return $this->getNodeMarkup($node);
     }
   }
 
-  private function getNodeMarkup($nodes) {
-    if (count($nodes) > 0) {
-      $markup = '<div class="service-events"><h2>Documents</h2>';
+  private function getNodeMarkup($node) {
+    $documents = $node->get('field_documents')->getValue();
+    $markup = '<div class="related-documents">';
+    if (count($documents) > 0) {
+      $markup .= '<h2>Documents</h2>';
+      $markup .= '<ul>';
     }
     else {
-      $markup = '<div>';
+      $markup .= '<div>';
     }
-    $markup .= '<ul>';
-    foreach ($nodes as $node) {
-      $documents = $node->get('field_documents')->getValue();
-      foreach ($documents as $document) {
-        $file = \Drupal\file\Entity\File::load($document['target_id']);
-        $filename = strlen( $document['description'] ) > 0 ? $document['description'] : $file->getFilename();
-        $markup .= '<li><a href="' . $file->url() . '" target="_blank">' . $filename . '</a></li>';
-      }
+    foreach ($documents as $document) {
+      $file = \Drupal\file\Entity\File::load($document['target_id']);
+      $filename = strlen( $document['description'] ) > 0 ? $document['description'] : $file->getFilename();
+      $markup .= '<li><a href="' . $file->url() . '" target="_blank">' . $filename . '</a></li>';
     }
-    $markup .= '<ul>';
+    if (count($documents) > 0) {
+      $markup .= '<ul>';
+    }
     $markup .= '</div>';
+
     return $markup;
   }
 }
