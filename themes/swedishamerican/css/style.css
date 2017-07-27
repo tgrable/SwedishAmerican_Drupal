@@ -3684,7 +3684,9 @@ section#block-youtubepostfeed {
   font-size: 16px;
 }
 .view-id-blogs .view-content .views-row {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #bebebe;
+  padding-bottom: 15px;
 }
 .view-id-blog_categories .view-content div,
 .view-id-archive .view-content div,
