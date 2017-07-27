@@ -72,33 +72,24 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-    'col',
-    'article'
-  ]
-%}
-<articleid id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
+<article{{ attributes }}>
 
   {{ title_prefix }}
-    <h2{{ title_attributes }}>
+    <h1{{ title_attributes }}>
       {{ label }}
-    </h2>
+    </h1>
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <div class="article-footer">
+    <footer>
+      {{ author_picture }}
       <div{{ author_attributes }}>
-        Submitted by {{ username }} on {{ unix_date|format_date('event_date_format') }}
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
       </div>
-    </div>
+    </footer>
   {% endif %}
-  
+
   <div{{ content_attributes }}>
     {{ content }}
   </div>
