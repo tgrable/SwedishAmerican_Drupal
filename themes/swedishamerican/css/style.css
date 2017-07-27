@@ -3130,13 +3130,29 @@ footer .footer-content p {
   padding: 0 15px 20px 15px;
 }
 /* CARDS:LOCATIONS */
-/* use standard material specs for cards with the following exceptions:*/
 .card-location-title {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
   color: #92318f;
+}
+/* CARDS:Accordion */
+.accordion-card {
+  border-bottom: 1px solid #eee;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.accordion-card .card-header {
+  padding: 1rem 1.5rem;
+  background: 0 0;
+  border-bottom: 0;
+}
+.accordion-card .card-header a {
+  text-decoration: none;
+}
+.accordion-card .card-header a i {
+  float: right;
 }
 /* SOCIAL FEEDS: */
 .social-hdr {

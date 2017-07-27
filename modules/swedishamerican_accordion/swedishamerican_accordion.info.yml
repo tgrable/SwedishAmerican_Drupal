@@ -1,0 +1,5 @@
+name: Swedish American Bootstrap Style Accordion
+type: module
+description: Creates a block to display Swedish American Bootstrap Style Accordion
+package: Custom
+core: 8.x
