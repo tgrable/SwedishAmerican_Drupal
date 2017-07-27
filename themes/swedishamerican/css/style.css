@@ -3139,12 +3139,12 @@ footer .footer-content p {
 }
 /* CARDS:Accordion */
 .accordion-card {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #bebebe;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 .accordion-card .card-header {
-  padding: 1rem 1.5rem;
+  padding: 10px 0;
   background: 0 0;
   border-bottom: 0;
 }
