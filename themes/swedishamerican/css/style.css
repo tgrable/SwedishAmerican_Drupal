@@ -3676,6 +3676,17 @@ section#block-youtubepostfeed {
 .article ul li {
   list-style-type: disc;
 }
+.article .field--name-body {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
+  font-size: 16px;
+}
+.view-id-blog_categories .views-field-name,
+.view-id-archive .views-field-name {
+  margin-bottom: 10px;
+}
 .view-id-blog_categories a,
 .view-id-archive a {
   font-family: 'AvenirNext-Regular';
@@ -3684,6 +3695,15 @@ section#block-youtubepostfeed {
   color: #3f3f3f;
   font-size: 16px;
   text-decoration: none;
+}
+.pagination li a,
+.pagination li a:hover {
+  color: #92318f;
+}
+.pagination .active a,
+.pagination .active a:hover {
+  background-color: #92318f;
+  border-color: #92318f;
 }
 @media (max-width: 1200px) {
   .view-header {

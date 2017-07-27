@@ -14,14 +14,40 @@
             list-style-type: disc;
         }
     }
+
+    .field--name-body {
+        .avenirNextRegular;
+        color: @gray-primary;
+        font-size: 16px;
+    }
 }
 
 .view-id-blog_categories,
 .view-id-archive {
+    .views-field-name {
+        margin-bottom: 10px;
+    }
+
     a  {
         .avenirNextRegular;
         color: @gray-primary;
         font-size: 16px;
         text-decoration: none;  
+    }
+}
+
+.pagination {
+    li {
+        a,
+        a:hover {
+            color: @brand-primary;
+        }
+    }
+    .active {
+        a,
+        a:hover {
+            background-color: @brand-primary;
+            border-color: @brand-primary;
+        }
     }
 }
