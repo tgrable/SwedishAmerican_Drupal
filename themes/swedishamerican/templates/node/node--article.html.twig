@@ -93,10 +93,8 @@
 
   {% if display_submitted %}
     <div class="article-footer">
-      {{ author_picture }}
       <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
+        Submitted by {{ username }} on {{ unix_date|format_date('event_date_format') }}
       </div>
     </div>
   {% endif %}

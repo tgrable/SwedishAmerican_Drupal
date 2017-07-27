@@ -60,6 +60,20 @@ function swedishamerican_preprocess_node(array &$variables) {
   $path = '/node/' . $variables['node']->id();
   $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
   $variables['path_alias'] = $path_alias;
+
+  if (strcmp ($variables['node']->getType(), 'article') === 0 || strcmp ($variables['node']->getType(), 'page') === 0) {
+    if (!is_null($variables['node'])) {
+      $uid = $variables['node']->getOwnerId();
+      $user = \Drupal\user\Entity\User::load($uid);
+      if (!is_null($user)) {
+        $username = $user->getDisplayName();
+        $variables['username'] = $username;
+        // {{ username }} will be available within block.html.twig.
+        $date = $variables['node']->getCreatedTime();
+        $variables['unix_date'] = $date;
+      }
+    }
+  }
 }
 
 /**
@@ -109,7 +123,7 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
       $path = '/taxonomy/term/' . $term->id();
       $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
       $variables['term_path_alias'] = $path_alias;
-
+      
       if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
         $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
         $term = \Drupal\taxonomy\Entity\Term::load($term_id);
