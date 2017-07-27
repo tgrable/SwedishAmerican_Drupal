@@ -38,7 +38,7 @@ class ProvidersForm extends FormBase {
     asort($specialty);
 
     $form['wrapper'] = array(
-        '#prefix' => '<div id="dependant-fields-wrapper" class="inline"><h1>Providers</h1>',
+        '#prefix' => '<div id="dependant-fields-wrapper" class="inline">',
         '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
     );
 
