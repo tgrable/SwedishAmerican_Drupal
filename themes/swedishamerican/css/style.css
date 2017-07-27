@@ -2695,7 +2695,7 @@ button.btn.btn-standard.btn-floating {
   margin-bottom: 30px;
 }
 .block_body ul {
-  margin-right: 30px;
+  margin-left: 30px;
 }
 .block_body li {
   list-style-type: disc;
