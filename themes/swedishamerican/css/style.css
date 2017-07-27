@@ -3683,6 +3683,9 @@ section#block-youtubepostfeed {
   color: #3f3f3f;
   font-size: 16px;
 }
+.view-id-blogs .view-content .views-row {
+  margin-bottom: 30px;
+}
 .view-id-blog_categories .view-content div,
 .view-id-archive .view-content div,
 .view-id-blog_categories .views-field-name,
