@@ -32,8 +32,7 @@ class FBPostFeedBlock extends BlockBase {
   }
 
   private function get_facebook_data() {
-    //https://graph.facebook.com/swedishamericanrockford/posts?&access_token=751723765008561|f6c472d01ed65f420988cf67d0f40eb4&fields=updated_time,message,full_picture,shares,likes&limit=4
-    $json_link = "https://graph.facebook.com/swedishamericanrockford/posts?&access_token=751723765008561|f6c472d01ed65f420988cf67d0f40eb4&fields=created_time,message,full_picture,shares,likes&limit=3";
+    $json_link = "https://graph.facebook.com/swedishamericanrockford/posts?&access_token=107003763308767|4ac39aeb7ee5834f0866aaf8854f61ab&fields=created_time,message,full_picture,shares,likes&limit=3";
     $json = file_get_contents($json_link);
 
     $obj = json_decode($json, true);
