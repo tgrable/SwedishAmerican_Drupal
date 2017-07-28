@@ -19,8 +19,8 @@ use Drupal\Core\Datetime\DrupalDateTime;
  */
 
 // fill in your consumer key and consumer secret below
-define('CONSUMER_KEY', 'covd0hbGOYcVVF70oTG7PfKD1');
-define('CONSUMER_SECRET', '1qix7y0wNWO6ky7tvGLQRoDxJdY7SQwRhVZ0KBDwPao0d51coX');
+define('CONSUMER_KEY', 'ZYSmn4M7hFCkNpbDEqM7Aqzp9');
+define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
 
  class TWPostFeedBlock extends BlockBase {
 
