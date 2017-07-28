@@ -33,11 +33,10 @@ use Drupal\Core\Datetime\DrupalDateTime;
   }
 
   private function get_instagram_data() {
-    $json_link = "https://api.instagram.com/v1/users/self/media/recent/?access_token=502658962.9df0c1e.b1efd7d3fc8a45fca4145a9c225e1970";
+    $json_link = "https://api.instagram.com/v1/users/self/media/recent/?access_token=2108982472.108b657.e0675c3bca834f02910e0361a3bc8353";
     $json = file_get_contents($json_link);
     $obj = json_decode($json, true);
 
-    // dsm($obj);
     $post_array = $obj['data'];
     $markup = '<hr />';
      $markup .= '<div class="med-padding"></div>';
@@ -58,7 +57,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
           $markup .= '<div class="post_image"><img src="' . $post_array[1]['images']['low_resolution']['url'] . '" /></div>';
         $markup .= '</div>';
         $markup .= '<div class="ig_article ig-content-wide inline">';
-          for ($i = 2; $i < count($post_array); $i++) {
+          for ($i = 2; $i < 8; $i++) {
             if (isset($post_array[$i])) {
               if ($i < 2) {
                 $markup .= '<div class="ig_article ig-content inline">';
