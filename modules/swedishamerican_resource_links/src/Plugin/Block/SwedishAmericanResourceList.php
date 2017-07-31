@@ -25,21 +25,23 @@ class SwedishAmericanResourceList extends BlockBase {
   }
 
   private function getTaxonomyTree() {
-    if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
-      $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
-      $query = \Drupal::entityQuery('taxonomy_term');
-      $query->condition('vid', 'resources');
-      $query->condition('field_service_reference', $term_id);
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+      $nid = \Drupal::routeMatch()->getRawParameter('node');
+
+      $query = \Drupal::entityQuery('node');
+      $query->condition('status', 1);
+      $query->condition('type', 'provider');
+      $query->condition('field_service_reference_node', $nid);
       $entity_ids = $query->execute();
 
-      $terms = array();
+      $nodes = array();
 
-      foreach($entity_ids as $tid) {
-        $term = \Drupal\taxonomy\Entity\Term::load($tid);
-        $terms[$tid] = $term;
+      foreach($entity_ids as $id) {
+        $node = \Drupal\node\Entity\Node::load($id);
+        array_push($nodes, $node);
       }
 
-      return $this->getResourceTermMarkup($terms);
+      return $this->getNodeMarkup($nodes);
     }
   }
 
