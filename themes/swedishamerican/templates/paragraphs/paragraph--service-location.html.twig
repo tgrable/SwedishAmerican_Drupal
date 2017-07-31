@@ -48,7 +48,7 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      {% if term_page != 'service_page' %}
+      {% if service_page != 'service_page' %}
         {% if paragraph_field_phone or paragraph_field_email %}
           <div class="contact inline">  
             <h2>Contact</h2>
