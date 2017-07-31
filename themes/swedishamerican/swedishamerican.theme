@@ -124,11 +124,11 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
       $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
       $variables['term_path_alias'] = $path_alias;
       
-      if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
-        $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
-        $term = \Drupal\taxonomy\Entity\Term::load($term_id);
-        if (strcmp ($term->getVocabularyId(), 'service') === 0) {
-          $variables['term_page'] = 'service_page';
+      if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+        $nid = \Drupal::routeMatch()->getRawParameter('node');
+        $node = \Drupal\node\Entity\Node::load($nid);
+        if (strcmp ($node->getType(), 'service') === 0) {
+          $variables['service_page'] = 'service_page';
         }
       }
     }
@@ -137,7 +137,6 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
 
 function swedishamerican_form_alter(&$form, &$form_state, $form_id){
   if($form_id == "views_exposed_form"){
-    // dsm($form);
 
     //name
     if (isset($form['name'])) {
