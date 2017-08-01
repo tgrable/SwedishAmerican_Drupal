@@ -25,18 +25,19 @@ class SwedishAmericanEventsList extends BlockBase {
   }
 
   private function queryEventNodes() {
-    if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
-      $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+      $nid = \Drupal::routeMatch()->getRawParameter('node');
+
       $query = \Drupal::entityQuery('node');
       $query->condition('status', 1);
       $query->condition('type', 'event');
-      $query->condition('field_service_reference', $term_id);
+      $query->condition('field_service_reference_node', $nid);
       $entity_ids = $query->execute();
 
       $nodes = array();
 
-      foreach($entity_ids as $nid) {
-        $node = \Drupal\node\Entity\Node::load($nid);
+      foreach($entity_ids as $id) {
+        $node = \Drupal\node\Entity\Node::load($id);
         array_push($nodes, $node);
       }
 
