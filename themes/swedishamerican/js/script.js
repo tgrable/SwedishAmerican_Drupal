@@ -14,7 +14,7 @@
 
 					$('.dropdown-menu:eq(0) li').each(function(key, value) {
 						console.log($(this).children('a').attr("data-drupal-link-system-path"));
-						if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/147' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154') {
+						if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/147' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170') {
 							console.log('found a menu item');
 						}
 						else {
