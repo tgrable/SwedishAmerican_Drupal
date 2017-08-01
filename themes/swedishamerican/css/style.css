@@ -3763,6 +3763,14 @@ section#block-youtubepostfeed {
 .field--name-field-date-2 {
   margin-bottom: 15px;
 }
+.view-display-id-block_2 a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
+  font-size: 16px;
+  text-decoration: none;
+}
 @media (max-width: 1200px) {
   .view-header {
     height: 715px;
