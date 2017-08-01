@@ -3732,7 +3732,7 @@ section#block-youtubepostfeed {
 .view-id-archive .view-content div,
 .view-id-blog_categories .views-field-name,
 .view-id-archive .views-field-name {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .view-id-blog_categories a,
 .view-id-archive a {
@@ -3770,6 +3770,9 @@ section#block-youtubepostfeed {
   color: #3f3f3f;
   font-size: 16px;
   text-decoration: none;
+}
+.view-display-id-block_2 div {
+  margin-bottom: 5px;
 }
 @media (max-width: 1200px) {
   .view-header {
