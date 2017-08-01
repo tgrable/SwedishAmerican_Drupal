@@ -3752,6 +3752,17 @@ section#block-youtubepostfeed {
   background-color: #92318f;
   border-color: #92318f;
 }
+.field--name-field-date-2,
+.field--name-body td {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
+  font-size: 16px;
+}
+.field--name-field-date-2 {
+  margin-bottom: 15px;
+}
 @media (max-width: 1200px) {
   .view-header {
     height: 715px;
