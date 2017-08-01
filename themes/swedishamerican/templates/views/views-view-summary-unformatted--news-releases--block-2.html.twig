@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Default theme implementation for unformatted summary links.
+ *
+ * Available variables:
+ * - rows: The rows contained in this view.
+ *   - url: The URL to this row's content.
+ *   - count: The number of items this summary item represents.
+ *   - separator: A separator between each row.
+ *   - attributes: HTML attributes for a row.
+ *   - active: A flag indicating whether the row is active.
+ * - options: Flags indicating how each row should be displayed. This contains:
+ *   - count: A flag indicating whether the row's 'count' should be displayed.
+ *   - inline: A flag indicating whether the item should be wrapped in an inline
+ *     or block level HTML element.
+ *
+ * @see template_preprocess_views_view_summary_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for row in rows  %}
+  {{ options.inline ? '<span' : '<div' }} >
+  {% if row.separator -%}
+    {{ row.separator }}
+  {%- endif %}
+  {% set month = row.link|slice(4,2) %}
+  {% set year = row.link|slice(0,4) %}
+
+  {% if month == '01' %}
+    {% set month = 'January' %}
+  {% elseif month == "02" %}
+    {% set month = 'February' %}
+  {% elseif month == "03" %}
+    {% set month = 'March' %}
+  {% elseif month == "04" %}
+    {% set month = 'April' %}
+  {% elseif month == "05" %}
+    {% set month = 'May' %}
+  {% elseif month == "06" %}
+    {% set month = 'June' %}
+  {% elseif month == "07" %}
+    {% set month = 'July' %}
+  {% elseif month == "08" %}
+    {% set month = 'August' %}
+  {% elseif month == "09" %}
+    {% set month = 'September' %}
+  {% elseif month == "10" %}
+    {% set month = 'October' %}
+  {% elseif month == "11" %}
+    {% set month = 'November' %}
+  {% elseif month == "12" %}
+    {% set month = 'December' %}
+  {% endif %}
+
+  <a href="{{ row.url }}"{{ row.attributes.addClass(row.active ? 'is-active')|without('href') }}>{{ month }} {{ year }}</a>
+  {% if options.count %}
+    ({{ row.count }})
+  {% endif %}
+  {{ options.inline ? '</span>' : '</div>' }}
+{% endfor %}
