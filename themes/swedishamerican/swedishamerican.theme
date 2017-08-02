@@ -41,7 +41,7 @@ function swedishamerican_preprocess_page(array &$variables) {
       $variables['content_width'] = 'overlay';
       $variables['content_view_mode'] = 'full';
     }
-    else if (strcmp ($variables['node']->getTitle(), 'Providers') === 0) {
+    else if (strcmp ($variables['node']->getTitle(), 'Providers') === 0 || strcmp ($variables['node']->getTitle(), 'Program & Events') === 0) {
        $variables['content_width'] = 'full';
        $variables['content_view_mode'] = 'full';
     }
@@ -92,6 +92,10 @@ function swedishamerican_preprocess_block(&$variables) {
       $variables['customWidthVariable'] = $block['field_column_width'][0]['value'];
     } 
   }
+}
+
+function swedishamerican_preprocess_menu(array &$variables) {
+  // dsm($variables['items']);
 }
 
 /**

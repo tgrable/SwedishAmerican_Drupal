@@ -2710,6 +2710,9 @@ button.btn.btn-standard.btn-floating {
 .carousel a {
   color: #ffffff;
 }
+.carousel .carousel-indicators .active {
+  margin-bottom: 0 0 0.6em 0;
+}
 .lightBox {
   cursor: pointer;
 }
@@ -2987,7 +2990,8 @@ footer .footer-content p {
   float: right;
   margin-top: 30px;
 }
-.card {
+.card,
+.card-event {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
@@ -2996,11 +3000,13 @@ footer .footer-content p {
   width: 255px;
   vertical-align: top;
 }
-.card {
+.card,
+.card-event {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.card:hover {
+.card:hover,
+.card-event:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
 /* CARDS: MAIN */
@@ -3163,6 +3169,13 @@ footer .footer-content p {
 }
 .accordion-card .card-header a i {
   float: right;
+}
+/* CARDS:EVENTS */
+.card-event {
+  padding: 15px;
+}
+.card-event h2 {
+  margin-top: 0;
 }
 /* SOCIAL FEEDS: */
 .social-hdr {

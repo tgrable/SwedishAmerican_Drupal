@@ -47,6 +47,11 @@
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 					}
 				}
+				else if (this.pathname.includes("events")) {
+					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
+					$('header').css("height", "335px");				
+					$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
+				}
 				else if (this.pathname.includes("services")) {
 					if (this.pathname.includes("services/cancer-care")) {
 						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-cancercare.png)");
@@ -61,10 +66,6 @@
 				}
 				else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
-					$('header').css("height", "335px");
-				}
-				else if (this.pathname.includes("events")) {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
 					$('header').css("height", "335px");
 				}
 				else if (this.pathname.includes("about")) {
@@ -90,7 +91,7 @@
 					$(".backDrop").css("display", "block");
 				});
 				
-				$(".card-provider, .location-card").on("click", function() {
+				$(".card-provider, .location-card, .card-event").on("click", function() {
 					var urlpath = $(this).attr("data-tag");
 					$('#overlay-content').load(urlpath, function(data, status, xhr) {
 						if( status === 'success' ) {                        
