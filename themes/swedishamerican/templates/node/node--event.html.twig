@@ -73,31 +73,31 @@
  */
 #}
 <article id="node_{{ node.id|raw }}" {{ attributes }}>
+  <div class="events">
+    {{ title_prefix }}
+      <h2{{ title_attributes }}>
+        {{ label }} 
+      </h2>
+    {{ title_suffix }}
 
-  {{ title_prefix }}
-    <h2{{ title_attributes }}>
-      {{ label }} 
-    </h2>
-  {{ title_suffix }}
-
-  <div{{ content_attributes }}>
-    <div class="event-dates">
-      {% set count = 1 %}
-      {% for eventDate in node.field_date %} 
-        {% set unixDate = eventDate.value | date('U') %}
-        <p class="inline">{{ unixDate | format_date('event_date_format') }}{% if count < node.field_date|length %}, {% endif %}</p>
-        {% set count = count + 1 %}
-      {% endfor %}
+    <div{{ content_attributes }}>
+      <div class="event-dates">
+        {% set count = 1 %}
+        {% for eventDate in node.field_date %} 
+          {% set unixDate = eventDate.value | date('U') %}
+          <p class="inline">{{ unixDate | format_date('event_date_format') }}{% if count < node.field_date|length %}, {% endif %}</p>
+          {% set count = count + 1 %}
+        {% endfor %}
+      </div>
+      <div class="event-tags">
+        {% for key, item in content.field_service_reference if key|first != '#' %}
+          <div class="item-{{ key + 1 }}">{{ item }}</div>
+        {% endfor %}
+      </div>
+      <hr />
+      <div class="event-body">
+        {{ content.body }}
+      </div> 
     </div>
-    <div class="event-tags">
-      {% for key, item in content.field_service_reference if key|first != '#' %}
-        <div class="item-{{ key + 1 }}">{{ item }}</div>
-      {% endfor %}
-    </div>
-    <hr />
-    <div class="event-body">
-      {{ content.body }}
-    </div> 
   </div>
-
 </article>

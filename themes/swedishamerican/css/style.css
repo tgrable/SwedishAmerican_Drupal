@@ -3787,6 +3787,9 @@ section#block-youtubepostfeed {
 .view-display-id-block_2 div {
   margin-bottom: 5px;
 }
+.events {
+  padding: 30px;
+}
 @media (max-width: 1200px) {
   .view-header {
     height: 715px;
