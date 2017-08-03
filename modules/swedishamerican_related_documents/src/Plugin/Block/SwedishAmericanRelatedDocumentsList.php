@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\swedishamerican_resource_links\Plugin\Block;
+namespace Drupal\swedishamerican_related_documents\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -19,9 +19,11 @@ class SwedishAmericanRelatedDocumentsList extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    return array(
-      '#markup' => $this->queryNodes(),
-    );
+    return [
+      '#theme' => 'related_documents',
+      '#documents' => $this->queryNodes(),
+      '#files' => $this->createFiles($this->queryNodes()),
+    ];
   }
 
   private function queryNodes() {
@@ -30,7 +32,10 @@ class SwedishAmericanRelatedDocumentsList extends BlockBase {
 
       $query = \Drupal::entityQuery('node');
       $query->condition('status', 1);
-      $query->condition('type', 'page');
+      $group = $query->orConditionGroup()
+        ->condition('type', 'page')
+        ->condition('type', 'service');
+      $query->condition($group);
       $query->condition('nid', $nid);
       $entity_ids = $query->execute();
 
@@ -39,30 +44,19 @@ class SwedishAmericanRelatedDocumentsList extends BlockBase {
       $nid = $entity_ids[$first_key];
       $node = \Drupal\node\Entity\Node::load($nid);
 
-      return $this->getNodeMarkup($node);
+      $documents = $node->get('field_documents')->getValue();
+
+      return $documents;
     }
   }
 
-  private function getNodeMarkup($node) {
-    $documents = $node->get('field_documents')->getValue();
-    $markup = '<div class="related-documents">';
-    if (count($documents) > 0) {
-      $markup .= '<h2>Documents</h2>';
-      $markup .= '<ul>';
-    }
-    else {
-      $markup .= '<div>';
-    }
+  private function createFiles($documents) {
+    $files = array();
     foreach ($documents as $document) {
       $file = \Drupal\file\Entity\File::load($document['target_id']);
-      $filename = strlen( $document['description'] ) > 0 ? $document['description'] : $file->getFilename();
-      $markup .= '<li><a href="' . $file->url() . '" target="_blank">' . $filename . '</a></li>';
+      array_push($files, $file);
     }
-    if (count($documents) > 0) {
-      $markup .= '<ul>';
-    }
-    $markup .= '</div>';
 
-    return $markup;
+    return $files;
   }
 }

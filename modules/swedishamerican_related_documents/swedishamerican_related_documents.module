@@ -1,0 +1,15 @@
+<?php 
+
+function swedishamerican_related_documents_theme($existing, $type, $theme, $path) {
+
+    return [
+        'related_documents' => [
+            'variables' => [
+                'documents' => NULL,
+                'files' => NULL,
+            ],
+            'template' => 'related-documents',
+        ]
+    ];
+}
+

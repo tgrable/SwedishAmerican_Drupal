@@ -1,0 +1,16 @@
+{% if documents|length > 0 %}
+    <div class="related-documents">
+        <h2>Documents</h2>
+        <ul>
+            {% for file in files %}
+                {% set filename  = file.filename.value %}
+                 {% if documents[loop.index - 1].description|length > 0 %}
+                    {% set filename  = documents[loop.index - 1].description %}
+                 {% endif %}    
+                <li>
+                    <a href="{{ file_url(file.uri.value) }}" target="_blank">{{ filename }}</a>
+                </li> 
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
