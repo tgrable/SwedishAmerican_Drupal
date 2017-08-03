@@ -2747,10 +2747,10 @@ button.btn.btn-standard.btn-floating {
 }
 .region-sidebar-first nav li {
   margin-bottom: 0;
-  line-height: inherit;
+  line-height: inherit !important;
 }
 .region-sidebar-first nav li a {
-  line-height: inherit;
+  line-height: inherit !important;
 }
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) and (max-width: 1500px) {
