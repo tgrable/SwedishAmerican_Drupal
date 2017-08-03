@@ -19,9 +19,11 @@ class SwedishAmericanSlider extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    return array(
-      '#markup' => $this->querySliderNodes(),
-    );
+
+    return [
+      '#theme' => 'bootstrap_slider',
+      '#nodes' => $this->querySliderNodes(),
+    ];
   }
 
   private function querySliderNodes() {
@@ -39,46 +41,7 @@ class SwedishAmericanSlider extends BlockBase {
         $node = \Drupal\node\Entity\Node::load($id);
         array_push($nodes, $node);
       }
-
-      return $this->getNodeMarkup($nodes);
+      return $nodes;
     }
-  }
-
-  private function getNodeMarkup($nodes) {
-    $markup = '<div id="myCarousel" class="carousel slide" data-ride="carousel">';
-
-      $markup .= '<!-- Indicators -->';
-      $markup .= '<ol class="carousel-indicators">';
-        for ($i = 0; $i < count($nodes); $i++) {
-          $class = ($i == 0) ? 'active' : '';
-          $markup .= '<li data-target="#myCarousel" data-slide-to="' . $i . '" class=" ' . $class . '"></li>';
-        }
-      $markup .= '</ol>';
-
-      $markup .= '<!-- Wrapper for slides -->';
-      $markup .= '<div class="carousel-inner">';
-        for ($j = 0; $j < count($nodes); $j++) {
-          if ($nodes[$j]->get('field_image')->getValue() != null) {
-            $class = ($j == 0) ? 'active' : '';
-            $markup .= '<div class="item ' . $class .'">';
-              $markup .= '<img src="' .file_create_url($nodes[$j]->field_image->entity->getFileUri()) . '" />';
-            $markup .= '</div>';
-          }
-        }
-      $markup .= '</div>';
-
-      $markup .= '<!-- Left and right controls -->';
-        $markup .= '<a class="left carousel-control" href="#myCarousel" data-slide="prev">';
-          $markup .= '<span class="glyphicon glyphicon-chevron-left"></span>';
-          $markup .= '<span class="sr-only">Previous</span>';
-        $markup .= '</a>';
-        $markup .= '<a class="right carousel-control" href="#myCarousel" data-slide="next">';
-          $markup .= '<span class="glyphicon glyphicon-chevron-right"></span>';
-          $markup .= '<span class="sr-only">Next</span>';
-        $markup .= '</a>';
-
-     $markup .= '</div>';
-
-    return $markup;
   }
 }

@@ -1,0 +1,9 @@
+<?php 
+
+function swedishamerican_slider_theme($existing, $type, $theme, $path) {
+  return [
+    'bootstrap_slider' => [
+      'variables' => ['nodes' => NULL],
+    ],
+  ];
+}
