@@ -2745,6 +2745,13 @@ button.btn.btn-standard.btn-floating {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
+.region-sidebar-first nav li {
+  margin-bottom: 0;
+  line-height: inherit;
+}
+.region-sidebar-first nav li a {
+  line-height: inherit;
+}
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) and (max-width: 1500px) {
   /* Styles */
