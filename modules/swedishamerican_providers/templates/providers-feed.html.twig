@@ -1,0 +1,40 @@
+<div class="providers-container">
+    {% for node in nodes %}
+        <div class="lightBox inline">
+            <div class="card-provider" data-tag="{{ path('entity.node.canonical', {'node': node.id}) }} #node_{{ node.id }}">
+                {% if node.field_swedes_provider.value == 1 %}
+                    <div class="card-provider-btn-icon"></div>
+                    {% set swedes_provider_group = 'internal-provider' %}
+                    {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd-group' %}
+                    {% set swedes_provider_group_btn = 'card-provider-btn-group' %}
+                {% else  %}
+                    {% set swedes_provider_group = 'external-provider' %}
+                    {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd' %}
+                    {% set swedes_provider_group_btn = 'card-provider-btn' %}
+                {% endif %}
+
+                {% if node.field_display_as_new.value == 1 %}
+                    <div class="new-provider"></div>
+                {% endif %}
+
+                <div class="views-field-field-image">
+                    <div class="field-content">
+                        <img src="{{ file_url(node.field_image.entity.uri.value) }}" typeof="foaf:Image" class="img-responsive" data-tag="{{ file_url(node.field_image.entity.uri.value) }}">
+                    </div>
+                </div>
+
+                <div class="{{ swedes_provider_group }}">
+                    <div class="{{ swedes_provider_group_bkgrd }}">
+                        <div class="card-provider-title"><strong>{{ node.label }}</strong></div>
+                            <div class="card-provider-special ">
+                                {% if node.field_specialty.entity.name.value != null %}
+                                    {{ node.field_specialty.entity.name.value }}
+                                {% endif %}
+                            </div>
+                    </div>
+                </div> 
+                <div class="{{ swedes_provider_group_btn }}">More Information <i class="fa fa-angle-right"></i></div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
