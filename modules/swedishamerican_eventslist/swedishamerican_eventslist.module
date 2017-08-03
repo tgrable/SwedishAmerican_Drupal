@@ -1,0 +1,15 @@
+<?php 
+
+/**
+ * Implements hook_theme().
+ */
+function swedishamerican_eventslist_theme() {
+  return [
+    'eventslist' => [
+      'variables' => [
+        'nodes' => NULL,
+      ],
+      'template' => 'eventslist',
+    ]
+  ];
+}

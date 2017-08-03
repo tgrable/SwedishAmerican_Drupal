@@ -66,9 +66,6 @@ class EventslistForm extends FormBase {
     * {@inheritdoc}
     */
     public function submitForm(array &$form, FormStateInterface $form_state) {
-        $form['result'] = 'I Hate Justin!';
-
-        $form_state->setRebuild();
     }
 
     /**
