@@ -58,7 +58,7 @@
 #}
 <div id="preheader" class="topbar">
   <div class="inline top-align logo">
-    <a href="/"><img src="{{ base_path ~ directory }}/images/logo.png" alt="Swedish American" /></a>
+    <a href="/"><img src="{{ base_path ~ directory }}/images/logo.png" alt="SwedishAmerican" /></a>
   </div>
   <div class="inline top-align search">
     {{ block_search_form }}
@@ -136,12 +136,14 @@
       {% endif %}
 
       {# Content #}
+
+      {# This hides the sidebar regions if they are empty #}
       {%
         set content_classes = [
-          page.sidebar_first and page.sidebar_second ? 'col-sm-8',
-          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
-          page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
-          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+          page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim ? 'col-sm-6',
+          page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim is empty ? 'col-sm-9',
+          page.sidebar_second|render|striptags|trim and page.sidebar_first|render|striptags|trim is empty ? 'col-sm-9',
+          page.sidebar_first|render|striptags|trim is empty and page.sidebar_second|render|striptags|trim is empty ? 'col-sm-12'
         ]
       %}
       <section{{ content_attributes.addClass(content_classes) }}>

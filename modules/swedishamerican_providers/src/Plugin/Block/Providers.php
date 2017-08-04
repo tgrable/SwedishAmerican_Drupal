@@ -6,11 +6,11 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a 'Swedish American Providers' Block.
+ * Provides a 'SwedishAmerican Providers' Block.
  *
  * @Block(
  *   id = "swedishamerican_providers",
- *   admin_label = @Translation("Swedish American Providers"),
+ *   admin_label = @Translation("SwedishAmerican Providers"),
  * )
  */
 class Providers extends BlockBase {

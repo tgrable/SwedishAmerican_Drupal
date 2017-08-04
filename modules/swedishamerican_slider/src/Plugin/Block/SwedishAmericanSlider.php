@@ -6,11 +6,11 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a 'Swedish American Bootstrap Style Carousel.'
+ * Provides a 'SwedishAmerican Bootstrap Style Carousel.'
  *
  * @Block(
  *   id = "swedishamerican_slider",
- *   admin_label = @Translation("Swedish American Bootstrap Style Carousel"),
+ *   admin_label = @Translation("SwedishAmerican Bootstrap Style Carousel"),
  * )
  */
 class SwedishAmericanSlider extends BlockBase {

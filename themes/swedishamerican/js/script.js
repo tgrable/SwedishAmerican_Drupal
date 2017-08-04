@@ -109,7 +109,7 @@
 									var urlRoot = window.location.origin;
 									var title = $(this).data("name");
 									var path = $(this).data("href");
-									window.open("https://twitter.com/share?url=" + urlRoot + path + "&text=Check out " + title + " at Swedish American Hospital", "_blank", "width=575, height=250");
+									window.open("https://twitter.com/share?url=" + urlRoot + path + "&text=Check out " + title + " at SwedishAmerican", "_blank", "width=575, height=250");
 								});
 
 								// Need to Fix

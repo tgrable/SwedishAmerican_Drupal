@@ -6,11 +6,11 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a 'Swedish American Bootstrap Style Accordion.'
+ * Provides a 'SwedishAmerican Bootstrap Style Accordion.'
  *
  * @Block(
  *   id = "swedishamerican_accordion",
- *   admin_label = @Translation("Swedish American Bootstrap Style Accordion"),
+ *   admin_label = @Translation("SwedishAmerican Bootstrap Style Accordion"),
  * )
  */
 class SwedishAmericanAccordion extends BlockBase {

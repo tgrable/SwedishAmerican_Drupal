@@ -3682,6 +3682,7 @@ section#block-youtubepostfeed {
 }
 .service-container .address {
   vertical-align: top;
+  max-width: 190px;
 }
 .service-container i {
   margin-right: 15px;

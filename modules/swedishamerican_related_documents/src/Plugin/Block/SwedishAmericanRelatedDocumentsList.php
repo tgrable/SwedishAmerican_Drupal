@@ -6,11 +6,11 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a 'Swedish American Related Documents List' Block.
+ * Provides a 'SwedishAmerican Related Documents List' Block.
  *
  * @Block(
  *   id = "swedishamerican_related_documents_list",
- *   admin_label = @Translation("Swedish American Related Documents List"),
+ *   admin_label = @Translation("SwedishAmerican Related Documents List"),
  * )
  */
 class SwedishAmericanRelatedDocumentsList extends BlockBase {
