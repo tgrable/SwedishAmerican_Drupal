@@ -14,7 +14,7 @@
 
 					$('.dropdown-menu:eq(0) li').each(function(key, value) {
 						console.log($(this).children('a').attr("data-drupal-link-system-path"));
-						if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/147' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170') {
+						if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170') {
 							console.log('found a menu item');
 						}
 						else {
@@ -25,12 +25,8 @@
 					var maniMenuString = '<li class="extra-services"><div class="bs-menu"><h2>Services A - Z</h2><ul>';
 					for (var i = 0; i < extra.length; i++) {
 						maniMenuString += '<li>' + extra[i] + '</li>';
-						// console.log(extra[i]);
 					}
 					maniMenuString += '</ul></li>';
-
-    				// var menuString = '<li class="extra-services"><div class="bs-menu"><h2>Services A - Z</h2><ul><li><a href="/services/audiology">Audiology</a></li><li><a href="#">DaVinci Surgery</a></li><li><a href="/services/diabetes-nutrition">Diabetes & Nutrition</a></li><li><a href="/services/emergency-services">Emergency Services</a></li><li><a href="/services/holistic-health">Holistic Health</a></li><li><a href="/services/home-health-care">Home Health Care</a></li><li><a href="#">Immediate / Urgent Care</a></li><li><a href="#">Laboratory Services</a></li><li><a href="/services/medical-imaging">Medical Imaging</a></li><li><a href="/services/mental-health">Mental Health</a></li><li><a href="#">Occupational Care</a></li><li><a href="#">Outpatient Therapy</a></li><li><a href="#">Palliative Care</a></li><li><a href="#">Pediactrics</a></li><li><a href="#">Pharmacy</a></li><li><a href="#">Primary Care / Family Medicine</a></li><li><a href="#">Sleep Disorders Centers</a></li><li><a href="#">Surgery</a></li><li><a href="#">Wellness</a></li><li><a href="#">Wound Care Clinic</a></li></ul></div></li>';
-					// $('.dropdown-menu:eq(0)').append(menuString);
 					$('.dropdown-menu:eq(0)').append(maniMenuString);
 				}
 
