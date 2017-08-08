@@ -3082,6 +3082,14 @@ footer .footer-content p {
   color: #92318f;
   padding-top: 15px;
 }
+.view-id-survivor_stories .card-provider-title,
+.view-cancer-care-stories .card-provider-title {
+  text-align: center;
+  padding-bottom: 15px;
+}
+.patient-story-details-container {
+  padding: 30px;
+}
 .card-provider-special {
   font-family: 'AvenirNext-Italic';
   font-weight: normal;
@@ -3658,6 +3666,14 @@ section#block-youtubepostfeed {
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
   /* Styles */
+}
+.field.field--name-field-image {
+  float: left;
+  margin: 30px 30px 15px 0;
+}
+.field.field--name-field-image img {
+  max-width: 250px;
+  border-radius: 150px;
 }
 .service-container h1 {
   margin-top: 0;
