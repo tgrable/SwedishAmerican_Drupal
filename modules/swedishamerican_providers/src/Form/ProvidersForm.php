@@ -45,48 +45,37 @@ class ProvidersForm extends FormBase {
     $form['wrapper']['sag'] = array(
         '#type' => 'checkbox',
         '#field_prefix' => $this->getCheckBoxMarkup(),
-        '#ajax' => [
-          'callback' => array($this, 'filterProvidersAjax'),
-          'event' => 'change',
-        ],
     );  
 
     $form['wrapper']['name'] = array (
       '#type' => 'textfield',
       '#placeholder' => 'Name',
-      '#ajax' => [
-        'callback' => array($this, 'filterProvidersAjax'),
-        'event' => 'change',
-      ],
     );
 
     $form['wrapper']['location'] = array (
       '#type' => 'select',
       '#empty_option' => t('Location'),
       '#options' => $locations,
-      '#ajax' => [
-        'callback' => array($this, 'filterProvidersAjax'),
-        'event' => 'change',
-      ],
     );
 
     $form['wrapper']['specialty'] = array (
       '#type' => 'select',
       '#empty_option' => t('Specialty'),
       '#options' => $specialty,
-      '#ajax' => [
-        'callback' => array($this, 'filterProvidersAjax'),
-        'event' => 'change',
-      ],
     );
 
     $form['wrapper']['gender'] = array (
       '#type' => 'select',
       '#empty_option' => t('Gender'),
       '#options' => array('male' => 'Male', 'Female' => 'Female'),
+    );
+
+    $form['wrapper']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Apply'),
       '#ajax' => [
-        'callback' => array($this, 'filterProvidersAjax'),
-        'event' => 'change',
+          'wrapper' => 'wrapper',
+          'callback' => array($this, 'filterProvidersAjax'),
       ],
     );
 

@@ -57,6 +57,7 @@
             .contact {
                 margin-right: 30px;
                 min-width: 230px;
+                margin-bottom: 30px;
             }
             .address {
                 margin-right: 30px;
@@ -141,11 +142,12 @@
 }
 
 .form-item-sag {
-    .input-group-addon {
-        padding: 0 60px 0 0;
-    }
+    // .input-group-addon {
+    //     padding: 0 60px 0 0;
+    // }
     input[type="checkbox"] {
         margin-right: 15px;
+        float: right;
     }
     input[type="checkbox"]:after {
         border: 1px solid #666666;
@@ -155,6 +157,8 @@
         border-color: @brand-primary;
     }
     .sag-markup {
+        float: left;
+
         div {
             vertical-align: top;
         }
@@ -222,6 +226,18 @@
     max-width: 1250px;
 }
 
+.patient-story-image {
+    .field.field--name-field-image {
+        float: left;
+        margin: 30px 30px 15px 0;
+        
+        img {
+            max-width: 250px;
+            border-radius: 150px;
+        }
+    }
+}
+
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) and (max-width : 1500px) {
     /* Styles */
@@ -252,17 +268,4 @@
 /* Large screens ----------- */
 @media only screen  and (min-width : 1824px) {
 /* Styles */
-}
-
-
-
-// TODO: Move these
-.field.field--name-field-image {
-    float: left;
-    margin: 30px 30px 15px 0;
-    
-    img {
-        max-width: 250px;
-        border-radius: 150px;
-    }
 }

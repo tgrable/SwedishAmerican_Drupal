@@ -48,38 +48,46 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="contact inline">
-        <h2>Contact</h2>
-        <div class="phone">
-            <div class="icon inline">
-                <p><i class="fa fa-phone"></i></p>
+        {% if paragraph_field_phone != null %}
+          <div class="contact inline">
+            <h2>Contact</h2>
+            <div class="phone">
+                <div class="icon inline">
+                    <p><i class="fa fa-phone"></i></p>
+                </div>
+                <div class="result inline">
+                    <p>{{ paragraph_field_phone }}</p>
+                </div>
             </div>
-            <div class="result inline">
-                <p>{{ paragraph_field_phone }}</p>
-            </div>
+          {% endif %}
+          {% if paragraph_field_email != null %}
+            <div class="email">
+              <div class="icon inline">
+                  <p><i class="fa fa-envelope"></i></p>
+              </div>
+              <div class="result inline">
+                  <p>{{ paragraph_field_email }}</p>
+              </div>
+            </div> 
+          {% endif %}
         </div>
-        <div class="email">
-            <div class="icon inline">
-                <p><i class="fa fa-envelope"></i></p>
-            </div>
-            <div class="result inline">
-                <p>{{ paragraph_field_email }}</p>
-            </div>
-        </div> 
-      </div>
-      <div class="address inline">
-        <h2>Location</h2>
-          <p>
-            <a href="{{ term_path_alias }}">{{ paragraph_field_name }}</a><br />
-            {{ paragraph_field_address }}<br />
-            {{ paragraph_field_city }},
-            {{ paragraph_field_state }}
-            {{ paragraph_field_zip }}
-          </p>
-      </div>
-      <div class="map inline-collapse">
-        {{ content.field_map }}
-      </div>     
+      <div class="address-group inline">
+        {% if paragraph_field_address != null %}
+          <div class="address inline">  
+            <h2>Location</h2>
+              <p>
+                <a href="{{ term_path_alias }}">{{ paragraph_field_name }}</a><br />
+                {{ paragraph_field_address }}<br />
+                {{ paragraph_field_city }},
+                {{ paragraph_field_state }}
+                {{ paragraph_field_zip }}
+              </p>
+          </div>
+        {% endif %}
+        <div class="map inline-collapse">
+          {{ content.field_map }}
+        </div>  
+      </div>   
     {% endblock %}
   </div>
 {% endblock paragraph %}

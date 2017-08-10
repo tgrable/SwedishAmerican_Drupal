@@ -3350,6 +3350,10 @@ section#block-youtubepostfeed {
 .location-container .map-image-container .image {
   width: 50%;
 }
+.location-container .map-image-container iframe {
+  width: 740px;
+  height: 559px;
+}
 .location-container .term-content-container {
   width: 65%;
   margin: 45px 30px 0 95px;
@@ -3504,6 +3508,7 @@ section#block-youtubepostfeed {
 .provider-container .provider-details-container .provider-contact-container .contact {
   margin-right: 30px;
   min-width: 230px;
+  margin-bottom: 30px;
 }
 .provider-container .provider-details-container .provider-contact-container .address {
   margin-right: 30px;
@@ -3575,11 +3580,9 @@ section#block-youtubepostfeed {
 .select-wrapper:after {
   font-size: 0;
 }
-.form-item-sag .input-group-addon {
-  padding: 0 60px 0 0;
-}
 .form-item-sag input[type="checkbox"] {
   margin-right: 15px;
+  float: right;
 }
 .form-item-sag input[type="checkbox"]:after {
   border: 1px solid #666666;
@@ -3587,6 +3590,9 @@ section#block-youtubepostfeed {
 .form-item-sag input[type="checkbox"]:checked:after {
   background-color: #92318f;
   border-color: #92318f;
+}
+.form-item-sag .sag-markup {
+  float: left;
 }
 .form-item-sag .sag-markup div {
   vertical-align: top;
@@ -3642,6 +3648,14 @@ section#block-youtubepostfeed {
 .providers-container {
   max-width: 1250px;
 }
+.patient-story-image .field.field--name-field-image {
+  float: left;
+  margin: 30px 30px 15px 0;
+}
+.patient-story-image .field.field--name-field-image img {
+  max-width: 250px;
+  border-radius: 150px;
+}
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) and (max-width: 1500px) {
   /* Styles */
@@ -3666,14 +3680,6 @@ section#block-youtubepostfeed {
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
   /* Styles */
-}
-.field.field--name-field-image {
-  float: left;
-  margin: 30px 30px 15px 0;
-}
-.field.field--name-field-image img {
-  max-width: 250px;
-  border-radius: 150px;
 }
 .service-container h1 {
   margin-top: 0;

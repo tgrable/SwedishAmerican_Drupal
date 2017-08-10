@@ -74,6 +74,13 @@ function swedishamerican_preprocess_node(array &$variables) {
       }
     }
   }
+  else if (strcmp ($variables['node']->getType(), 'provider') === 0) {
+    $specialty_term_array = $variables['node']->get('field_specialty')->getValue();
+    $specialty_term_id = $specialty_term_array[0]['target_id'];
+    $specialty_term = \Drupal\taxonomy\Entity\Term::load($specialty_term_id);
+    $specialty_term_name = $specialty_term->get('name')->getValue();
+    $variables['specialty_field'] = $specialty_term_name[0]['value'];
+  }
 }
 
 /**
