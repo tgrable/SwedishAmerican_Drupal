@@ -82,15 +82,10 @@
 
     <div{{ content_attributes }}>
       <div class="event-dates">
-        {% set count = 1 %}
-        {% for eventDate in node.field_date %} 
-          {% set unixDate = eventDate.value | date('U') %}
-          <p class="inline">{{ unixDate | format_date('event_date_format') }}{% if count < node.field_date|length %}, {% endif %}</p>
-          {% set count = count + 1 %}
-        {% endfor %}
+        {{ content.field_date_text }}
       </div>
       <div class="event-tags">
-        {% for key, item in content.field_service_reference if key|first != '#' %}
+        {% for key, item in content.field_category if key|first != '#' %}
           <div class="item-{{ key + 1 }}">{{ item }}</div>
         {% endfor %}
       </div>
