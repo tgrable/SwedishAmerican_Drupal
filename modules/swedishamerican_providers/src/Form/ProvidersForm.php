@@ -217,22 +217,24 @@ class ProvidersForm extends FormBase {
             $paragraph = Paragraph::load($pid[0]['target_id']);
             $tid = $paragraph->get('field_location_reference')->getValue();
 
-            if ($term = \Drupal\taxonomy\Entity\Term::load($tid[0]['target_id'])) {
-              $termNameArray = $term->get('name')->getValue();
-              $termAddressArray = $term->get('field_address')->getValue();
-              $termCityArray = $term->get('field_city')->getValue();
-              $termStateArray = $term->get('field_state')->getValue();
-              $termZipArray = $term->get('field_zip')->getValue();
-              $termPhoneArray = $term->get('field_phone')->getValue();
+            if (count($tid) > 0) {
+              if ($term = \Drupal\taxonomy\Entity\Term::load($tid[0]['target_id'])) {
+                $termNameArray = $term->get('name')->getValue();
+                $termAddressArray = $term->get('field_address')->getValue();
+                $termCityArray = $term->get('field_city')->getValue();
+                $termStateArray = $term->get('field_state')->getValue();
+                $termZipArray = $term->get('field_zip')->getValue();
+                $termPhoneArray = $term->get('field_phone')->getValue();
 
-              $termmarkup = '<div class="card-provider-location-name">';
-                $termmarkup .= $termNameArray[0]['value'];
-              $termmarkup .= '</div>';
-              $termmarkup .= '<div class="card-provider-location-info ">';
-              $termmarkup .= $termAddressArray[0]['value'] . '<br />';
-              $termmarkup .= $termCityArray[0]['value'] . ', ' . $termStateArray[0]['value'] . ' ' . $termZipArray[0]['value'] . '<br />';
-              $termmarkup .= $termPhoneArray[0]['value'];
-              $termmarkup .= '</div>';
+                $termmarkup = '<div class="card-provider-location-name">';
+                  $termmarkup .= $termNameArray[0]['value'];
+                $termmarkup .= '</div>';
+                $termmarkup .= '<div class="card-provider-location-info ">';
+                $termmarkup .= $termAddressArray[0]['value'] . '<br />';
+                $termmarkup .= $termCityArray[0]['value'] . ', ' . $termStateArray[0]['value'] . ' ' . $termZipArray[0]['value'] . '<br />';
+                $termmarkup .= $termPhoneArray[0]['value'];
+                $termmarkup .= '</div>';
+              }
             }
           }      
 

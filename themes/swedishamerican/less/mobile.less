@@ -1,3 +1,110 @@
+/* ----------- Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) and (max-width : 1500px) {
+    /*************************** Global Styles ***************************/
+    .inline-collapse {
+        display: block;
+    }
+
+    .overlay {
+        width: 1100px;
+    }
+
+    .overlay-close {
+        float: none;
+        position: relative;
+        margin: 12px 0 0 -50px;
+        z-index: 100;
+        left: -30px;
+    }
+
+    .box {
+        width: 1100px;
+    }
+    
+    #overlay-content {
+        margin: auto;
+
+        .provider-contact-container {
+            .map {
+                iframe {
+                    width: 250px;
+                    height: 175px;
+                }
+            }
+        }
+        .location-container {
+            .map {
+                iframe {
+                    width: 554px;
+                    height: 418px;
+                }
+            }
+        }
+    }
+
+    /*************************** Provider Styles ***************************/
+    .providers-container {
+        max-width: 945px;
+    }
+
+    .provider-container {
+        .provider-image-container {
+            width: 335px;
+            margin-left: 30px;
+
+            .provider-image {
+                width: 305px;
+            }
+        }
+        .provider-details-container {
+            max-width: 625px;
+            margin-left: 45px;
+
+            .map {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .form-item-sag .sag-markup .text {
+        max-width: 195px;
+    }
+
+    /*************************** Location Styles ***************************/
+    .location-container{
+        .term-content-container {
+            margin: 45px 30px 0 30px;
+        }
+
+        .term-contact-container {
+            .phone-email {
+                width: 55%;
+            }
+        }
+
+        .term-services-container {
+            max-width: 325px;
+        } 
+    }
+    .view-id-locations {
+        .view-content,
+        .view-filters.form-group {
+            width: 25%;
+        }
+
+        .attachment-after {
+            width: 75%;
+
+            .view-display-id-attachment_1 {
+                .view-content {
+                    width: 100%;
+                    overflow-y: visible;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 1200px) {
     .view-header {
         height: 715px;

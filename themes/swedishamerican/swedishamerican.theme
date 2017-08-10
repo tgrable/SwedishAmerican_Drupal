@@ -96,7 +96,9 @@ function swedishamerican_preprocess_block(&$variables) {
   if (isset($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content']->toArray();
     if (isset($block['field_column_width'])) {
-      $variables['customWidthVariable'] = $block['field_column_width'][0]['value'];
+      if (count($block['field_column_width']) > 0) {
+        $variables['customWidthVariable'] = $block['field_column_width'][0]['value'];
+      }
     } 
   }
 }

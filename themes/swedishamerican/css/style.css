@@ -2752,22 +2752,6 @@ button.btn.btn-standard.btn-floating {
 .region-sidebar-first nav li a {
   line-height: inherit !important;
 }
-/* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) and (max-width: 1500px) {
-  /* Styles */
-  .inline-collapse {
-    display: block;
-  }
-  .overlay {
-    width: 1100px;
-  }
-  .box {
-    width: 1100px;
-  }
-  #overlay-content {
-    margin: auto;
-  }
-}
 header {
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -3357,6 +3341,8 @@ section#block-youtubepostfeed {
 .location-container .term-content-container {
   width: 65%;
   margin: 45px 30px 0 95px;
+  padding-right: 30px;
+  border-right: 1px solid #bebebe;
 }
 .location-container .term-contact-container div {
   vertical-align: top;
@@ -3369,10 +3355,7 @@ section#block-youtubepostfeed {
 }
 .location-container .term-services-container {
   margin: 45px 0 95px 0;
-  padding-left: 30px;
-  border-left: 1px solid #bebebe;
   vertical-align: top;
-  min-height: 575px;
 }
 .location-container .term-services-container h2 {
   margin-top: 0;
@@ -3441,25 +3424,6 @@ section#block-youtubepostfeed {
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
-}
-/* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) and (max-width: 1500px) {
-  /* Styles */
-  #overlay-content .map iframe {
-    width: 554px;
-    height: 418px;
-  }
-  .view-id-locations .view-content,
-  .view-id-locations .view-filters.form-group {
-    width: 25%;
-  }
-  .view-id-locations .attachment-after {
-    width: 75%;
-  }
-  .view-id-locations .attachment-after .view-display-id-attachment_1 .view-content {
-    width: 100%;
-    overflow-y: visible;
-  }
 }
 .provider-container h1,
 .provider-container h2 {
@@ -3656,27 +3620,6 @@ section#block-youtubepostfeed {
   max-width: 250px;
   border-radius: 150px;
 }
-/* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) and (max-width: 1500px) {
-  /* Styles */
-  .providers-container {
-    max-width: 945px;
-  }
-  .provider-container .provider-image-container {
-    width: 335px;
-    margin-left: 30px;
-  }
-  .provider-container .provider-image-container .provider-image {
-    width: 305px;
-  }
-  .provider-container .provider-details-container {
-    max-width: 625px;
-    margin-left: 45px;
-  }
-  .provider-container .provider-details-container .map {
-    margin-top: 30px;
-  }
-}
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
   /* Styles */
@@ -3829,6 +3772,99 @@ section#block-youtubepostfeed {
 }
 .events {
   padding: 30px;
+}
+.field--name-field-date-text .field--item {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #3f3f3f;
+  line-height: 1.4em;
+  margin-top: 0px;
+  margin-bottom: 0.6em;
+}
+.event-tags a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #92318f;
+  line-height: 1.4em;
+  margin-top: 0px;
+  margin-bottom: 0.6em;
+}
+/* ----------- Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) and (max-width: 1500px) {
+  /*************************** Global Styles ***************************/
+  .inline-collapse {
+    display: block;
+  }
+  .overlay {
+    width: 1100px;
+  }
+  .overlay-close {
+    float: none;
+    position: relative;
+    margin: 12px 0 0 -50px;
+    z-index: 100;
+    left: -30px;
+  }
+  .box {
+    width: 1100px;
+  }
+  #overlay-content {
+    margin: auto;
+  }
+  #overlay-content .provider-contact-container .map iframe {
+    width: 250px;
+    height: 175px;
+  }
+  #overlay-content .location-container .map iframe {
+    width: 554px;
+    height: 418px;
+  }
+  /*************************** Provider Styles ***************************/
+  .providers-container {
+    max-width: 945px;
+  }
+  .provider-container .provider-image-container {
+    width: 335px;
+    margin-left: 30px;
+  }
+  .provider-container .provider-image-container .provider-image {
+    width: 305px;
+  }
+  .provider-container .provider-details-container {
+    max-width: 625px;
+    margin-left: 45px;
+  }
+  .provider-container .provider-details-container .map {
+    margin-top: 30px;
+  }
+  .form-item-sag .sag-markup .text {
+    max-width: 195px;
+  }
+  /*************************** Location Styles ***************************/
+  .location-container .term-content-container {
+    margin: 45px 30px 0 30px;
+  }
+  .location-container .term-contact-container .phone-email {
+    width: 55%;
+  }
+  .location-container .term-services-container {
+    max-width: 325px;
+  }
+  .view-id-locations .view-content,
+  .view-id-locations .view-filters.form-group {
+    width: 25%;
+  }
+  .view-id-locations .attachment-after {
+    width: 75%;
+  }
+  .view-id-locations .attachment-after .view-display-id-attachment_1 .view-content {
+    width: 100%;
+    overflow-y: visible;
+  }
 }
 @media (max-width: 1200px) {
   .view-header {

@@ -56,30 +56,36 @@
             <hr />
             <div class="phone-email inline">
                 <h2>Contact</h2>
-                <div class="phone">
-                    <div class="icon inline">
-                        <p><i class="fa fa-phone"></i></p>
+                {% if term.field_phone|length > 0 %}
+                    <div class="phone">
+                        <div class="icon inline">
+                            <p><i class="fa fa-phone"></i></p>
+                        </div>
+                        <div class="result inline">
+                            <p>{{ term.field_phone.0.value }}</p>
+                        </div>
                     </div>
-                    <div class="result inline">
-                        <p>{{ term.field_phone.0.value }}</p>
+                {% endif %}
+                {% if term.field_email_address|length > 0 %}
+                    <div class="email">
+                        <div class="icon inline">
+                            <p><i class="fa fa-envelope"></i></p>
+                        </div>
+                        <div class="result inline">
+                            <p>{{ term.field_email_address.0.value }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="email">
-                    <div class="icon inline">
-                        <p><i class="fa fa-envelope"></i></p>
-                    </div>
-                    <div class="result inline">
-                        <p>{{ term.field_email_address.0.value }}</p>
-                    </div>
-                </div>
+                {% endif %}
             </div>
                 <div class="hours inline">
-                    <h2>Hours</h2>
-                    <div class="result">
-                        {% for hour in term.field_hours %}
-                            <p>{{ hour.value }}</p>
-                        {% endfor %}
-                    </div>
+                    {% if term.field_hours|length > 0 %}
+                        <h2>Hours</h2>
+                        <div class="result">
+                            {% for hour in term.field_hours %}
+                                <p>{{ hour.value }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
                 <hr />
                 <div class="term-contact-container">
