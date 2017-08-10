@@ -34,14 +34,12 @@
 					$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
 					$('header').css("height", "615px");
 				}
-				else if (this.pathname.includes("provider")) {					
-					if (this.pathname !== '/providers') {
-						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
-						$('header').css("height", "335px");
-					}
-					else {
-						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
-					}
+				else if (this.pathname.includes("providers")) {	
+					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
+						$('header').css("height", "335px");				
+				}
+				else if (this.pathname.includes("find-a-doctor")) {
+					$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 				}
 				else if (this.pathname.includes("events")) {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
