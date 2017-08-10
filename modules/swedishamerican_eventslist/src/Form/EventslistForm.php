@@ -39,8 +39,8 @@ class EventslistForm extends FormBase {
 
         $form['wrapper']['service'] = array (
             '#type' => 'select',
-            '#empty_option' => t('Service Category'),
-            '#options' => $this->getSerciveNodes(),
+            '#empty_option' => t('Event Category'),
+            '#options' => $this->getEventCategoryNodes(),
         );
 
         $form['wrapper']['submit'] = array(
@@ -114,8 +114,6 @@ class EventslistForm extends FormBase {
     * Helper function to build the node markup
     */
     private function _getNodeMarkup($nodes) {
-        // dsm($nodes);
-        
         $markup = '<div class="events-container">';
 
             foreach ($nodes as $node) {
@@ -124,48 +122,30 @@ class EventslistForm extends FormBase {
                     $markup .= '<div class="card-event" data-tag="' . $alias . ' #node_' . $node->id() . '">';
                         $title = $node->get('title')->getValue();
                         $markup .= '<h2>' . $title[0]['value'] . '</h2>';
-
-                        $dates = $node->get('field_date')->getValue();
+                        $dates = $node->get('field_date_text')->getValue();
                         $dateMarkup = '';
                         for ($i = 0; $i < count($dates); $i++) {
-                            $date = \Drupal::service('date.formatter')->format(strtotime($dates[$i]['value']), 'event_date_format');
-                            if ($i != count($dates) - 1) {
-                                $dateMarkup .= $date . ', ';
-                            }
-                            else {
-                                $dateMarkup .= $date;
-                            }
+                            $dateMarkup .= '<p>' . $dates[$i]['value'] . '</p>';
                         }
-                        $markup .= '<p>' . $dateMarkup . '</p>';
-
+                        $markup .= $dateMarkup;
                         $body = $node->get('body')->getValue();
                         $markup .= '<p>' . $body[0]['summary'] . '</p>';
-
                     $markup .= '</div>';
                 $markup .= '</div>';
             }
-    
         $markup .= '</div>';
         
         return $markup;
     }
 
-    private function getSerciveNodes() {
-        if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
-            $query = \Drupal::entityQuery('node');
-            $query->condition('status', 1);
-            $query->condition('type', 'service');
-            $entity_ids = $query->execute();
-
-            $nodes = node_load_multiple($entity_ids);
-
-            $options = array();
-            foreach($nodes as $node) {
-                $title = $node->get('title')->getValue();
-                $options[$node->id()] = $title[0]['value'];
-            }
-
-            return $options;
+    private function getEventCategoryNodes() {
+        $event_categories = array();
+        $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('events', $parent = 0, $max_depth = 1, $load_entities = FALSE);
+        foreach ($tree as $value) {
+            $event_categories[$value->tid] = $value->name;
         }
+        asort($event_categories);
+
+        return $event_categories;
     }
 }
