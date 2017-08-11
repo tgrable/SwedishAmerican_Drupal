@@ -2495,7 +2495,8 @@ header#navbar {
   margin: auto;
 }
 .inline,
-.inline-collapse {
+.inline-collapse,
+.inline-desktop {
   display: inline-block;
 }
 .top-align {
@@ -3771,7 +3772,7 @@ section#block-youtubepostfeed {
   margin-bottom: 5px;
 }
 .events {
-  padding: 30px;
+  padding: 0 30px 30px 30px;
 }
 .field--name-field-date-text .field--item {
   font-family: 'AvenirNext-Regular';
@@ -3793,12 +3794,17 @@ section#block-youtubepostfeed {
   margin-top: 0px;
   margin-bottom: 0.6em;
 }
-/* ----------- Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) and (max-width: 1500px) {
-  /*************************** Global Styles ***************************/
+@media only screen and (max-width: 1500px) {
   .inline-collapse {
     display: block;
   }
+  .provider-container {
+    max-width: 945px;
+  }
+}
+/* ----------- Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) and (max-width: 1500px) {
+  /*************************** Global Styles ***************************/
   .overlay {
     width: 1100px;
   }
@@ -3824,9 +3830,6 @@ section#block-youtubepostfeed {
     height: 418px;
   }
   /*************************** Provider Styles ***************************/
-  .providers-container {
-    max-width: 945px;
-  }
   .provider-container .provider-image-container {
     width: 335px;
     margin-left: 30px;
@@ -3866,8 +3869,120 @@ section#block-youtubepostfeed {
     overflow-y: visible;
   }
 }
-@media (max-width: 1200px) {
+/* ----------- In-between Range ----------- */
+@media only screen and (min-width: 1025px) and (max-width: 1199px) {
   .view-header {
     height: 715px;
   }
+}
+/* ----------- iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /*************************** Global Styles ***************************/
+  #preheader .logo {
+    margin-left: 30px;
+  }
+  #preheader .search {
+    width: 640px;
+    margin-right: 30px;
+  }
+  .inline-desktop {
+    display: block;
+  }
+  .box {
+    left: 45px;
+  }
+  /*************************** Front Page Styles ***************************/
+  .view-front-cards .view-header {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    min-height: 0;
+  }
+  .view-front-cards .view-header h1,
+  .view-front-cards .view-header p {
+    text-align: left;
+  }
+  .social-block .header-title {
+    margin-right: 0;
+    min-height: 75px;
+  }
+  .social-block .header-title h1 {
+    text-align: left;
+  }
+  #block-facebookpostfeed,
+  #block-instagrampostfeed {
+    margin-left: 0;
+  }
+  #block-facebookpostfeed .social-block .header-title,
+  #block-instagrampostfeed .social-block .header-title {
+    float: none;
+    min-height: 75px;
+  }
+  .youtube-container .divider {
+    background-color: #ffffff;
+  }
+  /*************************** Service Styles ***************************/
+  .service-container .phone-email {
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .service-container .location-address {
+    padding-left: 0;
+  }
+  .service-container .location-address .address {
+    max-width: none;
+  }
+  /*************************** Provider Styles ***************************/
+  .providers-container {
+    width: 775px;
+  }
+  .provider-container .provider-image-container {
+    width: 335px;
+  }
+  .provider-container .provider-image-container .provider-image {
+    width: 205px;
+  }
+  .provider-container .provider-image-container .provider-image .social-provider {
+    width: 205px;
+  }
+  .provider-container .provider-image-container .provider-image .social .social-button {
+    margin-left: 5px;
+  }
+  .provider-container .provider-details-container {
+    max-width: 575px;
+  }
+  .form-item-sag .sag-markup .text {
+    max-width: 135px;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container {
+    width: 945px;
+  }
+  .locations-container .location-container .map-image-container iframe {
+    width: 469px;
+    height: 354px;
+  }
+  .locations-container .location-container .term-contact-container .phone-email {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .locations-container .location-container .term-content-container {
+    width: 60%;
+    margin: 45px 30px 0 30px;
+  }
+  .locations-container .view-id-locations .views-field-field-address {
+    padding: 0 15px 30px 30px;
+  }
+  .locations-container .view-id-locations .attachment-after {
+    top: 85px;
+  }
+  /*************************** Location Styles ***************************/
+  .event-container {
+    width: 945px;
+  }
+}
+/* ----------- iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
 }

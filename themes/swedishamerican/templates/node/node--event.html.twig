@@ -73,26 +73,28 @@
  */
 #}
 <article id="node_{{ node.id|raw }}" {{ attributes }}>
-  <div class="events">
-    {{ title_prefix }}
-      <h2{{ title_attributes }}>
-        {{ label }} 
-      </h2>
-    {{ title_suffix }}
-
-    <div{{ content_attributes }}>
-      <div class="event-dates">
-        {{ content.field_date_text }}
+  <div class="event-container">
+    <div class="top-bar"></div>
+    <div class="events">
+      {{ title_prefix }}
+        <h1{{ title_attributes }}>
+          {{ label }} 
+        </h1>
+      {{ title_suffix }}
+      <div{{ content_attributes }}>
+        <div class="event-dates">
+          {{ content.field_date_text }}
+        </div>
+        <div class="event-tags">
+          {% for key, item in content.field_category if key|first != '#' %}
+            <div class="item-{{ key + 1 }}">{{ item }}</div>
+          {% endfor %}
+        </div>
+        <hr />
+        <div class="event-body">
+          {{ content.body }}
+        </div> 
       </div>
-      <div class="event-tags">
-        {% for key, item in content.field_category if key|first != '#' %}
-          <div class="item-{{ key + 1 }}">{{ item }}</div>
-        {% endfor %}
-      </div>
-      <hr />
-      <div class="event-body">
-        {{ content.body }}
-      </div> 
     </div>
   </div>
 </article>
