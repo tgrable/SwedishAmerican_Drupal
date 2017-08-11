@@ -85,7 +85,7 @@
 %}
 <article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
     <div class="top-bar"></div>
-    <div{{ content_attributes }} class="provider-image-container inline">
+    <div{{ content_attributes }} class="provider-image-container inline-desktop">
         <div class="provider-image">
             {{ content.field_image }}
             <div class="share">
@@ -102,7 +102,7 @@
             </div>
         </div>
     </div>
-    <div{{ content_attributes }} class="provider-details-container inline">
+    <div{{ content_attributes }} class="provider-details-container inline-desktop">
         <div class="name">
             <h1>{{ label }}</h1>
             <h3>{{ specialty_field }}</h3>

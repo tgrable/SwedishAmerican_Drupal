@@ -233,14 +233,14 @@
     .form-item-sag {
         .sag-markup {
             .text {
-                max-width: 135px;
+                max-width: 134px;
             }
         }
     }
 
     /*************************** Location Styles ***************************/
     .locations-container {
-        width: 945px;
+        // width: 945px;
 
         .location-container {
             .map-image-container {
@@ -262,17 +262,17 @@
                 margin: 45px 30px 0 30px;
             }
         }
-        .view-id-locations {
-            .views-field-field-address {
-                padding: 0 15px 30px 30px;
-            }
-            .attachment-after {
-                top: 85px;
-            }
+    }
+    .view-id-locations {
+        .views-field-field-address {
+            padding: 0 15px 30px 30px;
+        }
+        .attachment-after {
+            top: 115px;
         }
     }
 
-    /*************************** Location Styles ***************************/
+    /*************************** Events Styles ***************************/
     .event-container {
         width: 945px;
     }
@@ -280,5 +280,180 @@
 
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-/* Styles */
+    /*************************** Global Styles ***************************/
+    #preheader {
+        .search {
+            width: 400px;
+            margin-right: 30px;
+        }
+    }
+
+    ul.menu.nav.navbar-nav {
+        margin-left: 15px;
+    }
+    
+    .navbar-inverse .navbar-nav > li > a {
+        padding: 16px 8px 15px 8px;
+    }
+
+    .bs-menu {
+        ul {
+            li {
+                width: 110px;
+                margin-right: 0px;
+
+                a {
+                    padding: 3px 0px;
+                    white-space: normal;
+                }
+            }
+        }
+    }
+
+    #dependant-fields-wrapper {
+        width: 25%;
+    }
+
+    .box {
+        left: 60px;
+    }
+
+    footer {
+        .footer-content-short {
+            width: 210px;
+        }
+    }
+
+    /*************************** Front Page Styles ***************************/
+    .view-front-cards {
+        .views-row {
+            margin: 5px;
+        }
+        .view-content {
+            margin-top: 15px;
+        }
+        .card {
+            width: 225px;
+        }
+    }
+
+    #block-socialheader {
+        .social-block {
+            .header-title, 
+            .header-body {
+                float: none;
+                display: inline-block;    
+            }
+        }
+        .header-title {
+            vertical-align: top;
+            width: 25%;
+        }
+        .header-body {
+            width: 74%;
+        }
+    }
+
+    .fb-container {
+        width: 225px;
+        margin: 0 10px 0 0;
+    }
+
+    .ig-content {
+        width: 225px;
+    }
+
+    .ig-content-wide {
+        width: 260px;
+    }
+
+    /*************************** Provider Styles ***************************/
+    .providers-container {
+        width: 535px;
+    }
+
+    .provider-container {
+        width: 640px;
+        
+        .provider-image-container {
+            width: 640px;
+
+            .provider-image {
+                width: 360px;
+
+                .social-provider {
+                    width: 360px;
+                }
+
+                .social {
+                    .social-button {
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+        .provider-details-container {
+            max-width: 640px;
+            margin-left: 30px;
+            margin-top: 30px;
+
+            .contact.inline {
+                display: block;
+            }
+        }
+    }
+
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        width: 640px;
+
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 316px;
+                    height: 239px;
+                }
+            }
+            .term-content-container.inline {
+                display: block;
+            }
+            .term-content-container {
+                width: 90%;
+                margin: 45px 30px 30px 30px;
+
+                border-right: none;
+            }
+            
+            .term-services-container {
+                margin: 0 30px 30px 30px;
+            }
+        }
+    }
+
+    .view-id-locations {
+        .views-field-field-address {
+            padding: 0 15px 30px 30px;
+        }
+        .view-content,
+        .view-filters.form-group {
+            width: 25%;
+        }
+        .attachment-after {
+            top: 115px;
+            width: 74%;
+        }
+    }
+
+    /*************************** Event Styles ***************************/
+    .events-container {
+        max-width: 545px;
+        
+        .card-event {
+            width: 225px;
+        }
+    }
+
+    .event-container {
+        width: 640px;
+    }
 }
