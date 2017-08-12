@@ -3879,7 +3879,7 @@ section#block-youtubepostfeed {
   }
 }
 /* ----------- iPads (landscape) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (max-device-width: 1024px) {
   /*************************** Global Styles ***************************/
   #preheader .logo {
     margin-left: 30px;
@@ -3887,9 +3887,6 @@ section#block-youtubepostfeed {
   #preheader .search {
     width: 640px;
     margin-right: 30px;
-  }
-  .inline-desktop {
-    display: block;
   }
   .box {
     left: 45px;
@@ -3940,6 +3937,9 @@ section#block-youtubepostfeed {
   .providers-container {
     width: 775px;
   }
+  .provider-container {
+    width: 940px;
+  }
   .provider-container .provider-image-container {
     width: 335px;
   }
@@ -3959,9 +3959,12 @@ section#block-youtubepostfeed {
     max-width: 134px;
   }
   /*************************** Location Styles ***************************/
+  .locations-container {
+    width: 940px;
+  }
   .locations-container .location-container .map-image-container iframe {
-    width: 469px;
-    height: 354px;
+    width: 466px;
+    height: 352px;
   }
   .locations-container .location-container .term-contact-container .phone-email {
     width: 100%;
@@ -3978,12 +3981,15 @@ section#block-youtubepostfeed {
     top: 115px;
   }
   /*************************** Events Styles ***************************/
+  .events-container {
+    width: 775px;
+  }
   .event-container {
-    width: 945px;
+    width: 940px;
   }
 }
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media only screen and (max-device-width: 768px) {
   /*************************** Global Styles ***************************/
   #preheader .search {
     width: 400px;
@@ -4009,6 +4015,9 @@ section#block-youtubepostfeed {
   .box {
     left: 60px;
   }
+  .inline-desktop {
+    display: block;
+  }
   footer .footer-content-short {
     width: 210px;
   }
@@ -4017,7 +4026,15 @@ section#block-youtubepostfeed {
     margin: 5px;
   }
   .view-front-cards .view-content {
+    float: none;
+    width: 100%;
+    margin-right: 0;
     margin-top: 15px;
+    min-height: 0;
+  }
+  .view-front-cards .view-content h1,
+  .view-front-cards .view-content p {
+    text-align: left;
   }
   .view-front-cards .card {
     width: 225px;

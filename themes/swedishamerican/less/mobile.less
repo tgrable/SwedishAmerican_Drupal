@@ -117,7 +117,7 @@
 }
 
 /* ----------- iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (max-device-width : 1024px) {
     /*************************** Global Styles ***************************/
     #preheader {
         .logo {
@@ -128,10 +128,6 @@
             width: 640px;
             margin-right: 30px;
         }
-    }
-
-    .inline-desktop {
-        display: block;
     }
 
     .box {
@@ -206,7 +202,9 @@
         width: 775px;
     }
 
-    .provider-container { 
+    .provider-container {
+        width: 940px;
+
         .provider-image-container {
             width: 335px;
 
@@ -240,13 +238,13 @@
 
     /*************************** Location Styles ***************************/
     .locations-container {
-        // width: 945px;
+        width: 940px;
 
         .location-container {
             .map-image-container {
                 iframe {
-                    width: 469px;
-                    height: 354px;
+                    width: 466px;
+                    height: 352px;
                 }
             }
 
@@ -273,13 +271,17 @@
     }
 
     /*************************** Events Styles ***************************/
+    .events-container {
+        width: 775px;
+    }
+
     .event-container {
-        width: 945px;
+        width: 940px;
     }
 }
 
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+@media only screen and (max-device-width : 768px) {
     /*************************** Global Styles ***************************/
     #preheader {
         .search {
@@ -318,6 +320,10 @@
         left: 60px;
     }
 
+    .inline-desktop {
+        display: block;
+    }
+
     footer {
         .footer-content-short {
             width: 210px;
@@ -330,7 +336,15 @@
             margin: 5px;
         }
         .view-content {
+            float: none;
+            width: 100%;
+            margin-right: 0;
             margin-top: 15px;
+            min-height: 0;
+
+            h1, p {
+                text-align: left;
+            }
         }
         .card {
             width: 225px;
