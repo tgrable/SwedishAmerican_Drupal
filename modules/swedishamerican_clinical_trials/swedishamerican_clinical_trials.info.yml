@@ -1,0 +1,5 @@
+name: SwedishAmerican Clinical Trials
+type: module
+description: Creates a block to display SwedishAmerican Clinical Trials
+package: Custom
+core: 8.x

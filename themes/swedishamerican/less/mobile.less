@@ -471,3 +471,71 @@
         width: 640px;
     }
 }
+
+/* ----------- iPads (portrait) ----------- */
+@media only screen and (max-device-width : 480px) {
+    /*************************** Global Styles ***************************/
+    #preheader {
+        display: none;
+    }
+
+    #postheader {
+        display: block;
+        background-color: @gray-secondary;
+        
+        .phone {
+            font-size: 18px;
+            padding: 5px;
+            color: @white;
+            text-align: center;
+        }
+    }
+
+    .navbar-inverse .navbar-collapse, 
+    .navbar-inverse .navbar-form {
+        border-color: white;
+        background-color: white;
+        margin-top: -22px;
+    }
+
+    .navbar-inverse .navbar-nav > .active > a, 
+    .navbar-inverse .navbar-nav > .active > a:hover, 
+    .navbar-inverse .navbar-nav > .active > a:focus,
+    .navbar-inverse .navbar-nav > li > a {
+        color: @text-color;
+    }
+
+    .navbar-header {
+        background: #fff;
+
+        .region-navigation {
+            display: inline-block;
+            width: 84%;
+
+            .logo {
+                padding-right: 0;
+                padding-left: 0;
+                margin-right: 15px; 
+
+                img {
+                    height: 52px;
+                }
+            }
+            .block-search-form-block {
+                .input-group {
+                    height: 52px;
+                }
+                input#edit-keys--2 {
+                    box-shadow: none;
+                    padding-top: 15px;
+                }
+            }
+        }
+        .navbar-toggle {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+}

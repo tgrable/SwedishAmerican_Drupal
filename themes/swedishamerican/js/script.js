@@ -8,26 +8,28 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {
-				if (!$('.extra-services').length) {
-					var main = [];
-					var extra = [];
-
-					$('.dropdown-menu:eq(0) li').each(function(key, value) {
-						console.log($(this).children('a').attr("data-drupal-link-system-path"));
-						if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170') {
-							console.log('found a menu item');
+				if ($(window).width() > 480) {
+					if (!$('.extra-services').length) {
+						var main = [];
+						var extra = [];
+	
+						$('.dropdown-menu:eq(0) li').each(function(key, value) {
+							console.log($(this).children('a').attr("data-drupal-link-system-path"));
+							if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170') {
+								console.log('found a menu item');
+							}
+							else {
+								$(this).detach();
+								extra.push($(this).html());
+							}
+						});
+						var maniMenuString = '<li class="extra-services"><div class="bs-menu"><h2>Services A - Z</h2><ul>';
+						for (var i = 0; i < extra.length; i++) {
+							maniMenuString += '<li>' + extra[i] + '</li>';
 						}
-						else {
-							$(this).detach();
-							extra.push($(this).html());
-						}
-					});
-					var maniMenuString = '<li class="extra-services"><div class="bs-menu"><h2>Services A - Z</h2><ul>';
-					for (var i = 0; i < extra.length; i++) {
-						maniMenuString += '<li>' + extra[i] + '</li>';
+						maniMenuString += '</ul></li>';
+						$('.dropdown-menu:eq(0)').append(maniMenuString);
 					}
-					maniMenuString += '</ul></li>';
-					$('.dropdown-menu:eq(0)').append(maniMenuString);
 				}
 
 				if (this.pathname === '/') {
@@ -63,12 +65,16 @@
 					$('header').css("height", "335px");
 				}
 				else if (this.pathname.includes("about")) {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
-					$('header').css("height", "335px");
+					if ($(window).width() > 480) {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
+						$('header').css("height", "335px");
+					}
 				}
 				else {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
-					$('header').css("height", "335px");
+					if ($(window).width() > 480) {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
+						$('header').css("height", "335px");
+					}
 				}
 			}
 		};

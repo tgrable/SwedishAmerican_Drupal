@@ -95,7 +95,8 @@ h1 {
     font-size: 40px;
     text-transform: uppercase;
     color: @brand-primary;
-    line-height: 1.4em;
+    line-height: 1.0em;
+    margin: 0;
 }
  
 h2 {
@@ -260,7 +261,6 @@ button.btn.btn-standard.btn-floating {
     }
     .search {
         width: 840px;
-        margin-right: 30px;
     }
     .phone {
         margin-top: 15px;
@@ -268,6 +268,10 @@ button.btn.btn-standard.btn-floating {
         font-size: 16px;
         text-align: right;
     }
+}
+
+#postheader {
+    display: none;
 }
  
 .search-input{
@@ -289,14 +293,28 @@ button.btn.btn-standard.btn-floating {
 	color: @gray-primary;
     padding: 16px 15px 14px 15px;
 }
- 
-#preheader {
-	height: 65px;
-	background: @white;
+
+.navbar-header {
+    .region-navigation {
+        display: none;
+    }
+}
+
+input#edit-keys::-webkit-input-placeholder {
+    color: @gray-secondary;
+    text-transform: uppercase;
+}
+
+div#block-swedishamerican-search {
+    border-right: 1px solid @gray-rules;
+    padding-right: 30px;
+}
+
+ul.menu.dropdown-menu {
+    padding-top: 30px;
 }
 
 /* FOOTER */
- 
 #footer-container {
     padding: 60px 30px;
     background-color: @brand-primary;
@@ -424,15 +442,27 @@ button.btn.btn-standard.btn-floating {
 	border-radius: 2px;
 }
 
-.region-sidebar-first {
-    nav {
-        li {
-            margin-bottom: 0;
-            line-height: inherit !important;
+.panel-body {
+    padding: 15px 15px 15px 0;
+}
 
-            a {
-                line-height: inherit !important;
-            }
-        }   
+section#block-swedishamericanclinicaltrials {
+    margin-top: 30px;
+    
+    .form-item.js-form-item.form-type-select.js-form-type-select.form-item-trials.js-form-item-trials.form-no-label.form-group {
+        display: inline-block;
     }
-} 
+
+    button#edit-submit--2 {
+        margin-left: 30px;
+    }
+
+    .trial-container {
+        margin: 15px 0;
+    }
+
+    .trial-id {
+        .avenirNextDemiBold;
+        font-size: 16px;
+    }
+}

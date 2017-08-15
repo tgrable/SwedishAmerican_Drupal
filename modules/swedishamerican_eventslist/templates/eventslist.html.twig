@@ -1,5 +1,6 @@
 {% if nodes|length > 0 %}
-    <div class="service-events"><h2>Events</h2>
+    <div class="service-events">
+        <div class="right-rail-header">Events</div>
         {% for node in nodes %}
             <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ node.label }}</a>
             {% if node.field_date.value != null %}

@@ -1,6 +1,6 @@
 {% if documents|length > 0 %}
     <div class="related-documents">
-        <h2>Documents</h2>
+        <div class="right-rail-header">Documents</div>
         <ul>
             {% for file in files %}
                 {% set filename  = file.filename.value %}

@@ -105,7 +105,9 @@
     <div{{ content_attributes }} class="provider-details-container inline-desktop">
         <div class="name">
             <h1>{{ label }}</h1>
-            <h3>{{ specialty_field }}</h3>
+            {% for specialty in specialty_field %}
+                <h3>{{ specialty }}</h3>
+            {% endfor %}
         </div>
     <hr />
     <div class="provider-contact-container">
