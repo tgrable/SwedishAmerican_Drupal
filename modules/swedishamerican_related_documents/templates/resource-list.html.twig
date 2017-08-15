@@ -1,0 +1,12 @@
+{% if links|length > 0 %}
+    <div class="resource-list">
+        <div class="right-rail-header">Resources</div>
+        <ul>
+            {% for link in links %}    
+                <li>
+                    <a href="{{ link.uri }}" target="_blank">{{ link.title }}</a>
+                </li> 
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

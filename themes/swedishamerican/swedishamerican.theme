@@ -85,11 +85,42 @@ function swedishamerican_preprocess_node(array &$variables) {
       array_push($specialty_field_array, $specialty_term_name[0]['value']);
     }
     $variables['specialty_field'] = $specialty_field_array;
-    
-    // $specialty_term_id = $specialty_term_array[0]['target_id'];
-    // $specialty_term = \Drupal\taxonomy\Entity\Term::load($specialty_term_id);
-    // $specialty_term_name = $specialty_term->get('name')->getValue();
-    // $variables['specialty_field'] = $specialty_term_name[0]['value'];
+  }
+  else if (strcmp ($variables['node']->getType(), 'service') === 0) { 
+    $location_array = $variables['node']->get('field_location')->getValue();
+    $locations = array();
+    foreach ($location_array as $location) {
+      $paragraph = Drupal\paragraphs\Entity\Paragraph::load($location['target_id']);
+      $term_id_array = $paragraph->get('field_location_reference')->getValue();
+      $term_id = $term_id_array[0]['target_id'];
+      
+      $location_term = \Drupal\taxonomy\Entity\Term::load($term_id);
+      $tid = $location_term->get('tid')->getValue();
+
+      $locationObj = array();
+      
+      $name = $location_term->get('name')->getValue();
+      $locationObj['name'] = $name[0]['value'];
+
+      $address = $location_term->get('field_address')->getValue();
+      $locationObj['address'] = $address[0]['value'];
+
+      $city = $location_term->get('field_city')->getValue();
+      $locationObj['city'] = $city[0]['value'];
+
+      $state = $location_term->get('field_state')->getValue();
+      $locationObj['state'] = $state[0]['value'];
+
+      $zip = $location_term->get('field_zip')->getValue();
+      $locationObj['zip'] = $zip[0]['value'];
+
+      $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/taxonomy/term/'.$tid[0]['value']);
+      $locationObj['alias'] = $alias;
+
+      array_push($locations, $locationObj);
+    }
+
+    $variables['locations'] = $locations;
   }
 }
 
@@ -133,7 +164,7 @@ function swedishamerican_preprocess_paragraph(array &$variables) {
   if (strcmp ($variables['elements']['#paragraph']->getType(), 'provider_location') === 0 || strcmp ($variables['elements']['#paragraph']->getType(), 'service_location') === 0) {
     $paragraph = $variables['elements']['#paragraph'];
     $term = $paragraph->get('field_location_reference')->entity;
-    
+
     if (isset($term)) {
       $variables['paragraph_field_name'] = $term->getName();
       $variables['paragraph_field_address'] = $term->get('field_address')->value;

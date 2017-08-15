@@ -21,6 +21,5 @@ class SwedishAmericanEventsList extends BlockBase {
   public function build() {
     $form = \Drupal::formBuilder()->getForm('Drupal\swedishamerican_eventslist\Form\EventslistForm');
     return $form;
-  }
-  
+  }  
 }

@@ -132,9 +132,22 @@
 }
 
 #dependant-fields-wrapper {
-    margin: 15px;
-    width: 20%;
+    margin: 15px 0 15px 15px;
+    padding-right: 30px;
+    width: 370px;
     vertical-align: top;
+    height: 100%;
+    box-shadow: 5px 0 5px -5px #bebebe;
+    z-index: -1;
+}
+.dependant-fields-wrapper-fluid {
+    position: absolute;
+    left: 15px;
+}
+.dependant-fields-wrapper-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .select-wrapper:after {
@@ -182,8 +195,8 @@
     }
 
     .text {
-        width: 88%;
         vertical-align: top;
+        width: 87%;
     }
 }
 
@@ -224,6 +237,8 @@
 
 .providers-container {
     max-width: 1250px;
+    display: inline-block;
+    display: -webkit-inline-box;
 }
 
 .patient-story-image {
@@ -242,6 +257,10 @@
     margin-bottom: 30px;
 }
 
+.markup-area {
+    position: relative;
+    left: 400px;
+}
 
 
 /* Large screens ----------- */

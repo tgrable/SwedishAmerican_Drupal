@@ -2949,6 +2949,7 @@ li.extra-services {
   font-style: normal;
   color: #92318f;
   font-size: 16px;
+  margin-bottom: 15px;
 }
 .region-sidebar-second a {
   font-family: 'AvenirNextCondensed-Regular';
@@ -3418,27 +3419,34 @@ section#block-youtubepostfeed {
 .location-container .term-services-container h2 {
   margin-top: 0;
 }
-.view-id-locations {
-  height: 1000px;
-}
 .view-id-locations .views-row {
   border-bottom: 1px solid #bebebe;
 }
 .view-id-locations .view-content {
-  width: 20%;
-  display: inline-block;
+  width: 370px;
+  display: block;
   overflow-y: scroll;
-  height: 694px;
+  height: 670px;
+  border-bottom: 1px solid #bebebe;
+  border-right: 1px solid #bebebe;
+  box-shadow: 5px 0 5px -5px #bebebe;
 }
 .view-id-locations .view-header {
   padding-left: 30px;
+  width: 370px;
+  border-right: 1px solid #bebebe;
+  box-shadow: 5px 0 5px -5px #bebebe;
 }
 .view-id-locations .view-header h1 {
-  margin: 45px 0 30px 0;
+  padding: 45px 0 30px 0;
 }
 .view-id-locations .view-filters.form-group {
-  width: 20%;
+  width: 370px;
   padding: 0 20px 0 0;
+  border-bottom: 1px solid #bebebe;
+  border-right: 1px solid #bebebe;
+  box-shadow: 5px 0 5px -5px #bebebe;
+  margin-bottom: 0;
 }
 .view-id-locations .form-inline .form-group {
   display: block;
@@ -3454,20 +3462,27 @@ section#block-youtubepostfeed {
   font-style: normal;
   font-size: 16px;
   color: #92318f;
-  padding: 15px 0;
+  padding: 30px 0 15px 0;
   display: block;
 }
 .view-id-locations .views-field-name {
   padding: 30px 15px 15px 40%;
 }
 .view-id-locations .views-field-field-address {
-  padding: 0 15px 30px 40%;
+  padding: 0 15px 0px 40%;
+  background-color: rgba(190, 190, 190, 0.5);
+}
+.view-id-locations .views-field-field-address .location-card {
+  background: white;
+  padding: 0 0 30px 15px;
+  border-left: 1px solid #bebebe;
 }
 .attachment-after {
-  width: 80%;
   position: absolute;
+  left: 385px;
   top: 0;
   right: 0;
+  z-index: -1;
 }
 .attachment-after .view-display-id-attachment_1 .view-content {
   width: 100%;
@@ -3595,9 +3610,22 @@ section#block-youtubepostfeed {
   border-radius: 75px;
 }
 #dependant-fields-wrapper {
-  margin: 15px;
-  width: 20%;
+  margin: 15px 0 15px 15px;
+  padding-right: 30px;
+  width: 370px;
   vertical-align: top;
+  height: 100%;
+  box-shadow: 5px 0 5px -5px #bebebe;
+  z-index: -1;
+}
+.dependant-fields-wrapper-fluid {
+  position: absolute;
+  left: 15px;
+}
+.dependant-fields-wrapper-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .select-wrapper:after {
   font-size: 0;
@@ -3635,8 +3663,8 @@ section#block-youtubepostfeed {
   vertical-align: top;
 }
 .dependant-fields-footer .text {
-  width: 88%;
   vertical-align: top;
+  width: 87%;
 }
 .filter-item-container {
   min-height: 90px;
@@ -3669,6 +3697,8 @@ section#block-youtubepostfeed {
 }
 .providers-container {
   max-width: 1250px;
+  display: inline-block;
+  display: -webkit-inline-box;
 }
 .patient-story-image .field.field--name-field-image {
   float: left;
@@ -3680,6 +3710,10 @@ section#block-youtubepostfeed {
 }
 .field.field--name-field-city-rf.field--type-string.field--label-hidden.field--item {
   margin-bottom: 30px;
+}
+.markup-area {
+  position: relative;
+  left: 400px;
 }
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
@@ -3714,6 +3748,7 @@ section#block-youtubepostfeed {
 .service-container .address {
   vertical-align: top;
   max-width: 190px;
+  padding-right: 15px;
 }
 .service-container .address a {
   font-family: 'AvenirNext-DemiBold';

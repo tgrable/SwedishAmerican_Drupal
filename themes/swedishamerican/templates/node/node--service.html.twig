@@ -115,7 +115,20 @@
         </div>
         <div class="location-address inline-desktop">
             <div class="location">
-                  {{ content.field_location }}  
+                {% if node.field_location|length > 1 %}
+                    <h2>Locations</h2>
+                    {% for location in locations %}
+                        <div class="address inline">
+                            <p>
+                                <a href="{{ location["alias"] }}">{{ location["name"] }}</a><br />
+                                {{ location["address"] }}<br />
+                                {{ location["city"]}}, {{ location["state"] }} {{ location["zip"] }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {{ content.field_location }} 
+                {% endif %} 
             </div>
         </div>
 

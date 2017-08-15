@@ -9,6 +9,12 @@ function swedishamerican_related_documents_theme($existing, $type, $theme, $path
                 'files' => NULL,
             ],
             'template' => 'related-documents',
+        ],
+        'resource_list' => [
+            'variables' => [
+                'links' => NULL,
+            ],
+            'template' => 'resource-list',
         ]
     ];
 }

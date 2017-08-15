@@ -7,23 +7,22 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Cache\Cache;
 
 /**
- * Provides a 'SwedishAmerican Related Documents List' Block.
+ * Provides a 'SwedishAmerican Resource List' Block.
  *
  * @Block(
- *   id = "swedishamerican_related_documents_list",
- *   admin_label = @Translation("SwedishAmerican Related Documents List"),
+ *   id = "swedishamerican_resource_list",
+ *   admin_label = @Translation("SwedishAmerican Resource List"),
  * )
  */
-class SwedishAmericanRelatedDocumentsList extends BlockBase {
+class SwedishAmericanResourceList extends BlockBase {
 
   /**
    * {@inheritdoc}
    */
   public function build() {
     return [
-      '#theme' => 'related_documents',
-      '#documents' => $this->queryNodes(),
-      '#files' => $this->createFiles($this->queryNodes()),
+      '#theme' => 'resource_list',
+      '#links' => $this->queryNodes()
     ];
   }
 
@@ -45,20 +44,10 @@ class SwedishAmericanRelatedDocumentsList extends BlockBase {
       $nid = $entity_ids[$first_key];
       $node = \Drupal\node\Entity\Node::load($nid);
 
-      $documents = $node->get('field_documents')->getValue();
+      $links = $node->get('field_link')->getValue();
 
-      return $documents;
+      return $links;
     }
-  }
-
-  private function createFiles($documents) {
-    $files = array();
-    foreach ($documents as $document) {
-      $file = \Drupal\file\Entity\File::load($document['target_id']);
-      array_push($files, $file);
-    }
-
-    return $files;
   }
 
   public function getCacheContexts() {

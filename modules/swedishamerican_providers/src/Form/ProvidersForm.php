@@ -38,7 +38,7 @@ class ProvidersForm extends FormBase {
     asort($specialty);
 
     $form['wrapper'] = array(
-        '#prefix' => '<div id="dependant-fields-wrapper" class="inline">',
+        '#prefix' => '<div id="dependant-fields-wrapper" class="dependant-fields-wrapper-fluid inline">',
         '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
     );
 
@@ -146,29 +146,6 @@ class ProvidersForm extends FormBase {
     $nodes = array();
 
     $markup = '<div class="providers-container">';
-
-      $markup .= '<div class="filter-item-container">';
-        if ($groupState == 1) {
-          $markup .= '<div class="filter-object inline">SwedishAmerican Group</div>';
-        }
-
-        if ($keyword != null) {
-          $markup .= '<div class="filter-object inline">Name</div>';
-        }
-
-        if ($location != null) {
-          $markup .= '<div class="filter-object inline">Location</div>';
-        }
-
-        if ($form_specialty != null) {
-          $markup .= '<div class="filter-object inline">Specialty</div>';
-        }
-
-        if ($gender != null) {
-          $markup .= '<div class="filter-object inline">Gender</div>';
-        }
-      $markup .= '</div>';
-
     if (count($entity_ids) > 0) {
       foreach($entity_ids as $nid) {
         $node = \Drupal\node\Entity\Node::load($nid);

@@ -1,17 +1,19 @@
 {% if nodes|length > 0 %}
     <div class="service-events">
         <div class="right-rail-header">Events</div>
+        <ul>
         {% for node in nodes %}
-            <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ node.label }}</a>
-            {% if node.field_date.value != null %}
-                <p>
+            <li>
+                <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ node.label }}</a>
+                {% if node.field_date.value != null %}
                     {% for eventDate in node.field_date %} 
                         {% set unixDate = eventDate.value | date('U') %}
                         <p class="inline">{{ unixDate | format_date('event_date_format') }}{% if loop.index < node.field_date|length %}, {% endif %}</p>
                     {% endfor %}
-                </p>
-            {% endif %}
+                {% endif %}
+            </li>
         {% endfor %}
+        </ul>
         <hr />
     </div>
 {% endif %}
