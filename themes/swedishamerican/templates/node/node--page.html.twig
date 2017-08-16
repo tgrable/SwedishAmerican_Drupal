@@ -73,12 +73,13 @@
  */
 #}
 <article{{ attributes }}>
-
-  {{ title_prefix }}
-    <h1{{ title_attributes }}>
-      {{ label }}
-    </h1>
-  {{ title_suffix }}
+  {% if no_label != 'true' %}
+    {{ title_prefix }}
+      <h1{{ title_attributes }}>
+        {{ label }}
+      </h1>
+    {{ title_suffix }}
+  {% endif %}
 
   {% if display_submitted %}
     <footer>

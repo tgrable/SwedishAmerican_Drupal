@@ -23,6 +23,10 @@
         border-right: 1px solid @gray-rules;
         padding-right: 30px;
         vertical-align: top;
+
+        .phone-email-container {
+            padding-bottom: 15px;
+        }
     }
     .location-address {
         padding-left: 30px;
@@ -32,6 +36,7 @@
         vertical-align: top;
         max-width: 190px;
         padding-right: 15px;
+        text-transform: capitalize;
 
         a {
             .avenirNextDemiBold;
@@ -51,22 +56,6 @@
     }
 }
 
-.view-id-resources_list,
-.views-field-field-resource-link,
-.block-swedishamerican-related-documents-list {
-    li {
-        padding-left: 0px;
-        margin-bottom: 15px;
-
-        a {
-            .avenirNextRegular;
-            color: @gray-primary;
-            font-size: 16px;
-            text-decoration: none;  
-        }
-    }
-}
-
 .special-services-container,
 .provider-container {
     margin-bottom: 30px;
@@ -75,10 +64,13 @@
         margin-bottom: 15px;
 
         a  {
-            .avenirNextRegular;
-            color: @gray-primary;
+            .avenirNextCondensedRegular;
             font-size: 16px;
-            text-decoration: none;  
+            color: @gray-primary;
+            line-height: 1.0em;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0;
         }
     }            
 }

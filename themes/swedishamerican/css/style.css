@@ -2400,7 +2400,7 @@ hr.front {
 }
 hr {
   color: #bebebe;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 p {
   font-family: 'AvenirNext-Regular';
@@ -2453,7 +2453,7 @@ h2 {
   text-transform: uppercase;
   color: #92318f;
   line-height: 1.4em;
-  margin-bottom: 0.6em;
+  margin: 15px 0;
 }
 h3 {
   font-family: 'AvenirNext-DemiBold';
@@ -2490,6 +2490,9 @@ li {
 }
 .padding-top {
   padding-top: 45px;
+}
+.provider-article-padding-left {
+  padding: 30px 15px 15px 400px;
 }
 header#navbar {
   z-index: 49;
@@ -2651,9 +2654,6 @@ div#block-swedishamerican-search {
   border-right: 1px solid #bebebe;
   padding-right: 30px;
 }
-ul.menu.dropdown-menu {
-  padding-top: 30px;
-}
 /* FOOTER */
 #footer-container {
   padding: 60px 30px;
@@ -2746,7 +2746,7 @@ ul.menu.dropdown-menu {
   position: fixed;
   top: 0px;
   width: 100%;
-  z-index: 50;
+  z-index: 100;
 }
 .box {
   display: none;
@@ -2756,7 +2756,7 @@ ul.menu.dropdown-menu {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 51;
+  z-index: 101;
   width: 1490px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -2896,6 +2896,9 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .dropdown-menu > li > a:hover {
   color: #3f3f3f;
 }
+.dropdown-menu > li > a:hover {
+  text-decoration: underline;
+}
 a.brand-primary,
 a.brand-primary:hover {
   color: #92318f !important;
@@ -2903,10 +2906,16 @@ a.brand-primary:hover {
 ul.menu.dropdown-menu:hover {
   border-top: 2px solid #92318f;
 }
+ul.menu.dropdown-menu {
+  padding-top: 15px;
+}
 .bs-menu {
   border-left: 1px solid #bebebe;
   padding: 0 15px;
   margin: 15px 0;
+}
+.bs-menu h2 {
+  margin-left: 18px;
 }
 .bs-menu ul {
   margin-right: 30px;
@@ -2933,7 +2942,7 @@ ul.menu.dropdown-menu:hover {
 li.extra-services {
   top: 0;
   right: 0px;
-  margin: -135px 0 0 150px;
+  margin: -125px 0 0 175px;
 }
 .dropdown-menu > li > a:hover {
   background-color: #ffffff;
@@ -2960,13 +2969,19 @@ li.extra-services {
   margin-bottom: 0;
   padding-left: 0;
 }
+.region-sidebar-first nav li a:hover {
+  text-decoration: underline;
+  background-color: #ffffff;
+}
 .region-sidebar-second .right-rail-header {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
   font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
   color: #92318f;
-  font-size: 16px;
-  margin-bottom: 15px;
+  line-height: 1.4em;
+  margin: 0 0 15px 0;
 }
 .region-sidebar-second a {
   font-family: 'AvenirNextCondensed-Regular';
@@ -2978,6 +2993,31 @@ li.extra-services {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
+}
+.region-sidebar-second a:hover {
+  text-decoration: underline;
+}
+.view-id-resources_list li,
+.views-field-field-resource-link li,
+.block-swedishamerican-related-documents-list li {
+  padding-left: 0px;
+  margin-bottom: 15px;
+}
+.view-id-resources_list li a,
+.views-field-field-resource-link li a,
+.block-swedishamerican-related-documents-list li a {
+  font-family: 'AvenirNextCondensed-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #3f3f3f;
+  line-height: 1.0em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+.full-alpha {
+  background: #3f3f3f;
 }
 .view-front-cards .views-row {
   margin: 0 15px 15px 15px;
@@ -3434,6 +3474,9 @@ section#block-youtubepostfeed {
 section#block-youtubepostfeed .social-block .header-title {
   padding-left: 17px;
 }
+section#block-twitterpostfeed {
+  float: right;
+}
 .term-page .block {
   margin: 0 95px 30px 94px;
 }
@@ -3449,6 +3492,9 @@ section#block-youtubepostfeed .social-block .header-title {
 .location-address .field {
   display: inline-block;
 }
+.top-bar-location {
+  height: 60px;
+}
 .location-container h1,
 .location-container h2 {
   margin-top: 0;
@@ -3457,13 +3503,14 @@ section#block-youtubepostfeed .social-block .header-title {
   width: 50%;
 }
 .location-container .map-image-container iframe {
-  width: 740px;
-  height: 559px;
+  width: 749px;
+  height: 565px;
 }
 .location-container .term-content-container {
-  width: 65%;
+  width: 70%;
   margin: 45px 30px 0 95px;
   padding-right: 30px;
+  padding-bottom: 30px;
   border-right: 1px solid #bebebe;
 }
 .location-container .term-contact-container div {
@@ -3563,6 +3610,16 @@ section#block-youtubepostfeed .social-block .header-title {
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
+}
+.location-header {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #92318f;
+  line-height: 1.4em;
+  margin: 0 0 15px 0;
 }
 .provider-container h1,
 .provider-container h2 {
@@ -3683,22 +3740,27 @@ section#block-youtubepostfeed .social-block .header-title {
   height: 100%;
   box-shadow: 5px 0 5px -5px #bebebe;
 }
+#dependant-fields-wrapper h1 {
+  padding: 30px 0 15px 0;
+}
 .dependant-fields-wrapper-fluid {
   position: absolute;
   left: 15px;
+  top: -15px;
 }
 .dependant-fields-wrapper-sticky {
   position: fixed;
-  top: 0;
+  top: -15px;
   left: 0;
 }
 .dependant-fields-wrapper-fluid-admin {
   position: absolute;
   left: 15px;
+  top: -110px;
 }
 .dependant-fields-wrapper-sticky-admin {
   position: fixed;
-  top: 80px;
+  top: 68px;
   left: 15px;
 }
 .select-wrapper:after {
@@ -3728,7 +3790,7 @@ section#block-youtubepostfeed .social-block .header-title {
   text-align: left;
 }
 .dependant-fields-footer {
-  padding-top: 37px;
+  padding-top: 15px;
 }
 .dependant-fields-footer .icon {
   font-size: 28px;
@@ -3815,6 +3877,9 @@ section#block-youtubepostfeed .social-block .header-title {
   padding-right: 30px;
   vertical-align: top;
 }
+.service-container .phone-email .phone-email-container {
+  padding-bottom: 15px;
+}
 .service-container .location-address {
   padding-left: 30px;
   vertical-align: top;
@@ -3823,6 +3888,7 @@ section#block-youtubepostfeed .social-block .header-title {
   vertical-align: top;
   max-width: 190px;
   padding-right: 15px;
+  text-transform: capitalize;
 }
 .service-container .address a {
   font-family: 'AvenirNext-DemiBold';
@@ -3837,22 +3903,6 @@ section#block-youtubepostfeed .social-block .header-title {
 .service-events p {
   margin-top: 15px;
 }
-.view-id-resources_list li,
-.views-field-field-resource-link li,
-.block-swedishamerican-related-documents-list li {
-  padding-left: 0px;
-  margin-bottom: 15px;
-}
-.view-id-resources_list li a,
-.views-field-field-resource-link li a,
-.block-swedishamerican-related-documents-list li a {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
-  font-style: normal;
-  color: #3f3f3f;
-  font-size: 16px;
-  text-decoration: none;
-}
 .special-services-container,
 .provider-container {
   margin-bottom: 30px;
@@ -3863,15 +3913,18 @@ section#block-youtubepostfeed .social-block .header-title {
 }
 .special-services-container .field--item a,
 .provider-container .field--item a {
-  font-family: 'AvenirNext-Regular';
+  font-family: 'AvenirNextCondensed-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
   font-size: 16px;
-  text-decoration: none;
+  color: #3f3f3f;
+  line-height: 1.0em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 .article .field--name-field-image {
-  margin: 0 0 15px 0;
+  margin: 0 0 30px 0;
 }
 .article .article-footer {
   margin-bottom: 15px;
@@ -3918,6 +3971,10 @@ section#block-youtubepostfeed .social-block .header-title {
   background-color: #92318f;
   border-color: #92318f;
 }
+h1 span {
+  margin-bottom: 15px;
+  display: block;
+}
 .field--name-field-date-2,
 .field--name-body td {
   font-family: 'AvenirNext-Regular';
@@ -3939,6 +3996,12 @@ section#block-youtubepostfeed .social-block .header-title {
 }
 .view-display-id-block_2 div {
   margin-bottom: 5px;
+}
+#swedishamerican-eventslist-form .markup-area {
+  left: 0px;
+}
+#swedishamerican-eventslist-form .events-container {
+  max-width: 1400px;
 }
 .events {
   padding: 0 30px 30px 30px;

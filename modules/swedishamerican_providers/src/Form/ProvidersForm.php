@@ -37,8 +37,13 @@ class ProvidersForm extends FormBase {
     }
     asort($specialty);
 
+    $fluid = "dependant-fields-wrapper-fluid";
+    if (!\Drupal::currentUser()->isAnonymous()) {
+      $fluid = "dependant-fields-wrapper-fluid-admin";
+    }
+
     $form['wrapper'] = array(
-        '#prefix' => '<div id="dependant-fields-wrapper" class="dependant-fields-wrapper-fluid inline">',
+        '#prefix' => '<div id="dependant-fields-wrapper" class="' . $fluid . ' inline"><h1>Providers</h1>',
         '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
     );
 

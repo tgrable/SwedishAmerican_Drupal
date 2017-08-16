@@ -55,7 +55,7 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
       $markup .= '<div class="twitter-container">';
         $markup .= '<div class="profile-data">';
             $markup .= '<img src="/' . drupal_get_path('theme', 'swedishamerican') . '/images/logo.png" />';
-            $markup .= '<a href="https://www.facebook.com/swedishamericanrockford" target="_blank">SwedishAmerican</a>';
+            $markup .= '<a href="https://twitter.com/SAHealthSystem" target="_blank">SwedishAmerican</a>';
           $markup .= '</div>';
         $markup .= $this->extract_date_string($obj[0]['created_at']);
         $markup .= '<div class="tweet-data">' . $this->extract_url_string($obj[0]['text']) . '</div>';
@@ -187,7 +187,7 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
         $markup .= $tweet_array[0];
       $markup .= '</div>';
       $markup .= '<div class="tweet-link">';
-        $markup .= '<a href="https://' . $tweet_array[1] . '">https://' . $tweet_array[1] . '</a>';
+        $markup .= '<a href="https://' . $tweet_array[1] . '" target="_blank">https://' . $tweet_array[1] . '</a>';
       $markup .= '</div>';
     $markup .= '</div>';
 

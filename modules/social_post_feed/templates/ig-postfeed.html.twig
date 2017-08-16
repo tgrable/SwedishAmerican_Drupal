@@ -10,25 +10,33 @@
             </div>
         </div>
         <div class="instagram-container">
-            <div class="ig_article ig-content inline">
-                <div class="post_image" style="background-image: url('{{ nodes[0]['images']['low_resolution']['url']}}')"></div>
-            </div>
-            <div class="ig_article ig-content inline">
-                <div class="post_image" style="background-image: url('{{ nodes[1]['images']['low_resolution']['url']}}')"></div>
-            </div>
+            <a href="{{ nodes[0]['link'] }}" target="_blank">
+                <div class="ig_article ig-content inline">
+                    <div class="post_image" style="background-image: url('{{ nodes[0]['images']['low_resolution']['url'] }}')"></div>
+                </div>
+            </a>
+            <a href="{{ nodes[1]['link'] }}" target="_blank">
+                <div class="ig_article ig-content inline">
+                    <div class="post_image" style="background-image: url('{{ nodes[1]['images']['low_resolution']['url']}}')"></div>
+                </div>
+            </a>
             <div class="ig_article ig-content-wide inline">
                 {% for i in 2..7 %}
                     {% if nodes[i] != null %}
                         {% if i < 2 %}
                             <div class="ig_article ig-content inline">
                                 <div class="post_image">
-                                    <img src="{{ nodes[i]['images']['low_resolution']['url'] }}" />
+                                    <a href="{{ nodes[i]['link'] }}" target="_blank">
+                                        <img src="{{ nodes[i]['images']['low_resolution']['url'] }}" />
+                                    </a>
                                 </div>
                             </div>
                         {% else %}
                             <div class="small_ig_article small_ig-content inline">
                                 <div class="small_post_image inline">
-                                    <img src="{{ nodes[i]['images']['low_resolution']['url'] }}" />
+                                    <a href="{{ nodes[i]['link'] }}" target="_blank">
+                                        <img src="{{ nodes[i]['images']['low_resolution']['url'] }}" />
+                                    </a>
                                 </div>
                             </div>
                         {% endif %}
@@ -40,5 +48,3 @@
 </div>
 <div class="med-padding"></div>
 <hr />
-
-{# <img src="' . $post_array[0]['images']['low_resolution']['url'] . '" /></div> #}

@@ -99,8 +99,6 @@ class FBPostFeedBlock extends BlockBase {
           $markup .= '</div>';
             $markup .= "<div class='post-message'>{$trim_message}</div>";
             $markup .= "<div class='post_image'><img src='{$picture}' /></div>";
-            $markup .= '<hr />';
-            $markup .= '<div class="post_reactions"><div class="reactions inline">' . $this->getReactionCount($reactions_obj) . ' Reactions</div><div class="shares inline">' . $shares . ' Shares</div></div>' ;
           $markup .= "</div>";
         $markup .= "</div>";
     }

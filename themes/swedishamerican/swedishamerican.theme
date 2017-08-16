@@ -91,6 +91,10 @@ function swedishamerican_preprocess_node(array &$variables) {
     $locations = array();
     foreach ($location_array as $location) {
       $paragraph = Drupal\paragraphs\Entity\Paragraph::load($location['target_id']);
+
+      $map_array = $paragraph->get('field_map')->getValue();
+      $map = $map_array[0]['value'];
+
       $term_id_array = $paragraph->get('field_location_reference')->getValue();
       $term_id = $term_id_array[0]['target_id'];
       
@@ -99,6 +103,8 @@ function swedishamerican_preprocess_node(array &$variables) {
 
       $locationObj = array();
       
+      $locationObj['map'] = $map;
+
       $name = $location_term->get('name')->getValue();
       $locationObj['name'] = $name[0]['value'];
 
@@ -121,6 +127,12 @@ function swedishamerican_preprocess_node(array &$variables) {
     }
 
     $variables['locations'] = $locations;
+  }
+
+  $nid_array = $variables['node']->get('nid')->getValue();
+  $nid = $nid_array[0]['value'];
+  if ($nid == 5) {
+    $variables['no_label'] = 'true';
   }
 }
 

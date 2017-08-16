@@ -43,18 +43,19 @@
 				}
 				else if (this.pathname.includes("find-a-doctor")) {
 					$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
-					$('article').addClass('padding-top');
+					$('article').addClass('provider-article-padding-left');
+					$('.navbar-header').addClass('full-alpha');
 
 					$( window ).scroll(function() {
 						// $('#dependant-fields-wrapper').css("height", height + 'px');
 						console.log($(window).scrollTop());
 						var fluid = "dependant-fields-wrapper-fluid";
 						var sticky = "dependant-fields-wrapper-sticky";
-						var scrollPosition = 280;
+						var scrollPosition = 120;
 						if ($('.contextual').length != 0) {
 							var fluid = "dependant-fields-wrapper-fluid-admin";
 							var sticky = "dependant-fields-wrapper-sticky-admin";
-							scrollPosition = 430;
+							scrollPosition = 220;
 						}
 
 						if ($(window).scrollTop() > scrollPosition) {
@@ -69,10 +70,11 @@
 
 				}
 				else if (this.pathname.includes("events")) {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
-					$('header').css("background-size", "cover");
-					$('header').css("background-position", "center");
-					$('header').css("height", "250px");				
+					// $('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
+					// $('header').css("background-size", "cover");
+					// $('header').css("background-position", "center");
+					// $('header').css("height", "250px");		
+					$('.navbar-header').addClass('full-alpha');		
 					$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
 				}
 				else if (this.pathname.includes("services")) {
@@ -88,7 +90,7 @@
 				}
 				else if (this.pathname.includes("locations")) {
 					$('.footer').css("margin-top", "0");
-
+					$('.navbar-header').addClass('full-alpha');
 					console.log($(window).height());
 				}
 				else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {

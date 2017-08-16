@@ -118,6 +118,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     color: @text-color;
 }
 
+.dropdown-menu > li > a:hover {
+    text-decoration: underline;
+}
+
 a.brand-primary,
 a.brand-primary:hover {
     color: @brand-primary !important;
@@ -127,10 +131,18 @@ ul.menu.dropdown-menu:hover {
     border-top: 2px solid @brand-primary;
 }
 
+ul.menu.dropdown-menu {
+    padding-top: 15px;
+}
+
 .bs-menu {
     border-left: 1px solid @gray-rules;
     padding: 0 15px;
     margin: 15px 0;
+
+    h2 {
+        margin-left: 18px;
+    }
 
     ul {
         margin-right: 30px;
@@ -161,7 +173,7 @@ ul.menu.dropdown-menu:hover {
 li.extra-services {
     top: 0; 
     right: 0px; 
-    margin: -135px 0 0 150px;
+    margin: -125px 0 0 175px;
 }
 
 .dropdown-menu > li > a:hover {
@@ -189,6 +201,10 @@ li.extra-services {
                 margin-bottom: 0;
                 padding-left: 0;
             }
+            a:hover {
+                text-decoration: underline;
+                background-color: @white;
+            }
         }   
     }
 }
@@ -196,9 +212,11 @@ li.extra-services {
 .region-sidebar-second {
     .right-rail-header {
         .avenirNextDemiBold;
+        font-size: 18px;
+        text-transform: uppercase;
         color: @brand-primary;
-        font-size: 16px;
-        margin-bottom: 15px;
+        line-height: 1.4em;
+        margin: 0 0 15px 0;
     }
     a {
         .avenirNextCondensedRegular;
@@ -209,4 +227,30 @@ li.extra-services {
         margin-bottom: 0;
         padding-left: 0;
     }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.view-id-resources_list,
+.views-field-field-resource-link,
+.block-swedishamerican-related-documents-list {
+    li {
+        padding-left: 0px;
+        margin-bottom: 15px;
+
+        a {
+            .avenirNextCondensedRegular;
+            font-size: 16px;
+            color: @gray-primary;
+            line-height: 1.0em;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0; 
+        }
+    }
+}
+
+.full-alpha {
+    background: rgba(63, 63, 63, 1);
 }
