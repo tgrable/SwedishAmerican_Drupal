@@ -61,7 +61,6 @@ use Drupal\Core\Datetime\DrupalDateTime;
             $markup .= '</div>';
           $markup .= '</div>';
         }
-        $markup .= '<div class="divider inline"></div>';
         $markup .= '</div>';
     $markup .= '</div>';
     $markup .= '<div class="med-padding"></div>';

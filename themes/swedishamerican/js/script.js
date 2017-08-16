@@ -15,6 +15,7 @@
 	
 						$('.dropdown-menu:eq(0) li').each(function(key, value) {
 							if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/154' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170') {
+								$(this).children('a').addClass('brand-primary');
 							}
 							else {
 								$(this).detach();
@@ -42,15 +43,27 @@
 				}
 				else if (this.pathname.includes("find-a-doctor")) {
 					$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
+					$('article').addClass('padding-top');
+
 					$( window ).scroll(function() {
 						// $('#dependant-fields-wrapper').css("height", height + 'px');
-						if ($(window).scrollTop() > 235) {
-							$('#dependant-fields-wrapper').removeClass("dependant-fields-wrapper-fluid");
-							$('#dependant-fields-wrapper').addClass("dependant-fields-wrapper-sticky");
+						console.log($(window).scrollTop());
+						var fluid = "dependant-fields-wrapper-fluid";
+						var sticky = "dependant-fields-wrapper-sticky";
+						var scrollPosition = 280;
+						if ($('.contextual').length != 0) {
+							var fluid = "dependant-fields-wrapper-fluid-admin";
+							var sticky = "dependant-fields-wrapper-sticky-admin";
+							scrollPosition = 430;
+						}
+
+						if ($(window).scrollTop() > scrollPosition) {
+							$('#dependant-fields-wrapper').removeClass(fluid);
+							$('#dependant-fields-wrapper').addClass(sticky);
 						}
 						else {
-							$('#dependant-fields-wrapper').removeClass("dependant-fields-wrapper-sticky");
-							$('#dependant-fields-wrapper').addClass("dependant-fields-wrapper-fluid");
+							$('#dependant-fields-wrapper').removeClass(sticky);
+							$('#dependant-fields-wrapper').addClass(fluid);
 						}
 					});
 

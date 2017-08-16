@@ -58,7 +58,7 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
             $markup .= '<a href="https://www.facebook.com/swedishamericanrockford" target="_blank">SwedishAmerican</a>';
           $markup .= '</div>';
         $markup .= $this->extract_date_string($obj[0]['created_at']);
-        $markup .= '<div>' . $obj[0]['text'] . '</div>';
+        $markup .= '<div class="tweet-data">' . $this->extract_url_string($obj[0]['text']) . '</div>';
       $markup .= '</div>';
     $markup .= '</div>';
  
@@ -177,6 +177,20 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
   private function extract_date_string($date) {
     $date_array = explode(" ", $date);
     $markup = $date_array[1] . " " . $date_array[2];
+    return $markup;
+  }
+
+  private function extract_url_string($tweet) {
+    $tweet_array = explode("https://", $tweet);
+    $markup = '<div class="tweet-data">';
+      $markup .= '<div class="tweet-text">';
+        $markup .= $tweet_array[0];
+      $markup .= '</div>';
+      $markup .= '<div class="tweet-link">';
+        $markup .= '<a href="https://' . $tweet_array[1] . '">https://' . $tweet_array[1] . '</a>';
+      $markup .= '</div>';
+    $markup .= '</div>';
+
     return $markup;
   }
 

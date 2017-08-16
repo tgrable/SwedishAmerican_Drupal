@@ -118,6 +118,11 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     color: @text-color;
 }
 
+a.brand-primary,
+a.brand-primary:hover {
+    color: @brand-primary !important;
+}
+
 ul.menu.dropdown-menu:hover {
     border-top: 2px solid @brand-primary;
 }
@@ -167,6 +172,9 @@ li.extra-services {
     nav {
         h2 {
             .avenirNextCondensedRegular;
+            text-transform: capitalize;
+            line-height: 1.0em;
+            margin-top: 0;
         }
 
         li {

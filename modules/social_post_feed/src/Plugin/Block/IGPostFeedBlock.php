@@ -24,12 +24,18 @@ use Drupal\Core\Datetime\DrupalDateTime;
    * {@inheritdoc}
    */
   public function build() {
-    return array(
-      '#markup' => $this->get_instagram_data(),
-      '#attached' => array(
-        'library' => array('social_post_feed/social_post_feed'),
-      ),
-    );
+    // return array(
+    //   '#markup' => $this->get_instagram_data(),
+    //   '#allowed_tags' => ['iframe','a','html', 'div', 'p', 'img', 'hr', 'h1', 'h2', 'h3', 'h4', 'h5', 'span', 'i'],
+    //   '#attached' => array(
+    //     'library' => array('social_post_feed/social_post_feed'),
+    //   ),
+    // );
+
+    return [
+      '#theme' => 'ig_postfeed',
+      '#nodes' =>  $this->get_instagram_data()
+    ];
   }
 
   private function get_instagram_data() {
@@ -38,44 +44,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
     $obj = json_decode($json, true);
 
     $post_array = $obj['data'];
-    $markup = '<hr />';
-     $markup .= '<div class="med-padding"></div>';
-    $markup .= '<div class="social-block">';
-      $markup .= '<div class="header-title">';
-        $markup .= '<div class="fa-social-background ig-blue inline">';
-          $markup .= '<i class="fa fa-instagram">&nbsp;</i>';
-        $markup .= '</div>';
-        $markup .= '<div class="inline">';
-          $markup .= '<p class="social-hdr">Instagram</p>';
-        $markup .= '</div>';
-      $markup .= '</div>';
-      $markup .= '<div class="instagram-container">';
-        $markup .= '<div class="ig_article ig-content inline">';
-          $markup .= '<div class="post_image"><img src="' . $post_array[0]['images']['low_resolution']['url'] . '" /></div>';
-        $markup .= '</div>';
-        $markup .= '<div class="ig_article ig-content inline">';
-          $markup .= '<div class="post_image"><img src="' . $post_array[1]['images']['low_resolution']['url'] . '" /></div>';
-        $markup .= '</div>';
-        $markup .= '<div class="ig_article ig-content-wide inline">';
-          for ($i = 2; $i < 8; $i++) {
-            if (isset($post_array[$i])) {
-              if ($i < 2) {
-                $markup .= '<div class="ig_article ig-content inline">';
-                  $markup .= '<div class="post_image"><img src="' . $post_array[$i]['images']['low_resolution']['url'] . '" /></div>';
-              }
-              else {
-                $markup .= '<div class="small_ig_article small_ig-content inline">';
-                  $markup .= '<div class="small_post_image inline"><img src="' . $post_array[$i]['images']['low_resolution']['url'] . '" /></div>';
-              }
-            }
-            $markup .= '</div>';
-          }
-        $markup .= '</div>';
-      $markup .= '</div>';
-    $markup .= '</div>';
-    $markup .= '<div class="med-padding"></div><hr />';
 
-    return $markup;
+    return $post_array;
   }
-
- }
+}

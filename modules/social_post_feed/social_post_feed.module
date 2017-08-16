@@ -1,0 +1,15 @@
+<?php 
+
+/**
+ * Implements hook_theme().
+ */
+function social_post_feed_theme() {
+  return [
+    'ig_postfeed' => [
+      'variables' => [
+        'nodes' => NULL,
+      ],
+      'template' => 'ig-postfeed',
+    ]
+  ];
+}
