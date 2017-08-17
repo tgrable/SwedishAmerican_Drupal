@@ -1,0 +1,64 @@
+<?php 
+
+    /**
+    * Implements hook_cron().
+    */
+    function swedishamerican_cron_tasks_cron() {
+        queryProviderNodes();
+
+        // We access our configuration.
+        $cron_config = \Drupal::configFactory()->getEditable('swedishamerican_cron_tasks.settings');
+        // Default to an hourly interval. Of course, cron has to be running at least
+        // hourly for this to work.
+        $interval = $cron_config->get('interval');
+        $interval = !empty($interval) ? $interval : 3600;
+
+        // We usually don't want to act every time cron runs (which could be every
+        // minute) so keep a time for the next run in the site state.
+        $next_execution = \Drupal::state()->get('swedishamerican_cron_tasks.next_execution');
+        $next_execution = !empty($next_execution) ? $next_execution : 0;
+        if (REQUEST_TIME >= $next_execution) {
+            // Query the provider nodes and remove the "new" state from and nodes
+            // that are older than 90 days. 
+            queryProviderNodes();
+        }
+    }
+
+    /**
+    * query the provider nodes
+    */
+    function queryProviderNodes() {
+        $query = \Drupal::entityQuery('node');
+        $query->condition('status', 1);
+        $query->condition('type', 'provider');
+        $entity_ids = $query->execute();
+
+        $nodes = node_load_multiple($entity_ids);
+
+        if (count($nodes) > 0) {
+            foreach($nodes as $node) {
+                if ($node->get('field_display_as_new')->getValue() != null) {
+                    $swedes_provider = $node->get('field_display_as_new')->getValue();
+                    if ($swedes_provider[0]['value'] == 1) {
+                        
+                        // Now in Unix time format
+                        $now_timestamp = time(); 
+                        $datediff = $now_timestamp - $node->getCreatedTime();
+                        $d = floor($datediff / (60 * 60 * 24));
+                        
+                        // Day difference was off by ~ 1 so I'm using 89 instead of 90 days
+                        if ($d > 89) {
+                            $node->set('field_display_as_new', 0);
+                            
+                            // Set revision to false will prevent it get errors.
+                            $node->setNewRevision(FALSE);
+                            $node->save();
+
+                            // Write a log message to Recent Log Messages table 
+                            \Drupal::logger('SwedishAmerican New Providers')->notice('The "new" status for ' . $node->getTitle() . ' was removed.');
+                        }
+                    }
+                }
+            }
+        }
+    }

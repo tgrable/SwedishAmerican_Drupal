@@ -1,0 +1,5 @@
+name: SwedishAmerican Cron Tasks
+type: module
+description: This is a helper module to run tasks with the cron.
+package: Custom
+core: 8.x
