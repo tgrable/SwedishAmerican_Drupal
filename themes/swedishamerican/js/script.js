@@ -47,7 +47,6 @@
 					$('.navbar-header').addClass('full-alpha');
 
 					$( window ).scroll(function() {
-						console.log($(window).scrollTop());
 						var fluid = "dependant-fields-wrapper-fluid";
 						var sticky = "dependant-fields-wrapper-sticky";
 						var scrollPosition = 120;
@@ -78,7 +77,6 @@
 					});
 
 					$( window ).scroll(function() {
-						console.log($(window).scrollTop());
 						var fluid = "events-dependant-fields-wrapper-fluid";
 						var sticky = "events-dependant-fields-wrapper-sticky";
 						var scrollPosition = 120;
@@ -112,10 +110,8 @@
 				else if (this.pathname.includes("locations")) {
 					$('.footer').css("margin-top", "0");
 					$('.navbar-header').addClass('full-alpha');
-					console.log($(window).height());
 					$('.location-image-bg').each(function() {
 						var urlpath = $(this).attr("data-location");
-						console.log(urlpath);
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
 				}
@@ -131,6 +127,13 @@
 						$('header').css("background-size", "cover");
 						$('header').css("background-position", "center");
 						$('header').css("height", "250px");
+					}
+
+					if (this.pathname.includes("senior-leadership")) {
+						$('.senior-image').each(function() {
+							var urlpath = $(this).attr("data-image");
+							$(this).css('background-image', "url('" + urlpath + "')");
+						});
 					}
 				}
 				else {

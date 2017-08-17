@@ -3321,7 +3321,8 @@ footer .footer-content-short p {
   float: right;
 }
 /* CARDS:EVENTS */
-.card-event {
+.card-event,
+.senior-card {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
@@ -3330,14 +3331,17 @@ footer .footer-content-short p {
   width: 300px;
   vertical-align: top;
 }
-.card-event h2 {
+.card-event h2,
+.senior-card h2 {
   margin-top: 0;
 }
-.card-event {
+.card-event,
+.senior-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.card-event:hover {
+.card-event:hover,
+.senior-card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
 /* SOCIAL FEEDS: */
@@ -3915,6 +3919,29 @@ section#block-twitterpostfeed {
 #swedishamerican-providers-form .markup-area {
   position: relative;
   left: 400px;
+}
+.senior-image {
+  height: 225px;
+  background-size: cover;
+  background-position: center;
+}
+.senior-title {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #3f3f3f;
+  text-align: center;
+  padding: 5px;
+}
+.senior-position {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #3f3f3f;
+  text-align: center;
+  padding: 5px;
 }
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
