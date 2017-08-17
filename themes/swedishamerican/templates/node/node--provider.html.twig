@@ -113,6 +113,7 @@
     <div class="provider-contact-container">
         <div class="location">
             {% if node.field_provider_type.value == "Courtesy" %}
+                <h2>Location</h2>
                 {{ content.field_courtesy_provider_location }}
             {% else %}
                 {{ content.field_location }}
