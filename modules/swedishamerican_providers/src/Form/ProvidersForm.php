@@ -145,6 +145,7 @@ class ProvidersForm extends FormBase {
     if ($gender != null) {
       $query->condition('field_gender', $gender);
     }
+    $query->sort('title', 'ASC');
 
     $entity_ids = $query->execute();
 
@@ -159,21 +160,60 @@ class ProvidersForm extends FormBase {
         $markup .= '<div class="lightBox inline">';
           $markup .= '<div class="card-provider" data-tag="' . $alias . ' #node_' . $node->id() . '">';
 
-          if ($node->get('field_swedes_provider')->getValue() != null) {
-            $swedes_provider = $node->get('field_swedes_provider')->getValue();
+          if ($node->get('field_provider_type')->getValue() != null) {
+            $swedes_provider = $node->get('field_provider_type')->getValue();
             
-            if ($swedes_provider[0]['value'] == 1) {
+            if ($swedes_provider[0]['value'] == 'Swedes Provider') {
               $markup .= '<div class="card-provider-btn-icon"></div>';
+              $provider_image_container = "views-field-field-image";
               $swedes_provider_group = 'internal-provider';
               $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
               $swedes_provider_group_btn = 'card-provider-btn-group';
             }
+            else if ($swedes_provider[0]['value'] == 'UW Doctor') {
+              $markup .= '<div class="card-provider-btn-uw-icon"></div>';
+              $provider_image_container = "views-field-field-image-uw";
+              $swedes_provider_group = 'uw-provider';
+              $swedes_provider_group_bkgrd = 'card-provider-bkgrd-uw';
+              $swedes_provider_group_btn = 'card-provider-btn-uw';
+            }
+            else if ($swedes_provider[0]['value'] == 'Courtesy') {
+              $provider_image_container = "views-field-field-image";
+              $swedes_provider_group = 'external-provider';
+              $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
+              $swedes_provider_group_btn = 'card-provider-btn';
+            }
             else {
-                $swedes_provider_group = 'external-provider';
-                $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
-                $swedes_provider_group_btn = 'card-provider-btn';
+              $markup .= '<div class="card-provider-btn-icon"></div>';
+              $provider_image_container = "views-field-field-image";
+              $swedes_provider_group = 'internal-provider';
+              $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
+              $swedes_provider_group_btn = 'card-provider-btn-group';
             }
           }
+          else {
+            $markup .= '<div class="card-provider-btn-icon"></div>';
+            $provider_image_container = "views-field-field-image";
+            $swedes_provider_group = 'internal-provider';
+            $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
+            $swedes_provider_group_btn = 'card-provider-btn-group';
+          }
+
+          // if ($node->get('field_swedes_provider')->getValue() != null) {
+          //   $swedes_provider = $node->get('field_swedes_provider')->getValue();
+            
+          //   if ($swedes_provider[0]['value'] == 1) {
+          //     $markup .= '<div class="card-provider-btn-icon"></div>';
+          //     $swedes_provider_group = 'internal-provider';
+          //     $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
+          //     $swedes_provider_group_btn = 'card-provider-btn-group';
+          //   }
+          //   else {
+          //       $swedes_provider_group = 'external-provider';
+          //       $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
+          //       $swedes_provider_group_btn = 'card-provider-btn';
+          //   }
+          // }
 
           if ($node->get('field_display_as_new')->getValue() != null) {
             $swedes_provider = $node->get('field_display_as_new')->getValue();
@@ -183,7 +223,7 @@ class ProvidersForm extends FormBase {
           }
 
           if ($node->get('field_image')->getValue() != null) {
-            $markup .= '<div class="views-field-field-image">';
+            $markup .= '<div class="' . $provider_image_container . '">';
                 $markup .= '<div class="field-content">';
                     $markup .= '<img src="' .file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" class="img-responsive">';
                 $markup .= '</div>';

@@ -3231,18 +3231,31 @@ footer .footer-content-short p {
 .card-provider-btn-group a {
   color: #ffffff;
 }
+.card-provider-btn-uw {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  background-color: #003764;
+  text-align: right;
+  padding: 10px;
+  font-size: 14px;
+  color: #ffffff;
+}
+.card-provider-btn-uw a {
+  color: #ffffff;
+}
 .card-provider-btn {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  background-color: #ffffff;
+  background-color: #828282;
   text-align: right;
   padding: 10px;
   font-size: 14px;
-  color: #3f3f3f;
+  color: #ffffff;
 }
 .card-provider-btn a {
-  color: #3f3f3f;
+  color: #ffffff;
 }
 .card-provider-btn-icon {
   float: left;
@@ -3250,6 +3263,13 @@ footer .footer-content-short p {
   height: 30px;
   width: 30px;
   margin: 10px;
+}
+.card-provider-btn-uw-icon {
+  float: left;
+  background-image: url('/themes/swedishamerican/images/ico-uw.png');
+  height: 14px;
+  width: 65px;
+  margin: 10px 0 0 10px;
 }
 .card-image {
   border-radius: 50px;
@@ -3260,6 +3280,10 @@ footer .footer-content-short p {
 }
 .card-provider-bkgrd-group {
   background: #ECE4E9;
+  padding: 0 15px 20px 15px;
+}
+.card-provider-bkgrd-uw {
+  background: #d9dee6;
   padding: 0 15px 20px 15px;
 }
 .card-provider-bkgrd {
@@ -3729,6 +3753,11 @@ section#block-twitterpostfeed {
   background-size: 100%;
   padding: 15px 0 0 0;
 }
+.uw-provider {
+  background-image: url(/themes/swedishamerican/images/img-cardTopUW.png);
+  background-size: 100%;
+  padding: 15px 0 0 0;
+}
 .external-provider {
   background-image: url(/themes/swedishamerican/images/img-cardTop.png);
   background-size: 100%;
@@ -3740,6 +3769,15 @@ section#block-twitterpostfeed {
 }
 .views-field-field-image img {
   border-radius: 75px;
+}
+.views-field-field-image-uw {
+  width: 100px;
+  margin: 10px auto;
+}
+.views-field-field-image-uw img {
+  border-radius: 75px;
+  position: relative;
+  top: -10px;
 }
 #dependant-fields-wrapper {
   margin: 15px 0 15px 15px;
