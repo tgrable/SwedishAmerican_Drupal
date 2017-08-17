@@ -149,7 +149,7 @@ function swedishamerican_preprocess_node(array &$variables) {
 
   $nid_array = $variables['node']->get('nid')->getValue();
   $nid = $nid_array[0]['value'];
-  if ($nid == 5) {
+  if ($nid == 5 || $nid == 9) {
     $variables['no_label'] = 'true';
   }
 }
@@ -174,9 +174,7 @@ function swedishamerican_preprocess_block(&$variables) {
   }
 }
 
-function swedishamerican_preprocess_menu(array &$variables) {
-  // dsm($variables['items']);
-}
+function swedishamerican_preprocess_menu(array &$variables) {}
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.

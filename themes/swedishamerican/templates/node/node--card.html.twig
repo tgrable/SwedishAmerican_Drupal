@@ -78,7 +78,6 @@
 <article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
   <a href="{{ node.field_link.0.url }}">
     <div{{ content_attributes.addClass('content card-main-img') }} style="background-image: url('{{ file_url(node.field_card_background.entity.fileuri) }}')">
-      {#{{ dsm(content.field_card_icon) }}#}
     </div>
 
     <div class="card-main-ico">

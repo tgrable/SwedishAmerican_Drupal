@@ -27,9 +27,14 @@ class EventslistForm extends FormBase {
     public function buildForm(array $form, FormStateInterface $form_state) {
         // $form['#theme'] = 'eventlist';
 
+        $fluid = "events-dependant-fields-wrapper-fluid";
+        if (!\Drupal::currentUser()->isAnonymous()) {
+          $fluid = "events-dependant-fields-wrapper-fluid-admin";
+        }
+
         $form['wrapper'] = array(
-            '#prefix' => '<div id="dependant-fields-wrapper" class="inline">',
-            '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>'
+            '#prefix' => '<div id="dependant-fields-wrapper" class="' . $fluid . ' inline"><h1>Events</h1>',
+            '#suffix' => '<div class="markup-area markup-sticky inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>'
         );
 
         $form['wrapper']['name'] = array (
@@ -115,21 +120,25 @@ class EventslistForm extends FormBase {
     */
     private function _getNodeMarkup($nodes) {
         $markup = '<div class="events-container">';
-
             foreach ($nodes as $node) {
                 $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->id());
                 $markup .= '<div class="lightBox inline">';
                     $markup .= '<div class="card-event" data-tag="' . $alias . ' #node_' . $node->id() . '">';
-                        $title = $node->get('title')->getValue();
-                        $markup .= '<h2>' . $title[0]['value'] . '</h2>';
-                        $dates = $node->get('field_date_text')->getValue();
-                        $dateMarkup = '';
-                        for ($i = 0; $i < count($dates); $i++) {
-                            $dateMarkup .= '<p>' . $dates[$i]['value'] . '</p>';
+                        if (count($node->get('field_image')->getValue()) > 0) {
+                            $markup .= '<div class="event-image" data-event="' . file_create_url($node->field_image->entity->getFileUri()) . '">&nbsp;</div>';
                         }
-                        $markup .= $dateMarkup;
-                        $body = $node->get('body')->getValue();
-                        $markup .= '<p>' . $body[0]['summary'] . '</p>';
+                        $markup .= '<div class="event-details">';
+                            $title = $node->get('title')->getValue();
+                            $markup .= '<h2>' . $title[0]['value'] . '</h2>';
+                            $dates = $node->get('field_date_text')->getValue();
+                            $dateMarkup = '';
+                            for ($i = 0; $i < count($dates); $i++) {
+                                $dateMarkup .= '<p>' . $dates[$i]['value'] . '</p>';
+                            }
+                            $markup .= $dateMarkup;
+                            $body = $node->get('body')->getValue();
+                            $markup .= '<p>' . $body[0]['summary'] . '</p>';
+                        $markup .= '</div>';
                     $markup .= '</div>';
                 $markup .= '</div>';
             }

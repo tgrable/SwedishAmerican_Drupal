@@ -47,7 +47,6 @@
 					$('.navbar-header').addClass('full-alpha');
 
 					$( window ).scroll(function() {
-						// $('#dependant-fields-wrapper').css("height", height + 'px');
 						console.log($(window).scrollTop());
 						var fluid = "dependant-fields-wrapper-fluid";
 						var sticky = "dependant-fields-wrapper-sticky";
@@ -70,12 +69,34 @@
 
 				}
 				else if (this.pathname.includes("events")) {
-					// $('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-events.png)");
-					// $('header').css("background-size", "cover");
-					// $('header').css("background-position", "center");
-					// $('header').css("height", "250px");		
 					$('.navbar-header').addClass('full-alpha');		
 					$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
+
+					$('.event-image').each(function() {
+						var urlpath = $(this).attr("data-event");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+
+					$( window ).scroll(function() {
+						console.log($(window).scrollTop());
+						var fluid = "events-dependant-fields-wrapper-fluid";
+						var sticky = "events-dependant-fields-wrapper-sticky";
+						var scrollPosition = 120;
+						if ($('.contextual').length != 0) {
+							var fluid = "events-dependant-fields-wrapper-fluid-admin";
+							var sticky = "events-dependant-fields-wrapper-sticky-admin";
+							scrollPosition = 190;
+						}
+
+						if ($(window).scrollTop() > scrollPosition) {
+							$('#dependant-fields-wrapper').removeClass(fluid);
+							$('#dependant-fields-wrapper').addClass(sticky);
+						}
+						else {
+							$('#dependant-fields-wrapper').removeClass(sticky);
+							$('#dependant-fields-wrapper').addClass(fluid);
+						}
+					});
 				}
 				else if (this.pathname.includes("services")) {
 					if (this.pathname.includes("services/cancer-care")) {

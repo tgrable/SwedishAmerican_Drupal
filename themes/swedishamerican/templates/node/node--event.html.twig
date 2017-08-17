@@ -74,22 +74,23 @@
 #}
 <article id="node_{{ node.id|raw }}" {{ attributes }}>
   <div class="event-container">
-    <div class="top-bar"></div>
+    <div class="top-bar-location"></div>
     <div class="events">
-      {{ title_prefix }}
-        <h1{{ title_attributes }}>
-          {{ label }} 
-        </h1>
-      {{ title_suffix }}
-      <div{{ content_attributes }}>
+      <div class="event-image-full inline">
+        {{ content.field_image }}
+      </div>
+      <div class="event-title inline">
+        {{ title_prefix }}
+          <h1{{ title_attributes }}>
+            {{ label }} 
+          </h1>
+        {{ title_suffix }}
+
         <div class="event-dates">
           {{ content.field_date_text }}
         </div>
-        <div class="event-tags">
-          {% for key, item in content.field_category if key|first != '#' %}
-            <div class="item-{{ key + 1 }}">{{ item }}</div>
-          {% endfor %}
-        </div>
+      </div>
+      <div{{ content_attributes }}>
         <hr />
         <div class="event-body">
           {{ content.body }}
