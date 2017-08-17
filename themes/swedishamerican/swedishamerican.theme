@@ -85,6 +85,24 @@ function swedishamerican_preprocess_node(array &$variables) {
       array_push($specialty_field_array, $specialty_term_name[0]['value']);
     }
     $variables['specialty_field'] = $specialty_field_array;
+
+    // Check to see if field_medschool_fellowship has any values 
+    $medschool_field_array = $variables['node']->get('field_medical_school_education')->getValue();
+    $medschool_paragraph_id = $medschool_field_array[0]['target_id'];
+    $medschool_paragraph = Drupal\paragraphs\Entity\Paragraph::load($medschool_paragraph_id);
+    $medschool_location = $medschool_paragraph->get('field_location')->getValue();
+    if (count($medschool_location) > 0) {
+      $variables['medschool_field'] = 'true';
+    }
+
+    // Check to see if field_residency_fellowship has any values 
+    $residency_field_array = $variables['node']->get('field_residency_fellowship')->getValue();
+    $residency_paragraph_id = $residency_field_array[0]['target_id'];
+    $residency_paragraph = Drupal\paragraphs\Entity\Paragraph::load($residency_paragraph_id);
+    $residency_location = $residency_paragraph->get('field_location_rf')->getValue();
+    if (count($residency_location) > 0) {
+      $variables['residency_field'] = 'true';
+    }
   }
   else if (strcmp ($variables['node']->getType(), 'service') === 0) { 
     $location_array = $variables['node']->get('field_location')->getValue();

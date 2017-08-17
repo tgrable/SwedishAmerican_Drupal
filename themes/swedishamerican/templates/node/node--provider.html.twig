@@ -112,14 +112,22 @@
     <hr />
     <div class="provider-contact-container">
         <div class="location">
-            {{ content.field_location }}
+            {% if node.field_provider_type.value == "Courtesy" %}
+                {{ content.field_courtesy_provider_location }}
+            {% else %}
+                {{ content.field_location }}
+            {% endif %}
         </div>
     </div>
     <hr />
     <div class="provider-background-container">
         {{ content.body }}
         {{ content.field_board_certifications }}
-        {{ content.field_medical_school_education }}
-        {{ content.field_residency_fellowship }}
+        {% if medschool_field == 'true' %}
+            {{ content.field_medical_school_education }}
+        {% endif %}
+        {% if residency_field == 'true' %}
+            {{ content.field_residency_fellowship }}
+        {% endif %}
     </div>
 </article>
