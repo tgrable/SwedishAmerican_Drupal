@@ -166,6 +166,7 @@ class ProvidersForm extends FormBase {
             if ($swedes_provider[0]['value'] == 'Swedes Provider') {
               $markup .= '<div class="card-provider-btn-icon"></div>';
               $provider_image_container = "views-field-field-image";
+              $provider_title = "card-provider-title";
               $swedes_provider_group = 'internal-provider';
               $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
               $swedes_provider_group_btn = 'card-provider-btn-group';
@@ -173,12 +174,14 @@ class ProvidersForm extends FormBase {
             else if ($swedes_provider[0]['value'] == 'UW Doctor') {
               $markup .= '<div class="card-provider-btn-uw-icon"></div>';
               $provider_image_container = "views-field-field-image-uw";
+              $provider_title = "card-provider-title-uw";
               $swedes_provider_group = 'uw-provider';
               $swedes_provider_group_bkgrd = 'card-provider-bkgrd-uw';
               $swedes_provider_group_btn = 'card-provider-btn-uw';
             }
             else if ($swedes_provider[0]['value'] == 'Courtesy') {
               $provider_image_container = "views-field-field-image";
+              $provider_title = "card-provider-title";
               $swedes_provider_group = 'external-provider';
               $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
               $swedes_provider_group_btn = 'card-provider-btn';
@@ -186,6 +189,7 @@ class ProvidersForm extends FormBase {
             else {
               $markup .= '<div class="card-provider-btn-icon"></div>';
               $provider_image_container = "views-field-field-image";
+              $provider_title = "card-provider-title";
               $swedes_provider_group = 'internal-provider';
               $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
               $swedes_provider_group_btn = 'card-provider-btn-group';
@@ -194,26 +198,11 @@ class ProvidersForm extends FormBase {
           else {
             $markup .= '<div class="card-provider-btn-icon"></div>';
             $provider_image_container = "views-field-field-image";
+            $provider_title = "card-provider-title";
             $swedes_provider_group = 'internal-provider';
             $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
             $swedes_provider_group_btn = 'card-provider-btn-group';
           }
-
-          // if ($node->get('field_swedes_provider')->getValue() != null) {
-          //   $swedes_provider = $node->get('field_swedes_provider')->getValue();
-            
-          //   if ($swedes_provider[0]['value'] == 1) {
-          //     $markup .= '<div class="card-provider-btn-icon"></div>';
-          //     $swedes_provider_group = 'internal-provider';
-          //     $swedes_provider_group_bkgrd = 'card-provider-bkgrd-group';
-          //     $swedes_provider_group_btn = 'card-provider-btn-group';
-          //   }
-          //   else {
-          //       $swedes_provider_group = 'external-provider';
-          //       $swedes_provider_group_bkgrd = 'card-provider-bkgrd';
-          //       $swedes_provider_group_btn = 'card-provider-btn';
-          //   }
-          // }
 
           if ($node->get('field_display_as_new')->getValue() != null) {
             $swedes_provider = $node->get('field_display_as_new')->getValue();
@@ -269,7 +258,7 @@ class ProvidersForm extends FormBase {
 
           $markup .= '<div class="' . $swedes_provider_group . '">';
             $markup .= '<div class="' .  $swedes_provider_group_bkgrd . '">';
-                $markup .= '<div class="card-provider-title"><strong>' . $title[0]['value'] . '</strong></div>';
+                $markup .= '<div class="' . $provider_title . '"><strong>' . $title[0]['value'] . '</strong></div>';
                 $markup .= '<div class="card-provider-special ">' . $specialty . '</div>';
                 // $markup .= $termmarkup;
             $markup .= '</div>'; // Close card-provider-bkgrd-groupcard div

@@ -3188,6 +3188,14 @@ footer .footer-content-short p {
   color: #92318f;
   padding-top: 15px;
 }
+.card-provider-title-uw {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #003764;
+  padding-top: 15px;
+}
 .view-id-survivor_stories .card-provider-title,
 .view-cancer-care-stories .card-provider-title {
   text-align: center;
@@ -3772,7 +3780,7 @@ section#block-twitterpostfeed {
 }
 .views-field-field-image-uw {
   width: 100px;
-  margin: 10px auto;
+  margin: 10px auto 5px auto;
 }
 .views-field-field-image-uw img {
   border-radius: 75px;
