@@ -129,13 +129,29 @@
         padding: 30px 15px 15px 40%;
     }
     .views-field-field-address {
-        padding: 0 15px 0px 40%;
-        background-color: rgba(190, 190, 190, 0.5);
+        // padding: 0 15px 0px 40%;
+        // background-color: rgba(190, 190, 190, 0.5);
+
+        .location-image-bg {
+            width: 150px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-right: 1px solid #bebebe;
+            vertical-align: top;
+        }
 
         .location-card {
             background: white;
             padding: 0 0 30px 15px;
-            border-left: 1px solid #bebebe;
+            width: 215px;
+            height: 200px;
+
+            .location-info {
+                span, p {
+                    padding-right: 10px;
+                }
+            }
         }
     }
 }

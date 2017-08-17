@@ -92,6 +92,11 @@
 					$('.footer').css("margin-top", "0");
 					$('.navbar-header').addClass('full-alpha');
 					console.log($(window).height());
+					$('.location-image-bg').each(function() {
+						var urlpath = $(this).attr("data-location");
+						console.log(urlpath);
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
 				}
 				else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
