@@ -205,7 +205,22 @@ li.extra-services {
                 text-decoration: underline;
                 background-color: @white;
             }
-        }   
+        }  
+        li.active {
+            a {
+                color: @brand-primary;
+            } 
+        }
+
+        li.active::before { 
+            font-family: FontAwesome;
+            font-size: 10px;
+            color: #92318f;
+            position: absolute;
+            left: -15px;
+            top: 7px;
+            content: "\f0C8";
+        }
     }
 }
 

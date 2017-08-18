@@ -2492,7 +2492,7 @@ li {
   padding-top: 45px;
 }
 .provider-article-padding-left {
-  padding: 30px 15px 15px 400px;
+  padding: 30px 15px 15px 22%;
 }
 header#navbar {
   z-index: 49;
@@ -2712,7 +2712,8 @@ div#block-swedishamerican-search {
   padding: 11px 14px;
 }
 .block_body {
-  margin-bottom: 30px;
+  margin: 30px 0px;
+  padding-left: 0;
 }
 .block_body ul {
   margin-left: 30px;
@@ -2982,6 +2983,18 @@ li.extra-services {
   text-decoration: underline;
   background-color: #ffffff;
 }
+.region-sidebar-first nav li.active a {
+  color: #92318f;
+}
+.region-sidebar-first nav li.active::before {
+  font-family: FontAwesome;
+  font-size: 10px;
+  color: #92318f;
+  position: absolute;
+  left: -15px;
+  top: 7px;
+  content: "\f0C8";
+}
 .region-sidebar-second .right-rail-header {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
@@ -3073,6 +3086,9 @@ li.extra-services {
 .social-block .header-title h1 {
   text-align: right;
   margin-top: 0;
+}
+.fa-social-background {
+  margin-right: 8px;
 }
 footer {
   background-color: #92318f;
@@ -3337,12 +3353,17 @@ footer .footer-content-short p {
   display: inline-block;
   margin: 1rem;
   position: relative;
-  width: 300px;
   vertical-align: top;
 }
 .card-event h2,
 .senior-card h2 {
   margin-top: 0;
+}
+.senior-card {
+  width: 255px;
+}
+.card-event {
+  width: 300px;
 }
 .card-event,
 .senior-card {
@@ -3424,6 +3445,8 @@ footer .footer-content-short p {
   overflow: hidden;
   width: 100%;
   height: 202px;
+  background-size: cover;
+  background-position: center;
 }
 .ig_article .post_image img {
   position: absolute;
@@ -3578,6 +3601,7 @@ section#block-twitterpostfeed {
   width: 40%;
 }
 .location-container .term-services-container {
+  width: 20%;
   margin: 45px 0 95px 0;
   vertical-align: top;
 }
@@ -3588,17 +3612,19 @@ section#block-twitterpostfeed {
   border-bottom: 1px solid #bebebe;
 }
 .view-id-locations .view-content {
-  width: 370px;
+  width: 25%;
   display: block;
   overflow-y: scroll;
   height: 660px;
+  background-color: #ffffff;
   border-bottom: 1px solid #bebebe;
   border-right: 1px solid #bebebe;
   box-shadow: 5px 0 5px -5px #bebebe;
 }
 .view-id-locations .view-header {
   padding-left: 30px;
-  width: 370px;
+  width: 25%;
+  background-color: #ffffff;
   border-right: 1px solid #bebebe;
   box-shadow: 5px 0 5px -5px #bebebe;
 }
@@ -3606,7 +3632,8 @@ section#block-twitterpostfeed {
   padding: 45px 0 30px 0;
 }
 .view-id-locations .view-filters.form-group {
-  width: 370px;
+  width: 25%;
+  background-color: #ffffff;
   padding: 0 20px 0 0;
   border-bottom: 1px solid #bebebe;
   border-right: 1px solid #bebebe;
@@ -3637,7 +3664,7 @@ section#block-twitterpostfeed {
   padding: 30px 15px 15px 40%;
 }
 .view-id-locations .views-field-field-address .location-image-bg {
-  width: 150px;
+  width: 33%;
   height: 200px;
   background-size: cover;
   background-position: center;
@@ -3647,7 +3674,7 @@ section#block-twitterpostfeed {
 .view-id-locations .views-field-field-address .location-card {
   background: white;
   padding: 0 0 30px 15px;
-  width: 215px;
+  width: 65%;
   height: 200px;
 }
 .view-id-locations .views-field-field-address .location-card .location-info span,
@@ -3656,7 +3683,7 @@ section#block-twitterpostfeed {
 }
 .attachment-after {
   position: absolute;
-  left: 385px;
+  left: 25%;
   top: 0;
   right: 0;
   z-index: -1;
@@ -3774,6 +3801,8 @@ section#block-twitterpostfeed {
   border-radius: 75px;
 }
 .new-provider {
+  position: absolute;
+  right: 0;
   float: right;
   background-image: url(/themes/swedishamerican/images/ico-new.png);
   height: 65px;
@@ -3813,7 +3842,7 @@ section#block-twitterpostfeed {
 #dependant-fields-wrapper {
   margin: 15px 0 15px 15px;
   padding-right: 30px;
-  width: 370px;
+  width: 20%;
   vertical-align: top;
   height: 100%;
   box-shadow: 5px 0 5px -5px #bebebe;
@@ -3829,7 +3858,7 @@ section#block-twitterpostfeed {
 .dependant-fields-wrapper-sticky {
   position: fixed;
   top: -15px;
-  left: 0;
+  left: 15px;
 }
 .dependant-fields-wrapper-fluid-admin {
   position: absolute;
@@ -3878,7 +3907,7 @@ section#block-twitterpostfeed {
 }
 .dependant-fields-footer .text {
   vertical-align: top;
-  width: 87%;
+  width: 83%;
 }
 .filter-item-container {
   min-height: 90px;
@@ -3910,7 +3939,7 @@ section#block-twitterpostfeed {
   border-bottom: 1px solid #bebebe;
 }
 .providers-container {
-  max-width: 1250px;
+  max-width: 75%;
   display: inline-block;
   display: -webkit-inline-box;
 }
@@ -3927,7 +3956,7 @@ section#block-twitterpostfeed {
 }
 #swedishamerican-providers-form .markup-area {
   position: relative;
-  left: 400px;
+  left: 22%;
 }
 .senior-image {
   height: 225px;
@@ -4099,7 +4128,7 @@ h1 span {
   margin-bottom: 5px;
 }
 #swedishamerican-eventslist-form .events-container {
-  max-width: 1400px;
+  width: 75%;
 }
 .events {
   padding: 0 30px 30px 30px;
@@ -4135,6 +4164,7 @@ h1 span {
 }
 .event-title {
   vertical-align: top;
+  max-width: 60%;
 }
 .event-details {
   padding: 15px;
@@ -4159,14 +4189,11 @@ h1 span {
 }
 .markup-sticky {
   position: relative;
-  left: 385px;
+  left: 22%;
 }
 @media only screen and (max-width: 1500px) {
   .inline-collapse {
     display: block;
-  }
-  .provider-container {
-    max-width: 945px;
   }
 }
 /* ----------- Desktops and laptops ----------- */
@@ -4196,7 +4223,13 @@ h1 span {
     width: 554px;
     height: 418px;
   }
+  #dependant-fields-wrapper {
+    width: 250px;
+  }
   /*************************** Provider Styles ***************************/
+  .provider-container {
+    max-width: 1155px;
+  }
   .provider-container .provider-image-container {
     width: 335px;
     margin-left: 30px;
@@ -4212,7 +4245,7 @@ h1 span {
     margin-top: 30px;
   }
   .form-item-sag .sag-markup .text {
-    max-width: 195px;
+    max-width: 140px;
   }
   /*************************** Location Styles ***************************/
   .location-container .term-content-container {
@@ -4221,9 +4254,7 @@ h1 span {
   .location-container .term-contact-container .phone-email {
     width: 55%;
   }
-  .location-container .term-services-container {
-    max-width: 325px;
-  }
+  .view-id-locations .view-header,
   .view-id-locations .view-content,
   .view-id-locations .view-filters.form-group {
     width: 25%;
@@ -4252,8 +4283,17 @@ h1 span {
     width: 640px;
     margin-right: 30px;
   }
+  .bs-menu ul {
+    column-gap: 0px;
+  }
   .box {
     left: 45px;
+  }
+  .region-sidebar-second a {
+    font-size: 14px;
+  }
+  .region-sidebar-second .block-swedishamerican-related-documents-list li a {
+    font-size: 14px;
   }
   /*************************** Front Page Styles ***************************/
   .view-front-cards .view-header {
@@ -4261,6 +4301,8 @@ h1 span {
     width: 100%;
     margin-right: 0;
     min-height: 0;
+    padding: 0 15px 15px 15px;
+    border-right: none;
   }
   .view-front-cards .view-header h1,
   .view-front-cards .view-header p {
@@ -4269,6 +4311,7 @@ h1 span {
   .social-block .header-title {
     margin-right: 0;
     min-height: 75px;
+    width: 225px;
   }
   .social-block .header-title h1 {
     text-align: left;
@@ -4282,7 +4325,16 @@ h1 span {
     float: none;
     min-height: 75px;
   }
-  .youtube-container .divider {
+  section#block-youtubepostfeed {
+    width: 53%;
+  }
+  .youtube-content {
+    width: 225px;
+  }
+  .youtube-content iframe {
+    width: 225px;
+  }
+  .youtube-content .divider {
     background-color: #ffffff;
   }
   /*************************** Service Styles ***************************/
@@ -4294,12 +4346,10 @@ h1 span {
   .service-container .location-address {
     padding-left: 0;
   }
-  .service-container .location-address .address {
-    max-width: none;
-  }
   /*************************** Provider Styles ***************************/
-  .providers-container {
-    width: 775px;
+  #swedishamerican-providers-form .markup-area {
+    position: relative;
+    left: 28%;
   }
   .provider-container {
     width: 940px;
@@ -4317,7 +4367,7 @@ h1 span {
     margin-left: 5px;
   }
   .provider-container .provider-details-container {
-    max-width: 575px;
+    max-width: 550px;
   }
   .form-item-sag .sag-markup .text {
     max-width: 134px;
@@ -4338,16 +4388,19 @@ h1 span {
     width: 60%;
     margin: 45px 30px 0 30px;
   }
-  .view-id-locations .views-field-field-address {
-    padding: 0 15px 30px 30px;
+  .view-id-locations .view-header {
+    padding-left: 10px;
   }
-  .view-id-locations .attachment-after {
-    top: 115px;
+  .view-id-locations .form-inline .form-group {
+    padding: 0 15px 15px 10px;
+  }
+  .view-id-locations span.location-header {
+    padding: 10px 0 15px 0;
+  }
+  .view-id-locations .views-field-field-address .location-card {
+    padding: 0px 0 30px 5px;
   }
   /*************************** Events Styles ***************************/
-  .events-container {
-    width: 775px;
-  }
   .event-container {
     width: 940px;
   }
@@ -4355,6 +4408,9 @@ h1 span {
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-device-width: 768px) {
   /*************************** Global Styles ***************************/
+  .mobile-hide {
+    display: none;
+  }
   #preheader .search {
     width: 400px;
     margin-right: 30px;
@@ -4396,8 +4452,7 @@ h1 span {
     margin-top: 15px;
     min-height: 0;
   }
-  .view-front-cards .view-content h1,
-  .view-front-cards .view-content p {
+  .view-front-cards .view-content h1 {
     text-align: left;
   }
   .view-front-cards .card {
@@ -4412,9 +4467,6 @@ h1 span {
     vertical-align: top;
     width: 25%;
   }
-  #block-socialheader .header-body {
-    width: 74%;
-  }
   .fb-container {
     width: 225px;
     margin: 0 10px 0 0;
@@ -4422,12 +4474,28 @@ h1 span {
   .ig-content {
     width: 225px;
   }
+  .ig_article .post_image {
+    height: 167px;
+  }
+  .small_ig_article img {
+    width: 82px;
+  }
   .ig-content-wide {
     width: 260px;
   }
+  #block-twitterpostfeed .social-block .header-title {
+    margin-right: 75px;
+    min-height: 75px;
+    width: 225px;
+    float: none;
+  }
+  #block-youtubepostfeed {
+    width: 44%;
+    margin-left: 75px;
+  }
   /*************************** Provider Styles ***************************/
-  .providers-container {
-    width: 535px;
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 28%;
   }
   .provider-container {
     width: 640px;
@@ -4471,26 +4539,27 @@ h1 span {
   .locations-container .location-container .term-services-container {
     margin: 0 30px 30px 30px;
   }
-  .view-id-locations .views-field-field-address {
-    padding: 0 15px 30px 30px;
-  }
+  .view-id-locations .view-header,
   .view-id-locations .view-content,
   .view-id-locations .view-filters.form-group {
-    width: 25%;
+    width: 35%;
   }
   .view-id-locations .attachment-after {
-    top: 115px;
-    width: 74%;
+    top: 0;
+    width: 64%;
+    left: 35%;
   }
   /*************************** Event Styles ***************************/
-  .events-container {
-    max-width: 545px;
-  }
   .events-container .card-event {
     width: 225px;
   }
   .event-container {
     width: 640px;
+  }
+  /*************************** Senior Leadership Styles ***************************/
+  .senior-card {
+    width: 200px;
+    height: 150px;
   }
 }
 /* ----------- iPads (portrait) ----------- */

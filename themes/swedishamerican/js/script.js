@@ -30,7 +30,7 @@
 						$('.dropdown-menu:eq(0)').append(maniMenuString);
 					}
 				}
-
+				
 				if (this.pathname === '/') {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
 					$('header').css("background-size", "cover");
@@ -47,6 +47,9 @@
 					$('.navbar-header').addClass('full-alpha');
 
 					$( window ).scroll(function() {
+						console.log($('.markup-area').height());
+						console.log($(window).scrollTop());
+
 						var fluid = "dependant-fields-wrapper-fluid";
 						var sticky = "dependant-fields-wrapper-sticky";
 						var scrollPosition = 120;
@@ -106,6 +109,17 @@
 					$('header').css("background-size", "cover");
 					$('header').css("background-position", "center");
 					$('header').css("height", "250px");
+
+					if ($(window).width() < 769) {
+						if ($('.main-col').hasClass('all-three-col')) {
+							$('.main-col').removeClass('col-sm-8');
+							$('.main-col').addClass('col-sm-9');
+						}
+						else if ($('.main-col').hasClass('no-right-col')) {
+							$('.main-col').removeClass('col-sm-10');
+							$('.main-col').addClass('col-sm-9');
+						}
+					}
 				}
 				else if (this.pathname.includes("locations")) {
 					$('.footer').css("margin-top", "0");
@@ -120,6 +134,13 @@
 					$('header').css("background-size", "cover");
 					$('header').css("background-position", "center");
 					$('header').css("height", "250px");
+
+					if ($(window).width() < 769) {
+						if ($('.main-col').hasClass('no-left-col')) {
+							$('.main-col').removeClass('col-sm-10');
+							$('.main-col').addClass('col-sm-12');
+						}
+					}
 				}
 				else if (this.pathname.includes("about")) {
 					if ($(window).width() > 480) {
@@ -151,11 +172,12 @@
 		var lightBox = {
 			init: function() {
 				$(".lightBox").on("click", function(){
+					$('body').addClass('noscroll');
 					$(".backDrop").animate({"opacity": ".70"}, 500);
 					$(".box").animate({"opacity": "1.0"}, 500);
 					$(".box").css("display", "flex");
 					$(".box").css("position", "absolute");
-					$(".box").css("top", $(document).scrollTop());
+					$(".box").css("top", $(document).scrollTop() + 25);
 					$(".backDrop").css("display", "block");
 				});
 				
@@ -206,6 +228,7 @@
 					$(".backDrop, .box").animate({"opacity": "0"}, 500, function(){
 						$(".backDrop, .box").css("display", "none");
 						$('#overlay-content').html('');
+						$('body').removeClass('noscroll');
 					});
 				}
 			}

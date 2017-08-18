@@ -135,7 +135,7 @@
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          <aside class="col-sm-2" role="complementary">
+          <aside class="col-xs-0 col-sm-3 col-md-2" role="complementary">
             {{ page.sidebar_first }}
           </aside>
         {% endblock %}
@@ -146,10 +146,10 @@
       {# This hides the sidebar regions if they are empty #}
       {%
         set content_classes = [
-          page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim ? 'col-sm-8',
-          page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim is empty ? 'col-sm-10',
-          page.sidebar_second|render|striptags|trim and page.sidebar_first|render|striptags|trim is empty ? 'col-sm-10',
-          page.sidebar_first|render|striptags|trim is empty and page.sidebar_second|render|striptags|trim is empty ? 'col-sm-12'
+          page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim ? 'main-col all-three-col col-sm-8',
+          page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim is empty ? 'main-col no-right-col col-sm-10',
+          page.sidebar_second|render|striptags|trim and page.sidebar_first|render|striptags|trim is empty ? 'main-col no-left-col col-sm-10',
+          page.sidebar_first|render|striptags|trim is empty and page.sidebar_second|render|striptags|trim is empty ? 'main-col no-side-sol col-sm-12'
         ]
       %}
       <section{{ content_attributes.addClass(content_classes) }}>
@@ -193,7 +193,7 @@
       {# Sidebar Second #}
       {% if page.sidebar_second %}
         {% block sidebar_second %}
-          <aside class="col-sm-2" role="complementary">
+          <aside class="right-col col-sm-0 col-md-2 mobile-hide" role="complementary">
             {{ page.sidebar_second }}
           </aside>
         {% endblock %}
