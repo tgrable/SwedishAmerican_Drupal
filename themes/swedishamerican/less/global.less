@@ -152,6 +152,10 @@ header#navbar {
     z-index: 49;
 }
 
+.noscroll { 
+    overflow: hidden;
+  }
+
 .overlay {
     width: 1490px;
     margin: auto;
@@ -445,6 +449,15 @@ div#block-swedishamerican-search {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
+}
+
+#overlay-content {
+    .provider-container,
+    .locations-container,
+    .event-container {
+        max-height: 960px;
+        overflow: scroll;
+    }
 }
 
 .panel-body {
