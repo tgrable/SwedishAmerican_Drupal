@@ -30,24 +30,6 @@
 						$('.dropdown-menu:eq(0)').append(maniMenuString);
 					}
 				}
-
-				if ($(window).width() < 769) {
-					if ($('.main-col').hasClass('all-three-col')) {
-						$('.main-col').removeClass('col-sm-8');
-						$('.main-col').addClass('col-sm-9');
-					}
-					else if ($('.main-col').hasClass('no-right-col')) {
-						$('.main-col').removeClass('col-sm-10');
-						$('.main-col').addClass('col-sm-9');
-					}
-					else if ($('.main-col').hasClass('no-left-col')) {
-						$('.main-col').removeClass('col-sm-10');
-						$('.main-col').addClass('col-sm-12');
-					}
-					else {
-					
-					}
-				}
 				
 				if (this.pathname === '/') {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
@@ -127,22 +109,6 @@
 					$('header').css("background-size", "cover");
 					$('header').css("background-position", "center");
 					$('header').css("height", "250px");
-
-					if ($(window).width() < 769) {
-						if ($('.main-col').hasClass('all-three-col')) {
-							$('.main-col').removeClass('col-sm-8');
-							$('.main-col').addClass('col-sm-9');
-							console.log('I Hate Justin');
-						}
-						else if ($('.main-col').hasClass('no-right-col')) {
-							$('.main-col').removeClass('col-sm-10');
-							$('.main-col').addClass('col-sm-9');
-							console.log('Justin Sucks');
-						}
-						else {
-							console.log('Tim is Great');
-						}
-					}
 				}
 				else if (this.pathname.includes("locations")) {
 					$('.footer').css("margin-top", "0");
@@ -157,13 +123,6 @@
 					$('header').css("background-size", "cover");
 					$('header').css("background-position", "center");
 					$('header').css("height", "250px");
-
-					if ($(window).width() < 769) {
-						if ($('.main-col').hasClass('no-left-col')) {
-							$('.main-col').removeClass('col-sm-10');
-							$('.main-col').addClass('col-sm-12');
-						}
-					}
 				}
 				else if (this.pathname.includes("about")) {
 					if ($(window).width() > 480) {
@@ -191,6 +150,70 @@
 			}
 		};
 		mainController.init();
+
+		var colWidths = {
+			init: function() {
+				if ($(window).width() < 769) {
+					if ($('.main-col').hasClass('all-three-col')) {
+						$('.main-col').removeClass('col-sm-8');
+						$('.main-col').addClass('col-sm-9');
+					}
+					else if ($('.main-col').hasClass('no-right-col')) {
+						$('.main-col').removeClass('col-sm-10');
+						$('.main-col').addClass('col-sm-9');
+					}
+					else if ($('.main-col').hasClass('no-left-col')) {
+						$('.main-col').removeClass('col-sm-10');
+						$('.main-col').addClass('col-sm-12');
+					}
+					else {
+					
+					}
+				}
+
+				$( window ).on( "orientationchange", function( event ) {
+					if ($(window).width() > 769) {
+						if ($(window).width() < 1025) {
+							if ($('.main-col').hasClass('all-three-col')) {
+								$('.main-col').addClass('col-sm-8');
+								$('.main-col').removeClass('col-sm-9');
+							}
+							else if ($('.main-col').hasClass('no-right-col')) {
+								$('.main-col').addClass('col-sm-10');
+								$('.main-col').removeClass('col-sm-9');
+							}
+							else if ($('.main-col').hasClass('no-left-col')) {
+								$('.main-col').addClass('col-sm-10');
+								$('.main-col').removeClass('col-sm-12');
+							}
+							else {
+							
+							}
+						}
+					}
+					else {
+						if ($(window).width() < 769) {
+							if ($('.main-col').hasClass('all-three-col')) {
+								$('.main-col').removeClass('col-sm-8');
+								$('.main-col').addClass('col-sm-9');
+							}
+							else if ($('.main-col').hasClass('no-right-col')) {
+								$('.main-col').removeClass('col-sm-10');
+								$('.main-col').addClass('col-sm-9');
+							}
+							else if ($('.main-col').hasClass('no-left-col')) {
+								$('.main-col').removeClass('col-sm-10');
+								$('.main-col').addClass('col-sm-12');
+							}
+							else {
+							
+							}
+						}
+					}
+				});
+			}
+		}
+		colWidths.init();
 
 		var lightBox = {
 			init: function() {

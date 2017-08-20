@@ -4511,6 +4511,9 @@ h1 span {
   .mobile-hide {
     display: none;
   }
+  #preheader {
+    width: 768px;
+  }
   #preheader .search {
     width: 400px;
     margin-right: 30px;
