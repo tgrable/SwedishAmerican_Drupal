@@ -1,7 +1,112 @@
 
+@media only screen and (max-width : 1700px) {
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 24%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 24%;
+    }
+
+    #swedishamerican-eventslist-form .events-container {
+        width: 76%;
+    }
+}
+
+@media only screen and (max-width : 1600px) {
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 25%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 25%;
+    }
+
+    #swedishamerican-eventslist-form .events-container {
+        width: 74%;
+    }
+}
+
 @media only screen and (max-width : 1500px) {
     .inline-collapse {
         display: block;
+    }
+
+    #dependant-fields-wrapper {
+        width: 300px;
+    }
+
+    .form-item-sag .sag-markup .text {
+        max-width: 140px;
+    }
+
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 22%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 22%;
+    }
+}
+
+@media only screen and (max-width : 1400px) {
+    #dependant-fields-wrapper {
+        width: 300px;
+    }
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 24%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 24%;
+    }
+}
+
+@media only screen and (max-width : 1300px) {
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 25%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 25%;
+    }
+}
+
+@media only screen and (max-width : 1200px) {
+    #dependant-fields-wrapper {
+        width: 270px;
+
+        .dependant-fields-footer {
+            .text {
+                width: 75%;
+            }
+        }
+
+        .form-item-sag .sag-markup .text {
+            max-width: 134px;
+        }
+    }
+}
+
+@media only screen and (max-width : 1100px) {
+    #preheader {
+        width: 1100px;
+
+        .search {
+            width: 775px;
+        }
+    }
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 27%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 27%;
+        width: 70%;
+    }
+
+    #swedishamerican-eventslist-form .events-container {
+        width: 100%;
     }
 }
 
@@ -45,10 +150,6 @@
         }
     }
 
-    #dependant-fields-wrapper {
-        width: 250px;
-    }
-
     /*************************** Provider Styles ***************************/
     .provider-container {
         max-width: 1155px;
@@ -69,10 +170,6 @@
                 margin-top: 30px;
             }
         }
-    }
-
-    .form-item-sag .sag-markup .text {
-        max-width: 140px;
     }
 
     /*************************** Location Styles ***************************/
@@ -116,9 +213,11 @@
 }
 
 /* ----------- iPads (landscape) ----------- */
-@media only screen and (max-device-width : 1024px) {
+@media only screen and (max-width : 1024px) {
     /*************************** Global Styles ***************************/
     #preheader {
+        width: 1024px; 
+
         .logo {
             margin-left: 30px;
         }
@@ -223,11 +322,6 @@
     }
 
     /*************************** Provider Styles ***************************/
-    #swedishamerican-providers-form .markup-area {
-        position: relative;
-        left: 28%;
-    }
-
     .provider-container {
         width: 940px;
 
@@ -254,12 +348,12 @@
         }
     }
 
-    .form-item-sag {
-        .sag-markup {
-            .text {
-                max-width: 134px;
-            }
-        }
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 29%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 29%;
     }
 
     /*************************** Location Styles ***************************/
@@ -309,13 +403,23 @@
     }
 
     /*************************** Events Styles ***************************/
-    .event-container {
-        width: 940px;
+    #swedishamerican-eventslist-form .events-container {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width : 900px) {
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 33%;
+    }
+    #swedishamerican-providers-form .markup-area,
+    .markup-sticky {
+        left: 33%;
     }
 }
 
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-device-width : 768px) {
+@media only screen and (max-width : 768px) and (max-device-width : 768px) {
     /*************************** Global Styles ***************************/
     .mobile-hide {
         display: none;
@@ -348,10 +452,6 @@
                 }
             }
         }
-    }
-
-    #dependant-fields-wrapper {
-        width: 25%;
     }
 
     .box {
@@ -445,7 +545,11 @@
 
     /*************************** Provider Styles ***************************/
     .provider-article-padding-left {
-        padding: 30px 15px 15px 28%;
+        padding: 30px 15px 15px 33%;
+    }
+
+    #dependant-fields-wrapper {
+        width: 235px;
     }
 
     .provider-container {
@@ -526,10 +630,6 @@
         }
     }
 
-    .event-container {
-        width: 640px;
-    }
-
     /*************************** Senior Leadership Styles ***************************/
     .senior-card {
         width: 200px;
@@ -558,8 +658,8 @@
 
     .navbar-inverse .navbar-collapse, 
     .navbar-inverse .navbar-form {
-        border-color: white;
-        background-color: white;
+        border-color: @white;
+        background-color: @white;
         margin-top: -22px;
     }
 
@@ -602,5 +702,4 @@
             margin-bottom: 10px;
         }
     }
-
 }

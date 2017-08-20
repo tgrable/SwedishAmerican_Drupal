@@ -3842,7 +3842,7 @@ section#block-twitterpostfeed {
 #dependant-fields-wrapper {
   margin: 15px 0 15px 15px;
   padding-right: 30px;
-  width: 20%;
+  width: 370px;
   vertical-align: top;
   height: 100%;
   box-shadow: 5px 0 5px -5px #bebebe;
@@ -3858,7 +3858,6 @@ section#block-twitterpostfeed {
 .dependant-fields-wrapper-sticky {
   position: fixed;
   top: -15px;
-  left: 15px;
 }
 .dependant-fields-wrapper-fluid-admin {
   position: absolute;
@@ -3868,7 +3867,6 @@ section#block-twitterpostfeed {
 .dependant-fields-wrapper-sticky-admin {
   position: fixed;
   top: 68px;
-  left: 15px;
 }
 .select-wrapper:after {
   font-size: 0;
@@ -3939,7 +3937,6 @@ section#block-twitterpostfeed {
   border-bottom: 1px solid #bebebe;
 }
 .providers-container {
-  max-width: 75%;
   display: inline-block;
   display: -webkit-inline-box;
 }
@@ -3957,6 +3954,7 @@ section#block-twitterpostfeed {
 #swedishamerican-providers-form .markup-area {
   position: relative;
   left: 22%;
+  width: 75%;
 }
 .senior-image {
   height: 225px;
@@ -4013,10 +4011,11 @@ section#block-twitterpostfeed {
 .service-container .location-address {
   padding-left: 30px;
   vertical-align: top;
+  max-width: 585px;
 }
 .service-container .address {
   vertical-align: top;
-  max-width: 190px;
+  max-width: 160px;
   padding-right: 15px;
   text-transform: capitalize;
 }
@@ -4091,6 +4090,13 @@ section#block-twitterpostfeed {
   color: #3f3f3f;
   font-size: 16px;
   text-decoration: none;
+}
+.view-id-blog_categories h2 a,
+.view-id-archive h2 a {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  color: #92318f;
 }
 .pagination li a,
 .pagination li a:hover {
@@ -4191,9 +4197,97 @@ h1 span {
   position: relative;
   left: 22%;
 }
+@media only screen and (max-width: 1700px) {
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 24%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 24%;
+  }
+  #swedishamerican-eventslist-form .events-container {
+    width: 76%;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 25%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 25%;
+  }
+  #swedishamerican-eventslist-form .events-container {
+    width: 74%;
+  }
+}
 @media only screen and (max-width: 1500px) {
   .inline-collapse {
     display: block;
+  }
+  #dependant-fields-wrapper {
+    width: 300px;
+  }
+  .form-item-sag .sag-markup .text {
+    max-width: 140px;
+  }
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 22%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 22%;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  #dependant-fields-wrapper {
+    width: 300px;
+  }
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 24%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 24%;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 25%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 25%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #dependant-fields-wrapper {
+    width: 270px;
+  }
+  #dependant-fields-wrapper .dependant-fields-footer .text {
+    width: 75%;
+  }
+  #dependant-fields-wrapper .form-item-sag .sag-markup .text {
+    max-width: 134px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  #preheader {
+    width: 1100px;
+  }
+  #preheader .search {
+    width: 775px;
+  }
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 27%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 27%;
+    width: 70%;
+  }
+  #swedishamerican-eventslist-form .events-container {
+    width: 100%;
   }
 }
 /* ----------- Desktops and laptops ----------- */
@@ -4223,9 +4317,6 @@ h1 span {
     width: 554px;
     height: 418px;
   }
-  #dependant-fields-wrapper {
-    width: 250px;
-  }
   /*************************** Provider Styles ***************************/
   .provider-container {
     max-width: 1155px;
@@ -4243,9 +4334,6 @@ h1 span {
   }
   .provider-container .provider-details-container .map {
     margin-top: 30px;
-  }
-  .form-item-sag .sag-markup .text {
-    max-width: 140px;
   }
   /*************************** Location Styles ***************************/
   .location-container .term-content-container {
@@ -4274,8 +4362,11 @@ h1 span {
   }
 }
 /* ----------- iPads (landscape) ----------- */
-@media only screen and (max-device-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   /*************************** Global Styles ***************************/
+  #preheader {
+    width: 1024px;
+  }
   #preheader .logo {
     margin-left: 30px;
   }
@@ -4347,10 +4438,6 @@ h1 span {
     padding-left: 0;
   }
   /*************************** Provider Styles ***************************/
-  #swedishamerican-providers-form .markup-area {
-    position: relative;
-    left: 28%;
-  }
   .provider-container {
     width: 940px;
   }
@@ -4369,8 +4456,12 @@ h1 span {
   .provider-container .provider-details-container {
     max-width: 550px;
   }
-  .form-item-sag .sag-markup .text {
-    max-width: 134px;
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 29%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 29%;
   }
   /*************************** Location Styles ***************************/
   .locations-container {
@@ -4401,12 +4492,21 @@ h1 span {
     padding: 0px 0 30px 5px;
   }
   /*************************** Events Styles ***************************/
-  .event-container {
-    width: 940px;
+  #swedishamerican-eventslist-form .events-container {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 33%;
+  }
+  #swedishamerican-providers-form .markup-area,
+  .markup-sticky {
+    left: 33%;
   }
 }
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) and (max-device-width: 768px) {
   /*************************** Global Styles ***************************/
   .mobile-hide {
     display: none;
@@ -4428,9 +4528,6 @@ h1 span {
   .bs-menu ul li a {
     padding: 3px 0px;
     white-space: normal;
-  }
-  #dependant-fields-wrapper {
-    width: 25%;
   }
   .box {
     left: 60px;
@@ -4495,7 +4592,10 @@ h1 span {
   }
   /*************************** Provider Styles ***************************/
   .provider-article-padding-left {
-    padding: 30px 15px 15px 28%;
+    padding: 30px 15px 15px 33%;
+  }
+  #dependant-fields-wrapper {
+    width: 235px;
   }
   .provider-container {
     width: 640px;
@@ -4553,9 +4653,6 @@ h1 span {
   .events-container .card-event {
     width: 225px;
   }
-  .event-container {
-    width: 640px;
-  }
   /*************************** Senior Leadership Styles ***************************/
   .senior-card {
     width: 200px;
@@ -4580,8 +4677,8 @@ h1 span {
   }
   .navbar-inverse .navbar-collapse,
   .navbar-inverse .navbar-form {
-    border-color: white;
-    background-color: white;
+    border-color: #ffffff;
+    background-color: #ffffff;
     margin-top: -22px;
   }
   .navbar-inverse .navbar-nav > .active > a,
