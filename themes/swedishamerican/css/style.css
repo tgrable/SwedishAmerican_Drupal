@@ -4506,7 +4506,7 @@ h1 span {
   }
 }
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-width: 768px) and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
   /*************************** Global Styles ***************************/
   .mobile-hide {
     display: none;
@@ -4569,7 +4569,7 @@ h1 span {
     margin: 0 10px 0 0;
   }
   .ig-content {
-    width: 225px;
+    width: 222px;
   }
   .ig_article .post_image {
     height: 167px;
@@ -4586,8 +4586,8 @@ h1 span {
     width: 225px;
     float: none;
   }
-  #block-youtubepostfeed {
-    width: 44%;
+  section#block-youtubepostfeed {
+    width: 45%;
     margin-left: 75px;
   }
   /*************************** Provider Styles ***************************/

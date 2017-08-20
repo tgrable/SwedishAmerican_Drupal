@@ -30,6 +30,24 @@
 						$('.dropdown-menu:eq(0)').append(maniMenuString);
 					}
 				}
+
+				if ($(window).width() < 769) {
+					if ($('.main-col').hasClass('all-three-col')) {
+						$('.main-col').removeClass('col-sm-8');
+						$('.main-col').addClass('col-sm-9');
+					}
+					else if ($('.main-col').hasClass('no-right-col')) {
+						$('.main-col').removeClass('col-sm-10');
+						$('.main-col').addClass('col-sm-9');
+					}
+					else if ($('.main-col').hasClass('no-left-col')) {
+						$('.main-col').removeClass('col-sm-10');
+						$('.main-col').addClass('col-sm-12');
+					}
+					else {
+					
+					}
+				}
 				
 				if (this.pathname === '/') {
 					$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
@@ -114,10 +132,15 @@
 						if ($('.main-col').hasClass('all-three-col')) {
 							$('.main-col').removeClass('col-sm-8');
 							$('.main-col').addClass('col-sm-9');
+							console.log('I Hate Justin');
 						}
 						else if ($('.main-col').hasClass('no-right-col')) {
 							$('.main-col').removeClass('col-sm-10');
 							$('.main-col').addClass('col-sm-9');
+							console.log('Justin Sucks');
+						}
+						else {
+							console.log('Tim is Great');
 						}
 					}
 				}
