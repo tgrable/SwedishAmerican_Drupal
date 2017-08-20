@@ -2624,6 +2624,9 @@ button.btn.btn-standard.btn-floating {
   font-size: 16px;
   text-align: right;
 }
+#preheader a {
+  color: #3f3f3f;
+}
 #postheader {
   display: none;
 }
@@ -2765,6 +2768,10 @@ div#block-swedishamerican-search {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+}
+#overlay-content {
+  margin: auto;
+  max-width: 100%;
 }
 #overlay-content .provider-container,
 #overlay-content .locations-container,
@@ -3581,8 +3588,8 @@ section#block-twitterpostfeed {
   width: 50%;
 }
 .location-container .map-image-container iframe {
-  width: 749px;
-  height: 565px;
+  width: 741px;
+  height: 559px;
 }
 .location-container .term-content-container {
   width: 70%;
@@ -4133,9 +4140,6 @@ h1 span {
 .view-display-id-block_2 div {
   margin-bottom: 5px;
 }
-#swedishamerican-eventslist-form .events-container {
-  width: 75%;
-}
 .events {
   padding: 0 30px 30px 30px;
 }
@@ -4196,6 +4200,8 @@ h1 span {
 .markup-sticky {
   position: relative;
   left: 22%;
+  width: 75%;
+  min-height: 250px;
 }
 @media only screen and (max-width: 1700px) {
   .provider-article-padding-left {
@@ -4261,6 +4267,27 @@ h1 span {
   }
 }
 @media only screen and (max-width: 1200px) {
+  .fb-container {
+    width: 200px;
+    margin: 0 15px 0 0;
+  }
+  .ig-content {
+    width: 175px;
+  }
+  .ig-content .ig_article .post_image {
+    height: 183px;
+  }
+  .ig-content-wide {
+    width: 285px;
+  }
+  .ig-content-wide .small_ig_article img {
+    width: 90px;
+  }
+  #block-youtubepostfeed .social-block .header-title,
+  #block-twitterpostfeed .social-block .header-title {
+    float: none;
+    min-height: 75px;
+  }
   #dependant-fields-wrapper {
     width: 270px;
   }
@@ -4305,9 +4332,7 @@ h1 span {
   }
   .box {
     width: 1100px;
-  }
-  #overlay-content {
-    margin: auto;
+    max-width: 1024px;
   }
   #overlay-content .provider-contact-container .map iframe {
     width: 250px;
@@ -4357,7 +4382,7 @@ h1 span {
 }
 /* ----------- In-between Range ----------- */
 @media only screen and (min-width: 1025px) and (max-width: 1199px) {
-  .view-header {
+  .view-front-cards .view-header {
     height: 715px;
   }
 }
@@ -4374,11 +4399,18 @@ h1 span {
     width: 640px;
     margin-right: 30px;
   }
+  .fb-container {
+    width: 255px;
+    margin: 0 30px 0 0;
+  }
+  .social-hdr {
+    font-size: 28px;
+  }
   .bs-menu ul {
     column-gap: 0px;
   }
   .box {
-    left: 45px;
+    max-width: 960px;
   }
   .region-sidebar-second a {
     font-size: 14px;
@@ -4459,6 +4491,9 @@ h1 span {
   .provider-article-padding-left {
     padding: 30px 15px 15px 29%;
   }
+  .card-provider {
+    width: 215px;
+  }
   #swedishamerican-providers-form .markup-area,
   .markup-sticky {
     left: 29%;
@@ -4481,9 +4516,17 @@ h1 span {
   }
   .view-id-locations .view-header {
     padding-left: 10px;
+    width: 27%;
+  }
+  .view-id-locations .view-header h1 {
+    font-size: 36px;
   }
   .view-id-locations .form-inline .form-group {
     padding: 0 15px 15px 10px;
+    width: 27%;
+  }
+  .view-id-locations .view-content {
+    width: 27%;
   }
   .view-id-locations span.location-header {
     padding: 10px 0 15px 0;
@@ -4491,9 +4534,31 @@ h1 span {
   .view-id-locations .views-field-field-address .location-card {
     padding: 0px 0 30px 5px;
   }
+  .view-id-locations .attachment-after {
+    left: 290px;
+    width: 749px;
+  }
   /*************************** Events Styles ***************************/
   #swedishamerican-eventslist-form .events-container {
     width: 95%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .fb-container {
+    width: 220px;
+    margin: 0 10px 0 0;
+  }
+  .ig-content {
+    width: 200px;
+  }
+  .ig_article .post_image {
+    height: 193px;
+  }
+  .ig-content-wide {
+    width: 305px;
+  }
+  .ig-content-wide .small_ig_article img {
+    width: 95px;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -4533,7 +4598,7 @@ h1 span {
     white-space: normal;
   }
   .box {
-    left: 60px;
+    max-width: 640px;
   }
   .inline-desktop {
     display: block;
@@ -4600,6 +4665,9 @@ h1 span {
   #dependant-fields-wrapper {
     width: 235px;
   }
+  #dependant-fields-wrapper #dependant-fields-wrapper h1 {
+    font-size: 36px;
+  }
   .provider-container {
     width: 640px;
   }
@@ -4621,6 +4689,9 @@ h1 span {
     margin-top: 30px;
   }
   .provider-container .provider-details-container .contact.inline {
+    display: block;
+  }
+  .dependant-fields-footer .icon {
     display: block;
   }
   /*************************** Location Styles ***************************/
@@ -4645,7 +4716,7 @@ h1 span {
   .view-id-locations .view-header,
   .view-id-locations .view-content,
   .view-id-locations .view-filters.form-group {
-    width: 35%;
+    width: 34%;
   }
   .view-id-locations .attachment-after {
     top: 0;
@@ -4659,12 +4730,17 @@ h1 span {
   /*************************** Senior Leadership Styles ***************************/
   .senior-card {
     width: 200px;
+  }
+  .senior-card .senior-image {
     height: 150px;
   }
 }
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 480px) {
   /*************************** Global Styles ***************************/
+  h1 {
+    margin-top: 15px;
+  }
   #preheader {
     display: none;
   }
@@ -4716,5 +4792,25 @@ h1 span {
     display: inline-block;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+  .view-front-cards .view-header,
+  #block-socialheader,
+  #block-facebookpostfeed,
+  #block-instagrampostfeed,
+  #block-youtubepostfeed,
+  #block-twitterpostfeed {
+    display: none;
+  }
+  .view-front-cards .card {
+    width: 180px;
+  }
+  .view-front-cards .card article {
+    height: 250px;
+  }
+  .view-front-cards .card article .card-main-ico {
+    margin: 0 auto 50px auto;
+  }
+  .view-front-cards .card .card-main-img {
+    height: 150px;
   }
 }

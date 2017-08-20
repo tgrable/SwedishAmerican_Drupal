@@ -73,6 +73,35 @@
 }
 
 @media only screen and (max-width : 1200px) {
+    .fb-container {
+        width: 200px;
+        margin: 0 15px 0 0;
+    }
+    .ig-content {
+        width: 175px;
+
+        .ig_article .post_image {
+            height: 183px;
+        }
+    }
+    .ig-content-wide {
+        width: 285px;
+
+        .small_ig_article img {
+            width: 90px;
+        }
+    }
+
+    #block-youtubepostfeed,
+    #block-twitterpostfeed {
+        .social-block {
+            .header-title {
+                float: none;
+                min-height: 75px;
+            }
+        }
+    }
+
     #dependant-fields-wrapper {
         width: 270px;
 
@@ -127,11 +156,10 @@
 
     .box {
         width: 1100px;
+        max-width: 1024px;
     }
     
     #overlay-content {
-        margin: auto;
-
         .provider-contact-container {
             .map {
                 iframe {
@@ -207,8 +235,10 @@
 
 /* ----------- In-between Range ----------- */
 @media only screen  and (min-width : 1025px) and (max-width : 1199px) {
-    .view-header {
-        height: 715px;
+    .view-front-cards {
+        .view-header {
+            height: 715px;
+        }
     }
 }
 
@@ -228,12 +258,20 @@
         }
     }
 
+    .fb-container {
+        width: 255px;
+        margin: 0 30px 0 0;
+    }
+    .social-hdr {
+        font-size: 28px;
+    }
+
     .bs-menu ul {
         column-gap: 0px;
     }
 
     .box {
-        left: 45px;
+        max-width: 960px;
     }
 
     .region-sidebar-second {
@@ -351,6 +389,11 @@
     .provider-article-padding-left {
         padding: 30px 15px 15px 29%;
     }
+
+    .card-provider {
+        width: 215px;
+    }
+    
     #swedishamerican-providers-form .markup-area,
     .markup-sticky {
         left: 29%;
@@ -385,10 +428,20 @@
 
         .view-header {
             padding-left: 10px;
+            width: 27%;
+
+            h1 {
+                font-size: 36px;
+            }
         }
 
         .form-inline .form-group {
             padding: 0 15px 15px 10px;
+            width: 27%;
+        }
+
+        .view-content {
+            width: 27%;
         }
 
         span.location-header {
@@ -400,11 +453,36 @@
                 padding: 0px 0 30px 5px;
             }
         }
+        .attachment-after {
+            left: 290px;
+            width: 749px;
+        }
+
     }
 
     /*************************** Events Styles ***************************/
     #swedishamerican-eventslist-form .events-container {
         width: 95%;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    .fb-container {
+        width: 220px;
+        margin: 0 10px 0 0;
+    }
+    .ig-content {
+        width: 200px;
+    }
+    .ig_article .post_image {
+        height: 193px;
+    }
+    .ig-content-wide {
+        width: 305px;
+
+        .small_ig_article img {
+            width: 95px;
+        }
     }
 }
 
@@ -424,7 +502,7 @@
     .mobile-hide {
         display: none;
     }
-    
+
     #preheader {
         width: 768px;
 
@@ -457,7 +535,7 @@
     }
 
     .box {
-        left: 60px;
+        max-width: 640px;
     }
 
     .inline-desktop {
@@ -552,6 +630,10 @@
 
     #dependant-fields-wrapper {
         width: 235px;
+
+        #dependant-fields-wrapper h1 {
+            font-size: 36px;
+        }
     }
 
     .provider-container {
@@ -582,6 +664,12 @@
             .contact.inline {
                 display: block;
             }
+        }
+    }
+
+    .dependant-fields-footer {
+        .icon {
+            display: block;
         }
     }
 
@@ -616,7 +704,7 @@
         .view-header,
         .view-content,
         .view-filters.form-group {
-            width: 35%;
+            width: 34%;
         }
         .attachment-after {
             top: 0;
@@ -635,13 +723,19 @@
     /*************************** Senior Leadership Styles ***************************/
     .senior-card {
         width: 200px;
-        height: 150px;
+
+        .senior-image {
+            height: 150px;
+        }
     }
 }
 
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-device-width : 480px) {
+@media only screen and (max-width : 480px) {
     /*************************** Global Styles ***************************/
+    h1 {
+        margin-top: 15px;
+    }
     #preheader {
         display: none;
     }
@@ -703,5 +797,33 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+    }
+
+    .view-front-cards .view-header,
+    #block-socialheader,
+    #block-facebookpostfeed,
+    #block-instagrampostfeed,
+    #block-youtubepostfeed,
+    #block-twitterpostfeed {
+        display: none;
+    }
+
+    .view-front-cards {
+        .card {
+            width: 180px;
+
+            article {
+                height: 250px;
+
+                .card-main-ico {
+                    margin: 0 auto 50px auto;
+                }
+            }
+
+            .card-main-img {
+                height: 150px;
+            }
+        }
+        
     }
 }

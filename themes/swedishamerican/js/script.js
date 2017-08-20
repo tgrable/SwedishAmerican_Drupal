@@ -31,120 +31,122 @@
 					}
 				}
 				
-				if (this.pathname === '/') {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
-					$('header').css("background-size", "cover");
-					$('header').css("background-position", "center");
-					$('header').css("height", "465px");
-				}
-				else if (this.pathname.includes("providers")) {	
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
-					$('header').css("height", "335px");	
-				}
-				else if (this.pathname.includes("find-a-doctor")) {
-					$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
-					$('article').addClass('provider-article-padding-left');
-					$('.navbar-header').addClass('full-alpha');
-
-					$( window ).scroll(function() {
-						console.log($('.markup-area').height());
-						console.log($(window).scrollTop());
-
-						var fluid = "dependant-fields-wrapper-fluid";
-						var sticky = "dependant-fields-wrapper-sticky";
-						var scrollPosition = 120;
-						if ($('.contextual').length != 0) {
-							var fluid = "dependant-fields-wrapper-fluid-admin";
-							var sticky = "dependant-fields-wrapper-sticky-admin";
-							scrollPosition = 220;
-						}
-
-						if ($(window).scrollTop() > scrollPosition) {
-							$('#dependant-fields-wrapper').removeClass(fluid);
-							$('#dependant-fields-wrapper').addClass(sticky);
+				if ($(window).width() < 414) {
+					if (this.pathname === '/') {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
+						$('header').css("background-size", "cover");
+						$('header').css("background-position", "center");
+						$('header').css("height", "465px");
+					}
+					else if (this.pathname.includes("providers")) {	
+						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
+						$('header').css("height", "335px");	
+					}
+					else if (this.pathname.includes("find-a-doctor")) {
+						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
+						$('article').addClass('provider-article-padding-left');
+						$('.navbar-header').addClass('full-alpha');
+	
+						$( window ).scroll(function() {
+							console.log($('.markup-area').height());
+							console.log($(window).scrollTop());
+	
+							var fluid = "dependant-fields-wrapper-fluid";
+							var sticky = "dependant-fields-wrapper-sticky";
+							var scrollPosition = 120;
+							if ($('.contextual').length != 0) {
+								var fluid = "dependant-fields-wrapper-fluid-admin";
+								var sticky = "dependant-fields-wrapper-sticky-admin";
+								scrollPosition = 220;
+							}
+	
+							if ($(window).scrollTop() > scrollPosition) {
+								$('#dependant-fields-wrapper').removeClass(fluid);
+								$('#dependant-fields-wrapper').addClass(sticky);
+							}
+							else {
+								$('#dependant-fields-wrapper').removeClass(sticky);
+								$('#dependant-fields-wrapper').addClass(fluid);
+							}
+						});
+	
+					}
+					else if (this.pathname.includes("events")) {
+						$('.navbar-header').addClass('full-alpha');		
+						$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
+	
+						$('.event-image').each(function() {
+							var urlpath = $(this).attr("data-event");
+							$(this).css('background-image', "url('" + urlpath + "')");
+						});
+	
+						$( window ).scroll(function() {
+							var fluid = "events-dependant-fields-wrapper-fluid";
+							var sticky = "events-dependant-fields-wrapper-sticky";
+							var scrollPosition = 120;
+							if ($('.contextual').length != 0) {
+								var fluid = "events-dependant-fields-wrapper-fluid-admin";
+								var sticky = "events-dependant-fields-wrapper-sticky-admin";
+								scrollPosition = 190;
+							}
+	
+							if ($(window).scrollTop() > scrollPosition) {
+								$('#dependant-fields-wrapper').removeClass(fluid);
+								$('#dependant-fields-wrapper').addClass(sticky);
+							}
+							else {
+								$('#dependant-fields-wrapper').removeClass(sticky);
+								$('#dependant-fields-wrapper').addClass(fluid);
+							}
+						});
+					}
+					else if (this.pathname.includes("services")) {
+						if (this.pathname.includes("services/cancer-care")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-cancercare.png)");
 						}
 						else {
-							$('#dependant-fields-wrapper').removeClass(sticky);
-							$('#dependant-fields-wrapper').addClass(fluid);
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-services.png)");
 						}
-					});
-
-				}
-				else if (this.pathname.includes("events")) {
-					$('.navbar-header').addClass('full-alpha');		
-					$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
-
-					$('.event-image').each(function() {
-						var urlpath = $(this).attr("data-event");
-						$(this).css('background-image', "url('" + urlpath + "')");
-					});
-
-					$( window ).scroll(function() {
-						var fluid = "events-dependant-fields-wrapper-fluid";
-						var sticky = "events-dependant-fields-wrapper-sticky";
-						var scrollPosition = 120;
-						if ($('.contextual').length != 0) {
-							var fluid = "events-dependant-fields-wrapper-fluid-admin";
-							var sticky = "events-dependant-fields-wrapper-sticky-admin";
-							scrollPosition = 190;
-						}
-
-						if ($(window).scrollTop() > scrollPosition) {
-							$('#dependant-fields-wrapper').removeClass(fluid);
-							$('#dependant-fields-wrapper').addClass(sticky);
-						}
-						else {
-							$('#dependant-fields-wrapper').removeClass(sticky);
-							$('#dependant-fields-wrapper').addClass(fluid);
-						}
-					});
-				}
-				else if (this.pathname.includes("services")) {
-					if (this.pathname.includes("services/cancer-care")) {
-						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-cancercare.png)");
-					}
-					else {
-						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-services.png)");
-					}
-					$('header').css("background-size", "cover");
-					$('header').css("background-position", "center");
-					$('header').css("height", "250px");
-				}
-				else if (this.pathname.includes("locations")) {
-					$('.footer').css("margin-top", "0");
-					$('.navbar-header').addClass('full-alpha');
-					$('.location-image-bg').each(function() {
-						var urlpath = $(this).attr("data-location");
-						$(this).css('background-image', "url('" + urlpath + "')");
-					});
-				}
-				else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
-					$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
-					$('header').css("background-size", "cover");
-					$('header').css("background-position", "center");
-					$('header').css("height", "250px");
-				}
-				else if (this.pathname.includes("about")) {
-					if ($(window).width() > 480) {
-						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
 						$('header').css("background-size", "cover");
 						$('header').css("background-position", "center");
 						$('header').css("height", "250px");
 					}
-
-					if (this.pathname.includes("senior-leadership")) {
-						$('.senior-image').each(function() {
-							var urlpath = $(this).attr("data-image");
+					else if (this.pathname.includes("locations")) {
+						$('.footer').css("margin-top", "0");
+						$('.navbar-header').addClass('full-alpha');
+						$('.location-image-bg').each(function() {
+							var urlpath = $(this).attr("data-location");
 							$(this).css('background-image', "url('" + urlpath + "')");
 						});
 					}
-				}
-				else {
-					if ($(window).width() > 480) {
-						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
+					else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
+						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
 						$('header').css("background-size", "cover");
 						$('header').css("background-position", "center");
 						$('header').css("height", "250px");
+					}
+					else if (this.pathname.includes("about")) {
+						if ($(window).width() > 480) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
+							$('header').css("background-size", "cover");
+							$('header').css("background-position", "center");
+							$('header').css("height", "250px");
+						}
+	
+						if (this.pathname.includes("senior-leadership")) {
+							$('.senior-image').each(function() {
+								var urlpath = $(this).attr("data-image");
+								$(this).css('background-image', "url('" + urlpath + "')");
+							});
+						}
+					}
+					else {
+						if ($(window).width() > 480) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
+							$('header').css("background-size", "cover");
+							$('header').css("background-position", "center");
+							$('header').css("height", "250px");
+						}
 					}
 				}
 			}
