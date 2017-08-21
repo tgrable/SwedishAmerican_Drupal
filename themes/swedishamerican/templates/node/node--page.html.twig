@@ -73,13 +73,13 @@
  */
 #}
 <article{{ attributes }}>
-  {% if no_label != 'true' %}
+  <div class="{{ no_label == 'true' ? 'no_label' : '' }} ">
     {{ title_prefix }}
       <h1{{ title_attributes }}>
         {{ label }}
       </h1>
     {{ title_suffix }}
-  {% endif %}
+  </div>
 
   {% if display_submitted %}
     <footer>

@@ -730,19 +730,74 @@
     }
 }
 
-/* ----------- iPads (portrait) ----------- */
+/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
 @media only screen and (max-width : 480px) {
     /*************************** Global Styles ***************************/
+    .full {
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .col-sm-12 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .no_label {
+        display: block;
+    }
+
+    .service-container h1,
     h1 {
         margin-top: 15px;
     }
+
     #preheader {
-        display: none;
+        width: 350px;
+        height: 52px;
+        margin: 0;
+        float: left;
+        position: relative;
+        z-index: 51;
+
+        .logo {
+            margin: 0 15px 0 0;
+
+            img {
+                height: 52px;
+            }
+        }
+
+        .search {
+            width: 265px;
+            margin-right: 0;
+
+            form#search-block-form input {
+                height: 52px;
+            }
+
+            .form-group {
+                margin-bottom: 0;
+            }
+        }
+
+        .phone {
+            display: none;
+        }
+    }
+
+    ul.menu.nav.navbar-nav {
+        margin-top: 88px;
+    }
+
+    .navbar-header nav {
+        width: auto;
     }
 
     #postheader {
         display: block;
-        background-color: @gray-secondary;
+        background: rgba(63, 63, 63, 1);
         
         .phone {
             font-size: 18px;
@@ -767,7 +822,8 @@
     }
 
     .navbar-header {
-        background: #fff;
+        background: @white;
+        background-color: transparent;
 
         .region-navigation {
             display: inline-block;
@@ -804,16 +860,17 @@
     #block-facebookpostfeed,
     #block-instagrampostfeed,
     #block-youtubepostfeed,
-    #block-twitterpostfeed {
+    #block-twitterpostfeed,
+    footer {
         display: none;
     }
 
     .view-front-cards {
         .card {
-            width: 180px;
+            width: 179px;
 
             article {
-                height: 250px;
+                height: 175px;
 
                 .card-main-ico {
                     margin: 0 auto 50px auto;
@@ -821,9 +878,402 @@
             }
 
             .card-main-img {
-                height: 150px;
+                display: none;
             }
         }
-        
+    }
+    #swedishamerican-providers-form {
+        .form-type-checkbox,
+        .form-type-textfield {
+            padding: 15px;
+        }
+
+        .form-type-select {
+            padding: 0 15px;
+            width: 32%;
+            display: inline-block;
+        }
+
+        .form-submit {
+            margin-left: 15px;
+        }
+
+        .dependant-fields-wrapper-fluid {
+            position: relative;
+            left: 0;
+            top: 0;
+
+            h1 {
+                display: none;
+            }
+        }
+        .markup-area, .markup-sticky {
+            left: 0%;
+            width: 100%;
+        }
+    }
+
+    .providers-container {
+        margin-top: 15px;
+    }
+
+    .lightBox.inline {
+        width: 100%;
+    }
+
+    .card-provider {
+        width: 100%;
+        height: 140px;
+        margin: 0;
+        box-shadow: none;
+        transition: none;
+        border-bottom: 1px solid @gray-rules;
+    }
+    .card-provider-btn-icon {
+        position: absolute;
+        margin: 3px 0px 0px 4px;
+    }
+    .card-provider-btn-uw-icon { 
+        position: absolute;
+        z-index: 52;
+        margin: 5px;
+    }
+    .views-field-field-image,
+    .views-field-field-image-uw {
+        display: inline-block;
+        margin-left: 15px;
+    }
+    .views-field-field-image-uw {
+        margin-top: 30px;
+    }
+    .card-provider-bkgrd,
+    .card-provider-bkgrd-group,
+    .card-provider-bkgrd-uw  {
+        margin-top: 15px;
+    }
+    .internal-provider,
+    .external-provider,
+    .uw-provider {
+        background-image: none;
+        padding: 0;
+        display: inline-block;
+        width: 69%;
+        vertical-align: top;
+    }
+    .card-provider-bkgrd-group,
+    .card-provider-bkgrd,
+    .card-provider-bkgrd-uw {
+        background: none;
+    }
+    .card-provider-btn-group,
+    .card-provider-btn,
+    .card-provider-btn-uw {
+        display: none;
+    }
+
+    .view-id-locations {
+        .view-header, 
+        .view-content, 
+        .view-filters.form-group {
+            width: 100%;
+            padding: 0;
+        }
+
+        .view-header {
+            h1 {
+                padding: 0 15px 15px 10px;
+            }
+        }
+
+        .view-content {
+            height: 100%;
+        }
+
+        .views-field-field-address .location-image-bg,
+        .views-field-field-address .location-card {
+            height: 150px;
+        }
+
+        span.location-header {
+            padding: 10px 0 0 0;
+        }
+
+        .attachment-after {
+            display: none;
+        }
+
+        .form-inline .form-group {
+            padding: 0 0px 5px 10px;
+            width: 49%;
+            display: inline-block;
+        }
+    }
+
+    #dependant-fields-wrapper {
+        width: 100%;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+
+        h1 {
+            margin: 0 15px;
+        }
+
+        .form-item-sag .sag-markup .text {
+            max-width: 100%;
+        }
+    }
+    
+    .events-dependant-fields-wrapper-fluid {
+        position: relative;
+        left: 0;
+        top: 0;
+
+        .form-type-select,
+        .form-type-textfield {
+            display: inline-block;
+            width: 40%;
+            margin: 0 15px;
+        }
+        .form-submit {
+            display: block;
+            margin: 15px;
+        }
+    }
+
+    .markup-sticky {
+        left: 0;
+        width: 100%;
+    }
+
+    #swedishamerican-eventslist-form {
+        .events-container {
+            width: 100%;
+
+            .card-event {
+                width: 100%;
+                margin: 0;
+
+                box-shadow: none;
+                transition: none;
+                border-bottom: 1px solid @gray-rules;
+
+                .event-image {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .paragraph--type--service-location {
+        .map {
+            iframe {
+                height: 150px;
+                width: 150px;
+                margin-top: 15px; 
+            }
+        }
+    }
+
+    .senior-card {
+        width: 169px;
+
+        .senior-image {
+            height: 125px;
+        }
+    }
+
+    .footer-social {
+        .date {
+            width: 100%;
+            text-align: center;
+        }
+
+        .social-footer {
+            width: 100%;
+            float: none;
+            text-align: center;
+        }
+    }
+
+    .social {
+        .social-button:first-child { 
+            margin-left: 0;
+        }
+    }
+    .footer-social-links {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .box {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #overlay-content {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .provider-container {
+        width: 100%;
+
+        .provider-image-container {
+            width: 100%;
+
+            .provider-image {
+                width: 275px;
+
+                .social-provider {
+                    width: 100%;
+                }
+            }
+        }
+        .provider-details-container {
+            .name {
+                h1 {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+
+/* ----------- iPhone 6-7 (portrait) ----------- */
+@media only screen and (max-width : 375px) {
+    #preheader {
+        width: 315px;
+
+        .logo {
+            margin: 0 10px 0 0;
+        }
+        .search {
+            width: 235px;
+
+            div#block-swedishamerican-search {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .view-front-cards {
+        .card {
+            width: 160px;
+        }
+    }
+
+    #swedishamerican-providers-form {
+        .form-type-select {
+            padding: 0 10px;
+        }
+    }
+
+    .internal-provider,
+    .external-provider,
+    .uw-provider {
+        width: 65%;
+    }
+
+    .senior-card {
+        width: 150px;
+    }
+}
+
+/* ----------- Galaxy S5 (portrait) ----------- */
+@media only screen and (max-width : 360px) {
+    #preheader {
+        width: 305px;
+
+        .search {
+            width: 225px;
+        }
+    }
+    .view-front-cards {
+        .card {
+            width: 153px;
+        }
+    }
+    .internal-provider,
+    .external-provider,
+    .uw-provider {
+        width: 60%;
+    }
+}
+
+/* ----------- iPhone 5 (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    #preheader {
+        width: 260px;
+
+        .search {
+            width: 180px;
+        }
+    }
+
+    .view-front-cards {
+        .card {
+            width: 133px;
+
+            .field--name-body {
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    #swedishamerican-providers-form {
+        .form-type-select {
+            .select-wrapper select {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    #dependant-fields-wrapper {
+        h1 {
+            margin: 0 5px;
+        }
+    }
+
+    .service-container {
+        .address {
+            max-width: 150px;
+            padding-right: 0;
+
+            iframe {
+                height: 130px;
+                width: 130px;
+                margin-top: 15px; 
+            }
+        }
+    } 
+
+    .paragraph--type--service-location {
+        .map {
+            iframe {
+                height: 130px;
+                width: 130px;
+                margin-top: 15px; 
+            }
+        }
+    }
+
+    .events-dependant-fields-wrapper-fluid {
+
+        .form-type-select,
+        .form-type-textfield {
+            width: 45%;
+            margin: 0 5px;
+        }
+        .form-submit {
+            margin: 5px;
+        }
+    }
+
+    .senior-card {
+        width: 130px;
+        margin: 0.5em;
     }
 }

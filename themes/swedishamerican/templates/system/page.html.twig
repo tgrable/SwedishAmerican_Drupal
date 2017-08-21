@@ -108,7 +108,7 @@
   {% endblock %}
 {% endif %}
 
-<div id="postheader" class="topbar">
+<div id="postheader" class="full-alpha">
   <div class="top-align phone">
     <span class="fa fa-phone">&nbsp;</span> 1 (779) 696-4400
   </div>
@@ -135,7 +135,7 @@
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          <aside class="col-xs-0 col-sm-3 col-md-2" role="complementary">
+          <aside class="hidden-xs col-sm-3 col-md-2" role="complementary">
             {{ page.sidebar_first }}
           </aside>
         {% endblock %}
@@ -193,7 +193,7 @@
       {# Sidebar Second #}
       {% if page.sidebar_second %}
         {% block sidebar_second %}
-          <aside class="right-col col-sm-0 col-md-2 mobile-hide" role="complementary">
+          <aside class="right-col hidden-xs col-md-2 mobile-hide" role="complementary">
             {{ page.sidebar_second }}
           </aside>
         {% endblock %}
@@ -211,9 +211,6 @@
     </footer>
     <div class="footer-social">
       <div class="footer-social-container {{ container }}">
-        <div class="date inline">
-          <span>&copy;{{ 'now'|date('Y') }} SewdishAmerican</span>
-        </div>
         <div class="social social-footer inline">
           <ul> <!-- TODO: Check their site for social links -->
             <li class="social-button fb"><a href="https://www.facebook.com/swedishamericanrockford/"><i class="fa fa-facebook"></i></a></li>
@@ -222,6 +219,12 @@
             <li class="social-button li"><a href="https://www.linkedin.com/company-beta/1169024/"><i class="fa fa-linkedin"></i></a></li>
             <li class="social-button yt"><a href="https://www.youtube.com/user/SwedishAmericanVideo"><i class="fa fa-youtube-play"></i></a></li>
           </ul>
+        </div>
+        <div class="date inline">
+          <span>&copy;{{ 'now'|date('Y') }} SewdishAmerican</span>
+        </div>
+        <div class="footer-social-links smallscreen">
+          <span>1401 E. State Street | Rockford, IL | 61104</span>
         </div>
       </div>
     </div>

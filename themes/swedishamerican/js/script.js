@@ -8,6 +8,20 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {
+
+				if (this.pathname.includes("senior-leadership")) {
+					$('.senior-image').each(function() {
+						var urlpath = $(this).attr("data-image");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+				}
+				else if (this.pathname.includes("locations")) {
+					$('.location-image-bg').each(function() {
+						var urlpath = $(this).attr("data-location");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+				}
+
 				if ($(window).width() > 480) {
 					if (!$('.extra-services').length) {
 						var main = [];
@@ -114,10 +128,6 @@
 					else if (this.pathname.includes("locations")) {
 						$('.footer').css("margin-top", "0");
 						$('.navbar-header').addClass('full-alpha');
-						$('.location-image-bg').each(function() {
-							var urlpath = $(this).attr("data-location");
-							$(this).css('background-image', "url('" + urlpath + "')");
-						});
 					}
 					else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
 						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
@@ -131,13 +141,6 @@
 							$('header').css("background-size", "cover");
 							$('header').css("background-position", "center");
 							$('header').css("height", "250px");
-						}
-	
-						if (this.pathname.includes("senior-leadership")) {
-							$('.senior-image').each(function() {
-								var urlpath = $(this).attr("data-image");
-								$(this).css('background-image', "url('" + urlpath + "')");
-							});
 						}
 					}
 					else {
