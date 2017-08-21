@@ -31,7 +31,7 @@
 					}
 				}
 				
-				if ($(window).width() < 414) {
+				if ($(window).width() > 414) {
 					if (this.pathname === '/') {
 						$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
 						$('header').css("background-size", "cover");
