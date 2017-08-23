@@ -100,7 +100,7 @@ class EventslistForm extends FormBase {
                 $query->condition('title', $keyword, 'CONTAINS');
             }
             if ($service != null) {
-                $query->condition('field_service_reference_node', $service);
+                $query->condition('field_category', $service);
             }
             $entity_ids = $query->execute();
 
