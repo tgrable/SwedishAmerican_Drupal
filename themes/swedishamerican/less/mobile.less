@@ -730,8 +730,8 @@
     }
 }
 
-/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
-@media only screen and (max-width : 480px) {
+/* ----------- iPhone 6-7 Plus & Nexus 6P (Landscape) ----------- */
+@media only screen and (max-width : 736px) {
     /*************************** Global Styles ***************************/
     .full {
         .row {
@@ -743,18 +743,35 @@
             padding-right: 0;
         }
     }
+    .main-col.no-side-sol.col-sm-12 {
+        padding: 0;
+    }
 
     .no_label {
         display: block;
     }
 
+    .overlay {
+        width: 100%;
+        .row {
+            margin: 0;
+        }
+    }
+
     .service-container h1,
     h1 {
         margin-top: 15px;
+        font-size: 36px;
+    }
+
+    .top-bar {
+        height: 0;
+        margin-bottom: 45px;
+        border-bottom: none;
     }
 
     #preheader {
-        width: 350px;
+        width: 678px;
         height: 52px;
         margin: 0;
         float: left;
@@ -762,7 +779,7 @@
         z-index: 51;
 
         .logo {
-            margin: 0 15px 0 0;
+            margin: 0 15px 0 30px;
 
             img {
                 height: 52px;
@@ -770,7 +787,7 @@
         }
 
         .search {
-            width: 265px;
+            width: 564px;
             margin-right: 0;
 
             form#search-block-form input {
@@ -791,6 +808,11 @@
         margin-top: 88px;
     }
 
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+        width: 100%;
+    }
+
     .navbar-header nav {
         width: auto;
     }
@@ -809,7 +831,7 @@
 
     .navbar-inverse .navbar-collapse, 
     .navbar-inverse .navbar-form {
-        border-color: @white;
+        border: 1px solid @brand-primary;
         background-color: @white;
         margin-top: -22px;
     }
@@ -817,8 +839,14 @@
     .navbar-inverse .navbar-nav > .active > a, 
     .navbar-inverse .navbar-nav > .active > a:hover, 
     .navbar-inverse .navbar-nav > .active > a:focus,
-    .navbar-inverse .navbar-nav > li > a {
+    .navbar-inverse .navbar-nav > li > a,
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
         color: @text-color;
+    }
+
+    .dropdown-menu {
+        box-shadow: none;
     }
 
     .navbar-header {
@@ -861,27 +889,29 @@
     #block-instagrampostfeed,
     #block-youtubepostfeed,
     #block-twitterpostfeed,
+    .top-bar-location,
     footer {
         display: none;
     }
 
     .view-front-cards {
         .card {
-            width: 179px;
+            width: 220px;
 
             article {
-                height: 175px;
+                height: 240px;
+
+                .card-main-img {
+                    height: 140px;
+                }
 
                 .card-main-ico {
                     margin: 0 auto 50px auto;
                 }
             }
-
-            .card-main-img {
-                display: none;
-            }
         }
     }
+
     #swedishamerican-providers-form {
         .form-type-checkbox,
         .form-type-textfield {
@@ -929,6 +959,11 @@
         transition: none;
         border-bottom: 1px solid @gray-rules;
     }
+
+    .card-provider:hover {
+        box-shadow: none;
+    }
+    
     .card-provider-btn-icon {
         position: absolute;
         margin: 3px 0px 0px 4px;
@@ -1023,11 +1058,44 @@
             max-width: 100%;
         }
     }
-    
+
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        width: 100%;
+
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 362px;
+                    height: 275px;
+                }
+            }
+            .term-content-container {
+                width: 98%;
+                margin: 0;
+                padding: 15px;
+                border-right: none;
+            }
+        } 
+
+        .special-services-container {
+            margin-bottom: 0;
+        }
+        #block-swedishamericanlocationproviders {
+            margin: 0;
+        }
+    }
+    .events {
+        padding: 15px;
+    }
     .events-dependant-fields-wrapper-fluid {
         position: relative;
         left: 0;
         top: 0;
+
+        h1 {
+            display: none;
+        }
 
         .form-type-select,
         .form-type-textfield {
@@ -1065,25 +1133,38 @@
         }
     }
 
-    .paragraph--type--service-location {
-        .map {
-            iframe {
-                height: 150px;
-                width: 150px;
-                margin-top: 15px; 
+    .provider-container {
+        width: 100%;
+        max-width: 736px;
+
+        .provider-image-container {
+            width: 100%;
+
+            .provider-image {
+                width: 275px;
+
+                .social-provider {
+                    width: 100%;
+                }
+            }
+        }
+        .provider-details-container {
+            max-width: 100%;
+
+            .name {
+                h1 {
+                    text-align: center;
+                }
+                h3 {
+                    text-align: center;
+                }
             }
         }
     }
-
-    .senior-card {
-        width: 169px;
-
-        .senior-image {
-            height: 125px;
-        }
-    }
-
+    
     .footer-social {
+        z-index: 47;
+
         .date {
             width: 100%;
             text-align: center;
@@ -1101,9 +1182,193 @@
             margin-left: 0;
         }
     }
+
     .footer-social-links {
         text-align: center;
         margin-bottom: 30px;
+    }
+}
+
+/* ----------- Nexus 5X (Landscape) ----------- */
+@media only screen and (max-width : 684px) {
+    #preheader {
+        width: 626px;
+
+        .search {
+            width: 512px;
+        }
+    }
+    .view-front-cards {
+        .card {
+            width: 205px;
+        }
+    }
+
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 338px;
+                    height: 260px;
+                }
+            }
+        }
+    }
+}
+
+/* ----------- iPhone 6-7 (Landscape) ----------- */
+@media only screen and (max-width : 667px) {
+    #preheader {
+        width: 609px;
+
+        .search {
+            width: 495px;
+        }
+    }
+    .view-front-cards {
+        .card {
+            width: 200px;
+
+            article {
+                height: 220px;
+
+                .card-main-img {
+                    height: 125px;
+                }
+            }
+        }
+    }
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 330px;
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+/* ----------- Galaxy S5 (Landscape) ----------- */
+@media only screen and (max-width : 640px) {
+    #preheader {
+        width: 582px;
+
+        .search {
+            width: 468px;
+        }
+    }
+    .view-front-cards {
+        .card {
+            width: 190px;
+        }
+    }
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 315px;
+                    height: 240px
+                }
+            }
+        }
+    }
+}
+
+/* ----------- iPhone 5 (Landscape) ----------- */
+@media only screen and (max-width : 568px) {
+    #preheader {
+        width: 515px;
+
+        .search {
+            width: 397px;
+        }
+    }
+
+    .view-front-cards {
+        .card {
+            width: 165px;
+
+            article {
+                height: 175px;
+
+                .card-main-ico {
+                    margin: 0 auto 50px auto;
+                }
+            }
+
+            .card-main-img {
+                display: none;
+            }
+        }
+    }
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 280px;
+                    height: 213px;
+                }
+            }
+        }
+    }
+}
+
+/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
+@media only screen and (max-width : 480px) {
+    // /*************************** Global Styles ***************************/
+
+    #preheader {
+        width: 350px;
+
+        .logo {
+            margin: 0 15px 0 0;
+        }
+
+        .search {
+            width: 265px;
+        }
+    }
+
+    .view-front-cards {
+        .card {
+            width: 179px;
+        }
+    }
+
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .map-image-container {
+                iframe {
+                    width: 202px;
+                    height: 154px;
+                }
+            }
+        }
+    }
+
+    .paragraph--type--service-location {
+        .map {
+            iframe {
+                height: 150px;
+                width: 150px;
+                margin-top: 15px; 
+            }
+        }
+    }
+
+    .senior-card {
+        width: 169px;
+
+        .senior-image {
+            height: 125px;
+        }
     }
     
     .box {
@@ -1116,27 +1381,13 @@
         max-width: 100%;
     }
 
-    .provider-container {
+    .event-image-full.inline {
+        display: block;
         width: 100%;
-
-        .provider-image-container {
-            width: 100%;
-
-            .provider-image {
-                width: 275px;
-
-                .social-provider {
-                    width: 100%;
-                }
-            }
-        }
-        .provider-details-container {
-            .name {
-                h1 {
-                    font-size: 32px;
-                }
-            }
-        }
+        padding-right: 0;
+    }
+    .event-title {
+        max-width: 100%;
     }
 }
 
@@ -1169,10 +1420,37 @@
         }
     }
 
+    .provider-container {
+        .provider-image-container {
+            .provider-image {
+                img {
+                    width: 225px;
+                    margin: auto;
+                }
+            }
+        } 
+    } 
+
     .internal-provider,
     .external-provider,
     .uw-provider {
         width: 65%;
+    }
+
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .location-address {
+                font-size: 30px;
+            }
+            
+            .map-image-container {
+                iframe {
+                    width: 182px;
+                    height: 141px;
+                }
+            }
+        }
     }
 
     .senior-card {
@@ -1189,6 +1467,11 @@
             width: 225px;
         }
     }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
     .view-front-cards {
         .card {
             width: 153px;
@@ -1198,6 +1481,21 @@
     .external-provider,
     .uw-provider {
         width: 60%;
+    }
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .location-address {
+                font-size: 24px;
+            }
+            
+            .map-image-container {
+                iframe {
+                    width: 175px;
+                    height: 135px;
+                }
+            }
+        }
     }
 }
 
@@ -1231,6 +1529,17 @@
         }
     }
 
+    .provider-container {
+        .provider-image-container {
+            .provider-image {
+                img {
+                    width: 175px;
+                }
+            }
+        } 
+    } 
+     
+
     #dependant-fields-wrapper {
         h1 {
             margin: 0 5px;
@@ -1256,6 +1565,22 @@
                 height: 130px;
                 width: 130px;
                 margin-top: 15px; 
+            }
+        }
+    }
+
+    /*************************** Location Styles ***************************/
+    .locations-container {
+        .location-container {
+            .location-address {
+                font-size: 18px;
+            }
+            
+            .map-image-container {
+                iframe {
+                    width: 155px;
+                    height: 120px;
+                }
             }
         }
     }

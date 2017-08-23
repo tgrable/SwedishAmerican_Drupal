@@ -4738,8 +4738,8 @@ h1 span {
     height: 150px;
   }
 }
-/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
-@media only screen and (max-width: 480px) {
+/* ----------- iPhone 6-7 Plus & Nexus 6P (Landscape) ----------- */
+@media only screen and (max-width: 736px) {
   /*************************** Global Styles ***************************/
   .full .row {
     margin-left: 0;
@@ -4749,15 +4749,30 @@ h1 span {
     padding-left: 0;
     padding-right: 0;
   }
+  .main-col.no-side-sol.col-sm-12 {
+    padding: 0;
+  }
   .no_label {
     display: block;
+  }
+  .overlay {
+    width: 100%;
+  }
+  .overlay .row {
+    margin: 0;
   }
   .service-container h1,
   h1 {
     margin-top: 15px;
+    font-size: 36px;
+  }
+  .top-bar {
+    height: 0;
+    margin-bottom: 45px;
+    border-bottom: none;
   }
   #preheader {
-    width: 350px;
+    width: 678px;
     height: 52px;
     margin: 0;
     float: left;
@@ -4765,13 +4780,13 @@ h1 span {
     z-index: 51;
   }
   #preheader .logo {
-    margin: 0 15px 0 0;
+    margin: 0 15px 0 30px;
   }
   #preheader .logo img {
     height: 52px;
   }
   #preheader .search {
-    width: 265px;
+    width: 564px;
     margin-right: 0;
   }
   #preheader .search form#search-block-form input {
@@ -4785,6 +4800,10 @@ h1 span {
   }
   ul.menu.nav.navbar-nav {
     margin-top: 88px;
+  }
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+    width: 100%;
   }
   .navbar-header nav {
     width: auto;
@@ -4801,15 +4820,20 @@ h1 span {
   }
   .navbar-inverse .navbar-collapse,
   .navbar-inverse .navbar-form {
-    border-color: #ffffff;
+    border: 1px solid #92318f;
     background-color: #ffffff;
     margin-top: -22px;
   }
   .navbar-inverse .navbar-nav > .active > a,
   .navbar-inverse .navbar-nav > .active > a:hover,
   .navbar-inverse .navbar-nav > .active > a:focus,
-  .navbar-inverse .navbar-nav > li > a {
+  .navbar-inverse .navbar-nav > li > a,
+  .navbar-inverse .navbar-nav > li > a:hover,
+  .navbar-inverse .navbar-nav > li > a:focus {
     color: #3f3f3f;
+  }
+  .dropdown-menu {
+    box-shadow: none;
   }
   .navbar-header {
     background: #ffffff;
@@ -4845,20 +4869,21 @@ h1 span {
   #block-instagrampostfeed,
   #block-youtubepostfeed,
   #block-twitterpostfeed,
+  .top-bar-location,
   footer {
     display: none;
   }
   .view-front-cards .card {
-    width: 179px;
+    width: 220px;
   }
   .view-front-cards .card article {
-    height: 175px;
+    height: 240px;
+  }
+  .view-front-cards .card article .card-main-img {
+    height: 140px;
   }
   .view-front-cards .card article .card-main-ico {
     margin: 0 auto 50px auto;
-  }
-  .view-front-cards .card .card-main-img {
-    display: none;
   }
   #swedishamerican-providers-form .form-type-checkbox,
   #swedishamerican-providers-form .form-type-textfield {
@@ -4898,6 +4923,9 @@ h1 span {
     box-shadow: none;
     transition: none;
     border-bottom: 1px solid #bebebe;
+  }
+  .card-provider:hover {
+    box-shadow: none;
   }
   .card-provider-btn-icon {
     position: absolute;
@@ -4979,10 +5007,36 @@ h1 span {
   #dependant-fields-wrapper .form-item-sag .sag-markup .text {
     max-width: 100%;
   }
+  /*************************** Location Styles ***************************/
+  .locations-container {
+    width: 100%;
+  }
+  .locations-container .location-container .map-image-container iframe {
+    width: 362px;
+    height: 275px;
+  }
+  .locations-container .location-container .term-content-container {
+    width: 98%;
+    margin: 0;
+    padding: 15px;
+    border-right: none;
+  }
+  .locations-container .special-services-container {
+    margin-bottom: 0;
+  }
+  .locations-container #block-swedishamericanlocationproviders {
+    margin: 0;
+  }
+  .events {
+    padding: 15px;
+  }
   .events-dependant-fields-wrapper-fluid {
     position: relative;
     left: 0;
     top: 0;
+  }
+  .events-dependant-fields-wrapper-fluid h1 {
+    display: none;
   }
   .events-dependant-fields-wrapper-fluid .form-type-select,
   .events-dependant-fields-wrapper-fluid .form-type-textfield {
@@ -5011,16 +5065,30 @@ h1 span {
   #swedishamerican-eventslist-form .events-container .card-event .event-image {
     display: none;
   }
-  .paragraph--type--service-location .map iframe {
-    height: 150px;
-    width: 150px;
-    margin-top: 15px;
+  .provider-container {
+    width: 100%;
+    max-width: 736px;
   }
-  .senior-card {
-    width: 169px;
+  .provider-container .provider-image-container {
+    width: 100%;
   }
-  .senior-card .senior-image {
-    height: 125px;
+  .provider-container .provider-image-container .provider-image {
+    width: 275px;
+  }
+  .provider-container .provider-image-container .provider-image .social-provider {
+    width: 100%;
+  }
+  .provider-container .provider-details-container {
+    max-width: 100%;
+  }
+  .provider-container .provider-details-container .name h1 {
+    text-align: center;
+  }
+  .provider-container .provider-details-container .name h3 {
+    text-align: center;
+  }
+  .footer-social {
+    z-index: 47;
   }
   .footer-social .date {
     width: 100%;
@@ -5038,6 +5106,120 @@ h1 span {
     text-align: center;
     margin-bottom: 30px;
   }
+}
+/* ----------- Nexus 5X (Landscape) ----------- */
+@media only screen and (max-width: 684px) {
+  #preheader {
+    width: 626px;
+  }
+  #preheader .search {
+    width: 512px;
+  }
+  .view-front-cards .card {
+    width: 205px;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .map-image-container iframe {
+    width: 338px;
+    height: 260px;
+  }
+}
+/* ----------- iPhone 6-7 (Landscape) ----------- */
+@media only screen and (max-width: 667px) {
+  #preheader {
+    width: 609px;
+  }
+  #preheader .search {
+    width: 495px;
+  }
+  .view-front-cards .card {
+    width: 200px;
+  }
+  .view-front-cards .card article {
+    height: 220px;
+  }
+  .view-front-cards .card article .card-main-img {
+    height: 125px;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .map-image-container iframe {
+    width: 330px;
+    height: 250px;
+  }
+}
+/* ----------- Galaxy S5 (Landscape) ----------- */
+@media only screen and (max-width: 640px) {
+  #preheader {
+    width: 582px;
+  }
+  #preheader .search {
+    width: 468px;
+  }
+  .view-front-cards .card {
+    width: 190px;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .map-image-container iframe {
+    width: 315px;
+    height: 240px;
+  }
+}
+/* ----------- iPhone 5 (Landscape) ----------- */
+@media only screen and (max-width: 568px) {
+  #preheader {
+    width: 515px;
+  }
+  #preheader .search {
+    width: 397px;
+  }
+  .view-front-cards .card {
+    width: 165px;
+  }
+  .view-front-cards .card article {
+    height: 175px;
+  }
+  .view-front-cards .card article .card-main-ico {
+    margin: 0 auto 50px auto;
+  }
+  .view-front-cards .card .card-main-img {
+    display: none;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .map-image-container iframe {
+    width: 280px;
+    height: 213px;
+  }
+}
+/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
+@media only screen and (max-width: 480px) {
+  #preheader {
+    width: 350px;
+  }
+  #preheader .logo {
+    margin: 0 15px 0 0;
+  }
+  #preheader .search {
+    width: 265px;
+  }
+  .view-front-cards .card {
+    width: 179px;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .map-image-container iframe {
+    width: 202px;
+    height: 154px;
+  }
+  .paragraph--type--service-location .map iframe {
+    height: 150px;
+    width: 150px;
+    margin-top: 15px;
+  }
+  .senior-card {
+    width: 169px;
+  }
+  .senior-card .senior-image {
+    height: 125px;
+  }
   .box {
     max-width: 100%;
     width: 100%;
@@ -5046,20 +5228,13 @@ h1 span {
     margin: 0;
     max-width: 100%;
   }
-  .provider-container {
+  .event-image-full.inline {
+    display: block;
     width: 100%;
+    padding-right: 0;
   }
-  .provider-container .provider-image-container {
-    width: 100%;
-  }
-  .provider-container .provider-image-container .provider-image {
-    width: 275px;
-  }
-  .provider-container .provider-image-container .provider-image .social-provider {
-    width: 100%;
-  }
-  .provider-container .provider-details-container .name h1 {
-    font-size: 32px;
+  .event-title {
+    max-width: 100%;
   }
 }
 /* ----------- iPhone 6-7 (portrait) ----------- */
@@ -5082,10 +5257,22 @@ h1 span {
   #swedishamerican-providers-form .form-type-select {
     padding: 0 10px;
   }
+  .provider-container .provider-image-container .provider-image img {
+    width: 225px;
+    margin: auto;
+  }
   .internal-provider,
   .external-provider,
   .uw-provider {
     width: 65%;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .location-address {
+    font-size: 30px;
+  }
+  .locations-container .location-container .map-image-container iframe {
+    width: 182px;
+    height: 141px;
   }
   .senior-card {
     width: 150px;
@@ -5099,6 +5286,9 @@ h1 span {
   #preheader .search {
     width: 225px;
   }
+  h1 {
+    font-size: 24px;
+  }
   .view-front-cards .card {
     width: 153px;
   }
@@ -5106,6 +5296,14 @@ h1 span {
   .external-provider,
   .uw-provider {
     width: 60%;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .location-address {
+    font-size: 24px;
+  }
+  .locations-container .location-container .map-image-container iframe {
+    width: 175px;
+    height: 135px;
   }
 }
 /* ----------- iPhone 5 (portrait) ----------- */
@@ -5125,6 +5323,9 @@ h1 span {
   #swedishamerican-providers-form .form-type-select .select-wrapper select {
     padding-right: 5px;
   }
+  .provider-container .provider-image-container .provider-image img {
+    width: 175px;
+  }
   #dependant-fields-wrapper h1 {
     margin: 0 5px;
   }
@@ -5141,6 +5342,14 @@ h1 span {
     height: 130px;
     width: 130px;
     margin-top: 15px;
+  }
+  /*************************** Location Styles ***************************/
+  .locations-container .location-container .location-address {
+    font-size: 18px;
+  }
+  .locations-container .location-container .map-image-container iframe {
+    width: 155px;
+    height: 120px;
   }
   .events-dependant-fields-wrapper-fluid .form-type-select,
   .events-dependant-fields-wrapper-fluid .form-type-textfield {
