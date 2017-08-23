@@ -5201,6 +5201,9 @@ h1 span {
   #preheader .search {
     width: 265px;
   }
+  .view-front-cards .view-content {
+    margin: 15px;
+  }
   .view-front-cards .card {
     width: 179px;
   }
