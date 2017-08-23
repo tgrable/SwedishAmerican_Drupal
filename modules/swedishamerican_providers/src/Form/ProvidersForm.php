@@ -219,7 +219,10 @@ class ProvidersForm extends FormBase {
             $markup .= '</div>';
           }
 
-          $title = $node->get('title')->getValue();
+          $name = $node->get('field_provider_name')->getValue();
+          $label = $node->get('title')->getValue();
+          $title = (count($name) > 0) ? $name : $label;
+          
           $specialty = '';
           $termmarkup = '';
 
