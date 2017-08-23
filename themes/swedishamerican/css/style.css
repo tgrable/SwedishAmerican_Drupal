@@ -4749,6 +4749,9 @@ h1 span {
     padding-left: 0;
     padding-right: 0;
   }
+  .main-col.no-side-sol.col-sm-12 {
+    padding: 0;
+  }
   .no_label {
     display: block;
   }
