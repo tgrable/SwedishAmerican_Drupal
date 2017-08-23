@@ -145,7 +145,7 @@ class ProvidersForm extends FormBase {
     if ($gender != null) {
       $query->condition('field_gender', $gender);
     }
-    $query->sort('field_provider_name', 'ASC');
+    $query->sort('title', 'ASC');
 
     $entity_ids = $query->execute();
 
