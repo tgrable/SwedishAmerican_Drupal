@@ -75,14 +75,37 @@
     'col',
   ]
 %}
-<article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
-  <a href="{{ node.field_link.0.url }}">
-    <div{{ content_attributes.addClass('content card-main-img') }} style="background-image: url('{{ file_url(node.field_card_background.entity.fileuri) }}')">
+{% if node.field_has_back_content.value  == 1 %}
+  <div class="flip-container">
+    <div class="flipper">
+      <div class="front">
+        <article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
+          <a href="{{ node.field_link.0.url }}">
+            <div{{ content_attributes.addClass('content card-main-img') }} style="background-image: url('{{ file_url(node.field_card_background.entity.fileuri) }}')"></div>
+            <div class="card-main-ico">
+              {{ content.field_card_icon }}
+            </div>
+            {{ content.body }}
+          </a>
+        </article>
+      </div>
+      <div class="back">
+        {% if node.id|raw == 11 %}
+          {{ provider_search_form }}
+        {% elseif node.id|raw == 12 %}
+          {{ front_card_form_location }}
+        {% endif %}
+      </div>
     </div>
-
-    <div class="card-main-ico">
-      {{ content.field_card_icon }}
-    </div>
-    {{ content.body }}
-  </a>
-</article>
+  </div>
+{% else %}
+  <article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
+    <a href="{{ node.field_link.0.url }}">
+      <div{{ content_attributes.addClass('content card-main-img') }} style="background-image: url('{{ file_url(node.field_card_background.entity.fileuri) }}')"></div>
+      <div class="card-main-ico">
+        {{ content.field_card_icon }}
+      </div>
+      {{ content.body }}
+    </a>
+  </article>
+{% endif %}

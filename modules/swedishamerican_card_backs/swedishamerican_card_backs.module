@@ -1,0 +1,19 @@
+<?php 
+
+function swedishamerican_card_backs_theme($existing, $type, $theme, $path) {
+  return [
+    'location_form' => [
+        'variables' => [
+            'nodes' => NULL
+        ],
+        'template' => 'location-form',
+    ],
+    // 'providers_card_form' => [
+    //     'variables' => [
+    //         'locations' => NULL,
+    //         'specialties' => NULL
+    //     ],
+    //     'template' => 'providers-card-form',
+    // ]
+];
+}

@@ -7,6 +7,13 @@ function swedishamerican_providers_theme($existing, $type, $theme, $path) {
                 'nodes' => NULL
             ],
             'template' => 'providers-feed',
+        ],
+        'providers_card_form' => [
+            'variables' => [
+                'locations' => NULL,
+                'specialties' => NULL
+            ],
+            'template' => 'providers-card-form',
         ]
     ];
 }

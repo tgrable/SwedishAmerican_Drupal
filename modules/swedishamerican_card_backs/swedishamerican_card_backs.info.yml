@@ -1,0 +1,5 @@
+name: SwedishAmerican Card Backs
+type: module
+description: Creates a block to display on the flip side of front page cards
+package: Custom
+core: 8.x

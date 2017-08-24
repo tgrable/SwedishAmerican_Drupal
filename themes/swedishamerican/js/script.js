@@ -52,6 +52,59 @@
 						$('header').css("background-size", "cover");
 						$('header').css("background-position", "center");
 						$('header').css("height", "465px");
+
+						$('.provider-search-form-button').on('click', function() {
+							var name = $('#provider-search-form-name').val();
+							var location = $('#provider-search-form-locations').val();
+							var specialty = $('#provider-search-form-specialties').val();
+							var gender = $('#provider-search-form-gender').val();
+							
+							var urlpath = "/find-a-doctor?";
+							if (name.length > 0) {
+								urlpath = urlpath + "name=" + name + "&";
+							}
+
+							if ($('#provider-search-form-locations').val() != 'location') {
+								urlpath = urlpath + "location=" + location + "&";
+							}
+
+							if ($('#provider-search-form-specialties').val() != 'specialty') {
+								urlpath = urlpath + "specialty=" + specialty + "&";
+							}
+
+							if ($('#provider-search-form-gender').val() != "gender") {
+								urlpath = urlpath + "gender=" + gender;
+							}
+
+							var lastChar = urlpath[urlpath.length -1];
+							if (lastChar == "&") {
+								urlpath = urlpath.slice(0, -1);
+							}
+
+							window.location.href = urlpath;
+						});
+
+						//location-search-form-button
+						$('.location-search-form-button').on('click', function() {
+							var name = $('#location-search-form-name').val();
+							var city = $('#location-search-form-city').val();
+							
+							var urlpath = "/locations?";
+							if (name.length > 0) {
+								urlpath = urlpath + "name=" + name + "&";
+							}
+
+							if (city.length > 0) {
+								urlpath = urlpath + "field_city_value=" + city + "&";
+							}
+
+							var lastChar = urlpath[urlpath.length -1];
+							if (lastChar == "&") {
+								urlpath = urlpath.slice(0, -1);
+							}
+
+							window.location.href = urlpath;
+						});
 					}
 					else if (this.pathname.includes("providers")) {	
 						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
@@ -243,7 +296,14 @@
 					$(".card-provider, .location-card, .card-event").on("click", function() {
 						var urlpath = $(this).attr("data-tag");
 						$('#overlay-content').load(urlpath, function(data, status, xhr) {
-							if( status === 'success' ) {                        
+							if( status === 'success' ) {
+								
+								console.log($('.map-image-container img').height());
+								$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
+								$( window ).resize(function() {
+									$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
+								  });
+
 								$.getScript("/themes/swedishamerican/js/social.js", function(data, textStatus, jqxhr) {
 									$('.facebook-share').on('click', function(e) {
 										var tag = $(e.target).parent().parent().parent().parent(),

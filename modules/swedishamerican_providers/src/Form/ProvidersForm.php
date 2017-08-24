@@ -43,7 +43,7 @@ class ProvidersForm extends FormBase {
     }
 
     $form['wrapper'] = array(
-        '#prefix' => '<div id="dependant-fields-wrapper" class="' . $fluid . ' inline"><h1>Providers</h1>',
+        '#prefix' => '<div id="dependant-fields-wrapper" class="providers-wrapper inline"><h1>Providers</h1>',
         '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
     );
 
@@ -54,7 +54,7 @@ class ProvidersForm extends FormBase {
 
     $form['wrapper']['name'] = array (
       '#type' => 'textfield',
-      '#placeholder' => 'Name',
+      '#placeholder' => 'Name'
     );
 
     $form['wrapper']['location'] = array (
@@ -112,17 +112,37 @@ class ProvidersForm extends FormBase {
   */
   public function _queryAndFilterProviderNodes(FormStateInterface $form_state) {
     $groupState = $form_state->getValue('sag');
-    $keyword = $form_state->getValue('name');
+
+    $name_value = isset($_GET['name']) ? $_GET['name'] : null;
+    $keyword =$form_state->getValue('name');
+    if ($form_state->getValue('name') == null) {
+      $keyword = ($name_value != null) ? $name_value : $form_state->getValue('name');
+    }
+
+    $location_value = isset($_GET['location']) ? $_GET['location'] : null;
     $location = $form_state->getValue('location');
+    if ($form_state->getValue('location') == null) {
+      $location = ($location_value != null) ? $location_value : $form_state->getValue('location');
+    }
+
+    $specialty_value = isset($_GET['specialty']) ? $_GET['specialty'] : null;
     $form_specialty = $form_state->getValue('specialty');
+    if ($form_state->getValue('specialty') == null) {
+      $form_specialty = ($specialty_value != null) ? $specialty_value : $form_state->getValue('specialty');
+    }
+
+    $gender_value = isset($_GET['gender']) ? $_GET['gender'] : null;
     $gender = $form_state->getValue('gender');
+    if ($form_state->getValue('gender') == null) {
+      $gender = ($gender_value != null) ? $gender_value : $form_state->getValue('gender');
+    }
 
     $query = \Drupal::entityQuery('node');
     $query->condition('status', 1);
     $query->condition('type', 'provider');
     
     if ($groupState == 1) {
-      $query->condition('field_swedes_provider', true);
+      $query->condition('field_provider_type', 'Swedes Provider');
     }
     
     if ($keyword != null) {

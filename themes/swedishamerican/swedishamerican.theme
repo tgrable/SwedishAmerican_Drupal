@@ -22,7 +22,7 @@ function swedishamerican_preprocess_page(array &$variables) {
   $variables['block_search_form'] = \Drupal::entityTypeManager()
       ->getViewBuilder('block')
       ->view($block);
-  
+
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
     $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
     $term = \Drupal\taxonomy\Entity\Term::load($term_id);
@@ -60,6 +60,16 @@ function swedishamerican_preprocess_node(array &$variables) {
   $path = '/node/' . $variables['node']->id();
   $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
   $variables['path_alias'] = $path_alias;
+
+  $provider_search_block = \Drupal\block\Entity\Block::load('swedishamericanproviderscardform');
+  $variables['provider_search_form'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($provider_search_block);
+
+  $location_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbacklocation');
+  $variables['front_card_form_location'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($location_search_block);
 
   if (strcmp ($variables['node']->getType(), 'article') === 0 || strcmp ($variables['node']->getType(), 'page') === 0) {
     if (!is_null($variables['node'])) {
@@ -106,40 +116,43 @@ function swedishamerican_preprocess_node(array &$variables) {
   }
   else if (strcmp ($variables['node']->getType(), 'service') === 0) { 
     $location_array = $variables['node']->get('field_location')->getValue();
+    
     $locations = array();
     foreach ($location_array as $location) {
       $paragraph = Drupal\paragraphs\Entity\Paragraph::load($location['target_id']);
 
-      $map_array = $paragraph->get('field_map')->getValue();
-      $map = $map_array[0]['value'];
-
-      $term_id_array = $paragraph->get('field_location_reference')->getValue();
-      $term_id = $term_id_array[0]['target_id'];
-      
-      $location_term = \Drupal\taxonomy\Entity\Term::load($term_id);
-      $tid = $location_term->get('tid')->getValue();
-
       $locationObj = array();
+
+      $map_array = $paragraph->get('field_map')->getValue();
+      if (count($map_array) > 0) {
+        $map = $map_array[0]['value'];
+        $locationObj['map'] = $map;
+      }
       
-      $locationObj['map'] = $map;
+      $term_id_array = $paragraph->get('field_location_reference')->getValue();
+      if (count($term_id_array) > 0) {
+        $term_id = $term_id_array[0]['target_id'];
+        $location_term = \Drupal\taxonomy\Entity\Term::load($term_id);
+        $tid = $location_term->get('tid')->getValue();
 
-      $name = $location_term->get('name')->getValue();
-      $locationObj['name'] = $name[0]['value'];
-
-      $address = $location_term->get('field_address')->getValue();
-      $locationObj['address'] = $address[0]['value'];
-
-      $city = $location_term->get('field_city')->getValue();
-      $locationObj['city'] = $city[0]['value'];
-
-      $state = $location_term->get('field_state')->getValue();
-      $locationObj['state'] = $state[0]['value'];
-
-      $zip = $location_term->get('field_zip')->getValue();
-      $locationObj['zip'] = $zip[0]['value'];
-
-      $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/taxonomy/term/'.$tid[0]['value']);
-      $locationObj['alias'] = $alias;
+        $name = $location_term->get('name')->getValue();
+        $locationObj['name'] = $name[0]['value'];
+  
+        $address = $location_term->get('field_address')->getValue();
+        $locationObj['address'] = $address[0]['value'];
+  
+        $city = $location_term->get('field_city')->getValue();
+        $locationObj['city'] = $city[0]['value'];
+  
+        $state = $location_term->get('field_state')->getValue();
+        $locationObj['state'] = $state[0]['value'];
+  
+        $zip = $location_term->get('field_zip')->getValue();
+        $locationObj['zip'] = $zip[0]['value'];
+  
+        $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/taxonomy/term/'.$tid[0]['value']);
+        $locationObj['alias'] = $alias;
+      }
 
       array_push($locations, $locationObj);
     }

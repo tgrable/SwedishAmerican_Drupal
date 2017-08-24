@@ -80,41 +80,43 @@
         </div>
         <hr />
 
-        <div class="phone-email inline-desktop">
-            <div class="phone-email-container">
-                {% if node.field_phone.0.value %}
-                    <div class="location-header">Contact</div>
-                    <div class="phone">
-                        <div class="icon inline">
-                            <p><i class="fa fa-phone"></i></p>
+        {% if node.field_phone|length > 0 or node.field_email_address|length > 0 or node.field_hours|length > 0 %}
+            <div class="phone-email inline-desktop">
+                <div class="phone-email-container">
+                    {% if node.field_phone.0.value %}
+                        <div class="location-header">Contact</div>
+                        <div class="phone">
+                            <div class="icon inline">
+                                <p><i class="fa fa-phone"></i></p>
+                            </div>
+                            <div class="result inline">
+                                <p>{{ node.field_phone.0.value }}</p>
+                            </div>
                         </div>
+                    {% endif %}
+                    {% if node.field_email_address.0.value %}
+                        <div class="email">
+                            <div class="icon inline">
+                                <p><i class="fa fa-envelope"></i></p>
+                            </div>
+                            <div class="result inline">
+                                <p>{{ node.field_email_address.0.value }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if node.field_hours|length > 0 %}
+                    <div class="location-header">Hours</div>
+                    <div class="hours">
                         <div class="result inline">
-                            <p>{{ node.field_phone.0.value }}</p>
-                        </div>
-                    </div>
-                {% endif %}
-                {% if node.field_email_address.0.value %}
-                    <div class="email">
-                        <div class="icon inline">
-                            <p><i class="fa fa-envelope"></i></p>
-                        </div>
-                        <div class="result inline">
-                            <p>{{ node.field_email_address.0.value }}</p>
+                            {% for hour in node.field_hours %}
+                                <p>{{ hour.value }}</p>
+                            {% endfor %}
                         </div>
                     </div>
                 {% endif %}
             </div>
-            {% if node.field_hours %}
-                <div class="location-header">Hours</div>
-                <div class="hours">
-                    <div class="result inline">
-                        {% for hour in node.field_hours %}
-                            <p>{{ hour.value }}</p>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endif %}
-        </div>
+        {% endif %}
         <div class="location-address inline-desktop">
             <div class="location">
                 {% if node.field_location|length > 1 %}
@@ -138,4 +140,5 @@
         <hr />
     </div> {# end term-content-container #}
   </div>
+  {{ content.field_faq }}
 </div>

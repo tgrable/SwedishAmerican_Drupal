@@ -2425,7 +2425,7 @@ p {
   margin-top: 0px;
   margin-bottom: 0.6em;
 }
-.main-container li {
+.main-container ul li {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
@@ -2434,6 +2434,9 @@ p {
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
+}
+.main-col ul {
+  margin-left: 20px;
 }
 h1 {
   font-family: 'AvenirNext-DemiBold';
@@ -2476,13 +2479,10 @@ h4 {
   margin-bottom: 1.5em;
 }
 ul {
-  list-style: none;
-  margin: 0px;
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
   color: #3f3f3f;
-  padding: 0em 0em 0.6em 0em;
   line-height: 1.6em;
 }
 li {
@@ -2610,7 +2610,8 @@ button.btn.btn-standard.btn-floating {
 /* PRE-HEADER */
 #preheader {
   height: 65px;
-  width: 1170px;
+  width: 100%;
+  max-width: 1170px;
   margin: auto;
   background: #ffffff;
 }
@@ -2619,9 +2620,13 @@ button.btn.btn-standard.btn-floating {
   margin-right: 30px;
 }
 #preheader .search {
-  width: 840px;
+  width: 60%;
+  max-width: 840px;
 }
 #preheader .phone {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
   margin-top: 15px;
   margin-left: 30px;
   font-size: 16px;
@@ -2656,6 +2661,9 @@ button.btn.btn-standard.btn-floating {
   display: none;
 }
 input#edit-keys::-webkit-input-placeholder {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
   color: #828282;
   text-transform: uppercase;
 }
@@ -2767,7 +2775,8 @@ div#block-swedishamerican-search {
   left: 0;
   right: 0;
   z-index: 101;
-  width: 1490px;
+  width: 90%;
+  max-width: 1490px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -2779,7 +2788,7 @@ div#block-swedishamerican-search {
 #overlay-content .provider-container,
 #overlay-content .locations-container,
 #overlay-content .event-container {
-  max-height: 960px;
+  max-height: 760px;
   overflow: scroll;
 }
 .panel-body {
@@ -2847,7 +2856,7 @@ header {
   position: absolute;
   top: 0;
   height: 52px;
-  background: rgba(63, 63, 63, 0.5);
+  background: rgba(63, 63, 63, 0.6);
 }
 .navbar-header nav {
   width: 1170px;
@@ -2862,8 +2871,8 @@ header {
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav > li > a {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
   font-style: normal;
   font-size: 16px;
   color: #ffffff;
@@ -2871,8 +2880,8 @@ header {
   padding: 16px 16px 15px 16px;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
-  font-family: 'AvenirNext-Regular';
-  font-weight: normal;
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
   font-style: normal;
   font-size: 16px;
   color: #ffffff;
@@ -2912,6 +2921,9 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   font-size: 16px;
   border-right: 1px solid #bebebe;
 }
+.dropdown-menu > li {
+  list-style-type: none;
+}
 .dropdown-menu > li > a,
 .dropdown-menu > li > a:hover {
   color: #3f3f3f;
@@ -2945,10 +2957,12 @@ ul.menu.dropdown-menu {
   -webkit-column-gap: 20px;
   column-count: 4;
   column-gap: 30px;
+  padding-left: 0;
 }
 .bs-menu ul li {
   width: 160px;
   margin-right: 15px;
+  list-style-type: none;
 }
 .bs-menu ul li a {
   display: block;
@@ -3029,6 +3043,12 @@ li.extra-services {
 .region-sidebar-second a:hover {
   text-decoration: underline;
 }
+.region-sidebar-second ul {
+  padding-left: 0;
+}
+.region-sidebar-second ul li {
+  list-style-type: none;
+}
 .view-id-resources_list li,
 .views-field-field-resource-link li,
 .block-swedishamerican-related-documents-list li {
@@ -3091,7 +3111,6 @@ li.extra-services {
   float: left;
   width: 255px;
   margin-right: 30px;
-  min-height: 150px;
 }
 .social-block .header-title h1 {
   text-align: right;
@@ -3099,6 +3118,13 @@ li.extra-services {
 }
 .fa-social-background {
   margin-right: 8px;
+}
+section#block-socialheader {
+  position: relative;
+  margin-top: 45px;
+}
+.social-block-heading {
+  margin-top: 60px;
 }
 footer {
   background-color: #92318f;
@@ -3110,7 +3136,7 @@ footer {
 }
 footer .footer-content,
 footer .footer-content-short {
-  width: 285px;
+  width: 280px;
   vertical-align: top;
 }
 footer .footer-content a,
@@ -3200,9 +3226,9 @@ footer .footer-content-short p {
   background: #fff;
   border-radius: 2px;
   display: inline-block;
-  margin: 1rem;
+  margin: 0.75rem;
   position: relative;
-  width: 230px;
+  width: 215px;
   vertical-align: top;
 }
 .card-provider {
@@ -3454,7 +3480,7 @@ footer .footer-content-short p {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 202px;
+  height: 204px;
   background-size: cover;
   background-position: center;
 }
@@ -3492,7 +3518,7 @@ footer .footer-content-short p {
 }
 .small_ig_article img {
   width: 100px;
-  margin: 0 2px 2px 0;
+  margin: 0 2px 4px 0;
 }
 .youtube-content iframe {
   width: 255px;
@@ -3590,13 +3616,15 @@ section#block-twitterpostfeed {
 .location-container .map-image-container .image {
   width: 50%;
 }
-.location-container .map-image-container iframe {
-  width: 741px;
-  height: 559px;
+.location-container .map-image-container .map {
+  width: 49%;
+}
+.location-container .map-image-container .map iframe {
+  width: 102%px;
 }
 .location-container .term-content-container {
   width: 70%;
-  margin: 45px 30px 0 95px;
+  margin: 45px 30px 0 45px;
   padding-right: 30px;
   padding-bottom: 30px;
   border-right: 1px solid #bebebe;
@@ -3612,7 +3640,7 @@ section#block-twitterpostfeed {
 }
 .location-container .term-services-container {
   width: 20%;
-  margin: 45px 0 95px 0;
+  margin: 45px 0 45px 0;
   vertical-align: top;
 }
 .location-container .term-services-container h2 {
@@ -3730,10 +3758,10 @@ section#block-twitterpostfeed {
   vertical-align: top;
 }
 .provider-container .provider-image-container {
-  width: 635px;
+  width: 35%;
 }
 .provider-container .provider-image-container .provider-image {
-  width: 505px;
+  width: 75%;
   margin: auto;
 }
 .provider-container .provider-image-container .provider-image img {
@@ -3760,8 +3788,8 @@ section#block-twitterpostfeed {
   cursor: pointer;
 }
 .provider-container .provider-details-container {
-  max-width: 775px;
-  margin-right: 30px;
+  width: 775px;
+  max-width: 60%;
 }
 .provider-container .provider-details-container i {
   margin-right: 15px;
@@ -3850,9 +3878,11 @@ section#block-twitterpostfeed {
   top: -10px;
 }
 #dependant-fields-wrapper {
-  margin: 15px 0 15px 15px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: -1px;
   padding-right: 30px;
-  width: 370px;
+  width: 20%;
   vertical-align: top;
   height: 100%;
   box-shadow: 5px 0 5px -5px #bebebe;
@@ -3860,23 +3890,8 @@ section#block-twitterpostfeed {
 #dependant-fields-wrapper h1 {
   padding: 30px 0 15px 0;
 }
-.dependant-fields-wrapper-fluid {
-  position: absolute;
-  left: 15px;
-  top: -15px;
-}
-.dependant-fields-wrapper-sticky {
-  position: fixed;
-  top: -15px;
-}
-.dependant-fields-wrapper-fluid-admin {
-  position: absolute;
-  left: 15px;
-  top: -110px;
-}
-.dependant-fields-wrapper-sticky-admin {
-  position: fixed;
-  top: 68px;
+.providers-wrapper {
+  margin: -150px 0 15px 15px;
 }
 .select-wrapper:after {
   font-size: 0;
@@ -3963,7 +3978,7 @@ section#block-twitterpostfeed {
 }
 #swedishamerican-providers-form .markup-area {
   position: relative;
-  left: 22%;
+  left: 1%;
   width: 75%;
 }
 .senior-image {
@@ -4021,7 +4036,6 @@ section#block-twitterpostfeed {
 .service-container .location-address {
   padding-left: 30px;
   vertical-align: top;
-  max-width: 585px;
 }
 .service-container .address {
   vertical-align: top;
@@ -4182,91 +4196,70 @@ h1 span {
 .event-details {
   padding: 15px;
 }
-.events-dependant-fields-wrapper-fluid {
-  position: absolute;
-  left: 15px;
-  top: -15px;
-}
-.events-dependant-fields-wrapper-sticky {
-  position: fixed;
-  top: -15px;
-  left: 0;
-}
-.events-dependant-fields-wrapper-fluid-admin {
-  position: absolute;
-  top: -10px;
-}
-.events-dependant-fields-wrapper-sticky-admin {
-  position: fixed;
-  top: 68px;
+.events-wrapper {
+  margin: 0 0 15px 15px;
 }
 .markup-sticky {
   position: relative;
-  left: 22%;
+  left: 1%;
   width: 75%;
-  min-height: 250px;
 }
-@media only screen and (max-width: 1700px) {
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 24%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 24%;
-  }
-  #swedishamerican-eventslist-form .events-container {
-    width: 76%;
-  }
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
 }
-@media only screen and (max-width: 1600px) {
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 25%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 25%;
-  }
-  #swedishamerican-eventslist-form .events-container {
-    width: 74%;
-  }
+/* flip the pane when hovered */
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+.flip-container,
+.front,
+.back {
+  width: 245px;
+  height: 315px;
+}
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+.provider-search-form {
+  padding: 15px;
+}
+.provider-search-form input,
+.provider-search-form select {
+  width: 100%;
+  max-width: 100%;
+  padding: 5px;
+  margin: 5px 0 10px 0;
+  background-color: #ffffff;
 }
 @media only screen and (max-width: 1500px) {
   .inline-collapse {
     display: block;
   }
-  #dependant-fields-wrapper {
-    width: 300px;
-  }
   .form-item-sag .sag-markup .text {
     max-width: 140px;
-  }
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 22%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 22%;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  #dependant-fields-wrapper {
-    width: 300px;
-  }
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 24%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 24%;
-  }
-}
-@media only screen and (max-width: 1300px) {
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 25%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 25%;
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -4291,96 +4284,11 @@ h1 span {
     float: none;
     min-height: 75px;
   }
-  #dependant-fields-wrapper {
-    width: 270px;
-  }
   #dependant-fields-wrapper .dependant-fields-footer .text {
     width: 75%;
   }
   #dependant-fields-wrapper .form-item-sag .sag-markup .text {
     max-width: 134px;
-  }
-}
-@media only screen and (max-width: 1100px) {
-  #preheader {
-    width: 1100px;
-  }
-  #preheader .search {
-    width: 775px;
-  }
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 27%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 27%;
-    width: 70%;
-  }
-  #swedishamerican-eventslist-form .events-container {
-    width: 100%;
-  }
-}
-/* ----------- Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) and (max-width: 1500px) {
-  /*************************** Global Styles ***************************/
-  .overlay {
-    width: 1100px;
-  }
-  .overlay-close {
-    float: none;
-    position: relative;
-    margin: 12px 0 0 -50px;
-    z-index: 100;
-    left: -30px;
-  }
-  .box {
-    width: 1100px;
-    max-width: 1024px;
-  }
-  #overlay-content .provider-contact-container .map iframe {
-    width: 250px;
-    height: 175px;
-  }
-  #overlay-content .location-container .map iframe {
-    width: 554px;
-    height: 418px;
-  }
-  /*************************** Provider Styles ***************************/
-  .provider-container {
-    max-width: 1155px;
-  }
-  .provider-container .provider-image-container {
-    width: 335px;
-    margin-left: 30px;
-  }
-  .provider-container .provider-image-container .provider-image {
-    width: 305px;
-  }
-  .provider-container .provider-details-container {
-    max-width: 625px;
-    margin-left: 45px;
-  }
-  .provider-container .provider-details-container .map {
-    margin-top: 30px;
-  }
-  /*************************** Location Styles ***************************/
-  .location-container .term-content-container {
-    margin: 45px 30px 0 30px;
-  }
-  .location-container .term-contact-container .phone-email {
-    width: 55%;
-  }
-  .view-id-locations .view-header,
-  .view-id-locations .view-content,
-  .view-id-locations .view-filters.form-group {
-    width: 25%;
-  }
-  .view-id-locations .attachment-after {
-    width: 75%;
-  }
-  .view-id-locations .attachment-after .view-display-id-attachment_1 .view-content {
-    width: 100%;
-    overflow-y: visible;
   }
 }
 /* ----------- In-between Range ----------- */
@@ -4392,16 +4300,6 @@ h1 span {
 /* ----------- iPads (landscape) ----------- */
 @media only screen and (max-width: 1024px) {
   /*************************** Global Styles ***************************/
-  #preheader {
-    width: 1024px;
-  }
-  #preheader .logo {
-    margin-left: 30px;
-  }
-  #preheader .search {
-    width: 640px;
-    margin-right: 30px;
-  }
   .fb-container {
     width: 255px;
     margin: 0 30px 0 0;
@@ -4411,9 +4309,6 @@ h1 span {
   }
   .bs-menu ul {
     column-gap: 0px;
-  }
-  .box {
-    max-width: 960px;
   }
   .region-sidebar-second a {
     font-size: 14px;
@@ -4473,77 +4368,8 @@ h1 span {
     padding-left: 0;
   }
   /*************************** Provider Styles ***************************/
-  .provider-container {
-    width: 940px;
-  }
-  .provider-container .provider-image-container {
-    width: 335px;
-  }
-  .provider-container .provider-image-container .provider-image {
-    width: 205px;
-  }
-  .provider-container .provider-image-container .provider-image .social-provider {
-    width: 205px;
-  }
-  .provider-container .provider-image-container .provider-image .social .social-button {
-    margin-left: 5px;
-  }
-  .provider-container .provider-details-container {
-    max-width: 550px;
-  }
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 29%;
-  }
   .card-provider {
     width: 215px;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 29%;
-  }
-  /*************************** Location Styles ***************************/
-  .locations-container {
-    width: 940px;
-  }
-  .locations-container .location-container .map-image-container iframe {
-    width: 466px;
-    height: 352px;
-  }
-  .locations-container .location-container .term-contact-container .phone-email {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  .locations-container .location-container .term-content-container {
-    width: 60%;
-    margin: 45px 30px 0 30px;
-  }
-  .view-id-locations .view-header {
-    padding-left: 10px;
-    width: 27%;
-  }
-  .view-id-locations .view-header h1 {
-    font-size: 36px;
-  }
-  .view-id-locations .form-inline .form-group {
-    padding: 0 15px 15px 10px;
-    width: 27%;
-  }
-  .view-id-locations .view-content {
-    width: 27%;
-  }
-  .view-id-locations span.location-header {
-    padding: 10px 0 15px 0;
-  }
-  .view-id-locations .views-field-field-address .location-card {
-    padding: 0px 0 30px 5px;
-  }
-  .view-id-locations .attachment-after {
-    left: 290px;
-    width: 749px;
-  }
-  /*************************** Events Styles ***************************/
-  #swedishamerican-eventslist-form .events-container {
-    width: 95%;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -4563,14 +4389,8 @@ h1 span {
   .ig-content-wide .small_ig_article img {
     width: 95px;
   }
-}
-@media only screen and (max-width: 900px) {
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 33%;
-  }
-  #swedishamerican-providers-form .markup-area,
-  .markup-sticky {
-    left: 33%;
+  .location-container .term-content-container {
+    width: 65%;
   }
 }
 /* ----------- iPads (portrait) ----------- */
@@ -4578,13 +4398,6 @@ h1 span {
   /*************************** Global Styles ***************************/
   .mobile-hide {
     display: none;
-  }
-  #preheader {
-    width: 768px;
-  }
-  #preheader .search {
-    width: 400px;
-    margin-right: 30px;
   }
   ul.menu.nav.navbar-nav {
     margin-left: 15px;
@@ -4599,9 +4412,6 @@ h1 span {
   .bs-menu ul li a {
     padding: 3px 0px;
     white-space: normal;
-  }
-  .box {
-    max-width: 640px;
   }
   .inline-desktop {
     display: block;
@@ -4662,60 +4472,13 @@ h1 span {
     margin-left: 75px;
   }
   /*************************** Provider Styles ***************************/
-  .provider-article-padding-left {
-    padding: 30px 15px 15px 33%;
-  }
-  #dependant-fields-wrapper {
-    width: 235px;
-  }
-  #dependant-fields-wrapper #dependant-fields-wrapper h1 {
+  #dependant-fields-wrapper h1 {
     font-size: 36px;
-  }
-  .provider-container {
-    width: 640px;
-  }
-  .provider-container .provider-image-container {
-    width: 640px;
-  }
-  .provider-container .provider-image-container .provider-image {
-    width: 360px;
-  }
-  .provider-container .provider-image-container .provider-image .social-provider {
-    width: 360px;
-  }
-  .provider-container .provider-image-container .provider-image .social .social-button {
-    margin-left: 15px;
-  }
-  .provider-container .provider-details-container {
-    max-width: 640px;
-    margin-left: 30px;
-    margin-top: 30px;
-  }
-  .provider-container .provider-details-container .contact.inline {
-    display: block;
   }
   .dependant-fields-footer .icon {
     display: block;
   }
   /*************************** Location Styles ***************************/
-  .locations-container {
-    width: 640px;
-  }
-  .locations-container .location-container .map-image-container iframe {
-    width: 316px;
-    height: 239px;
-  }
-  .locations-container .location-container .term-content-container.inline {
-    display: block;
-  }
-  .locations-container .location-container .term-content-container {
-    width: 90%;
-    margin: 45px 30px 30px 30px;
-    border-right: none;
-  }
-  .locations-container .location-container .term-services-container {
-    margin: 0 30px 30px 30px;
-  }
   .view-id-locations .view-header,
   .view-id-locations .view-content,
   .view-id-locations .view-filters.form-group {

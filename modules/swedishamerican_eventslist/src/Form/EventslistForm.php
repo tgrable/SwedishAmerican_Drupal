@@ -33,7 +33,7 @@ class EventslistForm extends FormBase {
         }
 
         $form['wrapper'] = array(
-            '#prefix' => '<div id="dependant-fields-wrapper" class="' . $fluid . ' inline"><h1>Events</h1>',
+            '#prefix' => '<div id="dependant-fields-wrapper" class="events-wrapper inline"><h1>Events</h1>',
             '#suffix' => '<div class="markup-area markup-sticky inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>'
         );
 
