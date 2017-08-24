@@ -140,5 +140,17 @@
         <hr />
     </div> {# end term-content-container #}
   </div>
-  {{ content.field_faq }}
+
+  {% if node.field_body|length > 0 %}
+    <div class="service-body-copy">
+        {{ content.body }}
+    </div>
+  {% endif %}
+
+  {% if node.field_faq|length > 0 %}
+    <div class="service-faqs">
+        {{ content.field_faq }}
+    </div>
+  {% endif %}
+  
 </div>

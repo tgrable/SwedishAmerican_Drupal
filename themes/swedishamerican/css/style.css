@@ -2395,6 +2395,9 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only .glyphicon-se
   font-weight: normal;
   font-style: normal;
 }
+body {
+  letter-spacing: 0px;
+}
 hr.front {
   margin: 45px 0 60px 0;
 }
@@ -2434,9 +2437,6 @@ p {
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
-}
-.main-col ul {
-  margin-left: 20px;
 }
 h1 {
   font-family: 'AvenirNext-DemiBold';
@@ -2694,7 +2694,7 @@ div#block-swedishamerican-search {
   padding: 30px;
 }
 .social li {
-  display: inline;
+  display: inline-block;
 }
 .social .social-button {
   color: #ffffff;
@@ -2728,6 +2728,7 @@ div#block-swedishamerican-search {
 .block_body {
   margin: 30px 0px;
   padding-left: 0;
+  z-index: 50;
 }
 .block_body ul {
   margin-left: 30px;
@@ -2783,6 +2784,7 @@ div#block-swedishamerican-search {
 }
 #overlay-content {
   margin: auto;
+  width: 100%;
   max-width: 100%;
 }
 #overlay-content .provider-container,
@@ -3777,8 +3779,11 @@ section#block-twitterpostfeed {
   text-align: center;
 }
 .provider-container .provider-image-container .provider-image .social-provider {
-  width: 325px;
   margin-top: 15px;
+}
+.provider-container .provider-image-container .provider-image .social-provider ul {
+  line-height: 1.0em;
+  padding-left: 0;
 }
 .provider-container .provider-image-container .provider-image .social-provider .social-button a {
   color: #ffffff;
@@ -3948,9 +3953,9 @@ section#block-twitterpostfeed {
   height: 100%;
 }
 .overlay-close {
-  float: right;
-  margin: 12px 0 0 -50px;
-  z-index: 100;
+  position: absolute;
+  right: 3%;
+  top: 1%;
 }
 .clear {
   clear: both;
@@ -4002,10 +4007,6 @@ section#block-twitterpostfeed {
   color: #3f3f3f;
   text-align: center;
   padding: 5px;
-}
-/* Large screens ----------- */
-@media only screen and (min-width: 1824px) {
-  /* Styles */
 }
 .service-container h1 {
   margin-top: 0;
@@ -4261,7 +4262,7 @@ h1 span {
     max-width: 140px;
   }
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1224px) {
   .fb-container {
     width: 200px;
     margin: 0 15px 0 0;
@@ -4282,6 +4283,9 @@ h1 span {
   #block-twitterpostfeed .social-block .header-title {
     float: none;
     min-height: 75px;
+  }
+  #dependant-fields-wrapper h1 {
+    font-size: 36px;
   }
   #dependant-fields-wrapper .dependant-fields-footer .text {
     width: 75%;
@@ -4370,8 +4374,20 @@ h1 span {
   .card-provider {
     width: 215px;
   }
+  #dependant-fields-wrapper {
+    width: 25%;
+  }
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 27%;
+  }
+  .markup-area {
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 992px) {
+  .inline-desktop {
+    display: block;
+  }
   .fb-container {
     width: 220px;
     margin: 0 10px 0 0;
@@ -4387,6 +4403,16 @@ h1 span {
   }
   .ig-content-wide .small_ig_article img {
     width: 95px;
+  }
+  .provider-container .provider-image-container {
+    width: 40%;
+    margin: auto;
+  }
+  .provider-container .provider-details-container {
+    padding: 30px;
+  }
+  .social .social-button {
+    margin-left: 5px;
   }
   .location-container .term-content-container {
     width: 65%;
@@ -4411,9 +4437,6 @@ h1 span {
   .bs-menu ul li a {
     padding: 3px 0px;
     white-space: normal;
-  }
-  .inline-desktop {
-    display: block;
   }
   footer .footer-content-short {
     width: 210px;
