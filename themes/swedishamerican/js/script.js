@@ -8,13 +8,13 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {
-				if (this.pathname.includes("senior-leadership")) {
+				if (window.location.hash.indexOf("senior-leadership") >= 0) {
 					$('.senior-image').each(function() {
 						var urlpath = $(this).attr("data-image");
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
 				}
-				else if (this.pathname.includes("locations")) {
+				else if (window.location.hash.indexOf("locations")  >= 0) {
 					$('.location-image-bg').each(function() {
 						var urlpath = $(this).attr("data-location");
 						$(this).css('background-image', "url('" + urlpath + "')");
@@ -123,16 +123,17 @@
 							window.location.href = urlpath;
 						});
 					}
-					else if (this.pathname.includes("providers")) {	
+					// else if (this.pathname.includes("providers")) {	
+					else if (window.location.hash.indexOf("providers") >= 0) {	
 						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
 						$('header').css("height", "335px");	
 					}
-					else if (this.pathname.includes("find-a-doctor")) {
+					else if (window.location.hash.indexOf("find-a-doctor")  >= 0) {
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 						$('article').addClass('provider-article-padding-left');
 						$('.navbar-header').addClass('full-alpha');	
 					}
-					else if (this.pathname.includes("events")) {
+					else if (window.location.hash.indexOf("events") >= 0) {
 						$('.navbar-header').addClass('full-alpha');		
 						$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
 	
@@ -141,62 +142,63 @@
 							$(this).css('background-image', "url('" + urlpath + "')");
 						});
 					}
-					else if (this.pathname.includes("services")) {
-						if (this.pathname.includes("services/cancer-care")) {
+					// else if (this.pathname.includes("services")) {
+					else if (window.location.hash.indexOf("services") >= 0) {
+						if (window.location.hash.indexOf("services/cancer-care") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-cancercare.png)");
 						}
-						else if (this.pathname.includes("services/allergy-immunology")) {
+						else if (window.location.hash.indexOf("services/allergy-immunology")  >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-allergies.png)");
 						}
-						else if (this.pathname.includes("services/audiology")) {
+						else if (window.location.hash.indexOf("services/audiology") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-audiology.png)");
 						}
-						else if (this.pathname.includes("services/breast-care")) {
+						else if (window.location.hash.indexOf("services/breast-care") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-breastCare.png)");
 						}
-						else if (this.pathname.includes("services/diabetes-nutrition")) {
+						else if (window.location.hash.indexOf("services/diabetes-nutrition") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-nutrition.png)");
 						}
-						else if (this.pathname.includes("services/emergency")) {
+						else if (window.location.hash.indexOf("services/emergency") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-emergency.png)");
 						}
-						else if (this.pathname.includes("services/migraines")) {
+						else if (window.location.hash.indexOf("services/migraines") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-headachesMigraines.png)");
 						}
-						else if (this.pathname.includes("services/heart-care")) {
+						else if (window.location.hash.indexOf("services/heart-care") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-hearthealth.png)");
 						}
-						else if (this.pathname.includes("services/holistic-health")) {
+						else if (window.location.hash.indexOf("services/holistic-health") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-holistic.png)");
 						}
-						else if (this.pathname.includes("services/home-health-care")) {
+						else if (window.location.hash.indexOf("services/home-health-care") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-homecare.png)");
 						}
-						else if (this.pathname.includes("services/medical-imaging")) {
+						else if (window.location.hash.indexOf("services/medical-imaging") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-imaginglab.png)");
 						}
-						else if (this.pathname.includes("services/kids-care")) {
+						else if (window.location.hash.indexOf("services/kids-care") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-kidscare.png)");
 						}
-						else if (this.pathname.includes("services/mental-health")) {
+						else if (window.location.hash.indexOf("services/mental-health") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-mentalhealth.png)");
 						}
-						else if (this.pathname.includes("services/orthopedics")) {
+						else if (window.location.hash.indexOf("services/orthopedics") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-ortho.png)");
 						}
-						else if (this.pathname.includes("services/physical-therapy")) {
+						else if (window.location.hash.indexOf("services/physical-therapy") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-phystherapy.png)");
 						}
-						else if (this.pathname.includes("services/sleep-disorders")) {
+						else if (window.location.hash.indexOf("services/sleep-disorders") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-sleepstudy.png)");
 						}
-						else if (this.pathname.includes("services/surgery")) {
+						else if (window.location.hash.indexOf("services/surgery") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-surgery.png)");
 						}
-						else if (this.pathname.includes("services/wellness")) {
+						else if (window.location.hash.indexOf("services/wellness") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-wellness.png)");
 						}
-						else if (this.pathname.includes("services/wound-care")) {
+						else if (window.location.hash.indexOf("services/wound-care") >= 0) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-woundcare.png)");
 						}
 						else {
@@ -206,17 +208,17 @@
 						$('header').css("background-position", "center");
 						$('header').css("height", "250px");
 					}
-					else if (this.pathname.includes("locations")) {
+					else if (window.location.hash.indexOf("locations")  >= 0) {
 						$('.footer').css("margin-top", "0");
 						$('.navbar-header').addClass('full-alpha');
 					}
-					else if (this.pathname.includes("blog") || this.pathname.includes("archive") || this.pathname.includes("categories")) {
+					else if (window.location.hash.indexOf("blog") >= 0|| window.location.hash.indexOf("archive") >= 0 || window.location.hash.indexOf("categories") >= 0) {
 						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-blog.png)");
 						$('header').css("background-size", "cover");
 						$('header').css("background-position", "center");
 						$('header').css("height", "250px");
 					}
-					else if (this.pathname.includes("about")) {
+					else if (window.location.hash.indexOf("about") >= 0) {
 						if ($(window).width() > 480) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
 							$('header').css("background-size", "cover");
@@ -224,7 +226,7 @@
 							$('header').css("height", "250px");
 						}
 					}
-					else if (this.pathname.includes("patients")) {
+					else if (window.location.hash.indexOf("patients") >= 0) {
 						if ($(window).width() > 480) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-patients.png)");
 							$('header').css("background-size", "cover");
@@ -232,7 +234,7 @@
 							$('header').css("height", "250px");
 						}
 					}
-					else if (this.pathname.includes("visitors")) {
+					else if (window.location.hash.indexOf("visitors") >= 0) {
 						if ($(window).width() > 480) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-visitor.png)");
 							$('header').css("background-size", "cover");
