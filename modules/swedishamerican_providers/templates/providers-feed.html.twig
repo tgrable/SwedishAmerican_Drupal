@@ -27,7 +27,7 @@
                     <div class="{{ swedes_provider_group_bkgrd }}">
                         <div class="card-provider-title">
                             {% if node.field_provider_name|length > 0 %}
-                                <strong>{{ content.field_provider_name }}</strong>
+                                <strong>{{ node.field_provider_name.value }}</strong>
                             {% else %}
                                 <strong>{{ node.label }}</strong>
                             {% endif %}
