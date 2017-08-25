@@ -45,8 +45,8 @@ class SwedishAmericanResourceList extends BlockBase {
       $node = \Drupal\node\Entity\Node::load($nid);
 
       $links = $node->get('field_link')->getValue();
-
-      return $links;
+      
+      return $this->cleanLinks($links);
     }
   }
 
@@ -55,5 +55,20 @@ class SwedishAmericanResourceList extends BlockBase {
     //you must set context of this block with 'route' context tag.
     //Every new route this block will rebuild
     return Cache::mergeContexts(parent::getCacheContexts(), array('route'));
+  }
+
+  private function cleanLinks($links) {
+    $cleanedLinks = array();
+    foreach ($links as $link) {
+      if (stripos($link['uri'], "internal:/") !== FALSE) {
+        $link['uri'] = str_replace("internal:/", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/", $link['uri']);
+        array_push($cleanedLinks, $link); 
+      }
+      else {
+        array_push($cleanedLinks, $link);
+      }
+    }
+    
+    return $cleanedLinks;
   }
 }

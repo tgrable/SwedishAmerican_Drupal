@@ -12,6 +12,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Url;
 
 class ProvidersForm extends FormBase {
   /**
@@ -42,6 +43,17 @@ class ProvidersForm extends FormBase {
       $fluid = "dependant-fields-wrapper-fluid-admin";
     }
 
+    # retrieve query param
+    $providerSwedes = \Drupal::request()->query->get('swedes_provider');
+    if ($providerSwedes == null) {
+      $providerSwedes = 1;
+    }
+
+    $providerName = \Drupal::request()->query->get('name');
+    $providerLocation = \Drupal::request()->query->get('location');
+    $providerSpecialty = \Drupal::request()->query->get('specialty');
+    $providerGender = \Drupal::request()->query->get('gender');
+
     $form['wrapper'] = array(
         '#prefix' => '<div id="dependant-fields-wrapper" class="providers-wrapper inline"><h1>Providers</h1>',
         '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
@@ -50,38 +62,39 @@ class ProvidersForm extends FormBase {
     $form['wrapper']['sag'] = array(
         '#type' => 'checkbox',
         '#field_prefix' => $this->getCheckBoxMarkup(),
+        '#default_value' => $providerSwedes
     );  
 
     $form['wrapper']['name'] = array (
       '#type' => 'textfield',
-      '#placeholder' => 'Name'
+      '#placeholder' => 'Name',
+      '#default_value' => $providerName
     );
 
     $form['wrapper']['location'] = array (
       '#type' => 'select',
       '#empty_option' => t('Location'),
       '#options' => $locations,
+      '#default_value' => $providerLocation
     );
 
     $form['wrapper']['specialty'] = array (
       '#type' => 'select',
       '#empty_option' => t('Specialty'),
       '#options' => $specialty,
+      '#default_value' => $providerSpecialty
     );
 
     $form['wrapper']['gender'] = array (
       '#type' => 'select',
       '#empty_option' => t('Gender'),
       '#options' => array('male' => 'Male', 'Female' => 'Female'),
+      '#default_value' => $providerGender
     );
 
     $form['wrapper']['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Apply'),
-      '#ajax' => [
-          'wrapper' => 'wrapper',
-          'callback' => array($this, 'filterProvidersAjax'),
-      ],
     );
 
     return $form;
@@ -95,7 +108,36 @@ class ProvidersForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {}
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    # retrieve query param
+    $providerSwedes = \Drupal::request()->query->get('swedes_provider');
+    $swedes_provider = $this->getSearchTerm($providerSwedes, $form_state->getValue('sag'));
+
+    $providerName = \Drupal::request()->query->get('name');
+    $name = $this->getSearchTerm($providerName, $form_state->getValue('name'));
+
+    $providerLocation = \Drupal::request()->query->get('location');
+    $category = $this->getSearchTerm($providerLocation, $form_state->getValue('location'));
+
+    $providerSpecialty = \Drupal::request()->query->get('specialty');
+    $specialty = $this->getSearchTerm($providerSpecialty, $form_state->getValue('specialty'));
+
+    $providerGender = \Drupal::request()->query->get('gender');
+    $gender = $this->getSearchTerm($providerGender, $form_state->getValue('gender'));
+
+    $option = [
+        'query' => [
+            'swedes_provider' => $swedes_provider,
+            'name' => $name,
+            'location' => $category,
+            'specialty' => $specialty,
+            'gender' => $gender
+        ],
+    ];
+
+    $url = Url::fromUri('internal:/find-a-doctor', $option);
+    $form_state->setRedirectUrl($url);
+  }
 
   /**
   * Ajax callback to filter providers by state.
@@ -111,31 +153,44 @@ class ProvidersForm extends FormBase {
   * Helper function to query the print provider nodes
   */
   public function _queryAndFilterProviderNodes(FormStateInterface $form_state) {
-    $groupState = $form_state->getValue('sag');
-
-    $name_value = isset($_GET['name']) ? $_GET['name'] : null;
-    $keyword =$form_state->getValue('name');
-    if ($form_state->getValue('name') == null) {
-      $keyword = ($name_value != null) ? $name_value : $form_state->getValue('name');
+    # retrieve query param
+    $providerName = \Drupal::request()->query->get('name');
+    if ($providerName != null) {
+        $keyword = $providerName;
+    }
+    else {
+        $keyword = $form_state->getValue('name');
     }
 
-    $location_value = isset($_GET['location']) ? $_GET['location'] : null;
-    $location = $form_state->getValue('location');
-    if ($form_state->getValue('location') == null) {
-      $location = ($location_value != null) ? $location_value : $form_state->getValue('location');
+    $providerLocation = \Drupal::request()->query->get('location');
+    if ($providerLocation != null) {
+        $location = $providerLocation;
+    }
+    else {
+        $location = $form_state->getValue('location');
     }
 
-    $specialty_value = isset($_GET['specialty']) ? $_GET['specialty'] : null;
-    $form_specialty = $form_state->getValue('specialty');
-    if ($form_state->getValue('specialty') == null) {
-      $form_specialty = ($specialty_value != null) ? $specialty_value : $form_state->getValue('specialty');
+    $providerSpecialty = \Drupal::request()->query->get('specialty');
+    if ($providerSpecialty != null) {
+        $form_specialty = $providerSpecialty;
+    }
+    else {
+        $form_specialty = $form_state->getValue('specialty');
     }
 
-    $gender_value = isset($_GET['gender']) ? $_GET['gender'] : null;
-    $gender = $form_state->getValue('gender');
-    if ($form_state->getValue('gender') == null) {
-      $gender = ($gender_value != null) ? $gender_value : $form_state->getValue('gender');
+    $providerGender = \Drupal::request()->query->get('gender');
+    if ($providerGender != null) {
+        $gender = $providerGender;
     }
+    else {
+        $gender = $form_state->getValue('gender');
+    }
+
+    $groupState = \Drupal::request()->query->get('swedes_provider');
+    if ($groupState == null) {
+      $groupState = 1;
+    }
+    // $groupState = $this->getSearchTerm($providerSwedes, $form_state->getValue('sag'));
 
     $query = \Drupal::entityQuery('node');
     $query->condition('status', 1);
@@ -172,6 +227,7 @@ class ProvidersForm extends FormBase {
     $nodes = array();
 
     $markup = '<div class="providers-container">';
+  
     if (count($entity_ids) > 0) {
       foreach($entity_ids as $nid) {
         $node = \Drupal\node\Entity\Node::load($nid);
@@ -316,14 +372,47 @@ class ProvidersForm extends FormBase {
   private function getFormFooterMarkup() {
     $markup = '<div class="dependant-fields-footer">';
       $markup .= '<div class="icon inline">';
-        $markup .= '<i class="fa fa-warning"></i>';
+        $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" alt="" title="" />';
       $markup .= '</div>';
       $markup .= '<div class="text inline">';
         $markup .= '<h2>SwedishAmerican Medical Group Providers</h2>';
-        $markup .= '<span>By selecting "SwedishAmerican Group Providers," your search results will <strong>ONLY</strong> display providers directly employed by SwedishAmerican Medical Group, as opposed to providers who are independent or employed by another organization, but are members of our active medical staff with admitting privileges at SwedishAmerican Hospital.</span>';
+        $markup .= '<span>By selecting "SwedishAmerican Medical Group Providers," your search results will <strong>ONLY</strong> display providers directly employed by SwedishAmerican Medical Group, as opposed to providers who are independent or employed by another organization, but are members of our active medical staff with admitting privileges at SwedishAmerican Hospital.</span>';
       $markup .= '</div>';
     $markup .= '</div>';
 
     return $markup;
+  }
+
+  private function getNodeContent() {
+    $markup = '<div property="schema:text" class="field field--name-body field--type-text-with-summary field--label-hidden field--item">';
+      $markup .= '<h2>Need a great doctor or healthcare provider?</h2>';
+      $markup .= '<p>We have hundreds of them all over northern Illinois. And we’re here to help connect you with the one that best fits you and your family.&nbsp;To get started simply search here to find providers by name, specialty, location and other options.</p>';
+      $markup .= '<hr>';
+      $markup .= '<p><strong>When you’ve found the provider&nbsp;you like, you can request your first appointment or a referral by calling or emailing:</strong></p>';
+      $markup .= '<h2>(779) 696-7081 | <a href="mailto:healthconnect@swedishamerican.org">healthconnect@swedishamerican.org</a></h2>';
+    $markup .= '</div>';
+
+    return $markup;
+  }
+
+  private function getSearchTerm($queryString, $formValue) {
+    if ($queryString != null) {
+      if ($formValue == null) {
+        $keyword = '';
+      }
+      else {
+        if ($formValue == $queryString) {
+            $keyword = $queryString;
+        }
+        else {
+            $keyword = $formValue;
+        }
+      }
+    }
+    else {
+      $keyword = $formValue;
+    }
+
+    return $keyword;
   }
 }

@@ -1,0 +1,11 @@
+<div class="card-search-form">
+    <h2>Event Search</h2>
+    <input id="event-search-form-keyword" type="text" name="keyword" placeholder="Keyword" />
+    <select id="event-search-form" name="events">
+        <option value="event">Event Category</option>
+        {% for key, event in events %}
+            <option value="{{ key }}">{{ event }}</option>
+        {% endfor %}
+    </select>
+    <button class="button js-form-submit form-submit btn-info btn event-search-form-button" type="submit" id="edit-submit--3" name="op" value="Apply">Apply</button>
+</div>

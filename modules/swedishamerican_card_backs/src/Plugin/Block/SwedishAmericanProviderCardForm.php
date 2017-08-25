@@ -1,27 +1,27 @@
 <?php
 
-namespace Drupal\swedishamerican_providers\Plugin\Block;
+namespace Drupal\swedishamerican_card_backs\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Cache\Cache;
 
 /**
- * Provides a 'SwedishAmerican Providers Card Form' Block.
+ * Provides a 'SwedishAmerican Card Back Provider' Block.
  *
  * @Block(
- *   id = "swedishamerican_providers_card_form",
- *   admin_label = @Translation("SwedishAmerican Providers Card Form"),
+ *   id = "swedishamerican_card_backs_provider",
+ *   admin_label = @Translation("SwedishAmerican Card Back Provider"),
  * )
  */
-class ProviderCardForm extends BlockBase {
+class SwedishAmericanProviderCardForm extends BlockBase {
 
     /**
     * {@inheritdoc}
     */
     public function build() {
         return [
-            '#theme' => 'providers_card_form',
+            '#theme' => 'provider_form',
             '#locations' => $this->getLocations(),
             '#specialties' => $this->getSpecialties()
         ];
@@ -52,5 +52,5 @@ class ProviderCardForm extends BlockBase {
         //you must set context of this block with 'route' context tag.
         //Every new route this block will rebuild
         return Cache::mergeContexts(parent::getCacheContexts(), array('route'));
-    }
+      }
 }

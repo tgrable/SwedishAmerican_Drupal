@@ -12,6 +12,7 @@ use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Url;
 
 class EventslistForm extends FormBase {
     /**
@@ -27,6 +28,10 @@ class EventslistForm extends FormBase {
     public function buildForm(array $form, FormStateInterface $form_state) {
         // $form['#theme'] = 'eventlist';
 
+        # retrieve query param
+        $eventKeyword = \Drupal::request()->query->get('keyword');
+        $eventCategory = \Drupal::request()->query->get('category');
+
         $fluid = "events-dependant-fields-wrapper-fluid";
         if (!\Drupal::currentUser()->isAnonymous()) {
           $fluid = "events-dependant-fields-wrapper-fluid-admin";
@@ -40,21 +45,19 @@ class EventslistForm extends FormBase {
         $form['wrapper']['name'] = array (
             '#type' => 'textfield',
             '#placeholder' => 'Keyword',
+            '#default_value' => $eventKeyword
         );
 
         $form['wrapper']['service'] = array (
             '#type' => 'select',
             '#empty_option' => t('Event Category'),
             '#options' => $this->getEventCategoryNodes(),
+            '#default_value' => $eventCategory
         );
 
         $form['wrapper']['submit'] = array(
             '#type' => 'submit',
             '#value' => $this->t('Apply'),
-            '#ajax' => [
-                'wrapper' => 'wrapper',
-                'callback' => array($this, 'filterProvidersAjax'),
-            ],
         );
 
         return $form;
@@ -71,6 +74,22 @@ class EventslistForm extends FormBase {
     * {@inheritdoc}
     */
     public function submitForm(array &$form, FormStateInterface $form_state) {
+        # retrieve query param
+        $eventKeyword = \Drupal::request()->query->get('keyword');
+        $keyword = $this->getSearchTerm($eventKeyword, $form_state->getValue('name'));
+
+        $eventCategory = \Drupal::request()->query->get('category');
+        $category = $this->getSearchTerm($eventCategory, $form_state->getValue('service'));
+
+        $option = [
+            'query' => [
+                'keyword' => $keyword,
+                'category' => $category
+            ],
+        ];
+
+        $url = Url::fromUri('internal:/classes-events', $option);
+        $form_state->setRedirectUrl($url);
     }
 
     /**
@@ -88,9 +107,24 @@ class EventslistForm extends FormBase {
     */
     private function _queryAndFilterProviderNodes(FormStateInterface $form_state) {
         if (\Drupal::routeMatch()->getRouteName() == 'entity.node.canonical') {
+            
+            # retrieve query param
+            $eventKeyword = \Drupal::request()->query->get('keyword');
+            if ($eventKeyword != null) {
+                $keyword = $eventKeyword;
+            }
+            else {
+                $keyword = $form_state->getValue('name');
+            }
 
-            $keyword = $form_state->getValue('name');
-            $service = $form_state->getValue('service');
+            $eventCategory = \Drupal::request()->query->get('category');
+            if ($eventCategory != null) {
+                $category = $eventCategory;
+            }
+            else {
+                $category = $form_state->getValue('service');
+            }
+
             $nid = \Drupal::routeMatch()->getRawParameter('node');
 
             $query = \Drupal::entityQuery('node');
@@ -99,9 +133,10 @@ class EventslistForm extends FormBase {
             if ($keyword != null) {
                 $query->condition('title', $keyword, 'CONTAINS');
             }
-            if ($service != null) {
-                $query->condition('field_category', $service);
+            if ($category != null) {
+                $query->condition('field_category', $category);
             }
+            $query->sort('title', 'ASC');
             $entity_ids = $query->execute();
 
             $nodes = array();
@@ -161,5 +196,26 @@ class EventslistForm extends FormBase {
         asort($event_categories);
 
         return $event_categories;
+    }
+
+    private function getSearchTerm($queryString, $formValue) {
+        if ($queryString != null) {
+            if ($formValue == null) {
+                $keyword = '';
+            }
+            else {
+                if ($formValue == $queryString) {
+                    $keyword = $queryString;
+                }
+                else {
+                    $keyword = $formValue;
+                }
+            }
+        }
+        else {
+            $keyword = $formValue;
+        }
+
+        return $keyword;
     }
 }
