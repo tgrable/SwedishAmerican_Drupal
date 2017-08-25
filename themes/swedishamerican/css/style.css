@@ -4072,8 +4072,11 @@ section#block-twitterpostfeed {
   padding-bottom: 15px;
 }
 .service-container .location-address {
-  padding-left: 30px;
   vertical-align: top;
+}
+.service-container .single-location,
+.service-container .multiple-location {
+  padding-left: 30px;
 }
 .service-container .address {
   vertical-align: top;
@@ -4335,6 +4338,14 @@ h1 span {
   }
   #dependant-fields-wrapper .form-item-sag .sag-markup .text {
     max-width: 134px;
+  }
+  .service-container .phone-email {
+    border-right: none;
+  }
+  .service-container .single-location,
+  .service-container .multiple-location {
+    padding-left: 0;
+    padding-top: 30px;
   }
 }
 /* ----------- In-between Range ----------- */
