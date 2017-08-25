@@ -30,8 +30,12 @@
             }
 
             .social-provider {
-                width: 325px;
                 margin-top: 15px;
+
+                ul {
+                    line-height: 1.0em;
+                    padding-left: 0
+                }
 
                 .social-button {
                     a{
@@ -261,9 +265,9 @@
 }
 
 .overlay-close {
-	float: right;
-    margin: 12px 0 0 -50px;
-    z-index: 100;
+	position: absolute;
+    right: 3%;
+    top: 1%;
 }
 
 .clear {
@@ -327,7 +331,10 @@
     padding: 5px;
 }
 
-/* Large screens ----------- */
-@media only screen  and (min-width : 1824px) {
-/* Styles */
+.providers-wrapper {
+    margin-top: -255px;
+    min-height: 1000px;
+}
+.events-wrapper {
+    min-height: 1000px;
 }

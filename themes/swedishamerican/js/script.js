@@ -29,7 +29,7 @@
 						var extra = [];
 	
 						$('.dropdown-menu:eq(0) li').each(function(key, value) {
-							if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/172' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/174') {
+							if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/172' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/174') {
 								$(this).children('a').addClass('brand-primary');
 							}
 							else {
@@ -37,7 +37,7 @@
 								extra.push($(this).html());
 							}
 						});
-						var maniMenuString = '<li class="extra-services"><div class="bs-menu"><h2>Services A - Z</h2><ul>';
+						var maniMenuString = '<li class="extra-services"><div class="bs-menu"><ul>';
 						for (var i = 0; i < extra.length; i++) {
 							maniMenuString += '<li>' + extra[i] + '</li>';
 						}
@@ -84,7 +84,6 @@
 							window.location.href = urlpath;
 						});
 
-						//location-search-form-button
 						$('.location-search-form-button').on('click', function() {
 							var name = $('#location-search-form-name').val();
 							var city = $('#location-search-form-city').val();
@@ -105,6 +104,26 @@
 
 							window.location.href = urlpath;
 						});
+
+						$('.event-search-form-button').on('click', function() {
+							var keyword = $('#event-search-form-keyword').val();
+							
+							var urlpath = "/classes-events?";
+							if (keyword.length > 0) {
+								urlpath = urlpath + "keyword=" + keyword + "&";
+							}
+
+							if ($('#event-search-form').val() != "event") {
+								urlpath = urlpath + "category=" + $('#event-search-form').val();
+							}
+
+							var lastChar = urlpath[urlpath.length -1];
+							if (lastChar == "&") {
+								urlpath = urlpath.slice(0, -1);
+							}
+
+							window.location.href = urlpath;
+						});
 					}
 					else if (this.pathname.includes("providers")) {	
 						$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-provider.png)");
@@ -113,31 +132,7 @@
 					else if (this.pathname.includes("find-a-doctor")) {
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 						$('article').addClass('provider-article-padding-left');
-						$('.navbar-header').addClass('full-alpha');
-	
-						$( window ).scroll(function() {
-							console.log($('.markup-area').height());
-							console.log($(window).scrollTop());
-	
-							var fluid = "dependant-fields-wrapper-fluid";
-							var sticky = "dependant-fields-wrapper-sticky";
-							var scrollPosition = 120;
-							if ($('.contextual').length != 0) {
-								var fluid = "dependant-fields-wrapper-fluid-admin";
-								var sticky = "dependant-fields-wrapper-sticky-admin";
-								scrollPosition = 220;
-							}
-	
-							if ($(window).scrollTop() > scrollPosition) {
-								$('#dependant-fields-wrapper').removeClass(fluid);
-								$('#dependant-fields-wrapper').addClass(sticky);
-							}
-							else {
-								$('#dependant-fields-wrapper').removeClass(sticky);
-								$('#dependant-fields-wrapper').addClass(fluid);
-							}
-						});
-	
+						$('.navbar-header').addClass('full-alpha');	
 					}
 					else if (this.pathname.includes("events")) {
 						$('.navbar-header').addClass('full-alpha');		
@@ -147,30 +142,64 @@
 							var urlpath = $(this).attr("data-event");
 							$(this).css('background-image', "url('" + urlpath + "')");
 						});
-	
-						$( window ).scroll(function() {
-							var fluid = "events-dependant-fields-wrapper-fluid";
-							var sticky = "events-dependant-fields-wrapper-sticky";
-							var scrollPosition = 120;
-							if ($('.contextual').length != 0) {
-								var fluid = "events-dependant-fields-wrapper-fluid-admin";
-								var sticky = "events-dependant-fields-wrapper-sticky-admin";
-								scrollPosition = 190;
-							}
-	
-							if ($(window).scrollTop() > scrollPosition) {
-								$('#dependant-fields-wrapper').removeClass(fluid);
-								$('#dependant-fields-wrapper').addClass(sticky);
-							}
-							else {
-								$('#dependant-fields-wrapper').removeClass(sticky);
-								$('#dependant-fields-wrapper').addClass(fluid);
-							}
-						});
 					}
 					else if (this.pathname.includes("services")) {
 						if (this.pathname.includes("services/cancer-care")) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-cancercare.png)");
+						}
+						else if (this.pathname.includes("services/allergy-immunology")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-allergies.png)");
+						}
+						else if (this.pathname.includes("services/audiology")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-audiology.png)");
+						}
+						else if (this.pathname.includes("services/breast-care")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-breastCare.png)");
+						}
+						else if (this.pathname.includes("services/diabetes-nutrition")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-nutrition.png)");
+						}
+						else if (this.pathname.includes("services/emergency")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-emergency.png)");
+						}
+						else if (this.pathname.includes("services/migraines")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-headachesMigraines.png)");
+						}
+						else if (this.pathname.includes("services/heart-care")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-hearthealth.png)");
+						}
+						else if (this.pathname.includes("services/holistic-health")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-holistic.png)");
+						}
+						else if (this.pathname.includes("services/home-health-care")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-homecare.png)");
+						}
+						else if (this.pathname.includes("services/medical-imaging")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-imaginglab.png)");
+						}
+						else if (this.pathname.includes("services/kids-care")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-kidscare.png)");
+						}
+						else if (this.pathname.includes("services/mental-health")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-mentalhealth.png)");
+						}
+						else if (this.pathname.includes("services/orthopedics")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-ortho.png)");
+						}
+						else if (this.pathname.includes("services/physical-therapy")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-phystherapy.png)");
+						}
+						else if (this.pathname.includes("services/sleep-disorders")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-sleepstudy.png)");
+						}
+						else if (this.pathname.includes("services/surgery")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-surgery.png)");
+						}
+						else if (this.pathname.includes("services/wellness")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-wellness.png)");
+						}
+						else if (this.pathname.includes("services/wound-care")) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-woundcare.png)");
 						}
 						else {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-services.png)");
@@ -192,6 +221,22 @@
 					else if (this.pathname.includes("about")) {
 						if ($(window).width() > 480) {
 							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-about.png)");
+							$('header').css("background-size", "cover");
+							$('header').css("background-position", "center");
+							$('header').css("height", "250px");
+						}
+					}
+					else if (this.pathname.includes("patients")) {
+						if ($(window).width() > 480) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-patients.png)");
+							$('header').css("background-size", "cover");
+							$('header').css("background-position", "center");
+							$('header').css("height", "250px");
+						}
+					}
+					else if (this.pathname.includes("visitors")) {
+						if ($(window).width() > 480) {
+							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-visitor.png)");
 							$('header').css("background-size", "cover");
 							$('header').css("background-position", "center");
 							$('header').css("height", "250px");
@@ -291,18 +336,32 @@
 						$(".box").css("position", "absolute");
 						$(".box").css("top", $(document).scrollTop() + 25);
 						$(".backDrop").css("display", "block");
+
+						$( window ).resize(function() {
+							console.log($(document).scrollTop());
+						});
 					});
 
 					$(".card-provider, .location-card, .card-event").on("click", function() {
 						var urlpath = $(this).attr("data-tag");
 						$('#overlay-content').load(urlpath, function(data, status, xhr) {
 							if( status === 'success' ) {
-								
-								console.log($('.map-image-container img').height());
+
+								$(".card-provider, .location-card, .card-event").on("click", function() {
+									var urlpath = $(this).attr("data-tag");
+									$('#overlay-content').html('');
+									$('#overlay-content').load(urlpath, function(data, status, xhr) {
+										if( status === 'success' ) {
+
+										}
+									});
+								});
+
 								$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
 								$( window ).resize(function() {
 									$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
-								  });
+									$(".box").css("top", $(document).scrollTop() + 25);
+								});
 
 								$.getScript("/themes/swedishamerican/js/social.js", function(data, textStatus, jqxhr) {
 									$('.facebook-share').on('click', function(e) {
