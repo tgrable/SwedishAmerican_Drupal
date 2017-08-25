@@ -120,19 +120,24 @@
         <div class="location-address inline-desktop">
             <div class="location">
                 {% if node.field_location|length > 1 %}
-                    <div class="location-header">Locations</div>
-                    {% for location in locations %}
-                        <div class="address inline">
-                            <iframe width="150" height="150" frameborder="0" style="border:0" src="https://maps.google.com/maps?hl=EN&amp;q={{ location["map"]|replace({' ':'+'}) }}&amp;t=M&amp;z=14&amp;output=embed"></iframe>
-                            <p>
-                                <a href="{{ location["alias"] }}">{{ location["name"] }}</a><br />
-                                {{ location["address"] }}<br />
-                                {{ location["city"]}}, {{ location["state"] }} {{ location["zip"] }}
-                            </p>
+                    <div class="multiple-location">
+                        <div class="location-header">Locations</div>
+                            {% for location in locations %}
+                                <div class="address inline">
+                                    <iframe width="150" height="150" frameborder="0" style="border:0" src="https://maps.google.com/maps?hl=EN&amp;q={{ location["map"]|replace({' ':'+'}) }}&amp;t=M&amp;z=14&amp;output=embed"></iframe>
+                                    <p>
+                                        <a href="{{ location["alias"] }}">{{ location["name"] }}</a><br />
+                                        {{ location["address"] }}<br />
+                                        {{ location["city"]}}, {{ location["state"] }} {{ location["zip"] }}
+                                    </p>
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
+                    </div>
                 {% else %}
-                    {{ content.field_location }} 
+                    <div class="single-location">
+                        {{ content.field_location }}
+                    </div>
                 {% endif %} 
             </div>
         </div>

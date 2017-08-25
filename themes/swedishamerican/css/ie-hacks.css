@@ -1,8 +1,4 @@
 /* entire container, keeps perspective */
-body p {
-    color: red;
-}
-
 .flip-container {
 	perspective: 1000px;
 	transform-style: preserve-3d;
