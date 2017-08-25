@@ -23,3 +23,8 @@ regions:
 libraries:
   - 'swedishamerican/global-styling'
   - 'swedishamerican/bootstrap-scripts'
+
+conditional-stylesheets:
+  IE:
+    print:
+      css/ie-hacks.css
