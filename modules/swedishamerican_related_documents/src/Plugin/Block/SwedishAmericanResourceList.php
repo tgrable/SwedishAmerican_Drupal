@@ -64,6 +64,10 @@ class SwedishAmericanResourceList extends BlockBase {
         $link['uri'] = str_replace("internal:/", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/", $link['uri']);
         array_push($cleanedLinks, $link); 
       }
+      if (stripos($link['uri'], "entity:") !== FALSE) {
+        $link['uri'] = str_replace("entity:", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/", $link['uri']);
+        array_push($cleanedLinks, $link); 
+      }
       else {
         array_push($cleanedLinks, $link);
       }
