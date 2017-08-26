@@ -13,6 +13,10 @@
 				console.log("window.location.hash.indexOf(\"services\"): " + window.location.hash.indexOf("services"));
 				console.log("window.location.hash.indexOf(\"services/cancer-care\"): " + window.location.hash.indexOf("services/cancer-care"));
 
+				console.log("window.location.href: " + window.location.href);
+				console.log("window.location.href.indexOf(\"services\"): " + window.location.href.indexOf("services"));
+				console.log("window.location.href.indexOf(\"services/cancer-care\"): " + window.location.href.indexOf("services/cancer-care"));
+
 				var ua = window.navigator.userAgent;
 				var msie = ua.indexOf("MSIE ");
 				if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
