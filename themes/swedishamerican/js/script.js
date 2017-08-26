@@ -13,6 +13,9 @@
 				var msie = ua.indexOf("MSIE ");
 				if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
 					console.log('msie');
+					console.log("window.location.hash.indexOf(\"services\"): " + window.location.hash.indexOf("services"));
+					console.log("window.location.hash.indexOf(\"services/cancer-care\"): " + window.location.hash.indexOf("services/cancer-care"));
+
 					if (window.location.hash.indexOf("senior-leadership") >= 0) {
 						$('.senior-image').each(function() {
 							var urlpath = $(this).attr("data-image");
@@ -20,6 +23,8 @@
 						});
 					}
 					else if (window.location.hash.indexOf("locations") >= 0) {
+						console.log(window.location.hash.indexOf("locations"));
+
 						$('.location-image-bg').each(function() {
 							var urlpath = $(this).attr("data-location");
 							$(this).css('background-image', "url('" + urlpath + "')");
@@ -149,7 +154,11 @@
 						}
 						// else if (this.pathname.includes("services")) {
 						else if (window.location.hash.indexOf("services") >= 0) {
+							console.log(window.location.hash.indexOf("services"));
+
 							if (window.location.hash.indexOf("services/cancer-care") >= 0) {
+								console.log(window.location.hash.indexOf("services/cancer-care"));
+
 								$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/hdr-cancercare.png)");
 							}
 							else if (window.location.hash.indexOf("services/allergy-immunology")  >= 0) {
