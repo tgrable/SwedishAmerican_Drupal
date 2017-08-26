@@ -9,6 +9,9 @@
 			
 			init: function() {
 
+				console.log("window.location.hash.indexOf(\"services\"): " + window.location.hash.indexOf("services"));
+				console.log("window.location.hash.indexOf(\"services/cancer-care\"): " + window.location.hash.indexOf("services/cancer-care"));
+				
 				var ua = window.navigator.userAgent;
 				var msie = ua.indexOf("MSIE ");
 				if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
