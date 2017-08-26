@@ -8,10 +8,11 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {
+
 				var ua = window.navigator.userAgent;
 				var msie = ua.indexOf("MSIE ");
-			
 				if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+					console.log('msie');
 					if (window.location.hash.indexOf("senior-leadership") >= 0) {
 						$('.senior-image').each(function() {
 							var urlpath = $(this).attr("data-image");
@@ -257,6 +258,7 @@
 					}
 				}
 				else {
+					console.log('not msie');
 					if (this.pathname.includes("senior-leadership")) {
 						$('.senior-image').each(function() {
 							var urlpath = $(this).attr("data-image");
