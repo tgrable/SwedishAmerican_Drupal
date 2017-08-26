@@ -92,10 +92,10 @@
                 <p><strong>SHARE</strong></p>
                 <div class="horizontal-divider"></div>
                 <div class="social social-provider inline">
-                    <ul> <!-- TODO: Check their site for social links -->
+                    <ul> <!-- TODO: Social links not working -->
                         <li class="social-button email"><a href="/share-provider?id={{ node.id|raw }}"><i class="fa fa-envelope"></i></a></li>
                         <li class="social-button fb facebook-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-facebook"></i></li>
-                        <li class="social-button tw twitter-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-twitter"></i></li> <!-- TODO: Get their Twitter Page -->
+                        <li class="social-button tw twitter-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-twitter"></i></li>
                         <li class="social-button li linkedin-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-linkedin"></i></li>
                     </ul>
                 </div>
@@ -104,7 +104,7 @@
     </div>
     <div{{ content_attributes }} class="provider-details-container inline-desktop">
         <div class="name">
-            <h1>{{ label }}</h1>
+            <h1>{{ content.field_provider_name }}</h1>
             {% for specialty in specialty_field %}
                 <h3>{{ specialty }}</h3>
             {% endfor %}

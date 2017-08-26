@@ -13,6 +13,7 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Url;
+use Drupal\Core\Cache\Cache;
 
 class ProvidersForm extends FormBase {
   /**
@@ -320,9 +321,15 @@ class ProvidersForm extends FormBase {
                   $termmarkup .= $termNameArray[0]['value'];
                 $termmarkup .= '</div>';
                 $termmarkup .= '<div class="card-provider-location-info ">';
-                $termmarkup .= $termAddressArray[0]['value'] . '<br />';
-                $termmarkup .= $termCityArray[0]['value'] . ', ' . $termStateArray[0]['value'] . ' ' . $termZipArray[0]['value'] . '<br />';
-                $termmarkup .= $termPhoneArray[0]['value'];
+                if (count($termAddressArray) > 0) {
+                  $termmarkup .= $termAddressArray[0]['value'] . '<br />';
+                }
+                if (count($termCityArray) > 0) {
+                  $termmarkup .= $termCityArray[0]['value'] . ', ' . $termStateArray[0]['value'] . ' ' . $termZipArray[0]['value'] . '<br />';
+                }
+                if (count($termPhoneArray) > 0) {
+                  $termmarkup .= $termPhoneArray[0]['value'];
+                }
                 $termmarkup .= '</div>';
               }
             }
@@ -414,5 +421,12 @@ class ProvidersForm extends FormBase {
     }
 
     return $keyword;
+  }
+
+  public function getCacheContexts() {
+    //if you depends on \Drupal::routeMatch()
+    //you must set context of this block with 'route' context tag.
+    //Every new route this block will rebuild
+    return Cache::mergeContexts(parent::getCacheContexts(), array('route'));
   }
 }
