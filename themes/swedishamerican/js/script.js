@@ -9,15 +9,14 @@
 			
 			init: function() {
 
+				console.log("window.location.hash: " + window.location.hash);
 				console.log("window.location.hash.indexOf(\"services\"): " + window.location.hash.indexOf("services"));
 				console.log("window.location.hash.indexOf(\"services/cancer-care\"): " + window.location.hash.indexOf("services/cancer-care"));
-				
+
 				var ua = window.navigator.userAgent;
 				var msie = ua.indexOf("MSIE ");
 				if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
 					console.log('msie');
-					console.log("window.location.hash.indexOf(\"services\"): " + window.location.hash.indexOf("services"));
-					console.log("window.location.hash.indexOf(\"services/cancer-care\"): " + window.location.hash.indexOf("services/cancer-care"));
 
 					if (window.location.hash.indexOf("senior-leadership") >= 0) {
 						$('.senior-image').each(function() {
