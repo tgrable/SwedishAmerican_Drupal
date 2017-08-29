@@ -4255,6 +4255,9 @@ h1 span {
   perspective: 1000px;
 }
 /* flip the pane when hovered */
+card-search-form {
+  display: none;
+}
 .flip-container,
 .front,
 .back {
