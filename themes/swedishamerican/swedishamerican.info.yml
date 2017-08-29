@@ -26,5 +26,5 @@ libraries:
 
 conditional-stylesheets:
   IE:
-    print:
+    all:
       css/ie-hacks.css
