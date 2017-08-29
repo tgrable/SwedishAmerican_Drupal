@@ -112,11 +112,17 @@
     <hr />
     <div class="provider-contact-container">
         <div class="location">
-            {% if node.field_provider_type.value == "Courtesy" %}
+            {#{% if node.field_provider_type.value == "Courtesy" %}#}
+                {#<h2>Location</h2>#}
+                {#{{ content.field_courtesy_provider_location }}#}
+            {#{% else %}#}
+                {#{{ content.field_location }}#}
+            {#{% endif %}#}
+            {% if node.field_location[0].value %}
+                {{ content.field_location }}
+            {% else %}
                 <h2>Location</h2>
                 {{ content.field_courtesy_provider_location }}
-            {% else %}
-                {{ content.field_location }}
             {% endif %}
         </div>
     </div>
