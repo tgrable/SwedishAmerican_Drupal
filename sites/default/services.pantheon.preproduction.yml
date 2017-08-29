@@ -13,3 +13,4 @@
 parameters:
   twig.config:
     debug: true
+    cache: false
