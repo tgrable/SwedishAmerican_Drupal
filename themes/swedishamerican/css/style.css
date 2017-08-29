@@ -2925,7 +2925,7 @@ header {
   color: #3F3F3F;
 }
 ul.menu.nav.navbar-nav {
-  margin-left: 115px;
+  margin-left: 3%;
 }
 ul.nav li.dropdown:hover > ul.dropdown-menu {
   display: block;
@@ -3944,15 +3944,18 @@ section#block-twitterpostfeed {
 }
 .form-item-sag .sag-markup {
   float: left;
+  width: 90%;
 }
 .form-item-sag .sag-markup div {
   vertical-align: top;
 }
 .form-item-sag .sag-markup .image {
   margin-right: 15px;
+  float: left;
 }
 .form-item-sag .sag-markup .text {
   text-align: left;
+  display: inline;
 }
 .dependant-fields-footer {
   padding-top: 15px;
