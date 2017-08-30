@@ -23,11 +23,3 @@ regions:
 libraries:
   - 'swedishamerican/global-styling'
   - 'swedishamerican/bootstrap-scripts'
-
-conditional-stylesheets:
-  IE:
-    all:
-      css/ie-hacks.css
-  !IE:
-    all:
-      css/flipp.css
