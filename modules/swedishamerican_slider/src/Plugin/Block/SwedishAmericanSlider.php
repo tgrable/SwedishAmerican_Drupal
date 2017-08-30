@@ -34,6 +34,7 @@ class SwedishAmericanSlider extends BlockBase {
       $query = \Drupal::entityQuery('node');
       $query->condition('status', 1);
       $query->condition('type', 'slider_image');
+      $query->condition('field_page_reference', $nid);
       $entity_ids = $query->execute();
 
       $nodes = array();

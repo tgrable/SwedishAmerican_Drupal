@@ -48,29 +48,29 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
+      {# <div class="contact inline">
         {% if paragraph_field_phone != null %}
-          <div class="contact inline">
-            <h2>Contact</h2>
-            <div class="phone">
-                <div class="icon inline">
-                    <p><i class="fa fa-phone"></i></p>
-                </div>
-                <div class="result inline">
-                    <p>{{ paragraph_field_phone }}</p>
-                </div>
-            </div>
-          {% endif %}
-          {% if paragraph_field_email != null %}
-            <div class="email">
+          <h2>Contact</h2>
+          <div class="phone">
               <div class="icon inline">
-                  <p><i class="fa fa-envelope"></i></p>
+                  <p><i class="fa fa-phone"></i></p>
               </div>
               <div class="result inline">
-                  <p>{{ paragraph_field_email }}</p>
+                  <p>{{ paragraph_field_phone }}</p>
               </div>
-            </div> 
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
+        {% if paragraph_field_email != null %}
+          <div class="email">
+            <div class="icon inline">
+                <p><i class="fa fa-envelope"></i></p>
+            </div>
+            <div class="result inline">
+              <p><a href="mailto:{{ paragraph_field_email }}" target="_blank">{{ paragraph_field_email }}</a></p>
+            </div>
+          </div> 
+        {% endif %}
+      </div> #}
       <div class="address-group inline">
         {% if paragraph_field_address != null %}
           <div class="address inline">  

@@ -1,7 +1,7 @@
 swedishamerican_providers.form:
- path: '/example-form'
+ path: '/share-provider'
  defaults:
-   _title: 'Think Print Provider form'
-   _form: '\Drupal\swedishamerican_providers\Form\ProvidersForm'
+   _title: 'SwedishAmerican'
+   _form: '\Drupal\swedishamerican_providers\Form\ProviderEmailShareForm'
  requirements:
    _permission: 'access content'

@@ -22,20 +22,30 @@
     .phone-email {
         border-right: 1px solid @gray-rules;
         padding-right: 30px;
+        margin-right: 30px;
         vertical-align: top;
+        max-width: 30%; // TODO: Check this
 
         .phone-email-container {
             padding-bottom: 15px;
         }
+        .icon {
+            max-width: 8%;
+            vertical-align: top;
+        }
+        .result {
+            max-width: 88%;
+        }
     }
     .location-address {
-        // padding-left: 30px;
         vertical-align: top;
-        // max-width: 585px; //TODO: Check this
+        
     }
-    .single-location,
-    .multiple-location {
-        padding-left: 30px;
+    .location-full-width {
+        max-width: 100%;
+    }
+    .location-quarter-width {
+        max-width: 69%;
     }
     .address {
         vertical-align: top;

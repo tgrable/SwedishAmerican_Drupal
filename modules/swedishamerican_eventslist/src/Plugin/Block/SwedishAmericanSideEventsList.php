@@ -34,6 +34,7 @@ class SwedishAmericanSideEventsList extends BlockBase {
       $query->condition('status', 1);
       $query->condition('type', 'event');
       $query->condition('field_service_reference_node', $nid);
+      $query->sort('title', 'ASC');
       $entity_ids = $query->execute();
 
       $nodes = array();

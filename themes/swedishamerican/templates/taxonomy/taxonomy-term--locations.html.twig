@@ -72,7 +72,7 @@
                             <p><i class="fa fa-envelope"></i></p>
                         </div>
                         <div class="result inline">
-                            <p>{{ term.field_email_address.0.value }}</p>
+                            <p><a href="mailto:{{ term.field_email_address.0.value }}" target="_blank">{{ term.field_email_address.0.value }}</a></p>
                         </div>
                     </div>
                 {% endif %}

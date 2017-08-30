@@ -48,7 +48,6 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-    <!--Accordion wrapper-->
     <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="accordion-card">
         <div class="card-header" role="tab" id="heading{{ paragraph.id() }}">
@@ -65,7 +64,6 @@
           </div>
         </div>
       </div>
-      <!--/.Accordion wrapper-->
     </div>
     {% endblock %}
   </div>

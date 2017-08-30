@@ -93,10 +93,10 @@
                 <div class="horizontal-divider"></div>
                 <div class="social social-provider inline">
                     <ul> <!-- TODO: Social links not working -->
-                        <li class="social-button email"><a href="/share-provider?id={{ node.id|raw }}"><i class="fa fa-envelope"></i></a></li>
-                        <li class="social-button fb facebook-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-facebook"></i></li>
-                        <li class="social-button tw twitter-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-twitter"></i></li>
-                        <li class="social-button li linkedin-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}"><i class="fa fa-linkedin"></i></li>
+                        <li class="social-button email"><a href="/share-provider?id={{ node.id|raw }}" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        <li class="social-button fb facebook-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}" target="_blank"><i class="fa fa-facebook"></i></li>
+                        <li class="social-button tw twitter-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}" target="_blank"><i class="fa fa-twitter"></i></li>
+                        <li class="social-button li linkedin-share" data-href="{{ path_alias }}" data-name="{{ node.title.0.value }}" target="_blank"><i class="fa fa-linkedin"></i></li>
                     </ul>
                 </div>
             </div>
@@ -111,6 +111,31 @@
         </div>
     <hr />
     <div class="provider-contact-container">
+        <div class="contact inline">
+            <h2>Contact</h2>
+            {% if node.field_phone|length > 0 %}
+                {% for phone in node.field_phone %}
+                    <div class="phone">
+                        <div class="icon inline">
+                            <p><i class="fa fa-phone"></i></p>
+                        </div>
+                        <div class="result inline">
+                            <p>{{ phone.value }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% if node.field_email_address.value != null %}
+                <div class="email">
+                <div class="icon inline">
+                    <p><i class="fa fa-envelope"></i></p>
+                </div>
+                <div class="result inline">
+                    <p><a href="mailto:{{ node.field_email_address.value }}" target="_blank">{{ node.field_email_address.value }}</a></p>
+                </div>
+                </div> 
+            {% endif %}
+        </div>
         <div class="location">
             {% if node.field_location[0].value %}
                 {{ content.field_location }}

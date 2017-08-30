@@ -27,9 +27,6 @@ class ProvidersForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $form['#cache'] = ['max-age' => 0];
-
     $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
     foreach ($tree as $value) {
       $locations[$value->tid] = $value->name;
@@ -116,7 +113,6 @@ class ProvidersForm extends FormBase {
     # retrieve query param
     $providerSwedes = \Drupal::request()->query->get('swedes_provider');
     $swedes_provider = $this->getSearchTerm($providerSwedes, $form_state->getValue('sag'));
-    if ($swedes_provider == null) $swedes_provider = 0;
 
     $providerName = \Drupal::request()->query->get('name');
     $name = $this->getSearchTerm($providerName, $form_state->getValue('name'));
@@ -373,7 +369,7 @@ class ProvidersForm extends FormBase {
         $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" />';
       $markup .= '</div>';
       $markup .= '<div class="text inline">';
-        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican Medical Group Providers. Uncheck to search all providers.</span>';
+        $markup .= '<span>Show <strong>ONLY</strong><br />SwedishAmerican Group Providers</span>';
       $markup .= '</div>';
     $markup .= '</div>';
 

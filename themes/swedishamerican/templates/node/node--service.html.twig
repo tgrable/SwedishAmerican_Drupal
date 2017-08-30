@@ -79,19 +79,24 @@
             <h1>{{ label }}</h1>
         </div>
         <hr />
-
+        {% set service_location_container_width = 'location-full-width' %}
         {% if node.field_phone|length > 0 or node.field_email_address|length > 0 or node.field_hours|length > 0 %}
+            {% set service_location_container_width = 'location-quarter-width' %}
             <div class="phone-email inline-desktop">
                 <div class="phone-email-container">
                     {% if node.field_phone.0.value %}
                         <div class="location-header">Contact</div>
                         <div class="phone">
-                            <div class="icon inline">
-                                <p><i class="fa fa-phone"></i></p>
-                            </div>
-                            <div class="result inline">
-                                <p>{{ node.field_phone.0.value }}</p>
-                            </div>
+                            {% for phone in node.field_phone %}
+                                <div class="phone-container">
+                                    <div class="icon inline">
+                                        <p><i class="fa fa-phone"></i></p>
+                                    </div>
+                                    <div class="result inline">
+                                        <p>{{ phone.value }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </div>
                     {% endif %}
                     {% if node.field_email_address.0.value %}
@@ -100,7 +105,7 @@
                                 <p><i class="fa fa-envelope"></i></p>
                             </div>
                             <div class="result inline">
-                                <p>{{ node.field_email_address.0.value }}</p>
+                                <p><a href="mailto:{{ node.field_email_address.0.value }}" target="_blank">{{ node.field_email_address.0.value }}</a></p>
                             </div>
                         </div>
                     {% endif %}
@@ -117,22 +122,21 @@
                 {% endif %}
             </div>
         {% endif %}
-        <div class="location-address inline-desktop">
+        <div class="location-address inline-desktop {{ service_location_container_width }}">
             <div class="location">
                 {% if node.field_location|length > 1 %}
                     <div class="multiple-location">
                         <div class="location-header">Locations</div>
-                            {% for location in locations %}
-                                <div class="address inline">
-                                    <iframe width="150" height="150" frameborder="0" style="border:0" src="https://maps.google.com/maps?hl=EN&amp;q={{ location["map"]|replace({' ':'+'}) }}&amp;t=M&amp;z=14&amp;output=embed"></iframe>
-                                    <p>
-                                        <a href="{{ location["alias"] }}">{{ location["name"] }}</a><br />
-                                        {{ location["address"] }}<br />
-                                        {{ location["city"]}}, {{ location["state"] }} {{ location["zip"] }}
-                                    </p>
-                                </div>
-                            {% endfor %}
-                        </div>
+                        {% for location in locations %}
+                            <div class="address inline">
+                                <iframe width="150" height="150" frameborder="0" style="border:0" src="https://maps.google.com/maps?hl=EN&amp;q={{ location["map"]|replace({' ':'+'}) }}&amp;t=M&amp;z=14&amp;output=embed"></iframe>
+                                <p>
+                                    <a href="{{ location["alias"] }}">{{ location["name"] }}</a><br />
+                                    {{ location["address"] }}<br />
+                                    {{ location["city"]}}, {{ location["state"] }} {{ location["zip"] }}
+                                </p>
+                            </div>
+                        {% endfor %}
                     </div>
                 {% else %}
                     <div class="single-location">

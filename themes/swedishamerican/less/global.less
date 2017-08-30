@@ -262,7 +262,8 @@ header#navbar {
     color: @white;
 }
 
-.btn-standard {
+.btn-standard,
+.btn-default {
     background-color: @brand-primary;
     color: @white;
 	.avenirNextRegular;
@@ -273,7 +274,9 @@ header#navbar {
     padding: 6px 13px;
 }
 
-button.btn.btn-standard.btn-floating {
+button.btn.btn-standard.btn-floating,
+button.btn.btn-default.btn-floating
+{
     outline: none;
 }
 
@@ -428,9 +431,9 @@ div#block-swedishamerican-search {
         color: @white;
     }
 
-    .carousel-indicators .active {
-        margin: 0 0 0.6em 0;
-    }
+    // .carousel-indicators .active {
+    //     margin: 0 0 0.6em 0;
+    // }
 }
 
 .lightBox {
@@ -517,7 +520,8 @@ section#block-swedishamericanclinicaltrials {
     background-color: @brand-primary;
     color: white !important;
 }
-.btn-cta:hover {
+.btn-cta:hover,
+.btn-default:hover {
     background-color: @brand-primary-hover;
 }
 

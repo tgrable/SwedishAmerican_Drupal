@@ -2,15 +2,42 @@
     {% for node in nodes %}
         <div class="lightBox inline">
             <div class="card-provider" data-tag="{{ path('entity.node.canonical', {'node': node.id}) }} #node_{{ node.id }}">
-                {% if node.field_swedes_provider.value == 1 %}
+                {% if node.field_provider_type != null %}
+                    {% if node.field_provider_type.value == 'Swedes Provider' %}
+                        <div class="card-provider-btn-icon"></div>
+                        {% set swedes_provider_group = 'internal-provider' %}
+                        {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd-group' %}
+                        {% set swedes_provider_group_btn = 'card-provider-btn-group' %}
+                        {% set provider_image_container = 'views-field-field-image' %}
+                        {% set provider_title = 'card-provider-title' %}
+                    {% elseif node.field_provider_type.value == 'UW Doctor' %}
+                        <div class="card-provider-btn-uw-icon"></div>
+                        {% set swedes_provider_group = 'uw-provider' %}
+                        {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd-uw' %}
+                        {% set swedes_provider_group_btn = 'card-provider-btn-uw' %}
+                        {% set provider_image_container = 'views-field-field-image-uw' %}
+                        {% set provider_title = 'card-provider-title-uw' %}
+                    {% elseif node.field_provider_type.value == 'Courtesy' %}
+                        {% set swedes_provider_group = 'external-provider' %}
+                        {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd' %}
+                        {% set swedes_provider_group_btn = 'card-provider-btn' %}
+                        {% set provider_image_container = 'views-field-field-image' %}
+                        {% set provider_title = 'card-provider-title' %}
+                    {% else  %}
+                        <div class="card-provider-btn-icon"></div>
+                        {% set swedes_provider_group = 'internal-provider' %}
+                        {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd-group' %}
+                        {% set swedes_provider_group_btn = 'card-provider-btn-group' %}
+                        {% set provider_image_container = 'views-field-field-image' %}
+                        {% set provider_title = 'card-provider-title' %}
+                    {% endif %}
+                {% else %}
                     <div class="card-provider-btn-icon"></div>
-                    {% set swedes_provider_group = 'internal-provider' %}
-                    {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd-group' %}
-                    {% set swedes_provider_group_btn = 'card-provider-btn-group' %}
-                {% else  %}
-                    {% set swedes_provider_group = 'external-provider' %}
-                    {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd' %}
-                    {% set swedes_provider_group_btn = 'card-provider-btn' %}
+                        {% set swedes_provider_group = 'internal-provider' %}
+                        {% set swedes_provider_group_bkgrd = 'card-provider-bkgrd-group' %}
+                        {% set swedes_provider_group_btn = 'card-provider-btn-group' %}
+                        {% set provider_image_container = 'views-field-field-image' %}
+                        {% set provider_title = 'card-provider-title' %}
                 {% endif %}
 
                 {% if node.field_display_as_new.value == 1 %}
