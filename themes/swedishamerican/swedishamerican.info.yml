@@ -29,5 +29,5 @@ conditional-stylesheets:
     all:
       css/ie-hacks.css
   !IE:
-    print:
+    all:
       css/flipp.css
