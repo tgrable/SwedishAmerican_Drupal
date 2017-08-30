@@ -65,12 +65,14 @@
 
     <!-- In html.html.twig file -->
     <!--[if !IE]><!-->
-      <link rel="stylesheet" href="/themes/swedishamerican/css/flipp.css" media="all">
+      {# <link rel="stylesheet" href="/themes/swedishamerican/css/flipp.css" media="all"> #}
     <!--<![endif]-->
 
     <!--[if IE]>
       <link rel="stylesheet" href="/themes/swedishamerican/css/ie-hacks.css" media="all" />
     <![endif]-->
+
+    <link rel="stylesheet" href="/themes/swedishamerican/css/ie-hacks.css" media="all" />
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     <a href="#main-content" class="visually-hidden focusable skip-link">
