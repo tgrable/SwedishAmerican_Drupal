@@ -62,8 +62,8 @@
 					
 					if ($(window).width() > 736) {
 						if (this.pathname === '/') {
-							// $('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
-							$('header').css("background-image", "url((http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif)");
+							$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
+							// $('header').css("background-image", "url((http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif)");
 							$('header').css("background-size", "cover");
 							$('header').css("background-position", "center");
 							$('header').css("height", "465px");
@@ -313,8 +313,8 @@
 					
 					if ($(window).width() > 736) {
 						if (this.pathname === '/') {
-							// $('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
-							$('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/mybridge_race_horse_animated.gif)");
+							$('header').css("background-image", "url(/themes/swedishamerican/images/img-HdrHome-01.png)");
+							// $('header').css("background-image", "url(/themes/swedishamerican/images/hdr-images/mybridge_race_horse_animated.gif)");
 							$('header').css("background-size", "cover");
 							$('header').css("background-position", "center");
 							$('header').css("height", "465px");
