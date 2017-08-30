@@ -76,7 +76,7 @@
   ]
 %}
 {% if node.field_has_back_content.value  == 1 %}
-  <div class="flip-container">
+  <div id='flip_container_{{ node.id|raw }}' class="flip-container">
     <div class="flipper">
       <div class="front">
         <article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
