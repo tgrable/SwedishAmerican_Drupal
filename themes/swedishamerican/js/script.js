@@ -70,12 +70,14 @@
 
 							$('#flip_container_11').mouseover(function() {
 								if (!$('#flip_container_11').hasClass('applyflip')) {
+									$('.front').css('display', 'none');
 									$('#flip_container_11').addClass('applyflip')
 								}	
 							});
 
 							$('#flip_container_11').mouseout(function() {
 								if ($('#flip_container_11').hasClass('applyflip')) {
+									$('.front').css('display', 'block');
 									$('#flip_container_11').removeClass('applyflip')
 								}
 							});
