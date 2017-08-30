@@ -72,12 +72,13 @@
 								if (!$('#flip_container_11').hasClass('applyflip')) {
 									$('#flip_container_11').addClass('applyflip')
 								}	
-							})
+							});
 
 							$('#flip_container_11').mouseout(function() {
 								if ($('#flip_container_11').hasClass('applyflip')) {
 									$('#flip_container_11').removeClass('applyflip')
-								}	
+								}
+							});
 	
 							$('.provider-search-form-button').on('click', function() {
 								var name = $('#provider-search-form-name').val();
