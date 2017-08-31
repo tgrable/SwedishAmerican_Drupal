@@ -1,0 +1,12 @@
+<?php 
+
+function swedishamerican_animation_banner_theme($existing, $type, $theme, $path) {
+    return [
+        'main_banner' => [
+            'variables' => [
+                'nodes' => NULL
+            ],
+            'template' => 'main-banner',
+        ]
+    ];
+}

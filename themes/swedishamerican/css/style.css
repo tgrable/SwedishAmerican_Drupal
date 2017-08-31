@@ -3103,6 +3103,41 @@ li.extra-services {
 .full-alpha {
   background: #3f3f3f;
 }
+#block-servicebanner,
+#block-cancercarebanner,
+#block-allergybanner,
+#block-audiologybanner,
+#block-breastcarebanner,
+#block-nutritionbanner,
+#block-emergencybanner,
+#block-migrainesbanner,
+#block-heartcarebanner,
+#block-holisticbanner,
+#block-homecarebanner,
+#block-imagingbanner,
+#block-kidscarebanner,
+#block-mentalhealthbanner,
+#block-orthopedicsbanner,
+#block-physicaltherapybanner,
+#block-sleepdisordersbanner,
+#block-surgerybanner,
+#block-wellnessbanner,
+#block-woundcarebanner,
+#block-blogbanner,
+#block-aboutbanner,
+#block-patientsbanner,
+#block-visitorsbanner {
+  position: relative;
+  z-index: -10;
+}
+.header-container {
+  height: 250px;
+}
+.header-container .header-banner {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
 .view-front-cards .views-row {
   margin: 0 15px 15px 15px;
 }

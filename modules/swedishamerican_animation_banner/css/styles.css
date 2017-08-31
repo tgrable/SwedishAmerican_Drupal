@@ -1,0 +1,12 @@
+#animation_container {
+    position: relative;;
+    margin:auto;
+    left:0;
+    right:0;
+    z-index: -1;
+}
+
+section#block-swedishamericananimationbanner {
+    position: relative;
+    z-index: -10;
+}

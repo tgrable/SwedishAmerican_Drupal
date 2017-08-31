@@ -1,0 +1,5 @@
+name: SwedishAmerican Animation Banner
+type: module
+description: Creates a block to display the main animation banner
+package: Custom
+core: 8.x

@@ -1,0 +1,8 @@
+swedishamerican-animation-banner:
+  version: 1.x
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    'https://code.createjs.com/createjs-2015.11.26.min.js': {external: true}
+    js/script.js: {}
