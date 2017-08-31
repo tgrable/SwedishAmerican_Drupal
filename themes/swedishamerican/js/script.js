@@ -31,7 +31,7 @@
 						$('.dropdown-menu:eq(0)').append(maniMenuString);
 					}
 					if (this.pathname === '/') {
-						$('header').css('height', '400px');
+						$('header').css('height', '425px');
 					}
 					else if (window.location.href.indexOf("find-a-doctor") >= 0) {
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
@@ -91,6 +91,30 @@
 							}
 						});
 
+						$('#flip_container_12').mouseover(function() {
+							if (!$('#flip_container_12').hasClass('applyflip')) {
+								$('#flip_container_12').addClass('applyflip');
+							}	
+						});
+
+						$('#flip_container_12').mouseout(function() {
+							if ($('#flip_container_12').hasClass('applyflip')) {
+								$('#flip_container_12').removeClass('applyflip');
+							}
+						});
+
+						$('#flip_container_15').mouseover(function() {
+							if (!$('#flip_container_15').hasClass('applyflip')) {
+								$('#flip_container_15').addClass('applyflip');
+							}	
+						});
+
+						$('#flip_container_15').mouseout(function() {
+							if ($('#flip_container_15').hasClass('applyflip')) {
+								$('#flip_container_15').removeClass('applyflip');
+							}
+						});
+
 						$('.provider-search-form-button').on('click', function() {
 							var name = $('#provider-search-form-name').val();
 							var location = $('#provider-search-form-locations').val();
@@ -128,7 +152,7 @@
 							
 							var urlpath = "/locations?";
 							if (name.length > 0) {
-								urlpath = urlpath + "name=" + name + "&";
+								urlpath = urlpath + "name_1=" + name + "&";
 							}
 
 							if (city.length > 0) {

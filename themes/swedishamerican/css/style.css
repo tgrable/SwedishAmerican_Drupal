@@ -3470,7 +3470,7 @@ footer .footer-content-short p {
 }
 .card-event {
   width: 300px;
-  height: 500px;
+  height: 725px;
 }
 .card-event,
 .senior-card {
@@ -4093,6 +4093,9 @@ section#block-twitterpostfeed {
 .service-container .contact {
   vertical-align: top;
 }
+.service-container .term-content-container {
+  width: 100%;
+}
 .service-container .term-content-container p {
   font-family: 'AvenirNextCondensed-Regular';
   font-weight: normal;
@@ -4117,6 +4120,7 @@ section#block-twitterpostfeed {
 .service-container .phone-email .icon {
   max-width: 8%;
   vertical-align: top;
+  margin-right: 8px;
 }
 .service-container .phone-email .result {
   max-width: 88%;
@@ -4135,6 +4139,7 @@ section#block-twitterpostfeed {
   max-width: 160px;
   padding-right: 15px;
   text-transform: capitalize;
+  margin-bottom: 15px;
 }
 .service-container .address a {
   font-family: 'AvenirNext-DemiBold';
@@ -4291,8 +4296,7 @@ h1 span {
 }
 .event-details {
   margin: 15px;
-  max-height: 270px;
-  overflow: scroll;
+  overflow: hidden;
 }
 .events-wrapper {
   margin: 0 0 15px 15px;
