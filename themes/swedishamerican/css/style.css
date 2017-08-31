@@ -2594,7 +2594,8 @@ header#navbar {
   color: #ffffff;
 }
 .btn-standard,
-.btn-default {
+.btn-default,
+.btn-info {
   background-color: #92318f;
   color: #ffffff;
   font-family: 'AvenirNext-Regular';
@@ -2606,7 +2607,8 @@ header#navbar {
   padding: 6px 13px;
 }
 button.btn.btn-standard.btn-floating,
-button.btn.btn-default.btn-floating {
+button.btn.btn-default.btn-floating,
+button.btn.btn-info.btn-floating {
   outline: none;
 }
 /* PRE-HEADER */
