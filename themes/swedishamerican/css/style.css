@@ -2771,7 +2771,7 @@ div#block-swedishamerican-search {
   display: none;
   margin: 0 auto;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -2790,7 +2790,6 @@ div#block-swedishamerican-search {
 #overlay-content .provider-container,
 #overlay-content .locations-container,
 #overlay-content .event-container {
-  max-height: 760px;
   overflow: scroll;
 }
 .panel-body {
@@ -3345,6 +3344,7 @@ footer .footer-content-short p {
   margin: 0.75rem;
   position: relative;
   width: 215px;
+  height: 315px;
   vertical-align: top;
 }
 .card-provider {
@@ -3409,6 +3409,9 @@ footer .footer-content-short p {
   padding: 10px;
   font-size: 14px;
   color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .card-provider-btn-group a {
   color: #ffffff;
@@ -3463,14 +3466,17 @@ footer .footer-content-short p {
 .card-provider-bkgrd-group {
   background: #ECE4E9;
   padding: 0 15px 20px 15px;
+  height: 145px;
 }
 .card-provider-bkgrd-uw {
   background: #d9dee6;
   padding: 0 15px 20px 15px;
+  height: 145px;
 }
 .card-provider-bkgrd {
   background: #F5F5F6;
   padding: 0 15px 20px 15px;
+  height: 145px;
 }
 /* CARDS:LOCATIONS */
 .card-location-title {
@@ -4225,6 +4231,9 @@ section#block-twitterpostfeed {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
+}
+.service-faqs {
+  margin-bottom: 30px;
 }
 .article .field--name-field-image {
   margin: 0 0 30px 0;

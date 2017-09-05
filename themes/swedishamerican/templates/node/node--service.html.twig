@@ -79,9 +79,9 @@
             <h1>{{ label }}</h1>
         </div>
         <hr />
-        {% set service_location_container_width = 'location-full-width' %}
+        {# {% set service_location_container_width = 'location-full-width' %} #}
         {% if node.field_phone|length > 0 or node.field_email_address|length > 0 or node.field_hours|length > 0 %}
-            {% set service_location_container_width = 'location-quarter-width' %}
+            {# {% set service_location_container_width = 'location-quarter-width' %} #}
             <div class="phone-email inline-desktop">
                 <div class="phone-email-container">
                     {% if node.field_phone.0.value %}
@@ -122,7 +122,7 @@
                 {% endif %}
             </div>
         {% endif %}
-        <div class="location-address inline-desktop {{ service_location_container_width }}">
+        <div class="location-address inline-desktop">
             <div class="location">
                 {% if node.field_location|length > 1 %}
                     <div class="multiple-location">
