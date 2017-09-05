@@ -264,7 +264,8 @@ header#navbar {
 
 .btn-standard,
 .btn-default,
-.btn-info {
+.btn-info,
+.btn-primary {
     background-color: @brand-primary;
     color: @white;
 	.avenirNextRegular;
@@ -277,7 +278,8 @@ header#navbar {
 
 button.btn.btn-standard.btn-floating,
 button.btn.btn-default.btn-floating,
-button.btn.btn-info.btn-floating
+button.btn.btn-info.btn-floating,
+button.btn.btn-primary.btn-floating
 {
     outline: none;
 }
@@ -523,8 +525,25 @@ section#block-swedishamericanclinicaltrials {
     color: white !important;
 }
 .btn-cta:hover,
-.btn-default:hover {
+.btn-default:hover,
+.btn-primary:hover,
+.btn-cta:focus,
+.btn-default:focus,
+.btn-primary:focus,
+.btn-cta:active,
+.btn-default:active,
+.btn-primary:active 
+ {
     background-color: @brand-primary-hover;
+}
+
+.btn-cta:focus,
+.btn-default:focus,
+.btn-primary:focus, {
+    outline: 5px auto @brand-primary-hover;
+    background-image: -webkit-radial-gradient(circle, @brand-primary 10%, @brand-primary-hover 11%);
+    background-image: -o-radial-gradient(circle, @brand-primary 10%, @brand-primary-hover 11%);
+    background-image: radial-gradient(circle, @brand-primary 10%, @brand-primary-hover 11%);
 }
 
 
@@ -548,4 +567,22 @@ section#block-swedishamericanclinicaltrials {
 
 table.insurance-table td {
     padding: 8px;
+}
+
+textarea:focus, textarea.form-control:focus, input.form-control:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, [type=text].form-control:focus, [type=password].form-control:focus, [type=email].form-control:focus, [type=tel].form-control:focus, [contenteditable].form-control:focus {
+    -webkit-box-shadow: inset 0 -2px 0 @brand-primary;
+    box-shadow: inset 0 -2px 0 @brand-primary;
+}
+
+.form-required:after {
+    margin-left: 5px;
+}
+
+.main-container {
+    form {
+        label {
+            .avenirNextRegular;
+            font-size: 16px;
+        }
+    }
 }

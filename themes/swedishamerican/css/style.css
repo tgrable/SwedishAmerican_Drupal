@@ -2595,7 +2595,8 @@ header#navbar {
 }
 .btn-standard,
 .btn-default,
-.btn-info {
+.btn-info,
+.btn-primary {
   background-color: #92318f;
   color: #ffffff;
   font-family: 'AvenirNext-Regular';
@@ -2608,7 +2609,8 @@ header#navbar {
 }
 button.btn.btn-standard.btn-floating,
 button.btn.btn-default.btn-floating,
-button.btn.btn-info.btn-floating {
+button.btn.btn-info.btn-floating,
+button.btn.btn-primary.btn-floating {
   outline: none;
 }
 /* PRE-HEADER */
@@ -2817,8 +2819,23 @@ section#block-swedishamericanclinicaltrials .trial-id {
   color: white !important;
 }
 .btn-cta:hover,
-.btn-default:hover {
+.btn-default:hover,
+.btn-primary:hover,
+.btn-cta:focus,
+.btn-default:focus,
+.btn-primary:focus,
+.btn-cta:active,
+.btn-default:active,
+.btn-primary:active {
   background-color: #7f2b7c;
+}
+.btn-cta:focus,
+.btn-default:focus,
+.btn-primary:focus {
+  outline: 5px auto #7f2b7c;
+  background-image: -webkit-radial-gradient(circle, #92318f 10%, #7f2b7c 11%);
+  background-image: -o-radial-gradient(circle, #92318f 10%, #7f2b7c 11%);
+  background-image: radial-gradient(circle, #92318f 10%, #7f2b7c 11%);
 }
 .field--name-field-opportunity-location,
 .field--name-field-start-date,
@@ -2852,6 +2869,30 @@ section#block-swedishamericanclinicaltrials .trial-id {
 }
 table.insurance-table td {
   padding: 8px;
+}
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+  -webkit-box-shadow: inset 0 -2px 0 #92318f;
+  box-shadow: inset 0 -2px 0 #92318f;
+}
+.form-required:after {
+  margin-left: 5px;
+}
+.main-container form label {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
 }
 header {
   background-repeat: no-repeat;
