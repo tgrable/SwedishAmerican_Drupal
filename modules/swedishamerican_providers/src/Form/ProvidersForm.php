@@ -115,7 +115,7 @@ class ProvidersForm extends FormBase {
     # retrieve query param
     $providerSwedes = \Drupal::request()->query->get('swedes_provider');
     $swedes_provider = $this->getSearchTerm($providerSwedes, $form_state->getValue('sag'));
-    if ($swedes_provider == null) $swedes_provider = 0;
+    if ($swedes_provider == null) $swedes_provider = 1;
 
     $providerName = \Drupal::request()->query->get('name');
     $name = $this->getSearchTerm($providerName, $form_state->getValue('name'));
