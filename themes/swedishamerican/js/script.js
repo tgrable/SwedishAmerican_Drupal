@@ -30,12 +30,14 @@
 					$('.dropdown-menu:eq(0)').append(maniMenuString);
 				}
 				if (this.pathname === '/') {
-					if ($(window).width() > 736) { 
-						var height = $('header canvas').height() + 30;
+					if ($(window).width() > 736) {
+						console.log($('#animation_container').height());
+
+						var height = $('#animation_container').height() + 30;
 						$('header').css('height', height + 'px');
 
 						$( window ).resize(function() {
-							height = $('header canvas').height() + 30;
+							height = $('#animation_container').height() + 30;
 							$('header').css('height', height + 'px');
 						});
 					}
