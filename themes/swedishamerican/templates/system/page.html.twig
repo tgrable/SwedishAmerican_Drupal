@@ -64,7 +64,7 @@
     {{ block_search_form }}
   </div>
   <div class="inline top-align phone">
-    <span class="fa fa-phone">&nbsp;</span> 1 (779) 696-4400
+    <span class="fa fa-phone">&nbsp;</span> <a href="tel:17796964400">1 (779) 696-4400</a>
   </div>
 </div>
 {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
@@ -149,7 +149,7 @@
           page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim ? 'main-col all-three-col col-sm-8',
           page.sidebar_first|render|striptags|trim and page.sidebar_second|render|striptags|trim is empty ? 'main-col no-right-col col-sm-10',
           page.sidebar_second|render|striptags|trim and page.sidebar_first|render|striptags|trim is empty ? 'main-col no-left-col col-sm-10',
-          page.sidebar_first|render|striptags|trim is empty and page.sidebar_second|render|striptags|trim is empty ? 'main-col no-side-sol col-sm-12'
+          page.sidebar_first|render|striptags|trim is empty and page.sidebar_second|render|striptags|trim is empty ? 'main-col no-side-col col-sm-12'
         ]
       %}
       <section{{ content_attributes.addClass(content_classes) }}>

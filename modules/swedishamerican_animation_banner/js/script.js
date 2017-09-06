@@ -1,9 +1,5 @@
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-
-console.log('Justin Sucks');
-
 function init() {
-	console.log('init()');
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");

@@ -1,60 +1,122 @@
-/* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000px;
-}
-
-/* flip the pane when hovered */
-//.flip-container:hover .flipper, .flip-container.hover .flipper {
-//    transform: rotateY(180deg);
-//}
-
-//temporarily hide card backs
-.card-search-form{
-	display: none;
-}
-
-.flip-container, .front, .back {
-	width: 245px;
-	height: 315px;
-}
-
-/* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
-
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-/* front pane, placed above back */
-.front {
-	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back {
-	transform: rotateY(180deg);
-}
-
-.card-search-form {
-    padding: 15px;
-
-    input, select {
-        width: 100%;
-        max-width: 100%;
-        padding: 5px;
-        margin: 5px 0 10px 0;
-        background-color: @white;
-    }
+@media only screen and (min-width : 768px) {
+	.front-card {
+		height: 315px;
+	}
+	
+	.flip-container {
+		perspective: 1000px;
+		-webkit-perspective: 1000px;
+		-moz-perspective: 1000px;
+		-o-perspective: 1000px;
+		-ms-perspective: 1000px;
+		width:245px;
+		height:315px;
+		vertical-align:top;
+		position:absolute;
+		display:block;
+		font-size:25px;
+		font-weight:bold;
+	}
+	
+	.flip-container .flipper {
+		transition: 0.5s ease-out;
+		-webkit-transition: 0.5s ease-out;
+		-moz-transition: 0.5s ease-out;
+		-o-transition: 0.5s ease-out;
+		-ms-transition: 0.5s ease-out;
+		transform-style: preserve-3d;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+	
+		/* content backface is visible so that static content still appears */
+		backface-visibility: visible;
+		-webkit-backface-visibility: visible;
+		-moz-backface-visibility: visible;
+		-o-backface-visibility: visible;
+		-ms-backface-visibility: visible;
+	
+		position:relative;
+		width: 100%;
+		height: 100%;
+		
+	}
+	.flip-container.applyflip .flipper {
+		transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+		-o-transform: rotateY(180deg);
+		-ms-transform: rotateY(180deg);
+	}
+	
+	.flip-container .flipper .front, .flip-container .flipper .back {
+		/* Backface visibility works great for all but IE. As such, we mark the backface visible in IE and manage visibility ourselves */
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-o-backface-visibility: hidden;
+		-ms-backface-visibility: visible;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		text-align: center;
+		line-height:200px;
+	}
+	.flip-container .flipper .back {
+		padding: 0 5px;
+	}
+	.flip-container .flipper .front, .flip-container.applyflip .flipper .front {
+		transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-o-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+	}
+	
+	.flip-container .flipper .back, .flip-container.applyflip .flipper .back {
+		transform: rotateY(-180deg);
+		-webkit-transform: rotateY(-180deg);
+		-moz-transform: rotateY(-180deg);
+		-o-transform: rotateY(-180deg);
+		-ms-transform: rotateY(-180deg);
+	}
+	
+	.flip-container .flipper .front, .flip-container.applyflip .flipper .back {
+		/* IE Hack. Halfway through the card flip, set visibility. Keep other browsers visible throughout the card flip. */
+		animation: stayvisible 0.5s both;
+		-webkit-animation: stayvisible 0.5s both;
+		-moz-animation: stayvisible 0.5s both;
+		-o-animation: stayvisible 0.5s both;
+		-ms-animation: donothing 0.5s;
+		-ms-transition: visibility 0s linear 0.17s;
+		visibility: visible;
+	}
+	
+	.flip-container.applyflip .flipper .front, .flip-container .flipper .back {
+		/* IE Hack. Halfway through the card flip, set visibility. Keep other browsers visible throughout the card flip. */
+		animation: stayvisible 0.5s both;
+		-webkit-animation: stayvisible 0.5s both;
+		-moz-animation: stayvisible 0.5s both;
+		-o-animation: stayvisible 0.5s both;
+		-ms-animation: donothing 0.5s;
+		-ms-transition: visibility 0s linear 0.17s;
+		visibility: hidden;
+	}
+	
+	.card-search-form input, .card-search-form select {
+		width: 100%;
+		max-width: 100%;
+		padding: 5px;
+		margin: 5px 0 10px 0;
+		background-color: #fff;
+	}
+	
+	@keyframes stayvisible { from { visibility: visible; } to { visibility: visible; } }
+	@-webkit-keyframes stayvisible { from { visibility: visible; } to { visibility: visible; } }
+	@-moz-keyframes stayvisible { from { visibility: visible; } to { visibility: visible; } }
+	@-o-keyframes stayvisible { from { visibility: visible; } to { visibility: visible; } }
+	@-ms-keyframes donothing { 0% { } 100% { } }
 }

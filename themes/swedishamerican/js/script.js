@@ -8,65 +8,90 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {					
-				if ($(window).width() > 736) {
 
-					if (!$('.extra-services').length) {
-						var main = [];
-						var extra = [];
-	
-						$('.dropdown-menu:eq(0) li').each(function(key, value) {
-							if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/172' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/174') {
-								$(this).children('a').addClass('brand-primary');
-							}
-							else {
-								$(this).detach();
-								extra.push($(this).html());
-							}
-						});
-						var maniMenuString = '<li class="extra-services"><div class="bs-menu"><ul>';
-						for (var i = 0; i < extra.length; i++) {
-							maniMenuString += '<li>' + extra[i] + '</li>';
+				if (!$('.extra-services').length) {
+					var main = [];
+					var extra = [];
+
+					$('.dropdown-menu:eq(0) li').each(function(key, value) {
+						if ($(this).children('a').attr("data-drupal-link-system-path") == 'node/246' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/170' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/181' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/172' || $(this).children('a').attr("data-drupal-link-system-path") == 'node/174') {
+							$(this).children('a').addClass('brand-primary');
 						}
-						maniMenuString += '</ul></li>';
-						$('.dropdown-menu:eq(0)').append(maniMenuString);
+						else {
+							$(this).detach();
+							extra.push($(this).html());
+						}
+					});
+					var maniMenuString = '<li class="extra-services"><div class="bs-menu"><ul>';
+					for (var i = 0; i < extra.length; i++) {
+						maniMenuString += '<li>' + extra[i] + '</li>';
 					}
-					if (this.pathname === '/') {
-						$('header').css('height', '425px');
+					maniMenuString += '</ul></li>';
+					$('.dropdown-menu:eq(0)').append(maniMenuString);
+				}
+				if (this.pathname === '/') {
+					if ($(window).width() > 736) { 
+						var height = $('header canvas').height() + 50;
+						$('header').css('height', height + 'px');
+
+						$( window ).resize(function() {
+							height = $('header canvas').height() + 30;
+							$('header').css('height', height + 'px');
+						});
 					}
-					else if (window.location.href.indexOf("find-a-doctor") >= 0) {
+				}
+				else if (window.location.href.indexOf("find-a-doctor") >= 0) {
+					$('.navbar-header').addClass('full-alpha');	
+
+					if ($(window).width() > 736) { 
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 						$('article').addClass('provider-article-padding-left');
-						$('.navbar-header').addClass('full-alpha');	
 					}
-					else if (window.location.href.indexOf("events") >= 0) {
-						$('.navbar-header').addClass('full-alpha');		
+				}
+				else if (window.location.href.indexOf("events") >= 0) {
+					$('.navbar-header').addClass('full-alpha');
+					
+					if ($(window).width() > 736) { 
 						$('.markup-area').detach().appendTo('#swedishamerican-eventslist-form');
-	
-						$('.event-image').each(function() {
-							var urlpath = $(this).attr("data-event");
-							$(this).css('background-image', "url('" + urlpath + "')");
-						});
 					}
-					else if (window.location.href.indexOf("locations")  >= 0) {
-						$('.footer').css("margin-top", "0");
-						$('.navbar-header').addClass('full-alpha');
+					
+					$('.event-image').each(function() {
+						var urlpath = $(this).attr("data-event");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+				}
+				else if (window.location.href.indexOf("locations")  >= 0) {
+					$('.footer').css("margin-top", "0");
+					$('.navbar-header').addClass('full-alpha');
 
-						$('.location-image-bg').each(function() {
-							var urlpath = $(this).attr("data-location");
-							$(this).css('background-image', "url('" + urlpath + "')");
-						});
-					}
-					else if (window.location.href.indexOf("senior-leadership") >= 0) {
-						$('header').css('height', '250px');
-
-						$('.senior-image').each(function() {
-							var urlpath = $(this).attr("data-image");
-							$(this).css('background-image', "url('" + urlpath + "')");
-						});
-					}
-					else {
+					$('.location-image-bg').each(function() {
+						var urlpath = $(this).attr("data-location");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+				}
+				else if (window.location.href.indexOf("senior-leadership") >= 0) {
+					if ($(window).width() > 736) { 
 						$('header').css('height', '250px');
 					}
+					
+					$('.senior-image').each(function() {
+						var urlpath = $(this).attr("data-image");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+				}
+				else if (window.location.href.indexOf("services/") >= 0) {
+					if ($(window).width() > 736) { 
+						$('header').css('height', '250px');
+						var mainContainer = $('.term-content-container').width();
+						var phoneContainer = $('.phone-email').width() + 60;
+						var mapContainer = 100 - ((phoneContainer / mainContainer) * 100);
+						$('.location-address').css('width', parseInt(mapContainer - 2) + "%");
+					}
+				}
+				else {
+					if ($(window).width() > 736) { 
+						$('header').css('height', '250px');
+					}	
 				}
 			}
 		};
@@ -282,13 +307,14 @@
 							var urlpath = $(this).attr("data-tag");
 							$('#overlay-content').load(urlpath, function(data, status, xhr) {
 								if( status === 'success' ) {
+									$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
 	
 									$(".card-provider").on("click", function() {
 										var urlpath = $(this).attr("data-tag");
 										$('#overlay-content').html('');
 										$('#overlay-content').load(urlpath, function(data, status, xhr) {
 											if( status === 'success' ) {
-	
+												$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
 											}
 										});
 									});

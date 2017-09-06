@@ -66,6 +66,14 @@
 /* ----------- iPads (landscape) ----------- */
 @media only screen and (max-width : 1024px) {
     /*************************** Global Styles ***************************/
+    .navbar-header nav {
+        width: 1024px;
+    }
+
+    ul.menu.nav.navbar-nav {
+        margin-left: 25px;
+    }
+
     .fb-container {
         width: 255px;
         margin: 0 30px 0 0;
@@ -260,16 +268,21 @@
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width : 768px) {
     /*************************** Global Styles ***************************/
-    .mobile-hide {
-        display: none;
+
+    .navbar-header nav {
+        width: 768px;
     }
 
     ul.menu.nav.navbar-nav {
-        margin-left: 15px;
+        margin-left: 0px;
     }
-    
+
     .navbar-inverse .navbar-nav > li > a {
-        padding: 16px 8px 15px 8px;
+        padding: 16px 6px;
+    }
+
+    .mobile-hide {
+        display: none;
     }
 
     .bs-menu {
@@ -310,6 +323,9 @@
         }
         .card {
             width: 225px;
+        }
+        .back {
+            display: none;
         }
     }
 
@@ -411,68 +427,68 @@
     }
 }
 //
-//*  iPhone 5 (Portrait) ) ----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-    .flip-container{
-        width: 127px;
-        height: 175px;
+// //*  iPhone 5 (Portrait) ) ----------- */
+// @media only screen
+// and (min-device-width : 320px)
+// and (max-device-width : 568px) {
+//     .flip-container{
+//         width: 127px;
+//         height: 175px;
 
-        .front{
-            width: 127px;
-            height: 175px;
-        }
-    }
-}
+//         .front{
+//             width: 127px;
+//             height: 175px;
+//         }
+//     }
+// }
 
-//*  iPhone 5 (landscape) ) ----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (orientation : landscape){
-    .flip-container{
-        width: 165px;
-        height: 175px;
+// //*  iPhone 5 (landscape) ) ----------- */
+// @media only screen
+// and (min-device-width : 320px)
+// and (max-device-width : 568px)
+// and (orientation : landscape){
+//     .flip-container{
+//         width: 165px;
+//         height: 175px;
 
-        .front{
-            width: 165px;
-            height: 175px;
-        }
-    }
-}
+//         .front{
+//             width: 165px;
+//             height: 175px;
+//         }
+//     }
+// }
 
-/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 736px)
-and (orientation : portrait){
-    .flip-container{
-        width: 155px;
-        height: 175px;
+// /* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
+// @media only screen
+// and (min-device-width : 375px)
+// and (max-device-width : 736px)
+// and (orientation : portrait){
+//     .flip-container{
+//         width: 155px;
+//         height: 175px;
 
-        .front{
-            width: 155px;
-            height: 175px;
-        }
-    }
-}
+//         .front{
+//             width: 155px;
+//             height: 175px;
+//         }
+//     }
+// }
 
-/* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 736px)
-and (orientation : landscape){
-    .flip-container{
-        width: 200px;
-        height: 220px;
+// /* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
+// @media only screen
+// and (min-device-width : 375px)
+// and (max-device-width : 736px)
+// and (orientation : landscape){
+//     .flip-container{
+//         width: 200px;
+//         height: 220px;
 
-        .front{
-            width: 200px;
-            height: 220px;
-        }
-    }
-}
+//         .front{
+//             width: 200px;
+//             height: 220px;
+//         }
+//     }
+// }
 
 
 
@@ -489,6 +505,12 @@ and (orientation : landscape){
             padding-right: 0;
         }
     }
+    
+    section.main-col {
+        position: relative;
+        z-index: 0;
+    }
+
     .main-col.no-side-sol.col-sm-12 {
         padding: 0;
     }
@@ -563,6 +585,20 @@ and (orientation : landscape){
         width: auto;
     }
 
+    .bs-menu {
+        border-left: none;
+        padding: 0 15px;
+        margin: 0 0 0 5px;
+
+        ul {
+            column-count: 1;
+        }
+    }
+
+    li.extra-services {
+        margin: 0;
+    } 
+
     #postheader {
         display: block;
         background: rgba(63, 63, 63, 1);
@@ -580,6 +616,10 @@ and (orientation : landscape){
         border: 1px solid @brand-primary;
         background-color: @white;
         margin-top: -22px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        border-bottom: none;
     }
 
     .navbar-inverse .navbar-nav > .active > a, 
@@ -804,8 +844,6 @@ and (orientation : landscape){
             max-width: 100%;
         }
     }
-
-    /*************************** Location Styles ***************************/
     .locations-container {
         width: 100%;
 
@@ -831,30 +869,43 @@ and (orientation : landscape){
             margin: 0;
         }
     }
+    
+    .service-container { 
+        .phone-email {
+            max-width: 100%;
+        }
+    }
+
     .events {
         padding: 15px;
     }
-    .events-dependant-fields-wrapper-fluid {
-        position: relative;
-        left: 0;
-        top: 0;
 
-        h1 {
-            display: none;
+    #block-swedishamericaneventslist-2 {
+        #dependant-fields-wrapper {
+            position: relative;
+            left: 0;
+            top: 0;
+    
+            h1 {
+                display: none;
+            }
+    
+            .form-type-select,
+            .form-type-textfield {
+                display: inline-block;
+                width: 40%;
+                margin: 0 15px;
+            }
+            .form-submit {
+                display: block;
+                margin: 15px;
+            }
         }
-
-        .form-type-select,
-        .form-type-textfield {
-            display: inline-block;
-            width: 40%;
-            margin: 0 15px;
-        }
-        .form-submit {
-            display: block;
-            margin: 15px;
+        .card-event {
+            height: auto;
         }
     }
-
+    
     .markup-sticky {
         left: 0;
         width: 100%;
@@ -910,6 +961,10 @@ and (orientation : landscape){
     
     .footer-social {
         z-index: 47;
+        
+        ul {
+            padding-left: 0;
+        }
 
         .date {
             width: 100%;
@@ -1083,7 +1138,7 @@ and (orientation : landscape){
 
     .view-front-cards {
         .view-content {
-            margin: 15px;
+            margin: 5px 0;
         }
         .card {
             width: 179px;
