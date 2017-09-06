@@ -27,6 +27,8 @@ class ProvidersForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#cache'] = ['max-age' => 0];
+    
     $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
     foreach ($tree as $value) {
       $locations[$value->tid] = $value->name;
@@ -110,7 +112,6 @@ class ProvidersForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $form['#cache'] = ['max-age' => 0];
 
     # retrieve query param
     $providerSwedes = \Drupal::request()->query->get('swedes_provider');
