@@ -31,7 +31,7 @@
 				}
 				if (this.pathname === '/') {
 					if ($(window).width() > 736) { 
-						var height = $('header canvas').height() + 50;
+						var height = $('header canvas').height() + 30;
 						$('header').css('height', height + 'px');
 
 						$( window ).resize(function() {
