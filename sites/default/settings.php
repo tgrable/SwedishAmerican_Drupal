@@ -25,24 +25,6 @@ if (file_exists($local_settings)) {
 }
 $settings['install_profile'] = 'standard';
 
-/*
- * Set or replace $friendly_path accordingly.
- *
- * We don't set this variable for you, so you must define it
- * yourself per your specific use case before the following conditional.
- *
- * Example: anything in the /news/ directory
- *
- * $friendly_path = '/news/';
- */
-
-$friendly_path = '/classes-events';
-
-if (preg_match('#^' . $friendly_path . '#', $_SERVER['REQUEST_URI'])) {
-  $domain =  $_SERVER['HTTP_HOST'];
-  setcookie('NO_CACHE', '1', time()+0, $friendly_path, $domain);
-}
-
 // error_reporting(E_ALL);
 // ini_set('display_errors', TRUE);
 // ini_set('display_startup_errors', TRUE);
