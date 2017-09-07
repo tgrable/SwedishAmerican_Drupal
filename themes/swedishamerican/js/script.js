@@ -9,8 +9,10 @@
 			
 			init: function() {					
 				
-				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-					console.log('iOS');
+				if (navigator.userAgent.match(/(iPad)/)) {
+					if(!$('header-banner').hasClass('ios-header')) {
+						$('header-banner').addClass('ios-header');
+					}
 				}
 
 				if (!$('.extra-services').length) {

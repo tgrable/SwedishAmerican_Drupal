@@ -3183,6 +3183,9 @@ li.extra-services {
   background-size: cover;
   height: 100%;
 }
+.header-container .ios-header {
+  margin-top: -54px;
+}
 .view-front-cards .views-row {
   margin: 0 15px 15px 15px;
 }
