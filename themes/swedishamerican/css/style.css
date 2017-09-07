@@ -4515,6 +4515,21 @@ h1 span {
   #swedishamerican-providers-form .markup-area {
     width: 70%;
   }
+  .view-id-locations .views-row {
+    border-bottom: 1px solid #bebebe;
+  }
+  .view-id-locations .view-content {
+    width: 30%;
+  }
+  .view-id-locations .view-header {
+    width: 30%;
+  }
+  .view-id-locations .view-filters.form-group {
+    width: 30%;
+  }
+  .attachment-after {
+    left: 30%;
+  }
 }
 @media only screen and (max-width: 1224px) {
   .fb-container {
