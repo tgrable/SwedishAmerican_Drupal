@@ -135,8 +135,12 @@
 					});
 				}
 				else if (window.location.href.indexOf("services/") >= 0) {
-					if ($(window).width() > 736) { 
+					if ($(window).width() > 736) {
 						$('header').css('height', '250px');
+					}
+					
+					if ($(window).width() > 768) { 
+						
 						var mainContainer = $('.term-content-container').width();
 						var phoneContainer = $('.phone-email').width() + 60;
 						var mapContainer = 100 - ((phoneContainer / mainContainer) * 100);
