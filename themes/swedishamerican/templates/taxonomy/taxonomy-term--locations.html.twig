@@ -62,7 +62,7 @@
                             <p><i class="fa fa-phone"></i></p>
                         </div>
                         <div class="result inline">
-                            <p>{{ term.field_phone.0.value }}</p>
+                            <p><a href="tel:{{ term.field_phone.0.value|replace({"(":"", ")":"", " ":"", "-":""}) }}"{{ term.field_phone.0.value }}</a></p>
                         </div>
                     </div>
                 {% endif %}

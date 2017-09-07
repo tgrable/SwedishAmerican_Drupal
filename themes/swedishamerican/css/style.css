@@ -4220,18 +4220,6 @@ section#block-twitterpostfeed {
 .provider-container .field--item {
   margin-bottom: 15px;
 }
-.special-services-container .field--item a,
-.provider-container .field--item a {
-  font-family: 'AvenirNextCondensed-Regular';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  color: #3f3f3f;
-  line-height: 1.0em;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-}
 .service-faqs {
   margin-bottom: 30px;
 }
@@ -5125,7 +5113,7 @@ h1 span {
     max-width: 100%;
   }
   .events {
-    padding: 15px;
+    padding: 0;
   }
   #block-swedishamericaneventslist-2 #dependant-fields-wrapper {
     position: relative;
@@ -5161,9 +5149,6 @@ h1 span {
     box-shadow: none;
     transition: none;
     border-bottom: 1px solid #bebebe;
-  }
-  #swedishamerican-eventslist-form .events-container .card-event .event-image {
-    display: none;
   }
   .provider-container {
     width: 100%;
@@ -5310,10 +5295,18 @@ h1 span {
   .view-front-cards .card {
     width: 179px;
   }
+  .provider-container .provider-details-container {
+    padding: 15px 0;
+  }
   /*************************** Location Styles ***************************/
-  .locations-container .location-container .map-image-container iframe {
-    width: 202px;
-    height: 154px;
+  .locations-container .location-container .term-content-container {
+    padding: 15px 0;
+  }
+  .locations-container .location-container .term-content-container .phone-email {
+    margin: 0 0 15px 0;
+  }
+  .locations-container .location-container .map-image-container {
+    margin: 0 -15px;
   }
   .paragraph--type--service-location .map iframe {
     height: 150px;

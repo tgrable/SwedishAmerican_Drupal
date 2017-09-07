@@ -58,7 +58,7 @@
                       <p><i class="fa fa-phone"></i></p>
                   </div>
                   <div class="result inline">
-                      <p>{{ paragraph_field_phone }}</p>
+                      <p><a href="{{ paragraph_field_phone|replace({"(":"", ")":"", " ":"", "-":""}) }}"{{ paragraph_field_phone }}</a></p>
                   </div>
               </div>
             {% endif %}

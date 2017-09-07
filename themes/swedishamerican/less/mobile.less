@@ -877,7 +877,7 @@
     }
 
     .events {
-        padding: 15px;
+        padding: 0;
     }
 
     #block-swedishamericaneventslist-2 {
@@ -922,10 +922,6 @@
                 box-shadow: none;
                 transition: none;
                 border-bottom: 1px solid @gray-rules;
-
-                .event-image {
-                    display: none;
-                }
             }
         }
     }
@@ -1145,14 +1141,24 @@
         }
     }
 
+    .provider-container {
+        .provider-details-container {
+            padding: 15px 0;
+        }
+    }
+
     /*************************** Location Styles ***************************/
     .locations-container {
         .location-container {
-            .map-image-container {
-                iframe {
-                    width: 202px;
-                    height: 154px;
+            .term-content-container {
+                padding: 15px 0;
+
+                .phone-email {
+                    margin: 0 0 15px 0;
                 }
+            }
+            .map-image-container {
+                margin: 0 -15px;
             }
         }
     }

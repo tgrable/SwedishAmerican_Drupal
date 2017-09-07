@@ -31,7 +31,7 @@
 				}
 				if (this.pathname === '/') {
 					if ($(window).width() > 736) {
-						console.log($('#animation_container').height());
+						// console.log($('#animation_container').height());
 
 						var height = $('#animation_container').height() + 30;
 						$('header').css('height', height + 'px');
@@ -49,6 +49,38 @@
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 						$('article').addClass('provider-article-padding-left');
 					}
+				}
+				else if (window.location.href.indexOf("provider/") >= 0) {
+					$('.facebook-share').on('click', function(e) {
+						console.log('Test!!');
+
+						var tag = $(e.target).parent().parent().parent().parent(),
+						sib = tag.siblings().children(),
+						url = sib.find('img').attr('src');
+
+						var urlRoot = window.location.origin;
+						var finalURL = urlRoot + '/' + $(this).data("href");
+
+						var winTop = (screen.height / 2) - (500 / 2);
+						var winLeft = (screen.width / 2) - (1150 / 2);
+						window.open('https://www.facebook.com/sharer/sharer.php?u=' + finalURL, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + 575 + ',height=' + 250);
+					});
+
+					$('.twitter-share').on('click', function(e) {
+						var urlRoot = window.location.origin;
+						var title = $(this).data("name");
+						var path = $(this).data("href");
+						window.open("https://twitter.com/share?url=" + urlRoot + path + "&text=Check out " + title + " at SwedishAmerican", "_blank", "width=575, height=250");
+					});
+
+					$('.linkedin-share').on('click', function(e) {
+						var urlRoot = window.location.origin;
+						var title = $(this).data("name");
+						var path = $(this).data("href");
+						var windowName = 'SwedishAmerican';
+						window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + escape(urlRoot + path) + '&title=' + title + '&source=SwedishAmerican&target=new', windowName, "height=575,width=575");
+
+					});
 				}
 				else if (window.location.href.indexOf("events") >= 0) {
 					$('.navbar-header').addClass('full-alpha');
@@ -70,6 +102,19 @@
 						var urlpath = $(this).attr("data-location");
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
+
+					if ($(window).width() < 736) {
+						console.log('I Hate Justin!');
+						$('.map-image-container .map iframe').on("load", function() {
+							console.log('iframe loaded: ' + $('.map-image-container img').height());
+							$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
+							$('.map-image-container .map iframe').css("width", '100%');
+						});
+						$( window ).resize(function() {
+							$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
+							$('.map-image-container .map iframe').css("width", '100%');
+						});
+					}
 				}
 				else if (window.location.href.indexOf("senior-leadership") >= 0) {
 					if ($(window).width() > 736) { 

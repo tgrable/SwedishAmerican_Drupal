@@ -93,7 +93,7 @@
                                         <p><i class="fa fa-phone"></i></p>
                                     </div>
                                     <div class="result inline">
-                                        <p>{{ phone.value }}</p>
+                                        <p><a href="tel:{{ phone.value|replace({"(":"", ")":"", " ":"", "-":""}) }}">{{ phone.value }}</a></p>
                                     </div>
                                 </div>
                             {% endfor %}
