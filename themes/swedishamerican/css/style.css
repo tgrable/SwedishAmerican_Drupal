@@ -4512,6 +4512,9 @@ h1 span {
   .provider-article-padding-left {
     padding: 30px 15px 15px 27%;
   }
+  #swedishamerican-providers-form .markup-area {
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 1224px) {
   .fb-container {
