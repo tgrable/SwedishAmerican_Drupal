@@ -8,6 +8,10 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {					
+				
+				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+					console.log('iOS');
+				}
 
 				if (!$('.extra-services').length) {
 					var main = [];
