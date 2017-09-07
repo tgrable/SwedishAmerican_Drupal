@@ -4825,6 +4825,9 @@ h1 span {
     width: 64%;
     left: 35%;
   }
+  .locations-container .location-container .location-address {
+    width: 100%;
+  }
   /*************************** Event Styles ***************************/
   .events-container .card-event {
     width: 225px;
