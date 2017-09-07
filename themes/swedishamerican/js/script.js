@@ -9,8 +9,10 @@
 			
 			init: function() {					
 				
-				if (navigator.userAgent.match(/(iPad)/)) {
+				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+					console.log('1');
 					if(!$('header-banner').hasClass('ios-header')) {
+						console.log('2');
 						$('header-banner').addClass('ios-header');
 					}
 				}
