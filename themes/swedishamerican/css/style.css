@@ -4839,6 +4839,9 @@ h1 span {
   .navbar-inverse .navbar-nav > li > a {
     font-size: 16px;
   }
+  .header-container .ios-header {
+    margin-top: 0;
+  }
   /*************************** Global Styles ***************************/
   .full .row {
     margin-left: 0;
