@@ -4506,6 +4506,12 @@ h1 span {
   .form-item-sag .sag-markup .text {
     max-width: 140px;
   }
+  #dependant-fields-wrapper {
+    width: 25%;
+  }
+  .provider-article-padding-left {
+    padding: 30px 15px 15px 27%;
+  }
 }
 @media only screen and (max-width: 1224px) {
   .fb-container {
@@ -4551,8 +4557,11 @@ h1 span {
   .navbar-header nav {
     width: 1024px;
   }
+  #preheader .search {
+    width: 70%;
+  }
   ul.menu.nav.navbar-nav {
-    margin-left: 25px;
+    margin-left: 15px;
   }
   .fb-container {
     width: 255px;
