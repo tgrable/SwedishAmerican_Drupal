@@ -21,7 +21,17 @@ class SwedishAmericanLocationCardForm extends BlockBase {
   public function build() {
     return [
       '#theme' => 'location_form',
+      '#locations' => $this->getLocations()
     ];
+  }
+
+  private function getLocations() {
+    $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
+    foreach ($tree as $value) {
+        $locations[$value->tid] = $value->name;
+    }
+    
+    return $locations;
   }
 
   public function getCacheContexts() {

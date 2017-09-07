@@ -231,8 +231,8 @@
 							var city = $('#location-search-form-city').val();
 							
 							var urlpath = "/locations?";
-							if (name.length > 0) {
-								urlpath = urlpath + "name_1=" + name + "&";
+							if ($('#location-search-form-name').val() != "location") {
+								urlpath = urlpath + "name_1=" + $('#location-search-form-name').val() + "&";
 							}
 
 							if (city.length > 0) {
