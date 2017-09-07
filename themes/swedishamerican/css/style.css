@@ -4733,6 +4733,7 @@ h1 span {
   }
   .navbar-inverse .navbar-nav > li > a {
     padding: 16px 6px;
+    font-size: 14px;
   }
   .mobile-hide {
     display: none;
@@ -4835,6 +4836,9 @@ h1 span {
 }
 /* ----------- iPhone 6-7 Plus & Nexus 6P (Landscape) ----------- */
 @media only screen and (max-width: 736px) {
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 16px;
+  }
   /*************************** Global Styles ***************************/
   .full .row {
     margin-left: 0;
