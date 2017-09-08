@@ -13,12 +13,6 @@
 					if(!$('.header-banner').hasClass('ios-header')) {
 						$('.header-banner').addClass('ios-header');
 					}
-
-					console.log("1");
-					if(!$('#animation_container').hasClass('ios-header')) {
-						console.log("2");
-						$('#animation_container').addClass('ios-header');
-					}
 				}
 
 				if (!$('.extra-services').length) {
@@ -45,7 +39,7 @@
 					if ($(window).width() > 736) {
 
 						$( window ).resize(function() {
-							height = $('#animation_container').height();
+							var height = $('#animation_container').height() + 30;
 							$('header').css('height', height + 'px');
 						});
 					}

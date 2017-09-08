@@ -1,6 +1,10 @@
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, headerHeight;
 function init() {
-	console.log('banner init()');
+	console.log(navigator.userAgent);
+	if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+		var d = document.getElementById("animation_container");
+		d.className += "ios-header";
+	}
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
@@ -62,17 +66,19 @@ function handleComplete(evt,comp) {
 			//canvas.height = h*pRatio*sRatio;
 			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
 			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+			headerHeight = anim_container.style.height = dom_overlay_container.style.height = h*sRatio;
 			//stage.scaleX = pRatio*sRatio;			
 			//stage.scaleY = pRatio*sRatio;			
 			lastW = iw; lastH = ih; lastS = sRatio;		
 		}
+
+		var element = document.getElementsByTagName("header")[0];
+		var  dynamicHeight = (headerHeight + 30) + "px"
+		element.style.height = dynamicHeight;
 	}
 	makeResponsive(true,'both',true,1);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-
-	var element = document.getElementsByTagName("header")[0];
-	element.style.height = canvas.style.height;
 }
 
 (function (cjs, an) {
@@ -305,7 +311,7 @@ lib.properties = {
 	],
 	preloads: []
 };
-console.log(window.width);
+
 // bootstrap callback support:
 
 (lib.Stage = function(canvas) {
