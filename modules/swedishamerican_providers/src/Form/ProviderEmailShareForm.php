@@ -8,10 +8,6 @@ namespace Drupal\swedishamerican_providers\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\HtmlCommand;
-use Drupal\Core\Ajax\ReplaceCommand;
-use Drupal\paragraphs\Entity\Paragraph;
 
 class ProviderEmailShareForm extends FormBase {
   /**
@@ -25,9 +21,11 @@ class ProviderEmailShareForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#cache'] = ['contexts' => ['url.query_args:id']];
+
     $nid = \Drupal::request()->query->get('id');
     $node = $this->_queryProvideNodes($nid);
-    $title = $node->get('title')->getValue();
+    $title = $node->get('field_provider_name')->getValue();
 
     $form['wrapper'] = array(
         '#prefix' => '<h2>Email ' . $title[0]['value'] . ' to a Friend</h2>'
@@ -36,12 +34,6 @@ class ProviderEmailShareForm extends FormBase {
     $form['wrapper']['toField'] = array (
       '#type' => 'textfield',
       '#placeholder' => 'To:',
-      '#default_value' => ''
-    );
-
-    $form['wrapper']['fromField'] = array (
-      '#type' => 'textfield',
-      '#placeholder' => 'From:',
       '#default_value' => ''
     );
 
@@ -57,7 +49,10 @@ class ProviderEmailShareForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-  
+    $to = $form_state->getValue('toField');
+    if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
+      $form_state->setErrorByName('toField', $this->t('Please enter a valid email address.'));
+    }
   }
 
   /**
@@ -67,43 +62,29 @@ class ProviderEmailShareForm extends FormBase {
     $nidQueryString = $_SERVER["QUERY_STRING"];
   	$nid = explode("=", $nidQueryString);
     $node = $this->_queryProvideNodes($nid[1]);
-    $title = $node->get('title')->getValue();
+    $title = $node->get('field_provider_name')->getValue();
+    $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node->id());
 
-    $mailManager = \Drupal::service('plugin.manager.mail');
-    $module = 'swedishamerican_providers';
-    $key = 'swedishamerican_providers';
+    $send_mail = new \Drupal\Core\Mail\Plugin\Mail\PhpMail(); // this is used to send HTML emails
     $to = $form_state->getValue('toField');
-    $params['message'] = 'Email Body';
-    $params['subject'] = 'SwedishAmerican Provider';
-    $params['from'] = $form_state->getValue('fromField');
-    $langcode = \Drupal::currentUser()->getPreferredLangcode();
-    $send = true;
-    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-    if ($result['result'] !== true) {
-      drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
-    }
-    else {
-      drupal_set_message(t('Your message has been sent. ' . $form_state->getValue('toField')));
-    }
-  }
+    $message['headers'] = array(
+      'content-type' => 'text/html',
+      'MIME-Version' => '1.0',
+      'reply-to' => 'noreply@swedishamerican.org',
+      'from' => 'SwediahAmerican Website' . '<noreply@swedishamerican.org>'
+    );
+    $message['to'] = $to;
+    $message['subject'] = "SwediahAmerican Provider";
+    
+    $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    $message['body'] = '<h1>SwedishAmerican Website</h1>';
+    $message['body'] .= '<p>A friend shared a provider page from SwedishAmerican’s website with you. Click the link to view: ';
+    $message['body'] .= '<a href="' . $protocol . '://' . $_SERVER['SERVER_NAME'] . $alias .' " target="_blank">' . $title[0]['value'] . '</a></p>';
+     
+    $send_mail->mail($message);
 
-  /**
- * Implements hook_mail().
- */
-function swedishamerican_providers_mail($key, &$message, $params) {
-  $options = array(
-    'langcode' => $message['langcode'],
-  );
-  switch ($key) {
-    case 'swedishamerican_providers':
-      $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['subject'] = t('Your mail subject Here: @title', array('@title' => $params['title']), $options);
-      $message['body'][] = Html::escape($params['message']);
-      drupal_set_message(t('Your message from: ' . $message['from'] . ' has been sent to: . ' . $form_state->getValue('toField')));
-      break;
+    drupal_set_message(t('Your message has been sent. ' . $form_state->getValue('toField')));
   }
-}
-
 
   /**
   * Helper function to query the print provider nodes
