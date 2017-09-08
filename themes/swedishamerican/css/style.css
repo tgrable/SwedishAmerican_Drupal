@@ -3520,10 +3520,12 @@ footer .footer-content-short p {
 }
 .senior-card {
   width: 210px;
+  height: 275px;
 }
 .card-event {
   width: 300px;
   height: 725px;
+  overflow: hidden;
 }
 .card-event,
 .senior-card {
@@ -4120,6 +4122,10 @@ section#block-twitterpostfeed {
   height: 185px;
   background-size: cover;
   background-position: center;
+}
+.senior-description {
+  position: absolute;
+  bottom: 0;
 }
 .senior-title {
   font-family: 'AvenirNext-DemiBold';
@@ -4826,12 +4832,12 @@ h1 span {
   .view-id-locations .view-header,
   .view-id-locations .view-content,
   .view-id-locations .view-filters.form-group {
-    width: 34%;
+    width: 40%;
   }
   .view-id-locations .attachment-after {
     top: 0;
-    width: 64%;
-    left: 35%;
+    width: 58%;
+    left: 40%;
   }
   /*************************** Event Styles ***************************/
   .events-container .card-event {

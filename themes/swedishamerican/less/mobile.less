@@ -6,6 +6,41 @@
     .form-item-sag .sag-markup .text {
         max-width: 140px;
     }
+
+    #dependant-fields-wrapper {
+        width: 25%;
+    }
+
+    .provider-article-padding-left {
+        padding: 30px 15px 15px 27%;
+    }
+    #swedishamerican-providers-form {
+        .markup-area {
+            width: 70%;
+        }
+    }
+
+    .view-id-locations {
+        .views-row {
+            border-bottom: 1px solid @gray-rules;
+        }
+    
+        .view-content {
+            width: 30%;
+        }
+    
+        .view-header {
+            width: 30%;
+        }
+    
+        .view-filters.form-group {
+            width: 30%;
+        }
+    }
+
+    .attachment-after {
+        left: 30%;
+    }
 }
 
 @media only screen and (max-width : 1224px) {
@@ -69,9 +104,14 @@
     .navbar-header nav {
         width: 1024px;
     }
+    #preheader {
+        .search {
+            width: 70%;
+        }
+    }
 
     ul.menu.nav.navbar-nav {
-        margin-left: 25px;
+        margin-left: 15px;
     }
 
     .fb-container {
@@ -268,7 +308,14 @@
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width : 768px) {
     /*************************** Global Styles ***************************/
-
+    #preheader {
+        .search {
+            width: 62%;
+        }
+    }
+    .ios-header {
+        margin-top: 0 !important;
+    }
     .navbar-header nav {
         width: 768px;
     }
@@ -279,6 +326,7 @@
 
     .navbar-inverse .navbar-nav > li > a {
         padding: 16px 6px;
+        font-size: 14px
     }
 
     .mobile-hide {
@@ -321,6 +369,7 @@
                 text-align: left;
             }
         }
+        .flip-container,
         .card {
             width: 225px;
         }
@@ -401,14 +450,21 @@
         .view-header,
         .view-content,
         .view-filters.form-group {
-            width: 34%;
+            width: 40%;
         }
         .attachment-after {
             top: 0;
-            width: 64%;
-            left: 35%;
+            width: 58%;
+            left: 40%;
         }
     }
+    // .locations-container {
+    //     .location-container {
+    //         .location-address {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
 
     /*************************** Event Styles ***************************/
     .events-container {
@@ -494,6 +550,9 @@
 
 /* ----------- iPhone 6-7 Plus & Nexus 6P (Landscape) ----------- */
 @media only screen and (max-width : 736px) {
+    .navbar-inverse .navbar-nav > li > a {
+        font-size: 16px
+    }
     /*************************** Global Styles ***************************/
     .full {
         .row {
