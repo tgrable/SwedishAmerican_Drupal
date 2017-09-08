@@ -4145,6 +4145,9 @@ section#block-twitterpostfeed {
 .events-wrapper {
   min-height: 1000px;
 }
+form#swedishamerican-provider-email-share-form input {
+  margin: 15px 0;
+}
 .service-container h1 {
   margin-top: 0;
 }
