@@ -1,5 +1,6 @@
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
+	console.log('banner init()');
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
@@ -69,6 +70,9 @@ function handleComplete(evt,comp) {
 	makeResponsive(true,'both',true,1);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
+
+	var element = document.getElementsByTagName("header")[0];
+	element.style.height = canvas.style.height;
 }
 
 (function (cjs, an) {
@@ -301,7 +305,7 @@ lib.properties = {
 	],
 	preloads: []
 };
-
+console.log(window.width);
 // bootstrap callback support:
 
 (lib.Stage = function(canvas) {

@@ -10,10 +10,12 @@
 			init: function() {					
 				
 				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-					console.log('1');
 					if(!$('.header-banner').hasClass('ios-header')) {
-						console.log('2');
 						$('.header-banner').addClass('ios-header');
+					}
+
+					if(!$('.animation_container canvas').hasClass('ios-header')) {
+						$('.animation_container canvas').addClass('ios-header');
 					}
 				}
 
@@ -39,13 +41,9 @@
 				}
 				if (this.pathname === '/') {
 					if ($(window).width() > 736) {
-						// console.log($('#animation_container').height());
-
-						var height = $('#animation_container').height() + 30;
-						$('header').css('height', height + 'px');
 
 						$( window ).resize(function() {
-							height = $('#animation_container').height() + 30;
+							height = $('#animation_container').height();
 							$('header').css('height', height + 'px');
 						});
 					}
