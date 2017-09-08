@@ -2504,7 +2504,8 @@ header#navbar {
   display: none;
 }
 .overlay {
-  width: 1490px;
+  width: 100%;
+  max-width: 1490px;
   margin: auto;
 }
 .inline,
@@ -3916,8 +3917,8 @@ section#block-twitterpostfeed {
   cursor: pointer;
 }
 .provider-container .provider-details-container {
-  width: 775px;
-  max-width: 60%;
+  max-width: 775px;
+  width: 60%;
 }
 .provider-container .provider-details-container i {
   margin-right: 15px;
@@ -4728,6 +4729,9 @@ h1 span {
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width: 768px) {
   /*************************** Global Styles ***************************/
+  #preheader .search {
+    width: 62%;
+  }
   .ios-header {
     margin-top: 0 !important;
   }
@@ -4769,6 +4773,7 @@ h1 span {
   .view-front-cards .view-content h1 {
     text-align: left;
   }
+  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 225px;
   }
