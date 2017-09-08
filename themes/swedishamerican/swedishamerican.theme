@@ -61,20 +61,22 @@ function swedishamerican_preprocess_node(array &$variables) {
   $path_alias = \Drupal::service('path.alias_manager')->getAliasByPath($path);
   $variables['path_alias'] = $path_alias;
 
-  $provider_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbackprovider');
-  $variables['provider_search_form'] = \Drupal::entityTypeManager()
-      ->getViewBuilder('block')
-      ->view($provider_search_block);
-
-  $location_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbacklocation');
-  $variables['front_card_form_location'] = \Drupal::entityTypeManager()
-      ->getViewBuilder('block')
-      ->view($location_search_block);
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $provider_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbackprovider');
+    $variables['provider_search_form'] = \Drupal::entityTypeManager()
+        ->getViewBuilder('block')
+        ->view($provider_search_block);
   
-  $event_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbackevent');
-  $variables['front_card_form_event'] = \Drupal::entityTypeManager()
-      ->getViewBuilder('block')
-      ->view($event_search_block);
+    $location_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbacklocation');
+    $variables['front_card_form_location'] = \Drupal::entityTypeManager()
+        ->getViewBuilder('block')
+        ->view($location_search_block);
+    
+    $event_search_block = \Drupal\block\Entity\Block::load('swedishamericancardbackevent');
+    $variables['front_card_form_event'] = \Drupal::entityTypeManager()
+        ->getViewBuilder('block')
+        ->view($event_search_block);
+  }
 
   if (strcmp ($variables['node']->getType(), 'article') === 0 || strcmp ($variables['node']->getType(), 'page') === 0) {
     if (!is_null($variables['node'])) {
@@ -163,6 +165,17 @@ function swedishamerican_preprocess_node(array &$variables) {
     }
 
     $variables['locations'] = $locations;
+
+    $phone_array = $variables['node']->get('field_phone')->getValue();
+    if (count($phone_array) > 0) {
+      $cleaned_phone_array = array();
+      foreach ($phone_array as $phone) {
+        $cleaned_phone_number = preg_replace("/[^0-9]/", "", $phone['value']);
+        array_push($cleaned_phone_array, $cleaned_phone_number);
+      }
+
+      $variables['cleaned_phone_array'] = $cleaned_phone_array;
+    }
   }
 
   $nid_array = $variables['node']->get('nid')->getValue();
