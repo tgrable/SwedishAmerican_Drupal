@@ -1,7 +1,5 @@
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, headerHeight;
 function init() {
-	console.log("Test 1");
-	console.log(navigator.userAgent);
 	if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
 		var d = document.getElementById("animation_container");
 		d.className += "header-banner ios-header";
@@ -76,7 +74,6 @@ function handleComplete(evt,comp) {
 		// Note that "orientationchange" and screen.orientation are unprefixed in the following
 		// code although this API is still vendor-prefixed browsers implementing it.
 		window.addEventListener("orientationchange", function() {
-			console.log('orientationchange');
 			bsHacktoResizeHeader();
 		});
 
