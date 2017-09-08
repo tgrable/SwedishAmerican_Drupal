@@ -3183,7 +3183,7 @@ li.extra-services {
   background-size: cover;
   height: 100%;
 }
-.header-container .ios-header {
+.ios-header {
   margin-top: -54px;
 }
 .view-front-cards .views-row {
@@ -4725,7 +4725,7 @@ h1 span {
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width: 768px) {
   /*************************** Global Styles ***************************/
-  .header-container .ios-header {
+  .ios-header {
     margin-top: 0;
   }
   .navbar-header nav {
