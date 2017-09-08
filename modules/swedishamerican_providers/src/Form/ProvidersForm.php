@@ -27,7 +27,8 @@ class ProvidersForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#cache'] = ['max-age' => 0];
+    // $form['#cache'] = ['max-age' => 0];
+    $form['#cache'] = ['contexts' => ['url.query_args:swedes_provider', 'url.query_args:name', 'url.query_args:location', 'url.query_args:specialty', 'url.query_args:gender']];
     
     $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
     foreach ($tree as $value) {
@@ -373,7 +374,8 @@ class ProvidersForm extends FormBase {
         $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" />';
       $markup .= '</div>';
       $markup .= '<div class="text inline">';
-        $markup .= '<span>Show <strong>ONLY</strong><br />SwedishAmerican Group Providers</span>';
+        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican Group providers. Uncheck to search all providers.</span>';
+        
       $markup .= '</div>';
     $markup .= '</div>';
 

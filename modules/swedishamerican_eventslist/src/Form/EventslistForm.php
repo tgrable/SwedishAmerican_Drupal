@@ -27,7 +27,8 @@ class EventslistForm extends FormBase {
     */
     public function buildForm(array $form, FormStateInterface $form_state) {
         // $form['#theme'] = 'eventlist';
-        $form['#cache'] = ['max-age' => 0];
+        // $form['#cache'] = ['max-age' => 0];
+        $form['#cache'] = ['contexts' => ['url.query_args:keyword', 'url.query_args:category']];
 
         # retrieve query param
         $eventKeyword = \Drupal::request()->query->get('keyword');
