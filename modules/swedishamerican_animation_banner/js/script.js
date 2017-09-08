@@ -1,9 +1,10 @@
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, headerHeight;
 function init() {
+	console.log("Test 1");
 	console.log(navigator.userAgent);
 	if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
 		var d = document.getElementById("animation_container");
-		d.className += "ios-header";
+		d.className += "header-banner ios-header";
 	}
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
@@ -72,9 +73,19 @@ function handleComplete(evt,comp) {
 			lastW = iw; lastH = ih; lastS = sRatio;		
 		}
 
-		var element = document.getElementsByTagName("header")[0];
-		var  dynamicHeight = (headerHeight + 30) + "px"
-		element.style.height = dynamicHeight;
+		// Note that "orientationchange" and screen.orientation are unprefixed in the following
+		// code although this API is still vendor-prefixed browsers implementing it.
+		window.addEventListener("orientationchange", function() {
+			console.log('orientationchange');
+			bsHacktoResizeHeader();
+		});
+
+		function bsHacktoResizeHeader() {
+			var element = document.getElementsByTagName("header")[0];
+			var  dynamicHeight = (headerHeight + 30) + "px"
+			element.style.height = dynamicHeight;
+		}
+		bsHacktoResizeHeader();
 	}
 	makeResponsive(true,'both',true,1);	
 	AdobeAn.compositionLoaded(lib.properties.id);
