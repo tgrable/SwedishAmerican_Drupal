@@ -14,8 +14,8 @@
 						$('.header-banner').addClass('ios-header');
 					}
 
-					if(!$('.animation_container canvas').hasClass('ios-header')) {
-						$('.animation_container canvas').addClass('ios-header');
+					if(!$('#animation_container canvas').hasClass('ios-header')) {
+						$('#animation_container canvas').addClass('ios-header');
 					}
 				}
 
