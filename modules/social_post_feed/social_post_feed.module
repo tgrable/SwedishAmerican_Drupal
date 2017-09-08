@@ -10,6 +10,12 @@ function social_post_feed_theme() {
         'nodes' => NULL,
       ],
       'template' => 'ig-postfeed',
-    ]
+    ],
+    'fb_postfeed' => [
+      'variables' => [
+          'objects' => NULL,
+      ],
+      'template' => 'fb-postfeed',
+  ]
   ];
 }

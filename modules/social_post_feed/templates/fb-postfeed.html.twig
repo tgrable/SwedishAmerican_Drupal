@@ -1,0 +1,28 @@
+<div class="large-padding"></div>
+<div class="social-block">
+    <div class="header-title">
+        <div class="fa-social-background fb-blue inline">
+            <i class="fa fa-facebook">&nbsp;</i>
+        </div>
+        <div class="inline">
+            <p class="social-hdr">Facebook</p>
+        </div>
+    </div>
+    {% for obj in objects %}
+        {% set message = obj['message'] %}
+        {% set picture = obj['full_picture'] %}
+        {% set ago_value = obj['ago_value'] %}
+
+        <div class="fb-container social-card">
+            <div class="fb_article">
+                <div class="profile-data">
+                    <img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/16998879_1235916839789725_5701019738556990953_n.jpg?oh=aa1f12c6d2b71c8759b92aa63c1ec4de&oe=59B389D7" />
+                    <a href="https://www.facebook.com/swedishamericanrockford" target="_blank">SwedishAmerican</a>
+                    <p class='post-time'>{{ ago_value }}</p>
+                </div>
+                <div class='post-message'>{{ message|length > 250 ? message|slice(0, 250) ~ '...' : message }} </div>
+                <div class='post_image'><img src='{{ picture }}' /></div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
