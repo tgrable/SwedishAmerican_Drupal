@@ -86,7 +86,7 @@
 <article id='node_{{ node.id|raw }}' {{ attributes.addClass(classes) }}>
     <div class="top-bar"></div>
     <div{{ content_attributes }} class="provider-image-container inline-desktop">
-        <div class="provider-image">
+        <div class="provider-image" itemprop="photo">
             {{ content.field_image }}
             <div class="share">
                 <p><strong>SHARE</strong></p>
@@ -103,10 +103,10 @@
         </div>
     </div>
     <div{{ content_attributes }} class="provider-details-container inline-desktop">
-        <div class="name">
+        <div class="name" itemprop="legalName">
             <h1>{{ content.field_provider_name }}</h1>
             {% for specialty in specialty_field %}
-                <h3>{{ specialty }}</h3>
+                <h3 itemprop="department">{{ specialty }}</h3>
             {% endfor %}
         </div>
     <hr />
@@ -120,7 +120,7 @@
                             <p><i class="fa fa-phone"></i></p>
                         </div>
                         <div class="result inline">
-                            <p><a href="tel:{{ node.phone.value|replace({"(":"", ")":"", " ":"", "-":""}) }}">{{ phone.value }}</a></p>
+                            <p><a href="tel:{{ node.phone.value|replace({"(":"", ")":"", " ":"", "-":""}) }}" itemprop="telephone">{{ phone.value }}</a></p>
                         </div>
                     </div>
                 {% endfor %}
@@ -131,7 +131,7 @@
                     <p><i class="fa fa-envelope"></i></p>
                 </div>
                 <div class="result inline">
-                    <p><a href="mailto:{{ node.field_email_address.value }}" target="_blank">{{ node.field_email_address.value }}</a></p>
+                    <p><a href="mailto:{{ node.field_email_address.value }}" itemprop="email" target="_blank">{{ node.field_email_address.value }}</a></p>
                 </div>
                 </div> 
             {% endif %}
@@ -150,7 +150,9 @@
         {{ content.body }}
         {{ content.field_board_certifications }}
         {% if medschool_field == 'true' %}
-            {{ content.field_medical_school_education }}
+            <div itemprop="alumni">
+                {{ content.field_medical_school_education }}
+            </div>
         {% endif %}
         {% if residency_field == 'true' %}
             {{ content.field_residency_fellowship }}

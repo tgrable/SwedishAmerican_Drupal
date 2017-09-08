@@ -93,7 +93,7 @@
                                         <p><i class="fa fa-phone"></i></p>
                                     </div>
                                     <div class="result inline">
-                                        <p><a href="tel:{{ phone.value|replace({"(":"", ")":"", " ":"", "-":""}) }}">{{ phone.value }}</a></p>
+                                        <p><a href="tel:{{ phone.value|replace({"(":"", ")":"", " ":"", "-":""}) }}" itemprop="telephone">{{ phone.value }}</a></p>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -105,7 +105,7 @@
                                 <p><i class="fa fa-envelope"></i></p>
                             </div>
                             <div class="result inline">
-                                <p><a href="mailto:{{ node.field_email_address.0.value }}" target="_blank">{{ node.field_email_address.0.value }}</a></p>
+                                <p><a href="mailto:{{ node.field_email_address.0.value }}" itemprop="email" target="_blank">{{ node.field_email_address.0.value }}</a></p>
                             </div>
                         </div>
                     {% endif %}
@@ -115,7 +115,7 @@
                     <div class="hours">
                         <div class="result inline">
                             {% for hour in node.field_hours %}
-                                <p>{{ hour.value }}</p>
+                                <p itemprop="openingHours">{{ hour.value }}</p>
                             {% endfor %}
                         </div>
                     </div>
@@ -128,9 +128,9 @@
                     <div class="multiple-location">
                         <div class="location-header">Locations</div>
                         {% for location in locations %}
-                            <div class="address inline">
+                            <div class="address inline" itemprop="hasMap">
                                 <iframe width="150" height="150" frameborder="0" style="border:0" src="https://maps.google.com/maps?hl=EN&amp;q={{ location["map"]|replace({' ':'+'}) }}&amp;t=M&amp;z=14&amp;output=embed"></iframe>
-                                <p>
+                                <p itemprop="address">
                                     <a href="{{ location["alias"] }}">{{ location["name"] }}</a><br />
                                     {{ location["address"] }}<br />
                                     {{ location["city"]}}, {{ location["state"] }} {{ location["zip"] }}

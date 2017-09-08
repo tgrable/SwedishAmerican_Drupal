@@ -31,20 +31,20 @@
     <div{{ attributes }}>
     {{ title_prefix }}
     {% if not page %}
-        <h2><a href="{{ url }}">{{ name }}</a></h2>
+        <h2><a href="{{ url }}" itemprop="legalName">{{ name }}</a></h2>
     {% endif %}
     {{ title_suffix }}
     
     <div class="location-container inline">
         <div class="map-image-container">
-            <div class="image inline">
+            <div class="image inline" itemprop="photo">
                 {{ content.field_image }}
             </div>
-            <div class="map inline">
+            <div class="map inline" itemprop="hasMap">
                 {{ content.field_map }}
             </div>
         </div>
-        <div class="term-content-container inline">
+        <div class="term-content-container inline" itemprop="address">
             <div class="title">
                 <h1>{{ name }}</h1>
             </div>
@@ -62,7 +62,7 @@
                             <p><i class="fa fa-phone"></i></p>
                         </div>
                         <div class="result inline">
-                            <p><a href="tel:{{ term.field_phone.0.value|replace({"(":"", ")":"", " ":"", "-":""}) }}"{{ term.field_phone.0.value }}</a></p>
+                            <p><a href="tel:{{ term.field_phone.0.value|replace({"(":"", ")":"", " ":"", "-":""}) }}" itemprop="telephone">{{ term.field_phone.0.value }}</a></p>
                         </div>
                     </div>
                 {% endif %}
@@ -72,7 +72,7 @@
                             <p><i class="fa fa-envelope"></i></p>
                         </div>
                         <div class="result inline">
-                            <p><a href="mailto:{{ term.field_email_address.0.value }}" target="_blank">{{ term.field_email_address.0.value }}</a></p>
+                            <p><a href="mailto:{{ term.field_email_address.0.value }}" itemprop="email" target="_blank">{{ term.field_email_address.0.value }}</a></p>
                         </div>
                     </div>
                 {% endif %}
@@ -82,7 +82,7 @@
                         <h2>Hours</h2>
                         <div class="result">
                             {% for hour in term.field_hours %}
-                                <p>{{ hour.value }}</p>
+                                <p itemprop="openingHours">{{ hour.value }}</p>
                             {% endfor %}
                         </div>
                     {% endif %}
