@@ -25,27 +25,35 @@ class ProviderEmailShareForm extends FormBase {
 
     $nid = \Drupal::request()->query->get('id');
     $node = $this->_queryProvideNodes($nid);
-    $title = $node->get('field_provider_name')->getValue();
 
-    $form['wrapper'] = array(
-        '#prefix' => '<h2>Email ' . $title[0]['value'] . ' to a Friend</h2>'
-    );
-
-    $form['wrapper']['toField'] = array (
-      '#type' => 'textfield',
-      '#placeholder' => 'To:',
-      '#default_value' => ''
-    );
-
-    $form['my_captcha_element'] = array(
-      '#type' => 'captcha',
-      '#captcha_type' => 'captcha/Math',
-    );
-
-    $form['submit_button'] = array(
-      '#type' => 'submit',
-      '#value' => t('Share'),
-    );  
+    if ($node != null) {
+      $title = $node->get('field_provider_name')->getValue();
+  
+      $form['wrapper'] = array(
+          '#prefix' => '<h2>Email ' . $title[0]['value'] . ' to a Friend</h2>'
+      );
+  
+      $form['wrapper']['toField'] = array (
+        '#type' => 'textfield',
+        '#placeholder' => 'To:',
+        '#default_value' => ''
+      );
+  
+      $form['my_captcha_element'] = array(
+        '#type' => 'captcha',
+        '#captcha_type' => 'captcha/Math',
+      );
+  
+      $form['submit_button'] = array(
+        '#type' => 'submit',
+        '#value' => t('Share'),
+      );
+    }
+    else {
+      $form['wrapper'] = array(
+        '#prefix' => '<h2>Whoops! Looks like something went wrong.</h2>'
+      );
+    }
 
     return $form;
   }
@@ -82,9 +90,11 @@ class ProviderEmailShareForm extends FormBase {
     $message['subject'] = "SwediahAmerican Provider";
     
     $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    $host = \Drupal::request()->getHost();
+
     $message['body'] = '<h1>SwedishAmerican Website</h1>';
     $message['body'] .= '<p>A friend shared a provider page from SwedishAmerican’s website with you. Click the link to view: ';
-    $message['body'] .= '<a href="' . $protocol . '://' . $_SERVER['SERVER_NAME'] . $alias .' " target="_blank">' . $title[0]['value'] . '</a></p>';
+    $message['body'] .= '<a href="' . $protocol . '://' . $host . $alias .' " target="_blank">' . $title[0]['value'] . '</a></p>';
      
     $send_mail->mail($message);
 
@@ -101,10 +111,14 @@ class ProviderEmailShareForm extends FormBase {
     $query->condition('nid', $nid);    
     $entity_ids = $query->execute();
 
-    foreach($entity_ids as $nid) {
+    if (count($entity_ids) > 0) {
+      foreach($entity_ids as $nid) {
         $node = \Drupal\node\Entity\Node::load($nid);
+      }
+      return $node;
     }
-
-    return $node;
+    else {
+      return null;
+    }
   }
 }
