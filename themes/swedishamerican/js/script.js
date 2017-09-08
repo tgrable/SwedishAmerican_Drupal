@@ -8,11 +8,26 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {					
-				
+				console.log(navigator.userAgent);
 				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
 					if(!$('.header-banner').hasClass('ios-header')) {
 						$('.header-banner').addClass('ios-header');
 					}
+
+					var event = ('ontouchstart' in window) ? 'click' : 'mouseenter mouseleave';
+					// $('li.dropdown').on(event, function () {
+					// 	$(this).toggleClass('open');
+					// });
+
+					$('li.dropdown').on('click', function() {
+						// if($(this).children('ul.dropdown-menu').css('display') == 'none') {
+						// 	$(this).children('ul.dropdown-menu').css('display', 'block');
+						// }
+						// else {
+						// 	$(this).children('ul.dropdown-menu').css('display', 'none');
+						// }
+					// 	// $(this).children('ul.dropdown-menu').toggle();
+					});
 				}
 
 				if (!$('.extra-services').length) {
@@ -156,7 +171,7 @@
 
 			init: function() {
 				if ($(window).width() > 736) {
-					if (this.pathname === '/') {
+					if (this.pathname === '/' && !navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 						$('#flip_container_11').mouseover(function() {
 							if (!$('#flip_container_11').hasClass('applyflip')) {
 								$('#flip_container_11').addClass('applyflip');
