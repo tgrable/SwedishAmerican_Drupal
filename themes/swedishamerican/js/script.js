@@ -13,21 +13,6 @@
 					if(!$('.header-banner').hasClass('ios-header')) {
 						$('.header-banner').addClass('ios-header');
 					}
-
-					var event = ('ontouchstart' in window) ? 'click' : 'mouseenter mouseleave';
-					// $('li.dropdown').on(event, function () {
-					// 	$(this).toggleClass('open');
-					// });
-
-					$('li.dropdown').on('click', function() {
-						// if($(this).children('ul.dropdown-menu').css('display') == 'none') {
-						// 	$(this).children('ul.dropdown-menu').css('display', 'block');
-						// }
-						// else {
-						// 	$(this).children('ul.dropdown-menu').css('display', 'none');
-						// }
-					// 	// $(this).children('ul.dropdown-menu').toggle();
-					});
 				}
 
 				if (!$('.extra-services').length) {
@@ -164,6 +149,28 @@
 			}
 		};
 		mainController.init();
+
+		var mobileNavigation = {
+			init: function() {	
+				if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+					$('li.dropdown').on('click', function() {
+						if ($(this).hasClass('mobile-open')) {
+							if($(this).children('ul.dropdown-menu').css('display') == 'none') {
+								$(this).children('ul.dropdown-menu').css('display', 'block');
+							}
+							else {
+								$(this).children('ul.dropdown-menu').css('display', 'none');
+							}
+						}
+						else {
+							$(this).addClass('mobile-open');
+							$(this).children('ul.dropdown-menu').css('display', 'inherit');
+						}
+					});
+				}
+			}
+		}
+		mobileNavigation.init();
 
 		var flipCards = {
 			pathname: window.location.pathname, // Returns path only
