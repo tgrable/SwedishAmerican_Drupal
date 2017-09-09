@@ -157,9 +157,11 @@
 						if ($(this).hasClass('mobile-open')) {
 							if($(this).children('ul.dropdown-menu').css('display') == 'none') {
 								$(this).children('ul.dropdown-menu').css('display', 'block');
+								$('.navbar-inverse .navbar-nav > li > a:hover').css('border-bottom', '2px solid #92318f');
 							}
 							else {
 								$(this).children('ul.dropdown-menu').css('display', 'none');
+								$('.navbar-inverse .navbar-nav > li > a:hover').css('border-bottom', 'none');
 							}
 						}
 						else {
