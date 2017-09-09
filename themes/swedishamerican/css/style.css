@@ -3176,10 +3176,10 @@ li.extra-services {
   position: relative;
   z-index: -10;
 }
-.header-container {
+block-swedishamericananimationbanner .header-container {
   height: 250px;
 }
-.header-container .header-banner {
+block-swedishamericananimationbanner .header-container .header-banner {
   background-position: center;
   background-size: cover;
   height: 100%;
@@ -4938,6 +4938,33 @@ h1 span {
   }
   li.extra-services {
     margin: 0;
+  }
+  #block-servicebanner,
+  #block-cancercarebanner,
+  #block-allergybanner,
+  #block-audiologybanner,
+  #block-breastcarebanner,
+  #block-nutritionbanner,
+  #block-emergencybanner,
+  #block-migrainesbanner,
+  #block-heartcarebanner,
+  #block-holisticbanner,
+  #block-homecarebanner,
+  #block-imagingbanner,
+  #block-kidscarebanner,
+  #block-mentalhealthbanner,
+  #block-orthopedicsbanner,
+  #block-physicaltherapybanner,
+  #block-sleepdisordersbanner,
+  #block-surgerybanner,
+  #block-wellnessbanner,
+  #block-woundcarebanner,
+  #block-blogbanner,
+  #block-aboutbanner,
+  #block-patientsbanner,
+  #block-visitorsbanner,
+  #block-swedishamericananimationbanner {
+    display: none;
   }
   #postheader {
     display: block;
