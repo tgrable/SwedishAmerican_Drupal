@@ -3184,9 +3184,6 @@ li.extra-services {
   background-size: cover;
   height: 100%;
 }
-.ios-header {
-  margin-top: -54px !important;
-}
 .view-front-cards .views-row {
   margin: 0 15px 15px 15px;
 }
@@ -3520,7 +3517,7 @@ footer .footer-content-short p {
 }
 .senior-card {
   width: 210px;
-  height: 275px;
+  height: 280px;
 }
 .card-event {
   width: 300px;
@@ -4119,7 +4116,7 @@ section#block-twitterpostfeed {
   width: 75%;
 }
 .senior-image {
-  height: 185px;
+  height: 55%;
   background-size: cover;
   background-position: center;
 }
