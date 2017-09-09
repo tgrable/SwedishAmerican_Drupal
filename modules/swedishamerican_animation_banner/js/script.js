@@ -78,9 +78,11 @@ function handleComplete(evt,comp) {
 		});
 
 		function bsHacktoResizeHeader() {
-			var element = document.getElementsByTagName("header")[0];
-			var  dynamicHeight = (headerHeight + 30) + "px"
-			element.style.height = dynamicHeight;
+			if (window.innerWidth > 767) {
+				var element = document.getElementsByTagName("header")[0];
+				var  dynamicHeight = (headerHeight + 30) + "px"
+				element.style.height = dynamicHeight;
+			}
 		}
 		bsHacktoResizeHeader();
 	}
