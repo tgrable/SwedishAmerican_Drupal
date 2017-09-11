@@ -44,7 +44,7 @@
                     <div class="new-provider"></div>
                 {% endif %}
 
-                <div class="views-field-field-image">
+                <div class="{{ provider_image_container }}">
                     <div class="field-content">
                         <img src="{{ file_url(node.field_image.entity.uri.value) }}" typeof="foaf:Image" class="img-responsive" data-tag="{{ file_url(node.field_image.entity.uri.value) }}">
                     </div>

@@ -8,7 +8,6 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {					
-				console.log(navigator.userAgent);
 				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/) && $(window).width() > 767) {
 					if(!$('.header-banner').hasClass('ios-header')) {
 						$('.header-banner').addClass('ios-header');
@@ -54,8 +53,6 @@
 				}
 				else if (window.location.href.indexOf("provider/") >= 0) {
 					$('.facebook-share').on('click', function(e) {
-						console.log('Test!!');
-
 						var tag = $(e.target).parent().parent().parent().parent(),
 						sib = tag.siblings().children(),
 						url = sib.find('img').attr('src');
@@ -106,7 +103,6 @@
 					});
 
 					$('.map-image-container .map iframe').on("load", function() {
-						console.log('iframe loaded: ' + $('.map-image-container img').height());
 						$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
 						$('.map-image-container .map iframe').css("width", '100%');
 					});
@@ -152,7 +148,7 @@
 		mainController.init();
 
 		var mobileNavigation = {
-			init: function() {	
+			init: function() {
 				if (navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS)/)) {
 					$('li.dropdown').addClass('mobile-nav');
 					$('li.dropdown').children('ul.dropdown-menu').css('display', 'none');
@@ -171,6 +167,22 @@
 			}
 		}
 		mobileNavigation.init();
+
+		var safariHack = {
+			init: function() {
+				if (navigator.userAgent.match(/(Safari)/) && !navigator.userAgent.match(/(Chrome)/)) {
+					if ($('.region-navigation-collapsible section').length > 0) {
+						var block = $('.region-navigation-collapsible section').attr('id');
+						if (block.startsWith('block-') && block.endsWith('banner')) {
+							if ($('.region-navigation-collapsible section').hasClass('clearfix')) {
+								$('.region-navigation-collapsible section').removeClass('clearfix');
+							}	
+						}
+					}
+				}
+			}
+		}
+		safariHack.init();
 
 		var flipCards = {
 			pathname: window.location.pathname, // Returns path only
@@ -380,67 +392,81 @@
 							$('#overlay-content').addClass('overlay-loaded');
 
 							var urlpath = $(this).attr("data-tag");
-							$('#overlay-content').load(urlpath, function(data, status, xhr) {
-								if( status === 'success' ) {
-									$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
-	
-									$(".card-provider").on("click", function() {
-										var urlpath = $(this).attr("data-tag");
-										$('#overlay-content').html('');
-										$('#overlay-content').load(urlpath, function(data, status, xhr) {
-											if( status === 'success' ) {
-												$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
-											}
-										});
-									});
-	
-									$('.map-image-container .map iframe').on("load", function() {
-										$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
-									});
-									$( window ).resize(function() {
-										$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
-										$(".box").css("top", $(document).scrollTop() + 25);
-									});
-	
-									$.getScript("/themes/swedishamerican/js/social.js", function(data, textStatus, jqxhr) {
-										$('.facebook-share').on('click', function(e) {
-											var tag = $(e.target).parent().parent().parent().parent(),
-											sib = tag.siblings().children(),
-											url = sib.find('img').attr('src');
-		
-											var urlRoot = window.location.origin;
-											var finalURL = urlRoot + '/' + $(this).data("href");
-		
-											var winTop = (screen.height / 2) - (500 / 2);
-											var winLeft = (screen.width / 2) - (1150 / 2);
-											window.open('https://www.facebook.com/sharer/sharer.php?u=' + finalURL, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + 575 + ',height=' + 250);
-										});
-		
-										$('.twitter-share').on('click', function(e) {
-											var urlRoot = window.location.origin;
-											var title = $(this).data("name");
-											var path = $(this).data("href");
-											window.open("https://twitter.com/share?url=" + urlRoot + path + "&text=Check out " + title + " at SwedishAmerican", "_blank", "width=575, height=250");
-										});
-		
-										// Need to Fix
-										$('.linkedin-share').on('click', function(e) {
-											var urlRoot = window.location.origin;
-											var title = $(this).data("name");
-											var path = $(this).data("href");
-											var windowName = 'SwedishAmerican';
-											window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + escape(urlRoot + path) + '&title=' + title + '&source=SwedishAmerican&target=new', windowName, "height=575,width=575");
-		
-										});
-									});
-								}
-							});
+							if ($(this).hasClass('location-card')) {
+								$("#overlay-back").attr('data-back', urlpath);
+							}
+							loadOverlay(urlpath);
 						}
 					});
+
+					$("#overlay-back").on("click", function() {
+						var urlpath = $(this).attr("data-back");
+						loadOverlay(urlpath);
+						$(".overlay-back").css('display', 'none');
+					});
 					
-					$(".overlay-close, .backDrop, .btn-floating").on("click", function(){
+					$(".overlay-close, .backDrop").on("click", function(){
 						closeBox();
 					});
+
+					function loadOverlay(urlpath) {
+						$('#overlay-content').html('');
+						$('#overlay-content').load(urlpath, function(data, status, xhr) {
+							if( status === 'success' ) {
+								$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
+								$(".card-provider").on("click", function() {
+									var urlpath = $(this).attr("data-tag");
+									$('#overlay-content').html('');
+									$('#overlay-content').load(urlpath, function(data, status, xhr) {
+										if( status === 'success' ) {
+											$(".overlay-back").css('display', 'block');
+											$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
+										}
+									});
+								});
+
+								$('.map-image-container .map iframe').on("load", function() {
+									$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
+								});
+								$( window ).resize(function() {
+									$('.map-image-container .map iframe').attr("height", $('.map-image-container img').height());
+									$(".box").css("top", $(document).scrollTop() + 25);
+								});
+
+								$.getScript("/themes/swedishamerican/js/social.js", function(data, textStatus, jqxhr) {
+									$('.facebook-share').on('click', function(e) {
+										var tag = $(e.target).parent().parent().parent().parent(),
+										sib = tag.siblings().children(),
+										url = sib.find('img').attr('src');
+	
+										var urlRoot = window.location.origin;
+										var finalURL = urlRoot + '/' + $(this).data("href");
+	
+										var winTop = (screen.height / 2) - (500 / 2);
+										var winLeft = (screen.width / 2) - (1150 / 2);
+										window.open('https://www.facebook.com/sharer/sharer.php?u=' + finalURL, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + 575 + ',height=' + 250);
+									});
+	
+									$('.twitter-share').on('click', function(e) {
+										var urlRoot = window.location.origin;
+										var title = $(this).data("name");
+										var path = $(this).data("href");
+										window.open("https://twitter.com/share?url=" + urlRoot + path + "&text=Check out " + title + " at SwedishAmerican", "_blank", "width=575, height=250");
+									});
+	
+									// Need to Fix
+									$('.linkedin-share').on('click', function(e) {
+										var urlRoot = window.location.origin;
+										var title = $(this).data("name");
+										var path = $(this).data("href");
+										var windowName = 'SwedishAmerican';
+										window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + escape(urlRoot + path) + '&title=' + title + '&source=SwedishAmerican&target=new', windowName, "height=575,width=575");
+	
+									});
+								});
+							}
+						});
+					}
 	
 					function closeBox(){
 						$(".backDrop, .box").animate({"opacity": "0"}, 500, function(){

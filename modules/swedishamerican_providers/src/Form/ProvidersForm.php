@@ -232,6 +232,13 @@ class ProvidersForm extends FormBase {
 
     $nodes = array();
 
+    // foreach($entity_ids as $nid) {
+    //   $node = \Drupal\node\Entity\Node::load($nid);
+    //   array_push($nodes, $node);
+    // }
+    
+    // return $nodes;
+
     $markup = '<div class="providers-container">';
   
     if (count($entity_ids) > 0) {

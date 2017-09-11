@@ -2617,7 +2617,7 @@ button.btn.btn-primary.btn-floating {
 /* PRE-HEADER */
 #preheader {
   height: 65px;
-  width: 100%;
+  width: 90%;
   max-width: 1170px;
   margin: auto;
   background: #ffffff;
@@ -2635,7 +2635,7 @@ button.btn.btn-primary.btn-floating {
   font-weight: normal;
   font-style: normal;
   margin-top: 15px;
-  margin-left: 30px;
+  margin-left: 25px;
   font-size: 16px;
   text-align: right;
 }
@@ -2785,6 +2785,16 @@ div#block-swedishamerican-search {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+}
+.overlay-close {
+  position: absolute;
+  right: 0;
+  margin: 8px 8px 0 0;
+}
+.overlay-back {
+  position: absolute;
+  left: 0;
+  margin: 8px 0 0 8px;
 }
 #overlay-content {
   margin: auto;
@@ -4105,11 +4115,6 @@ section#block-twitterpostfeed {
   width: 100%;
   height: 100%;
 }
-.overlay-close {
-  position: absolute;
-  right: 3%;
-  top: 1%;
-}
 .clear {
   clear: both;
 }
@@ -4701,6 +4706,9 @@ h1 span {
   }
 }
 @media only screen and (max-width: 992px) {
+  #preheader .search {
+    width: 60%;
+  }
   .inline-desktop {
     display: block;
   }
@@ -4763,6 +4771,9 @@ h1 span {
   .term-page .block {
     margin: 0 15px 30px 15px;
   }
+  #swedishamerican-eventslist-form .markup-area {
+    width: 65%;
+  }
 }
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width: 768px) {
@@ -4811,7 +4822,6 @@ h1 span {
   .view-front-cards .view-content h1 {
     text-align: left;
   }
-  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 225px;
   }
@@ -4924,7 +4934,6 @@ h1 span {
     border-bottom: none;
   }
   #preheader {
-    width: 678px;
     height: 52px;
     margin: 0;
     float: left;
@@ -4938,7 +4947,6 @@ h1 span {
     height: 52px;
   }
   #preheader .search {
-    width: 564px;
     margin-right: 0;
   }
   #preheader .search form#search-block-form input {
@@ -5307,12 +5315,6 @@ h1 span {
 }
 /* ----------- Nexus 5X (Landscape) ----------- */
 @media only screen and (max-width: 684px) {
-  #preheader {
-    width: 626px;
-  }
-  #preheader .search {
-    width: 512px;
-  }
   .view-front-cards .card {
     width: 205px;
   }
@@ -5324,12 +5326,6 @@ h1 span {
 }
 /* ----------- iPhone 6-7 (Landscape) ----------- */
 @media only screen and (max-width: 667px) {
-  #preheader {
-    width: 609px;
-  }
-  #preheader .search {
-    width: 495px;
-  }
   .view-front-cards .card {
     width: 200px;
   }
@@ -5347,12 +5343,6 @@ h1 span {
 }
 /* ----------- Galaxy S5 (Landscape) ----------- */
 @media only screen and (max-width: 640px) {
-  #preheader {
-    width: 582px;
-  }
-  #preheader .search {
-    width: 468px;
-  }
   .view-front-cards .card {
     width: 190px;
   }
@@ -5364,12 +5354,6 @@ h1 span {
 }
 /* ----------- iPhone 5 (Landscape) ----------- */
 @media only screen and (max-width: 568px) {
-  #preheader {
-    width: 515px;
-  }
-  #preheader .search {
-    width: 397px;
-  }
   .view-front-cards .card {
     width: 165px;
   }
@@ -5399,14 +5383,8 @@ h1 span {
   .main-container a {
     font-size: 4vw;
   }
-  #preheader {
-    width: 350px;
-  }
   #preheader .logo {
     margin: 0 15px 0 0;
-  }
-  #preheader .search {
-    width: 265px;
   }
   .view-front-cards .view-content {
     margin: 5px 0;
@@ -5431,6 +5409,9 @@ h1 span {
   }
   .locations-container .location-container .map-image-container {
     margin: 0 -15px;
+  }
+  .locations-container .location-container .term-services-container {
+    margin: 0px;
   }
   .paragraph--type--service-location .map iframe {
     height: 150px;
@@ -5462,14 +5443,8 @@ h1 span {
 }
 /* ----------- iPhone 6-7 (portrait) ----------- */
 @media only screen and (max-width: 375px) {
-  #preheader {
-    width: 315px;
-  }
   #preheader .logo {
     margin: 0 10px 0 0;
-  }
-  #preheader .search {
-    width: 235px;
   }
   #preheader .search div#block-swedishamerican-search {
     padding-right: 0;
@@ -5503,12 +5478,6 @@ h1 span {
 }
 /* ----------- Galaxy S5 (portrait) ----------- */
 @media only screen and (max-width: 360px) {
-  #preheader {
-    width: 305px;
-  }
-  #preheader .search {
-    width: 225px;
-  }
   h1 {
     font-size: 24px;
   }
@@ -5531,12 +5500,6 @@ h1 span {
 }
 /* ----------- iPhone 5 (portrait) ----------- */
 @media only screen and (max-width: 320px) {
-  #preheader {
-    width: 260px;
-  }
-  #preheader .search {
-    width: 180px;
-  }
   .view-front-cards .card {
     width: 133px;
   }
