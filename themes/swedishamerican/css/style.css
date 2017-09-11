@@ -3523,7 +3523,7 @@ footer .footer-content-short p {
 }
 .senior-card {
   width: 210px;
-  height: 280px;
+  height: 300px;
 }
 .card-event {
   width: 300px;
@@ -3779,6 +3779,9 @@ section#block-twitterpostfeed {
   margin: 5px 0;
 }
 .location-container .term-contact-container a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
   color: #3f3f3f;
 }
 .location-container .term-services-container {
@@ -4198,6 +4201,12 @@ form#swedishamerican-provider-email-share-form input {
   margin-right: 30px;
   vertical-align: top;
   max-width: 41%;
+}
+.service-container .phone-email a {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  color: #3f3f3f;
 }
 .service-container .phone-email .phone-email-container {
   padding-bottom: 15px;
@@ -5189,26 +5198,26 @@ h1 span {
   #dependant-fields-wrapper .form-item-sag .sag-markup .text {
     max-width: 100%;
   }
-  .location-container .locations-container {
+  .locations-container {
     width: 100%;
   }
-  .location-container .locations-container .location-container .map-image-container iframe {
+  .locations-container .location-container .map-image-container iframe {
     width: 362px;
     height: 275px;
   }
-  .location-container .locations-container .location-container .term-contact-container .phone-email {
+  .locations-container .location-container .term-contact-container .phone-email {
     width: 100%;
   }
-  .location-container .locations-container .location-container .term-content-container {
+  .locations-container .location-container .term-content-container {
     width: 98%;
     margin: 0;
     padding: 15px;
     border-right: none;
   }
-  .location-container .locations-container .special-services-container {
+  .locations-container .special-services-container {
     margin-bottom: 0;
   }
-  .location-container .locations-container #block-swedishamericanlocationproviders {
+  .locations-container #block-swedishamericanlocationproviders {
     margin: 0;
   }
   .service-container .phone-email {
@@ -5237,6 +5246,9 @@ h1 span {
   }
   #block-swedishamericaneventslist-2 .card-event {
     height: auto;
+  }
+  #swedishamerican-eventslist-form .markup-area {
+    width: 70%;
   }
   #swedishamerican-eventslist-form .events-container {
     width: 100%;
@@ -5383,6 +5395,7 @@ h1 span {
   h1 {
     font-size: 32px;
   }
+  h2,
   .main-container a {
     font-size: 4vw;
   }
@@ -5478,7 +5491,7 @@ h1 span {
   }
   /*************************** Location Styles ***************************/
   .locations-container .location-container .location-address {
-    font-size: 30px;
+    font-size: 24px;
   }
   .locations-container .location-container .map-image-container iframe {
     width: 182px;
@@ -5572,5 +5585,8 @@ h1 span {
   .senior-card {
     width: 130px;
     margin: 0.5em;
+  }
+  .senior-position {
+    font-size: 14px;
   }
 }
