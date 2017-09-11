@@ -14,6 +14,10 @@
 					}
 				}
 
+				$('.backDrop').on('scroll touchmove mousewheel', function (event) {
+					event.preventDefault();
+				});
+
 				if (!$('.extra-services').length) {
 					var main = [];
 					var extra = [];
