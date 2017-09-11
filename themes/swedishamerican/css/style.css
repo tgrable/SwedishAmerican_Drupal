@@ -3197,9 +3197,6 @@ li.extra-services {
   background-size: cover;
   height: 100%;
 }
-.ios-header {
-  margin-top: -54px !important;
-}
 .view-front-cards .views-row {
   margin: 0 15px 15px 15px;
 }
@@ -3762,7 +3759,7 @@ section#block-twitterpostfeed {
   width: 49%;
 }
 .location-container .map-image-container .map iframe {
-  width: 102%px;
+  width: 102%;
 }
 .location-container .term-content-container {
   width: 70%;
@@ -4780,9 +4777,6 @@ h1 span {
   /*************************** Global Styles ***************************/
   #preheader .search {
     width: 62%;
-  }
-  .ios-header {
-    margin-top: 0 !important;
   }
   .navbar-header nav {
     width: 768px;
