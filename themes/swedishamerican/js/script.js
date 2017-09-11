@@ -8,16 +8,6 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {					
-				if (navigator.userAgent.match(/(iPod|iPhone|iPad)/) && $(window).width() > 767) {
-					if(!$('.header-banner').hasClass('ios-header')) {
-						$('.header-banner').addClass('ios-header');
-					}
-				}
-
-				$('.backDrop').on('scroll touchmove mousewheel', function (event) {
-					event.preventDefault();
-				});
-
 				if (!$('.extra-services').length) {
 					var main = [];
 					var extra = [];
@@ -374,7 +364,7 @@
 
 		var lightBox = {
 			init: function() {
-				if ($(window).width() < 769) {
+				if ($(window).width() < 769 || navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 					$(".card-provider, .location-card, .card-event").on("click", function() {
 						var urlpath = $(this).attr("data-tag").split(" ");
 						window.location.href = urlpath[0];
