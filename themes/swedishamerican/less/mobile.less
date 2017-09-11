@@ -14,7 +14,8 @@
     .provider-article-padding-left {
         padding: 30px 15px 15px 27%;
     }
-    #swedishamerican-providers-form {
+    #swedishamerican-providers-form,
+    #swedishamerican-eventslist-form {
         .markup-area {
             width: 70%;
         }
@@ -227,9 +228,6 @@
             width: 70%;
         }
     }
-    .markup-sticky {
-        width: 70%;
-    }
 }
 
 @media only screen and (max-width : 992px) {
@@ -266,9 +264,6 @@
             width: 65%;
         }
     }
-    .markup-sticky {
-        width: 65%;
-    }
     .provider-container {
         .provider-image-container {
             width: 40%;
@@ -302,6 +297,22 @@
             padding-left: 0;
             padding-top: 30px;
         }
+    }
+
+    .location-container {
+        .term-content-container {
+            width: 100%;
+            margin: 45px 30px 0 15px;
+            border-right: none;
+        }
+        .term-services-container {
+            width: 100%;
+            margin: 0px 0 0px 15px;
+            vertical-align: top;
+        }
+    }
+    .term-page .block {
+        margin: 0 15px 30px 15px;
     }
 }
 
@@ -813,8 +824,8 @@
                 display: none;
             }
         }
-        .markup-area, .markup-sticky {
-            left: 0%;
+
+        .markup-area {
             width: 100%;
         }
     }
@@ -934,6 +945,8 @@
             max-width: 100%;
         }
     }
+
+    .location-container 
     .locations-container {
         width: 100%;
 
@@ -944,6 +957,12 @@
                     height: 275px;
                 }
             }
+            .term-contact-container {
+                .phone-email {
+                    width: 100%;
+                }
+            }
+            
             .term-content-container {
                 width: 98%;
                 margin: 0;
@@ -994,11 +1013,6 @@
         .card-event {
             height: auto;
         }
-    }
-    
-    .markup-sticky {
-        left: 0;
-        width: 100%;
     }
 
     #swedishamerican-eventslist-form {
@@ -1208,7 +1222,14 @@
 
 /* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
 @media only screen and (max-width : 480px) {
-    // /*************************** Global Styles ***************************/
+    /*************************** Global Styles ***************************/
+    .service-container h1, h1 {
+        font-size: 32px;
+    }
+
+    .main-container a {
+        font-size: 4vw;
+    }
 
     #preheader {
         width: 350px;
@@ -1234,6 +1255,12 @@
     .provider-container {
         .provider-details-container {
             padding: 15px 0;
+            width: 100%;
+
+            .name h1,
+            .name h3 {
+                text-align: left;
+            }
         }
     }
 
@@ -1293,6 +1320,7 @@
 
 /* ----------- iPhone 6-7 (portrait) ----------- */
 @media only screen and (max-width : 375px) {
+
     #preheader {
         width: 315px;
 

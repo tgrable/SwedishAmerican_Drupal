@@ -59,7 +59,7 @@ class EventslistForm extends FormBase {
 
         $form['wrapper']['submit'] = array(
             '#type' => 'submit',
-            '#value' => $this->t('Apply'),
+            '#value' => $this->t('SEARCH'),
         );
 
         return $form;

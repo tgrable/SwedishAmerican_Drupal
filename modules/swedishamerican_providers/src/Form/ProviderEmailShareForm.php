@@ -39,9 +39,15 @@ class ProviderEmailShareForm extends FormBase {
         '#default_value' => ''
       );
   
-      $form['my_captcha_element'] = array(
+      $form['wrapper']['my_captcha_element'] = array(
         '#type' => 'captcha',
         '#captcha_type' => 'captcha/Math',
+      );
+
+      $form['wrapper']['my_html_element'] = array(
+        '#type' => 'html_tag',
+        '#tag' => 'p',
+        '#value' => $this->t('Verify you’re not a robot'),
       );
   
       $form['submit_button'] = array(

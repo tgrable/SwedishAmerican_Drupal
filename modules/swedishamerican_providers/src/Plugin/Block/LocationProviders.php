@@ -41,7 +41,7 @@ class LocationProviders extends BlockBase {
       $id = \Drupal::routeMatch()->getRawParameter('node');
       $query->condition('field_service_reference_node', $id);
     }
-
+    $query->sort('title', 'ASC');
     $entity_ids = $query->execute();
 
     $nodes = array();

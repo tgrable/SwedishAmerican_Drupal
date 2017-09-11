@@ -374,7 +374,7 @@ class ProvidersForm extends FormBase {
         $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" />';
       $markup .= '</div>';
       $markup .= '<div class="text inline">';
-        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican Group providers. Uncheck to search all providers.</span>';
+        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican Medical Group providers. Uncheck to search all providers.</span>';
         
       $markup .= '</div>';
     $markup .= '</div>';

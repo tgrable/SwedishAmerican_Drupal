@@ -105,18 +105,19 @@
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
 
-					if ($(window).width() < 736) {
-						console.log('I Hate Justin!');
-						$('.map-image-container .map iframe').on("load", function() {
-							console.log('iframe loaded: ' + $('.map-image-container img').height());
-							$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
-							$('.map-image-container .map iframe').css("width", '100%');
-						});
-						$( window ).resize(function() {
-							$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
-							$('.map-image-container .map iframe').css("width", '100%');
-						});
-					}
+					$('.map-image-container .map iframe').on("load", function() {
+						console.log('iframe loaded: ' + $('.map-image-container img').height());
+						$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
+						$('.map-image-container .map iframe').css("width", '100%');
+					});
+					$( window ).resize(function() {
+						$('.map-image-container .map iframe').css("height", $('.map-image-container img').height());
+						$('.map-image-container .map iframe').css("width", '100%');
+					});
+
+					// if ($(window).width() < 736) {
+						
+					// }
 				}
 				else if (window.location.href.indexOf("senior-leadership") >= 0) {
 					if ($(window).width() > 736) { 
@@ -155,6 +156,7 @@
 				if (navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS)/)) {
 					$('li.dropdown').addClass('mobile-nav');
 					$('li.dropdown').children('ul.dropdown-menu').css('display', 'none');
+
 					$('li.dropdown').on('click', function() {
 						if($(this).children('ul.dropdown-menu').css('display') == 'none') {
 							$(this).children('ul.dropdown-menu').css('display', 'block');
@@ -164,14 +166,6 @@
 							$(this).children('ul.dropdown-menu').css('display', 'none');
 							$('.navbar-inverse .navbar-nav > li > a:hover').css('border-bottom', 'none');
 						}
-						
-						// if ($(this).hasClass('mobile-open')) {
-							
-						// }
-						// else {
-						// 	$(this).addClass('mobile-open');
-						// 	$(this).children('ul.dropdown-menu').css('display', 'inherit');
-						// }
 					});
 				}
 			}

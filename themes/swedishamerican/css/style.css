@@ -2645,6 +2645,9 @@ button.btn.btn-primary.btn-floating {
 #postheader {
   display: none;
 }
+#postheader .phone a {
+  color: #ffffff;
+}
 .search-input {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
@@ -3380,9 +3383,9 @@ footer .footer-content-short p {
   padding: 30px;
 }
 .card-provider-special {
-  font-family: 'AvenirNext-Italic';
+  font-family: 'AvenirNext-Regular';
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
   font-size: 14px;
   color: #3f3f3f;
   margin-bottom: 0.6em;
@@ -3721,7 +3724,7 @@ section#block-twitterpostfeed {
   float: right;
 }
 .term-page .block {
-  margin: 0 95px 30px 94px;
+  margin: 0 15px 30px 30px;
 }
 .location-address {
   font-family: 'AvenirNext-DemiBold';
@@ -3766,6 +3769,17 @@ section#block-twitterpostfeed {
 }
 .location-container .term-contact-container .phone-email {
   width: 40%;
+}
+.location-container .term-contact-container li {
+  font-family: 'AvenirNext-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #3f3f3f;
+  margin: 5px 0;
+}
+.location-container .term-contact-container a {
+  color: #3f3f3f;
 }
 .location-container .term-services-container {
   width: 20%;
@@ -3933,6 +3947,9 @@ section#block-twitterpostfeed {
 .provider-container .provider-details-container .provider-contact-container .address {
   margin-right: 30px;
   width: 175px;
+}
+.provider-container .provider-details-container .provider-contact-container a {
+  color: #3f3f3f;
 }
 .provider-container .provider-details-container .field--name-field-location-reference,
 .provider-container .provider-details-container .field--name-field-map {
@@ -4360,9 +4377,7 @@ h1 span {
 .events-wrapper {
   margin: 0 0 15px 15px;
 }
-.markup-sticky {
-  position: relative;
-  left: 1%;
+#swedishamerican-eventslist-form .markup-area {
   width: 75%;
 }
 @media only screen and (min-width: 768px) {
@@ -4525,7 +4540,8 @@ h1 span {
   .provider-article-padding-left {
     padding: 30px 15px 15px 27%;
   }
-  #swedishamerican-providers-form .markup-area {
+  #swedishamerican-providers-form .markup-area,
+  #swedishamerican-eventslist-form .markup-area {
     width: 70%;
   }
   .view-id-locations .views-row {
@@ -4674,9 +4690,6 @@ h1 span {
   #swedishamerican-providers-form .markup-area {
     width: 70%;
   }
-  .markup-sticky {
-    width: 70%;
-  }
 }
 @media only screen and (max-width: 992px) {
   .inline-desktop {
@@ -4707,9 +4720,6 @@ h1 span {
   #swedishamerican-providers-form .markup-area {
     width: 65%;
   }
-  .markup-sticky {
-    width: 65%;
-  }
   .provider-container .provider-image-container {
     width: 40%;
     margin: auto;
@@ -4730,6 +4740,19 @@ h1 span {
   .service-container .multiple-location {
     padding-left: 0;
     padding-top: 30px;
+  }
+  .location-container .term-content-container {
+    width: 100%;
+    margin: 45px 30px 0 15px;
+    border-right: none;
+  }
+  .location-container .term-services-container {
+    width: 100%;
+    margin: 0px 0 0px 15px;
+    vertical-align: top;
+  }
+  .term-page .block {
+    margin: 0 15px 30px 15px;
   }
 }
 /* ----------- iPads (portrait) ----------- */
@@ -5066,9 +5089,7 @@ h1 span {
   #swedishamerican-providers-form .dependant-fields-wrapper-fluid h1 {
     display: none;
   }
-  #swedishamerican-providers-form .markup-area,
-  #swedishamerican-providers-form .markup-sticky {
-    left: 0%;
+  #swedishamerican-providers-form .markup-area {
     width: 100%;
   }
   .providers-container {
@@ -5168,23 +5189,26 @@ h1 span {
   #dependant-fields-wrapper .form-item-sag .sag-markup .text {
     max-width: 100%;
   }
-  .locations-container {
+  .location-container .locations-container {
     width: 100%;
   }
-  .locations-container .location-container .map-image-container iframe {
+  .location-container .locations-container .location-container .map-image-container iframe {
     width: 362px;
     height: 275px;
   }
-  .locations-container .location-container .term-content-container {
+  .location-container .locations-container .location-container .term-contact-container .phone-email {
+    width: 100%;
+  }
+  .location-container .locations-container .location-container .term-content-container {
     width: 98%;
     margin: 0;
     padding: 15px;
     border-right: none;
   }
-  .locations-container .special-services-container {
+  .location-container .locations-container .special-services-container {
     margin-bottom: 0;
   }
-  .locations-container #block-swedishamericanlocationproviders {
+  .location-container .locations-container #block-swedishamericanlocationproviders {
     margin: 0;
   }
   .service-container .phone-email {
@@ -5213,10 +5237,6 @@ h1 span {
   }
   #block-swedishamericaneventslist-2 .card-event {
     height: auto;
-  }
-  .markup-sticky {
-    left: 0;
-    width: 100%;
   }
   #swedishamerican-eventslist-form .events-container {
     width: 100%;
@@ -5358,6 +5378,14 @@ h1 span {
 }
 /* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
 @media only screen and (max-width: 480px) {
+  /*************************** Global Styles ***************************/
+  .service-container h1,
+  h1 {
+    font-size: 32px;
+  }
+  .main-container a {
+    font-size: 4vw;
+  }
   #preheader {
     width: 350px;
   }
@@ -5375,6 +5403,11 @@ h1 span {
   }
   .provider-container .provider-details-container {
     padding: 15px 0;
+    width: 100%;
+  }
+  .provider-container .provider-details-container .name h1,
+  .provider-container .provider-details-container .name h3 {
+    text-align: left;
   }
   /*************************** Location Styles ***************************/
   .locations-container .location-container .term-content-container {
