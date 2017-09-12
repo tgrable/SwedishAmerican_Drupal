@@ -124,13 +124,29 @@
 						$('header').css('height', '250px');
 					}
 					
-					// if ($(window).width() > 768) { 
-						
-						// var mainContainer = $('.term-content-container').width();
-						// var phoneContainer = $('.phone-email').width() + 60;
-						// var mapContainer = 100 - ((phoneContainer / mainContainer) * 100);
-						// $('.location-address').css('width', parseInt(mapContainer - 2) + "%");
-					// }
+					if ($(window).width() > 768) { 
+						if (!$('.location-address').hasClass('location-resized')) {
+							$('.location-address').addClass('location-resized')
+
+							var mainContainer = $('.term-content-container').width();
+							var phoneContainer = $('.phone-email').width() + 61;
+							var mapContainer = $('.location-address').width();
+	
+							console.log(mainContainer);
+							console.log(phoneContainer);
+							console.log(mapContainer);
+	
+							console.log('-------------------------');
+	
+							console.log((phoneContainer + mainContainer));
+							console.log((mainContainer - 10));
+							
+							if ((phoneContainer + mainContainer) > (mainContainer - 10)) {
+								var newWidth = 100 - ((phoneContainer / mainContainer) * 100);
+								$('.location-address').css('width', parseInt(newWidth - 2) + "%");
+							}
+						}
+					}
 				}
 				else {
 					if ($(window).width() > 736) { 
@@ -389,6 +405,7 @@
 							if ($(this).hasClass('location-card')) {
 								$("#overlay-back").attr('data-back', urlpath);
 							}
+
 							loadOverlay(urlpath);
 						}
 					});
@@ -409,11 +426,16 @@
 							if( status === 'success' ) {
 								$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
 								$(".card-provider").on("click", function() {
+									if ($(this).hasClass('card-provider')) {
+										console.log('WTF!');
+										$(".overlay-back").css('display', 'block');
+									}
+									
 									var urlpath = $(this).attr("data-tag");
 									$('#overlay-content').html('');
 									$('#overlay-content').load(urlpath, function(data, status, xhr) {
 										if( status === 'success' ) {
-											$(".overlay-back").css('display', 'block');
+											// $(".overlay-back").css('display', 'block');
 											$('#overlay-content .provider-container, #overlay-content .locations-container, #overlay-content .event-container').css('height', $(window).height()- 65);
 										}
 									});

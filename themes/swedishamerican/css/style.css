@@ -2438,6 +2438,13 @@ p {
   margin-top: 0px;
   margin-bottom: 0.6em;
 }
+.phone .result a {
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #92318f;
+}
 h1 {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
@@ -3953,7 +3960,11 @@ section#block-twitterpostfeed {
   width: 175px;
 }
 .provider-container .provider-details-container .provider-contact-container a {
-  color: #3f3f3f;
+  font-family: 'AvenirNext-DemiBold';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #92318f;
 }
 .provider-container .provider-details-container .field--name-field-location-reference,
 .provider-container .provider-details-container .field--name-field-map {
