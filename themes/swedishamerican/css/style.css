@@ -3537,7 +3537,6 @@ footer .footer-content-short p {
 }
 .senior-card {
   width: 210px;
-  height: 300px;
 }
 .card-event {
   width: 300px;
@@ -4146,13 +4145,9 @@ section#block-twitterpostfeed {
   width: 75%;
 }
 .senior-image {
-  height: 55%;
+  height: 155px;
   background-size: cover;
   background-position: center;
-}
-.senior-description {
-  position: absolute;
-  bottom: 0;
 }
 .senior-title {
   font-family: 'AvenirNext-DemiBold';
