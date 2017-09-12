@@ -4843,6 +4843,7 @@ h1 span {
   .view-front-cards .view-content h1 {
     text-align: left;
   }
+  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 225px;
   }
@@ -5095,15 +5096,19 @@ h1 span {
   footer {
     display: none;
   }
+  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 220px;
   }
+  .view-front-cards .flip-container article,
   .view-front-cards .card article {
     height: 240px;
   }
+  .view-front-cards .flip-container article .card-main-img,
   .view-front-cards .card article .card-main-img {
     height: 140px;
   }
+  .view-front-cards .flip-container article .card-main-ico,
   .view-front-cards .card article .card-main-ico {
     margin: 0 auto 50px auto;
   }
@@ -5358,6 +5363,7 @@ h1 span {
 }
 /* ----------- Nexus 5X (Landscape) ----------- */
 @media only screen and (max-width: 684px) {
+  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 205px;
   }
@@ -5369,12 +5375,15 @@ h1 span {
 }
 /* ----------- iPhone 6-7 (Landscape) ----------- */
 @media only screen and (max-width: 667px) {
+  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 200px;
   }
+  .view-front-cards .flip-container article,
   .view-front-cards .card article {
     height: 220px;
   }
+  .view-front-cards .flip-container article .card-main-img,
   .view-front-cards .card article .card-main-img {
     height: 125px;
   }
@@ -5389,6 +5398,7 @@ h1 span {
 }
 /* ----------- Galaxy S5 (Landscape) ----------- */
 @media only screen and (max-width: 640px) {
+  .view-front-cards .flip-container,
   .view-front-cards .card {
     width: 190px;
   }
