@@ -135,7 +135,7 @@
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          <aside class="hidden-xs col-sm-3" role="complementary">
+          <aside class="hidden-xs col-sm-3 col-md-2" role="complementary">
             {{ page.sidebar_first }}
           </aside>
         {% endblock %}
@@ -193,7 +193,7 @@
       {# Sidebar Second #}
       {% if page.sidebar_second %}
         {% block sidebar_second %}
-          <aside class="right-col hidden-xs col-sm-2 mobile-hide" role="complementary">
+          <aside class="right-col hidden-xs col-sm-2 col-md-2 mobile-hide" role="complementary">
             {{ page.sidebar_second }}
           </aside>
         {% endblock %}
