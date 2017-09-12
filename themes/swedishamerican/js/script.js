@@ -124,7 +124,7 @@
 						$('header').css('height', '250px');
 					}
 					
-					if ($(window).width() > 768) { 
+					if ($(window).width() > 736) { 
 						if (!$('.location-address').hasClass('location-resized')) {
 							$('.location-address').addClass('location-resized')
 
@@ -132,14 +132,14 @@
 							var phoneContainer = $('.phone-email').width() + 61;
 							var mapContainer = $('.location-address').width();
 	
-							console.log(mainContainer);
-							console.log(phoneContainer);
-							console.log(mapContainer);
+							// console.log(mainContainer);
+							// console.log(phoneContainer);
+							// console.log(mapContainer);
 	
-							console.log('-------------------------');
+							// console.log('-------------------------');
 	
-							console.log((phoneContainer + mainContainer));
-							console.log((mainContainer - 10));
+							// console.log((phoneContainer + mainContainer));
+							// console.log((mainContainer - 10));
 							
 							if ((phoneContainer + mainContainer) > (mainContainer - 10)) {
 								var newWidth = 100 - ((phoneContainer / mainContainer) * 100);
@@ -165,8 +165,8 @@
 
 					$('li.dropdown').on('click', function() {
 						if($(this).children('ul.dropdown-menu').css('display') == 'none') {
+							$('li.dropdown').children('ul.dropdown-menu').css('display', 'none');
 							$(this).children('ul.dropdown-menu').css('display', 'block');
-							$('.navbar-inverse .navbar-nav > li > a:hover').css('border-bottom', '2px solid #92318f');
 						}
 						else {
 							$(this).children('ul.dropdown-menu').css('display', 'none');
@@ -316,7 +316,9 @@
 
 		var colWidths = {
 			init: function() {
-				if ($(window).width() < 769) {
+				console.log($(window).width());
+
+				if ($(window).width() <= 1112) {
 					if ($('.main-col').hasClass('all-three-col')) {
 						$('.main-col').removeClass('col-sm-8');
 						$('.main-col').addClass('col-sm-9');
@@ -335,44 +337,94 @@
 				}
 
 				$( window ).on( "orientationchange", function( event ) {
-					if ($(window).width() > 769) {
-						if ($(window).width() < 1025) {
-							if ($('.main-col').hasClass('all-three-col')) {
-								$('.main-col').addClass('col-sm-8');
-								$('.main-col').removeClass('col-sm-9');
-							}
-							else if ($('.main-col').hasClass('no-right-col')) {
-								$('.main-col').addClass('col-sm-10');
-								$('.main-col').removeClass('col-sm-9');
-							}
-							else if ($('.main-col').hasClass('no-left-col')) {
-								$('.main-col').addClass('col-sm-10');
-								$('.main-col').removeClass('col-sm-12');
-							}
-							else {
-							
-							}
+					console.log('orientationchange');
+					if ($(window).width() > $(window).height()) {
+						console.log('Landscape');
+						if ($('.main-col').hasClass('all-three-col')) {
+							$('.main-col').addClass('col-sm-8');
+							$('.main-col').removeClass('col-sm-9');
 						}
+						else if ($('.main-col').hasClass('no-right-col')) {
+							$('.main-col').addClass('col-sm-10');
+							$('.main-col').removeClass('col-sm-9');
+						}
+						else if ($('.main-col').hasClass('no-left-col')) {
+							$('.main-col').addClass('col-sm-10');
+							$('.main-col').removeClass('col-sm-12');
+						}
+						else {
+						
+						}
+
 					}
 					else {
-						if ($(window).width() < 769) {
-							if ($('.main-col').hasClass('all-three-col')) {
-								$('.main-col').removeClass('col-sm-8');
-								$('.main-col').addClass('col-sm-9');
-							}
-							else if ($('.main-col').hasClass('no-right-col')) {
-								$('.main-col').removeClass('col-sm-10');
-								$('.main-col').addClass('col-sm-9');
-							}
-							else if ($('.main-col').hasClass('no-left-col')) {
-								$('.main-col').removeClass('col-sm-10');
-								$('.main-col').addClass('col-sm-12');
-							}
-							else {
-							
-							}
+						console.log('Portrait');
+						if ($('.main-col').hasClass('all-three-col')) {
+							$('.main-col').addClass('col-sm-8');
+							$('.main-col').removeClass('col-sm-9');
+						}
+						else if ($('.main-col').hasClass('no-right-col')) {
+							$('.main-col').addClass('col-sm-10');
+							$('.main-col').removeClass('col-sm-9');
+						}
+						else if ($('.main-col').hasClass('no-left-col')) {
+							$('.main-col').addClass('col-sm-10');
+							$('.main-col').removeClass('col-sm-12');
+						}
+						else {
+						
 						}
 					}
+					
+
+					// if ($(window).width() >= 768) {
+					// 	console.log('>= 834');
+
+					// 	if ($(window).width() <= 1024) {
+					// 		console.log('<= 1024');
+
+					// 		if ($('.main-col').hasClass('all-three-col')) {
+					// 			$('.main-col').addClass('col-sm-8');
+					// 			$('.main-col').removeClass('col-sm-9');
+					// 		}
+					// 		else if ($('.main-col').hasClass('no-right-col')) {
+					// 			$('.main-col').addClass('col-sm-10');
+					// 			$('.main-col').removeClass('col-sm-9');
+					// 		}
+					// 		else if ($('.main-col').hasClass('no-left-col')) {
+					// 			$('.main-col').addClass('col-sm-10');
+					// 			$('.main-col').removeClass('col-sm-12');
+					// 		}
+					// 		else {
+							
+					// 		}
+					// 	}
+		
+					// }
+					// else {
+					// 	console.log('! >= 834');
+
+					// 	if ($(window).width() <= 768) {
+
+					// 		console.log('! <= 834');
+
+					// 		if ($('.main-col').hasClass('all-three-col')) {
+					// 			$('.main-col').removeClass('col-sm-8');
+					// 			$('.main-col').addClass('col-sm-9');
+					// 		}
+					// 		else if ($('.main-col').hasClass('no-right-col')) {
+					// 			$('.main-col').removeClass('col-sm-10');
+					// 			$('.main-col').addClass('col-sm-9');
+					// 		}
+					// 		else if ($('.main-col').hasClass('no-left-col')) {
+					// 			$('.main-col').removeClass('col-sm-10');
+					// 			$('.main-col').addClass('col-sm-12');
+					// 		}
+					// 		else {
+							
+					// 		}
+					// 	}
+					// }
 				});
 			}
 		}
@@ -380,7 +432,7 @@
 
 		var lightBox = {
 			init: function() {
-				if ($(window).width() < 769 || navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+				if ($(window).width() < 736 || navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 					$(".card-provider, .location-card, .card-event").on("click", function() {
 						var urlpath = $(this).attr("data-tag").split(" ");
 						window.location.href = urlpath[0];
