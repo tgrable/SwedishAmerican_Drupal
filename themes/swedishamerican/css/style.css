@@ -4647,10 +4647,17 @@ h1 span {
   .social-block .header-title {
     margin-right: 0;
     min-height: 75px;
-    width: 225px;
+    width: 100%;
   }
   .social-block .header-title h1 {
     text-align: left;
+  }
+  .social-block .fb-container {
+    width: 30%;
+    margin: 0 25px 0 0;
+  }
+  .social-block .twitter-container {
+    width: 315px;
   }
   #block-facebookpostfeed,
   #block-instagrampostfeed {
