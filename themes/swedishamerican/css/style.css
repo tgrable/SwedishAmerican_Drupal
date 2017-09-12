@@ -5104,6 +5104,7 @@ h1 span {
     width: 100%;
   }
   .providers-container {
+    display: block;
     margin-top: 15px;
   }
   .lightBox.inline {
