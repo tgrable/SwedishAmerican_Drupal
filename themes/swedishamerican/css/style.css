@@ -4570,6 +4570,16 @@ h1 span {
     left: 30%;
   }
 }
+/* ----------- iPad Pro 10.5 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-width: 834px) and (max-width: 1112px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  ul.menu.nav.navbar-nav {
+    margin-left: 75px;
+  }
+  .view-front-cards .view-header {
+    width: 315px;
+  }
+}
 @media only screen and (max-width: 1224px) {
   .fb-container {
     width: 200px;
@@ -4778,6 +4788,24 @@ h1 span {
     width: 65%;
   }
 }
+@media only screen and (max-width: 834px) {
+  .mobile-hide {
+    display: none;
+  }
+  ul.menu.nav.navbar-nav {
+    margin-left: 0px;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    padding: 16px 10px;
+    font-size: 14px;
+  }
+  .bs-menu ul {
+    column-gap: 5px;
+  }
+  .bs-menu ul li {
+    margin-right: 5px;
+  }
+}
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width: 768px) {
   /*************************** Global Styles ***************************/
@@ -4787,15 +4815,8 @@ h1 span {
   .navbar-header nav {
     width: 768px;
   }
-  ul.menu.nav.navbar-nav {
-    margin-left: 0px;
-  }
   .navbar-inverse .navbar-nav > li > a {
     padding: 16px 6px;
-    font-size: 14px;
-  }
-  .mobile-hide {
-    display: none;
   }
   .bs-menu ul li {
     width: 110px;
