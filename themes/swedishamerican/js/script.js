@@ -124,13 +124,13 @@
 						$('header').css('height', '250px');
 					}
 					
-					if ($(window).width() > 768) { 
+					// if ($(window).width() > 768) { 
 						
-						var mainContainer = $('.term-content-container').width();
-						var phoneContainer = $('.phone-email').width() + 60;
-						var mapContainer = 100 - ((phoneContainer / mainContainer) * 100);
-						$('.location-address').css('width', parseInt(mapContainer - 2) + "%");
-					}
+						// var mainContainer = $('.term-content-container').width();
+						// var phoneContainer = $('.phone-email').width() + 60;
+						// var mapContainer = 100 - ((phoneContainer / mainContainer) * 100);
+						// $('.location-address').css('width', parseInt(mapContainer - 2) + "%");
+					// }
 				}
 				else {
 					if ($(window).width() > 736) { 
