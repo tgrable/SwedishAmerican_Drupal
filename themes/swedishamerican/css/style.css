@@ -5468,6 +5468,9 @@ h1 span {
 }
 /* ----------- iPhone 6-7 (portrait) ----------- */
 @media only screen and (max-width: 375px) {
+  #preheader {
+    width: 87%;
+  }
   #preheader .logo {
     margin: 0 10px 0 0;
   }
