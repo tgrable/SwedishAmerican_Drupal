@@ -7,7 +7,9 @@
 			pathname: window.location.pathname, // Returns path only
 			url: window.location.href,    // Returns full URL
 			
-			init: function() {					
+			init: function() {
+				alert(navigator.userAgent);
+
 				if (!$('.extra-services').length) {
 					var main = [];
 					var extra = [];
