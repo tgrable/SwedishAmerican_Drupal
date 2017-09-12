@@ -4623,7 +4623,7 @@ h1 span {
     font-size: 28px;
   }
   .bs-menu ul {
-    column-gap: 0px;
+    column-gap: 15px;
   }
   .region-sidebar-second a {
     font-size: 14px;
