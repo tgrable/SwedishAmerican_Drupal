@@ -2762,6 +2762,7 @@ div#block-swedishamerican-search {
 }
 .lightBox {
   cursor: pointer;
+  vertical-align: top;
 }
 .thumb {
   width: 400px;
