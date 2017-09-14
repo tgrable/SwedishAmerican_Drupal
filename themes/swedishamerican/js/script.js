@@ -8,6 +8,10 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {
+				$( window ).resize(function() {
+					console.log($(window).width());
+				});
+
 				if (!$('.extra-services').length) {
 					var main = [];
 					var extra = [];
