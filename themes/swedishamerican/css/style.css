@@ -4726,6 +4726,9 @@ h1 span {
   #preheader .search {
     width: 60%;
   }
+  .navbar-inverse .navbar-nav > li > a {
+    padding: 16px 6px;
+  }
   .inline-desktop {
     display: block;
   }
@@ -4818,9 +4821,6 @@ h1 span {
   }
   .navbar-header nav {
     width: 768px;
-  }
-  .navbar-inverse .navbar-nav > li > a {
-    padding: 16px 6px;
   }
   .bs-menu ul li {
     width: 110px;
