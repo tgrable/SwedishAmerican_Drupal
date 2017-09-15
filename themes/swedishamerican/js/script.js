@@ -160,10 +160,10 @@
 	
 							// console.log('-------------------------');
 	
-							// console.log((phoneContainer + mainContainer));
+							// console.log((phoneContainer + mapContainer));
 							// console.log((mainContainer - 10));
 							
-							if ((phoneContainer + mainContainer) > (mainContainer - 10)) {
+							if ((phoneContainer + mapContainer) > (mainContainer) && mainContainer != mapContainer) {
 								var newWidth = 100 - ((phoneContainer / mainContainer) * 100);
 								$('.location-address').css('width', parseInt(newWidth - 2) + "%");
 							}
