@@ -150,27 +150,30 @@
 						if (!$('.location-address').hasClass('location-resized')) {
 							$('.location-address').addClass('location-resized')
 
-							$('.location-address iframe').load(function() {
-								var mainContainer = $('.term-content-container').width();
-								var phoneContainer = $('.phone-email').width() + 61;
-								var mapContainer = $('.location-address').width();
-								
-	
-								console.log(mainContainer);
-								console.log(phoneContainer);
-								console.log(mapContainer);
-		
-								console.log('-------------------------');
-		
-								console.log((phoneContainer + mapContainer));
-								console.log((mainContainer - 10));
-								console.log('');
-								
-								if ((phoneContainer + mapContainer) > (mainContainer) && mainContainer != mapContainer) {
-									var newWidth = 100 - ((phoneContainer / mainContainer) * 100);
-									$('.location-address').css('width', parseInt(newWidth - 2) + "%");
+							if ($(window).width() >= 992) {
+								$('.location-address iframe').load(function() {
+									mainController.resizeContainer();
+								});
+							}				
+
+							$( window ).on( "orientationchange", function( event ) {
+								console.log("orientationchange");
+								if ($(window).width() > $(window).height()) {
+									mainController.resizeContainer();
 								}
-							})
+								else {
+									$('.location-address').css('width', "100%");
+								}
+							});
+
+							$( window ).resize(function() {
+								if ($(window).width() >= 992) {
+									mainController.resizeContainer();
+								}
+								else {
+									$('.location-address').css('width', "100%");
+								}
+							});
 						}
 					}
 				}
@@ -186,6 +189,16 @@
 							$('header').css('height', '52px');
 						}
 					});
+				}
+			},
+			resizeContainer: function() {
+				var mainContainer = $('.term-content-container').width();
+				var phoneContainer = $('.phone-email').width() + 61;
+				var mapContainer = $('.location-address').width();
+				
+				if ((phoneContainer + mapContainer) > (mainContainer)) {
+					var newWidth = 100 - ((phoneContainer / mainContainer) * 100);
+					$('.location-address').css('width', parseInt(newWidth - 2) + "%");
 				}
 			}
 		};
