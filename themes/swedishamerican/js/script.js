@@ -150,7 +150,7 @@
 						if (!$('.location-address').hasClass('location-resized')) {
 							$('.location-address').addClass('location-resized')
 
-							$('.location-address .map iframe').load(function() {
+							$('.location-address iframe').load(function() {
 								var mainContainer = $('.term-content-container').width();
 								var phoneContainer = $('.phone-email').width() + 61;
 								var mapContainer = $('.location-address').width();
