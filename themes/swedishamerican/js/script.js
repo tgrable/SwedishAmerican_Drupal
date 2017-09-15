@@ -152,9 +152,16 @@
 
 							if ($(window).width() >= 992) {
 								mainController.resizeContainer();
+
+								if (navigator.userAgent.match(/(iPad|Safari)/)) {
+									$('.location-address iframe').load(function() {
+										mainController.resizeContainer();
+									});
+								}
 							}				
 
 							$( window ).on( "orientationchange", function( event ) {
+								console.log("orientationchange");
 								if ($(window).width() > $(window).height()) {
 									mainController.resizeContainer();
 								}
