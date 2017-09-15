@@ -344,158 +344,158 @@
 		}
 		flipCards.init();
 
-		var colWidths = {
-			init: function() {
-				console.log($(window).width());
+		// var colWidths = {
+		// 	init: function() {
+		// 		console.log($(window).width());
 
-				if ($(window).width() <= 1112) {
-					if ($('.main-col').hasClass('all-three-col')) {
-						// $('.main-col').removeClass('col-sm-8');
-						// $('.main-col').addClass('col-sm-9');
-					}
-					else if ($('.main-col').hasClass('no-right-col')) {
-						$('.main-col').removeClass('col-sm-10');
-						$('.main-col').addClass('col-sm-9');
-					}
-					else if ($('.main-col').hasClass('no-left-col')) {
-						$('.main-col').removeClass('col-sm-10');
-						$('.main-col').addClass('col-sm-12');
-					}
-					else {
+		// 		if ($(window).width() <= 1112) {
+		// 			if ($('.main-col').hasClass('all-three-col')) {
+		// 				// $('.main-col').removeClass('col-sm-8');
+		// 				// $('.main-col').addClass('col-sm-9');
+		// 			}
+		// 			else if ($('.main-col').hasClass('no-right-col')) {
+		// 				$('.main-col').removeClass('col-sm-10');
+		// 				$('.main-col').addClass('col-sm-9');
+		// 			}
+		// 			else if ($('.main-col').hasClass('no-left-col')) {
+		// 				$('.main-col').removeClass('col-sm-10');
+		// 				$('.main-col').addClass('col-sm-12');
+		// 			}
+		// 			else {
 					
-					}
-				}
+		// 			}
+		// 		}
 
-				$( window ).resize(function() {
-					if ($(window).width() > 1112) { 
-						if ($('.main-col').hasClass('all-three-col')) {
-							// $('.main-col').removeClass('col-sm-8');
-							// $('.main-col').addClass('col-sm-9');
-						}
-						else if ($('.main-col').hasClass('no-right-col')) {
-							$('.main-col').removeClass('col-sm-10');
-							$('.main-col').addClass('col-sm-9');
-						}
-						else if ($('.main-col').hasClass('no-left-col')) {
-							$('.main-col').removeClass('col-sm-10');
-							$('.main-col').addClass('col-sm-12');
-						}
-						else {
+		// 		$( window ).resize(function() {
+		// 			if ($(window).width() > 1112) { 
+		// 				if ($('.main-col').hasClass('all-three-col')) {
+		// 					// $('.main-col').removeClass('col-sm-8');
+		// 					// $('.main-col').addClass('col-sm-9');
+		// 				}
+		// 				else if ($('.main-col').hasClass('no-right-col')) {
+		// 					$('.main-col').removeClass('col-sm-10');
+		// 					$('.main-col').addClass('col-sm-9');
+		// 				}
+		// 				else if ($('.main-col').hasClass('no-left-col')) {
+		// 					$('.main-col').removeClass('col-sm-10');
+		// 					$('.main-col').addClass('col-sm-12');
+		// 				}
+		// 				else {
 						
-						};
-					}
-					else {
-						// if ($('.main-col').hasClass('all-three-col')) {
-						// 	$('.main-col').removeClass('col-sm-9');
-						// 	$('.main-col').addClass('col-sm-8');
-						// }
-						// else if ($('.main-col').hasClass('no-right-col')) {
-						// 	$('.main-col').removeClass('col-sm-9');
-						// 	$('.main-col').addClass('col-sm-10');
-						// }
-						// else if ($('.main-col').hasClass('no-left-col')) {
-						// 	$('.main-col').removeClass('col-sm-12');
-						// 	$('.main-col').addClass('col-sm-10');
-						// }
-						// else {
+		// 				};
+		// 			}
+		// 			else {
+		// 				// if ($('.main-col').hasClass('all-three-col')) {
+		// 				// 	$('.main-col').removeClass('col-sm-9');
+		// 				// 	$('.main-col').addClass('col-sm-8');
+		// 				// }
+		// 				// else if ($('.main-col').hasClass('no-right-col')) {
+		// 				// 	$('.main-col').removeClass('col-sm-9');
+		// 				// 	$('.main-col').addClass('col-sm-10');
+		// 				// }
+		// 				// else if ($('.main-col').hasClass('no-left-col')) {
+		// 				// 	$('.main-col').removeClass('col-sm-12');
+		// 				// 	$('.main-col').addClass('col-sm-10');
+		// 				// }
+		// 				// else {
 						
-						// };
-					}
-				});
+		// 				// };
+		// 			}
+		// 		});
 
-				$( window ).on( "orientationchange", function( event ) {
-					console.log('orientationchange');
-					if ($(window).width() > $(window).height()) {
-						console.log('Landscape');
-						if ($('.main-col').hasClass('all-three-col')) {
-							$('.main-col').addClass('col-sm-8');
-							$('.main-col').removeClass('col-sm-9');
-						}
-						else if ($('.main-col').hasClass('no-right-col')) {
-							$('.main-col').addClass('col-sm-10');
-							$('.main-col').removeClass('col-sm-9');
-						}
-						else if ($('.main-col').hasClass('no-left-col')) {
-							$('.main-col').addClass('col-sm-10');
-							$('.main-col').removeClass('col-sm-12');
-						}
-						else {
+		// 		$( window ).on( "orientationchange", function( event ) {
+		// 			console.log('orientationchange');
+		// 			if ($(window).width() > $(window).height()) {
+		// 				console.log('Landscape');
+		// 				if ($('.main-col').hasClass('all-three-col')) {
+		// 					$('.main-col').addClass('col-sm-8');
+		// 					$('.main-col').removeClass('col-sm-9');
+		// 				}
+		// 				else if ($('.main-col').hasClass('no-right-col')) {
+		// 					$('.main-col').addClass('col-sm-10');
+		// 					$('.main-col').removeClass('col-sm-9');
+		// 				}
+		// 				else if ($('.main-col').hasClass('no-left-col')) {
+		// 					$('.main-col').addClass('col-sm-10');
+		// 					$('.main-col').removeClass('col-sm-12');
+		// 				}
+		// 				else {
 						
-						}
+		// 				}
 
-					}
-					else {
-						console.log('Portrait');
-						if ($('.main-col').hasClass('all-three-col')) {
-							$('.main-col').addClass('col-sm-8');
-							$('.main-col').removeClass('col-sm-9');
-						}
-						else if ($('.main-col').hasClass('no-right-col')) {
-							$('.main-col').addClass('col-sm-10');
-							$('.main-col').removeClass('col-sm-9');
-						}
-						else if ($('.main-col').hasClass('no-left-col')) {
-							$('.main-col').addClass('col-sm-10');
-							$('.main-col').removeClass('col-sm-12');
-						}
-						else {
+		// 			}
+		// 			else {
+		// 				console.log('Portrait');
+		// 				if ($('.main-col').hasClass('all-three-col')) {
+		// 					$('.main-col').addClass('col-sm-8');
+		// 					$('.main-col').removeClass('col-sm-9');
+		// 				}
+		// 				else if ($('.main-col').hasClass('no-right-col')) {
+		// 					$('.main-col').addClass('col-sm-10');
+		// 					$('.main-col').removeClass('col-sm-9');
+		// 				}
+		// 				else if ($('.main-col').hasClass('no-left-col')) {
+		// 					$('.main-col').addClass('col-sm-10');
+		// 					$('.main-col').removeClass('col-sm-12');
+		// 				}
+		// 				else {
 						
-						}
-					}
+		// 				}
+		// 			}
 					
 
-					// if ($(window).width() >= 768) {
-					// 	console.log('>= 834');
+		// 			// if ($(window).width() >= 768) {
+		// 			// 	console.log('>= 834');
 
-					// 	if ($(window).width() <= 1024) {
-					// 		console.log('<= 1024');
+		// 			// 	if ($(window).width() <= 1024) {
+		// 			// 		console.log('<= 1024');
 
-					// 		if ($('.main-col').hasClass('all-three-col')) {
-					// 			$('.main-col').addClass('col-sm-8');
-					// 			$('.main-col').removeClass('col-sm-9');
-					// 		}
-					// 		else if ($('.main-col').hasClass('no-right-col')) {
-					// 			$('.main-col').addClass('col-sm-10');
-					// 			$('.main-col').removeClass('col-sm-9');
-					// 		}
-					// 		else if ($('.main-col').hasClass('no-left-col')) {
-					// 			$('.main-col').addClass('col-sm-10');
-					// 			$('.main-col').removeClass('col-sm-12');
-					// 		}
-					// 		else {
+		// 			// 		if ($('.main-col').hasClass('all-three-col')) {
+		// 			// 			$('.main-col').addClass('col-sm-8');
+		// 			// 			$('.main-col').removeClass('col-sm-9');
+		// 			// 		}
+		// 			// 		else if ($('.main-col').hasClass('no-right-col')) {
+		// 			// 			$('.main-col').addClass('col-sm-10');
+		// 			// 			$('.main-col').removeClass('col-sm-9');
+		// 			// 		}
+		// 			// 		else if ($('.main-col').hasClass('no-left-col')) {
+		// 			// 			$('.main-col').addClass('col-sm-10');
+		// 			// 			$('.main-col').removeClass('col-sm-12');
+		// 			// 		}
+		// 			// 		else {
 							
-					// 		}
-					// 	}
+		// 			// 		}
+		// 			// 	}
 		
-					// }
-					// else {
-					// 	console.log('! >= 834');
+		// 			// }
+		// 			// else {
+		// 			// 	console.log('! >= 834');
 
-					// 	if ($(window).width() <= 768) {
+		// 			// 	if ($(window).width() <= 768) {
 
-					// 		console.log('! <= 834');
+		// 			// 		console.log('! <= 834');
 
-					// 		if ($('.main-col').hasClass('all-three-col')) {
-					// 			$('.main-col').removeClass('col-sm-8');
-					// 			$('.main-col').addClass('col-sm-9');
-					// 		}
-					// 		else if ($('.main-col').hasClass('no-right-col')) {
-					// 			$('.main-col').removeClass('col-sm-10');
-					// 			$('.main-col').addClass('col-sm-9');
-					// 		}
-					// 		else if ($('.main-col').hasClass('no-left-col')) {
-					// 			$('.main-col').removeClass('col-sm-10');
-					// 			$('.main-col').addClass('col-sm-12');
-					// 		}
-					// 		else {
+		// 			// 		if ($('.main-col').hasClass('all-three-col')) {
+		// 			// 			$('.main-col').removeClass('col-sm-8');
+		// 			// 			$('.main-col').addClass('col-sm-9');
+		// 			// 		}
+		// 			// 		else if ($('.main-col').hasClass('no-right-col')) {
+		// 			// 			$('.main-col').removeClass('col-sm-10');
+		// 			// 			$('.main-col').addClass('col-sm-9');
+		// 			// 		}
+		// 			// 		else if ($('.main-col').hasClass('no-left-col')) {
+		// 			// 			$('.main-col').removeClass('col-sm-10');
+		// 			// 			$('.main-col').addClass('col-sm-12');
+		// 			// 		}
+		// 			// 		else {
 							
-					// 		}
-					// 	}
-					// }
-				});
-			}
-		}
-		colWidths.init();
+		// 			// 		}
+		// 			// 	}
+		// 			// }
+		// 		});
+		// 	}
+		// }
+		// colWidths.init();
 
 		var lightBox = {
 			init: function() {
