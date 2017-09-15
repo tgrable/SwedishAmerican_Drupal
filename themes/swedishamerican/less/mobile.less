@@ -59,6 +59,10 @@
 }
 
 @media only screen and (max-width : 1224px) {
+    ul.menu.nav.navbar-nav {
+        margin-left: 50px;
+    }
+
     .fb-container {
         width: 200px;
         margin: 0 15px 0 0;
@@ -252,12 +256,19 @@
 }
 
 @media only screen and (max-width : 992px) {
+    // .mobile-hide {
+    //     display: none;
+    // }
+
     #preheader {
         .search {
             width: 60%;
         }
     }
-    
+
+    .navbar-inverse .navbar-nav > li > a {
+        padding: 16px 6px;
+    }    
 
     .inline-desktop {
         display: block;
@@ -349,10 +360,6 @@
     }
 }
 @media only screen and (max-width : 834px) {
-    .mobile-hide {
-        display: none;
-    }
-
     ul.menu.nav.navbar-nav {
         margin-left: 0px;
     }
@@ -372,33 +379,202 @@
 }
 
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
     /*************************** Global Styles ***************************/
+    // #preheader {
+    //     .search {
+    //         width: 62%;
+    //     }
+    // }
+    // .navbar-header nav {
+    //     width: 768px;
+    // }
+
+    // .bs-menu {
+    //     ul {
+    //         li {
+    //             width: 110px;
+    //             margin-right: 0px;
+
+    //             a {
+    //                 padding: 3px 0px;
+    //                 white-space: normal;
+    //             }
+    //         }
+    //     }
+    // }
+
     #preheader {
+        // width: 678px;
+        height: 52px;
+        margin: 0;
+        float: left;
+        position: relative;
+        z-index: 51;
+
+        .logo {
+            margin: 0 15px 0 30px;
+
+            img {
+                height: 52px;
+            }
+        }
+
         .search {
-            width: 62%;
+            // width: 564px;
+            margin-right: 0;
+
+            form#search-block-form input {
+                height: 52px;
+            }
+
+            .form-group {
+                margin-bottom: 0;
+            }
+        }
+
+        .phone {
+            display: none;
         }
     }
-    .navbar-header nav {
-        width: 768px;
+
+    ul.menu.nav.navbar-nav {
+        margin-top: 88px;
     }
 
-    .navbar-inverse .navbar-nav > li > a {
-        padding: 16px 6px;
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+        width: 100%;
+    }
+
+    .navbar-header nav {
+        width: auto;
     }
 
     .bs-menu {
-        ul {
-            li {
-                width: 110px;
-                margin-right: 0px;
+        border-left: none;
+        padding: 0 15px;
+        margin: 0 0 0 5px;
 
-                a {
-                    padding: 3px 0px;
-                    white-space: normal;
+        ul {
+            column-count: 1;
+        }
+    }
+
+    li.extra-services {
+        margin: 0;
+    } 
+
+
+    // Header Region
+    #block-servicebanner,
+    #block-cancercarebanner,
+    #block-allergybanner,
+    #block-audiologybanner,
+    #block-breastcarebanner,
+    #block-nutritionbanner,
+    #block-emergencybanner,
+    #block-migrainesbanner,
+    #block-heartcarebanner,
+    #block-holisticbanner,
+    #block-homecarebanner,
+    #block-imagingbanner,
+    #block-kidscarebanner,
+    #block-mentalhealthbanner,
+    #block-orthopedicsbanner,
+    #block-physicaltherapybanner,
+    #block-sleepdisordersbanner,
+    #block-surgerybanner,
+    #block-wellnessbanner,
+    #block-woundcarebanner,
+    #block-blogbanner,
+    #block-aboutbanner,
+    #block-patientsbanner,
+    #block-visitorsbanner,
+    #block-swedishamericananimationbanner {
+        display: none;
+    }
+
+
+    #postheader {
+        display: block;
+        background: rgba(63, 63, 63, 1);
+        
+        .phone {
+            font-size: 18px;
+            padding: 5px;
+            color: @white;
+            text-align: center;
+        }
+    }
+
+    .navbar-inverse .navbar-collapse, 
+    .navbar-inverse .navbar-form {
+        border: 1px solid @brand-primary;
+        background-color: @white;
+        margin-top: -22px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        border-bottom: none;
+    }
+
+    .navbar-inverse .navbar-nav > .active > a, 
+    .navbar-inverse .navbar-nav > .active > a:hover, 
+    .navbar-inverse .navbar-nav > .active > a:focus,
+    .navbar-inverse .navbar-nav > li > a,
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
+        color: @text-color;
+    }
+
+    .dropdown-menu {
+        box-shadow: none;
+    }
+
+    .navbar-header {
+        background: @white;
+        background-color: transparent;
+
+        .region-navigation {
+            display: inline-block;
+            width: 84%;
+
+            .logo {
+                padding-right: 0;
+                padding-left: 0;
+                margin-right: 15px; 
+
+                img {
+                    height: 52px;
+                }
+            }
+            .block-search-form-block {
+                .input-group {
+                    height: 52px;
+                }
+                input#edit-keys--2 {
+                    box-shadow: none;
+                    padding-top: 15px;
                 }
             }
         }
+        .navbar-toggle {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .view-front-cards .view-header,
+    #block-socialheader,
+    #block-facebookpostfeed,
+    #block-instagrampostfeed,
+    #block-youtubepostfeed,
+    #block-twitterpostfeed,
+    .top-bar-location,
+    footer {
+        display: none;
     }
 
     footer {
@@ -586,178 +762,178 @@
         border-bottom: none;
     }
 
-    #preheader {
-        // width: 678px;
-        height: 52px;
-        margin: 0;
-        float: left;
-        position: relative;
-        z-index: 51;
+    // #preheader {
+    //     // width: 678px;
+    //     height: 52px;
+    //     margin: 0;
+    //     float: left;
+    //     position: relative;
+    //     z-index: 51;
 
-        .logo {
-            margin: 0 15px 0 30px;
+    //     .logo {
+    //         margin: 0 15px 0 30px;
 
-            img {
-                height: 52px;
-            }
-        }
+    //         img {
+    //             height: 52px;
+    //         }
+    //     }
 
-        .search {
-            // width: 564px;
-            margin-right: 0;
+    //     .search {
+    //         // width: 564px;
+    //         margin-right: 0;
 
-            form#search-block-form input {
-                height: 52px;
-            }
+    //         form#search-block-form input {
+    //             height: 52px;
+    //         }
 
-            .form-group {
-                margin-bottom: 0;
-            }
-        }
+    //         .form-group {
+    //             margin-bottom: 0;
+    //         }
+    //     }
 
-        .phone {
-            display: none;
-        }
-    }
+    //     .phone {
+    //         display: none;
+    //     }
+    // }
 
-    ul.menu.nav.navbar-nav {
-        margin-top: 88px;
-    }
+    // ul.menu.nav.navbar-nav {
+    //     margin-top: 88px;
+    // }
 
-    ul.nav li.dropdown:hover > ul.dropdown-menu {
-        display: block;
-        width: 100%;
-    }
+    // ul.nav li.dropdown:hover > ul.dropdown-menu {
+    //     display: block;
+    //     width: 100%;
+    // }
 
-    .navbar-header nav {
-        width: auto;
-    }
+    // .navbar-header nav {
+    //     width: auto;
+    // }
 
-    .bs-menu {
-        border-left: none;
-        padding: 0 15px;
-        margin: 0 0 0 5px;
+    // .bs-menu {
+    //     border-left: none;
+    //     padding: 0 15px;
+    //     margin: 0 0 0 5px;
 
-        ul {
-            column-count: 1;
-        }
-    }
+    //     ul {
+    //         column-count: 1;
+    //     }
+    // }
 
-    li.extra-services {
-        margin: 0;
-    } 
-
-
-    // Header Region
-    #block-servicebanner,
-    #block-cancercarebanner,
-    #block-allergybanner,
-    #block-audiologybanner,
-    #block-breastcarebanner,
-    #block-nutritionbanner,
-    #block-emergencybanner,
-    #block-migrainesbanner,
-    #block-heartcarebanner,
-    #block-holisticbanner,
-    #block-homecarebanner,
-    #block-imagingbanner,
-    #block-kidscarebanner,
-    #block-mentalhealthbanner,
-    #block-orthopedicsbanner,
-    #block-physicaltherapybanner,
-    #block-sleepdisordersbanner,
-    #block-surgerybanner,
-    #block-wellnessbanner,
-    #block-woundcarebanner,
-    #block-blogbanner,
-    #block-aboutbanner,
-    #block-patientsbanner,
-    #block-visitorsbanner,
-    #block-swedishamericananimationbanner {
-        display: none;
-    }
+    // li.extra-services {
+    //     margin: 0;
+    // } 
 
 
-    #postheader {
-        display: block;
-        background: rgba(63, 63, 63, 1);
+    // // Header Region
+    // #block-servicebanner,
+    // #block-cancercarebanner,
+    // #block-allergybanner,
+    // #block-audiologybanner,
+    // #block-breastcarebanner,
+    // #block-nutritionbanner,
+    // #block-emergencybanner,
+    // #block-migrainesbanner,
+    // #block-heartcarebanner,
+    // #block-holisticbanner,
+    // #block-homecarebanner,
+    // #block-imagingbanner,
+    // #block-kidscarebanner,
+    // #block-mentalhealthbanner,
+    // #block-orthopedicsbanner,
+    // #block-physicaltherapybanner,
+    // #block-sleepdisordersbanner,
+    // #block-surgerybanner,
+    // #block-wellnessbanner,
+    // #block-woundcarebanner,
+    // #block-blogbanner,
+    // #block-aboutbanner,
+    // #block-patientsbanner,
+    // #block-visitorsbanner,
+    // #block-swedishamericananimationbanner {
+    //     display: none;
+    // }
+
+
+    // #postheader {
+    //     display: block;
+    //     background: rgba(63, 63, 63, 1);
         
-        .phone {
-            font-size: 18px;
-            padding: 5px;
-            color: @white;
-            text-align: center;
-        }
-    }
+    //     .phone {
+    //         font-size: 18px;
+    //         padding: 5px;
+    //         color: @white;
+    //         text-align: center;
+    //     }
+    // }
 
-    .navbar-inverse .navbar-collapse, 
-    .navbar-inverse .navbar-form {
-        border: 1px solid @brand-primary;
-        background-color: @white;
-        margin-top: -22px;
-    }
+    // .navbar-inverse .navbar-collapse, 
+    // .navbar-inverse .navbar-form {
+    //     border: 1px solid @brand-primary;
+    //     background-color: @white;
+    //     margin-top: -22px;
+    // }
 
-    .navbar-inverse .navbar-nav > li > a:hover {
-        border-bottom: none;
-    }
+    // .navbar-inverse .navbar-nav > li > a:hover {
+    //     border-bottom: none;
+    // }
 
-    .navbar-inverse .navbar-nav > .active > a, 
-    .navbar-inverse .navbar-nav > .active > a:hover, 
-    .navbar-inverse .navbar-nav > .active > a:focus,
-    .navbar-inverse .navbar-nav > li > a,
-    .navbar-inverse .navbar-nav > li > a:hover,
-    .navbar-inverse .navbar-nav > li > a:focus {
-        color: @text-color;
-    }
+    // .navbar-inverse .navbar-nav > .active > a, 
+    // .navbar-inverse .navbar-nav > .active > a:hover, 
+    // .navbar-inverse .navbar-nav > .active > a:focus,
+    // .navbar-inverse .navbar-nav > li > a,
+    // .navbar-inverse .navbar-nav > li > a:hover,
+    // .navbar-inverse .navbar-nav > li > a:focus {
+    //     color: @text-color;
+    // }
 
-    .dropdown-menu {
-        box-shadow: none;
-    }
+    // .dropdown-menu {
+    //     box-shadow: none;
+    // }
 
-    .navbar-header {
-        background: @white;
-        background-color: transparent;
+    // .navbar-header {
+    //     background: @white;
+    //     background-color: transparent;
 
-        .region-navigation {
-            display: inline-block;
-            width: 84%;
+    //     .region-navigation {
+    //         display: inline-block;
+    //         width: 84%;
 
-            .logo {
-                padding-right: 0;
-                padding-left: 0;
-                margin-right: 15px; 
+    //         .logo {
+    //             padding-right: 0;
+    //             padding-left: 0;
+    //             margin-right: 15px; 
 
-                img {
-                    height: 52px;
-                }
-            }
-            .block-search-form-block {
-                .input-group {
-                    height: 52px;
-                }
-                input#edit-keys--2 {
-                    box-shadow: none;
-                    padding-top: 15px;
-                }
-            }
-        }
-        .navbar-toggle {
-            display: inline-block;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-    }
+    //             img {
+    //                 height: 52px;
+    //             }
+    //         }
+    //         .block-search-form-block {
+    //             .input-group {
+    //                 height: 52px;
+    //             }
+    //             input#edit-keys--2 {
+    //                 box-shadow: none;
+    //                 padding-top: 15px;
+    //             }
+    //         }
+    //     }
+    //     .navbar-toggle {
+    //         display: inline-block;
+    //         margin-top: 10px;
+    //         margin-bottom: 10px;
+    //     }
+    // }
 
-    .view-front-cards .view-header,
-    #block-socialheader,
-    #block-facebookpostfeed,
-    #block-instagrampostfeed,
-    #block-youtubepostfeed,
-    #block-twitterpostfeed,
-    .top-bar-location,
-    footer {
-        display: none;
-    }
+    // .view-front-cards .view-header,
+    // #block-socialheader,
+    // #block-facebookpostfeed,
+    // #block-instagrampostfeed,
+    // #block-youtubepostfeed,
+    // #block-twitterpostfeed,
+    // .top-bar-location,
+    // footer {
+    //     display: none;
+    // }
 
     .view-front-cards {
         .flip-container,

@@ -4796,9 +4796,6 @@ h1 span {
   }
 }
 @media only screen and (max-width: 834px) {
-  .mobile-hide {
-    display: none;
-  }
   ul.menu.nav.navbar-nav {
     margin-left: 0px;
   }
@@ -4814,151 +4811,8 @@ h1 span {
   }
 }
 /* ----------- iPads (portrait) ----------- */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   /*************************** Global Styles ***************************/
-  #preheader .search {
-    width: 62%;
-  }
-  .navbar-header nav {
-    width: 768px;
-  }
-  .bs-menu ul li {
-    width: 110px;
-    margin-right: 0px;
-  }
-  .bs-menu ul li a {
-    padding: 3px 0px;
-    white-space: normal;
-  }
-  footer .footer-content-short {
-    width: 210px;
-  }
-  /*************************** Front Page Styles ***************************/
-  .view-front-cards .views-row {
-    margin: 5px;
-  }
-  .view-front-cards .view-content {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-    margin-top: 15px;
-    min-height: 0;
-  }
-  .view-front-cards .view-content h1 {
-    text-align: left;
-  }
-  .view-front-cards .flip-container,
-  .view-front-cards .card {
-    width: 225px;
-  }
-  .view-front-cards .back {
-    display: none;
-  }
-  #block-socialheader .social-block .header-title,
-  #block-socialheader .social-block .header-body {
-    float: none;
-    display: inline-block;
-  }
-  #block-socialheader .header-title {
-    vertical-align: top;
-    width: 25%;
-  }
-  .fb-container {
-    width: 225px;
-    margin: 0 10px 0 0;
-  }
-  .ig-content {
-    width: 222px;
-  }
-  .ig_article .post_image {
-    height: 167px;
-  }
-  .small_ig_article img {
-    width: 82px;
-  }
-  .ig-content-wide {
-    width: 260px;
-  }
-  #block-twitterpostfeed .social-block .header-title {
-    margin-right: 75px;
-    min-height: 75px;
-    width: 225px;
-    float: none;
-  }
-  section#block-youtubepostfeed {
-    width: 45%;
-    margin-left: 75px;
-  }
-  /*************************** Provider Styles ***************************/
-  #dependant-fields-wrapper h1 {
-    font-size: 36px;
-  }
-  .dependant-fields-footer .icon {
-    display: block;
-  }
-  /*************************** Location Styles ***************************/
-  .view-id-locations .view-header,
-  .view-id-locations .view-content,
-  .view-id-locations .view-filters.form-group {
-    width: 40%;
-  }
-  .view-id-locations .attachment-after {
-    top: 0;
-    width: 58%;
-    left: 40%;
-  }
-  /*************************** Event Styles ***************************/
-  .events-container .card-event {
-    width: 225px;
-  }
-  /*************************** Senior Leadership Styles ***************************/
-  .senior-card {
-    width: 200px;
-  }
-  .senior-card .senior-image {
-    height: 150px;
-  }
-}
-/* ----------- iPhone 6-7 Plus & Nexus 6P (Landscape) ----------- */
-@media only screen and (max-width: 736px) {
-  .navbar-inverse .navbar-nav > li > a {
-    font-size: 16px;
-  }
-  /*************************** Global Styles ***************************/
-  .full .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .full .col-sm-12 {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  section.main-col {
-    position: relative;
-    z-index: 0;
-  }
-  .main-col.no-side-sol.col-sm-12 {
-    padding: 0;
-  }
-  .no_label {
-    display: block;
-  }
-  .overlay {
-    width: 100%;
-  }
-  .overlay .row {
-    margin: 0;
-  }
-  .service-container h1,
-  h1 {
-    margin-top: 15px;
-    font-size: 36px;
-  }
-  .top-bar {
-    height: 0;
-    margin-bottom: 45px;
-    border-bottom: none;
-  }
   #preheader {
     height: 52px;
     margin: 0;
@@ -5099,6 +4953,135 @@ h1 span {
   .top-bar-location,
   footer {
     display: none;
+  }
+  footer .footer-content-short {
+    width: 210px;
+  }
+  /*************************** Front Page Styles ***************************/
+  .view-front-cards .views-row {
+    margin: 5px;
+  }
+  .view-front-cards .view-content {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 15px;
+    min-height: 0;
+  }
+  .view-front-cards .view-content h1 {
+    text-align: left;
+  }
+  .view-front-cards .flip-container,
+  .view-front-cards .card {
+    width: 225px;
+  }
+  .view-front-cards .back {
+    display: none;
+  }
+  #block-socialheader .social-block .header-title,
+  #block-socialheader .social-block .header-body {
+    float: none;
+    display: inline-block;
+  }
+  #block-socialheader .header-title {
+    vertical-align: top;
+    width: 25%;
+  }
+  .fb-container {
+    width: 225px;
+    margin: 0 10px 0 0;
+  }
+  .ig-content {
+    width: 222px;
+  }
+  .ig_article .post_image {
+    height: 167px;
+  }
+  .small_ig_article img {
+    width: 82px;
+  }
+  .ig-content-wide {
+    width: 260px;
+  }
+  #block-twitterpostfeed .social-block .header-title {
+    margin-right: 75px;
+    min-height: 75px;
+    width: 225px;
+    float: none;
+  }
+  section#block-youtubepostfeed {
+    width: 45%;
+    margin-left: 75px;
+  }
+  /*************************** Provider Styles ***************************/
+  #dependant-fields-wrapper h1 {
+    font-size: 36px;
+  }
+  .dependant-fields-footer .icon {
+    display: block;
+  }
+  /*************************** Location Styles ***************************/
+  .view-id-locations .view-header,
+  .view-id-locations .view-content,
+  .view-id-locations .view-filters.form-group {
+    width: 40%;
+  }
+  .view-id-locations .attachment-after {
+    top: 0;
+    width: 58%;
+    left: 40%;
+  }
+  /*************************** Event Styles ***************************/
+  .events-container .card-event {
+    width: 225px;
+  }
+  /*************************** Senior Leadership Styles ***************************/
+  .senior-card {
+    width: 200px;
+  }
+  .senior-card .senior-image {
+    height: 150px;
+  }
+}
+/* ----------- iPhone 6-7 Plus & Nexus 6P (Landscape) ----------- */
+@media only screen and (max-width: 736px) {
+  .navbar-inverse .navbar-nav > li > a {
+    font-size: 16px;
+  }
+  /*************************** Global Styles ***************************/
+  .full .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .full .col-sm-12 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  section.main-col {
+    position: relative;
+    z-index: 0;
+  }
+  .main-col.no-side-sol.col-sm-12 {
+    padding: 0;
+  }
+  .no_label {
+    display: block;
+  }
+  .overlay {
+    width: 100%;
+  }
+  .overlay .row {
+    margin: 0;
+  }
+  .service-container h1,
+  h1 {
+    margin-top: 15px;
+    font-size: 36px;
+  }
+  .top-bar {
+    height: 0;
+    margin-bottom: 45px;
+    border-bottom: none;
   }
   .view-front-cards .flip-container,
   .view-front-cards .card {
