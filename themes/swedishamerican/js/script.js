@@ -151,13 +151,10 @@
 							$('.location-address').addClass('location-resized')
 
 							if ($(window).width() >= 992) {
-								$('.location-address iframe').load(function() {
-									mainController.resizeContainer();
-								});
+								mainController.resizeContainer();
 							}				
 
 							$( window ).on( "orientationchange", function( event ) {
-								console.log("orientationchange");
 								if ($(window).width() > $(window).height()) {
 									mainController.resizeContainer();
 								}
