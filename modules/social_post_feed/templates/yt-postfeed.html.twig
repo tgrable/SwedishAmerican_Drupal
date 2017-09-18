@@ -1,0 +1,29 @@
+<div class="med-padding"></div>
+<div class="social-block">
+    <div class="header-title">
+        <div class="fa-social-background yt-red inline">
+            <i class="fa fa-youtube-play">&nbsp;</i>
+        </div>
+        <div class="inline">
+            <p class="social-hdr">youtube</p>
+        </div>
+    </div>
+    <div class="youtube-container">
+        {% set vid_id = video[0]['id']['videoId'] %}
+        {% set vid_title = video[0]['snippet']['title'] %}
+        <div class="social-card youtube-content inline">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{ vid_id }}"></iframe>
+            <div class="title-container">
+                {% set prettyTitle = vid_title %}
+                {% if ":" in vid_title %}
+                    {% set newTitle = vid_title|split(":") %}
+                    <a href="https://www.youtube.com/watch?v={{ vid_id }}" target="_blank">{{ newTitle[0] }}:</a>
+                    <p class='subtitle'>{{ newTitle[1] }}</p>
+                {% else %}
+                    <a href="https://www.youtube.com/watch?v={{ vid_id }}" target="_blank">{{ vid_title }}</a>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+</div>

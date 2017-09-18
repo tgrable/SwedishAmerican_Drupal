@@ -16,6 +16,18 @@ function social_post_feed_theme() {
           'objects' => NULL,
       ],
       'template' => 'fb-postfeed',
-  ]
+    ],
+    'tw_postfeed' => [
+      'variables' => [
+          'tweet' => NULL,
+      ],
+      'template' => 'tw-postfeed',
+    ],
+    'yt_postfeed' => [
+      'variables' => [
+          'video' => NULL,
+      ],
+      'template' => 'yt-postfeed',
+    ]
   ];
 }

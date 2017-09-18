@@ -8,6 +8,7 @@ namespace Drupal\social_post_feed\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Provides a 'Facebook Post Feed' Block.
@@ -25,6 +26,7 @@ class FBPostFeedBlock extends BlockBase {
   public function build() {
     return [
       '#theme' => 'fb_postfeed',
+      '#cache' => ['max-age' => 43200], // 12 Hours
       '#objects' =>  $this->get_facebook_data()
     ];
   }

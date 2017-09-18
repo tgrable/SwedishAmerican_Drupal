@@ -28,9 +28,11 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
    * {@inheritdoc}
    */
   public function build() {
-    return array(
-      '#markup' => $this->get_twitter_data()
-    );
+    return [
+      '#theme' => 'tw_postfeed',
+      '#cache' => ['max-age' => 86400], // 24 Hours
+      '#tweet' =>  $this->get_twitter_data()
+    ];
   }
 
   private function get_twitter_data() {
@@ -40,31 +42,10 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
  
     $json = $this->search_for_a_term($bearer_token, "test");
     $obj = json_decode($json, true);
-    // dsm($obj[0]);
-
-     $markup = '<div class="med-padding"></div>';
-    $markup .= '<div class="social-block">';
-      $markup .= '<div class="header-title">';
-        $markup .= '<div class="fa-social-background ig-blue inline">';
-          $markup .= '<i class="fa fa-twitter">&nbsp;</i>';
-        $markup .= '</div>';
-        $markup .= '<div class="inline">';
-          $markup .= '<p class="social-hdr">Twitter</p>';
-        $markup .= '</div>';
-      $markup .= '</div>';
-      $markup .= '<div class="twitter-container">';
-        $markup .= '<div class="profile-data">';
-            $markup .= '<img src="/' . drupal_get_path('theme', 'swedishamerican') . '/images/logo.png" />';
-            $markup .= '<a href="https://twitter.com/SAHealthSystem" target="_blank">SwedishAmerican</a>';
-          $markup .= '</div>';
-        $markup .= $this->extract_date_string($obj[0]['created_at']);
-        $markup .= '<div class="tweet-data">' . $this->extract_url_string($obj[0]['text']) . '</div>';
-      $markup .= '</div>';
-    $markup .= '</div>';
  
     $this->invalidate_bearer_token($bearer_token); // invalidate the token
 
-    return $markup;
+    return $obj;
   }
 
   /**
@@ -173,25 +154,4 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
     curl_close($ch); // close the curl
     return $retrievedhtml;
   }
-
-  private function extract_date_string($date) {
-    $date_array = explode(" ", $date);
-    $markup = $date_array[1] . " " . $date_array[2];
-    return $markup;
-  }
-
-  private function extract_url_string($tweet) {
-    $tweet_array = explode("https://", $tweet);
-    $markup = '<div class="tweet-data">';
-      $markup .= '<div class="tweet-text">';
-        $markup .= $tweet_array[0];
-      $markup .= '</div>';
-      $markup .= '<div class="tweet-link">';
-        $markup .= '<a href="https://' . $tweet_array[1] . '" target="_blank">https://' . $tweet_array[1] . '</a>';
-      $markup .= '</div>';
-    $markup .= '</div>';
-
-    return $markup;
-  }
-
  }
