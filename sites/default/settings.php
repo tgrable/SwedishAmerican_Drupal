@@ -33,8 +33,11 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
     // Redirect to https://$primary_domain in the Live environment
     if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
         $primary_domain = 'www.swedishamerican.org';
+        $current_domain = $_SERVER['HTTP_HOST'];
+        //domains that need special redirects
+        $special_domains = array("swedesdelivers.com","swedesdelivers.org","swedesdelivers.met");
 
-        if ($_SERVER['HTTP_HOST'] != $primary_domain
+        if ($current_domain != $primary_domain
             || !isset($_SERVER['HTTP_X_SSL'])
             || $_SERVER['HTTP_X_SSL'] != 'ON') {
 
@@ -43,10 +46,17 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
                 newrelic_name_transaction("redirect");
             }
 
-            header('HTTP/1.0 301 Moved Permanently');
-            header('Location: https://' . $primary_domain . $_SERVER['REQUEST_URI']);
-            exit();
+            if ( in_array($current_domain, $special_domains )  ){
+                header('HTTP/1.0 301 Moved Permanently');
+                header('Location: https://' . $primary_domain . "/services/maternity-care");
+                exit();
+            } else {
+                header('HTTP/1.0 301 Moved Permanently');
+                header('Location: https://' . $primary_domain . $_SERVER['REQUEST_URI']);
+                exit();
+            }
         }
+
         // Drupal 8 Trusted Host Settings
         if (is_array($settings)) {
             $settings['trusted_host_patterns'] = array('^' . preg_quote($primary_domain) . '$');
