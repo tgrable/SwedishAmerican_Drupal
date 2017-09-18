@@ -2918,6 +2918,9 @@ input[type=number]:focus,
 .main-container form legend {
   border-bottom: none;
 }
+.carousel .carousel-inner > .item > img {
+  width: 100%;
+}
 header {
   background-repeat: no-repeat;
   background-attachment: scroll;
