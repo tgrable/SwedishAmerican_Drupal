@@ -35,7 +35,7 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
         $primary_domain = 'www.swedishamerican.org';
         $current_domain = $_SERVER['HTTP_HOST'];
         //domains that need special redirects
-        $special_domains = array("swedesdelivers.com","swedesdelivers.org","swedesdelivers.met");
+        $special_domains = array("swedesdelivers.com","swedesdelivers.org","swedesdelivers.net");
 
         if ($current_domain != $primary_domain
             || !isset($_SERVER['HTTP_X_SSL'])
