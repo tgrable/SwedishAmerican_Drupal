@@ -35,7 +35,7 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
         $primary_domain = 'www.swedishamerican.org';
         $current_domain = $_SERVER['HTTP_HOST'];
 
-        //domains that need special redirects
+        //domains that need special redirects for SAHS and Belvidere
         $SAHS_special_domains = array("swedesdelivers.com","swedesdelivers.org","swedesdelivers.net");
         $belvidere_special_domains = array("hospitalbelvidere.org","hospitalbelvidere.com");
 
