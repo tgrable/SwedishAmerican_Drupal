@@ -26,7 +26,9 @@ class FBPostFeedBlock extends BlockBase {
   public function build() {
     return [
       '#theme' => 'fb_postfeed',
-      '#cache' => ['max-age' => 43200], // 12 Hours
+      '#cache' => array(
+        'max-age' => 43200 // 12 Hours
+      ), 
       '#objects' =>  $this->get_facebook_data()
     ];
   }

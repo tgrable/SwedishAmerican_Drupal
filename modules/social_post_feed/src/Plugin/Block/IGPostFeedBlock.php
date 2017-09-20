@@ -34,7 +34,9 @@ use Drupal\Core\Datetime\DrupalDateTime;
 
     return [
       '#theme' => 'ig_postfeed',
-      '#cache' => ['max-age' => 86400], // 24 Hours
+      '#cache' => array(
+        'max-age' => 86400 // 24 Hours
+      ), 
       '#nodes' =>  $this->get_instagram_data()
     ];
   }

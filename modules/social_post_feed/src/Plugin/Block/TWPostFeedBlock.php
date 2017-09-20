@@ -30,7 +30,9 @@ define('CONSUMER_SECRET', 'mVm9oSGIeQf1RjCJxsQpgkxUr9DxumJYHICvSRQXqx1QDTOylZ');
   public function build() {
     return [
       '#theme' => 'tw_postfeed',
-      '#cache' => ['max-age' => 86400], // 24 Hours
+      '#cache' => array(
+        'max-age' => 86400 // 24 Hours
+      ), 
       '#tweet' =>  $this->get_twitter_data()
     ];
   }
