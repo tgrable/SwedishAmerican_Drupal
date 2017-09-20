@@ -34,8 +34,10 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
     if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
         $primary_domain = 'www.swedishamerican.org';
         $current_domain = $_SERVER['HTTP_HOST'];
-        //domains that need special redirects
-        $special_domains = array("swedesdelivers.com","swedesdelivers.org","swedesdelivers.net");
+
+        //domains that need special redirects for SAHS and Belvidere
+        $SAHS_special_domains = array("swedesdelivers.com","swedesdelivers.org","swedesdelivers.net");
+        $belvidere_special_domains = array("hospitalbelvidere.org","hospitalbelvidere.com");
 
         if ($current_domain != $primary_domain
             || !isset($_SERVER['HTTP_X_SSL'])
@@ -46,9 +48,13 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
                 newrelic_name_transaction("redirect");
             }
 
-            if ( in_array($current_domain, $special_domains )  ){
+            if ( in_array($current_domain, $SAHS_special_domains )  ){
                 header('HTTP/1.0 301 Moved Permanently');
                 header('Location: https://' . $primary_domain . "/services/maternity-care");
+                exit();
+            } elseif ( in_array($current_domain, $belvidere_special_domains ) ){
+                header('HTTP/1.0 301 Moved Permanently');
+                header('Location: https://' . $primary_domain . "/locations/belvidere-medical-center");
                 exit();
             } else {
                 header('HTTP/1.0 301 Moved Permanently');
