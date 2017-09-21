@@ -1,0 +1,5 @@
+name: SwedishAmerican Resource Links
+type: module
+description: Creates a block to display SwedishAmerican Resource Links
+package: Custom
+core: 8.x
