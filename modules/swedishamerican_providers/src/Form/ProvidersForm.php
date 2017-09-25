@@ -208,7 +208,7 @@ class ProvidersForm extends FormBase {
     
     if ($keyword != null) {
       $group = $query->orConditionGroup()
-        // ->condition('field_specialty', $keyword, 'CONTAINS')
+        //->condition('field_specialty', $keyword, 'CONTAINS')
         ->condition('field_provider_name', $keyword, 'CONTAINS');
 
       $query->condition($group);
