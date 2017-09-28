@@ -21,6 +21,7 @@ class MainBanner extends BlockBase {
     return [
       '#theme' => 'main_banner',
       '#nodes' => null,
+      '#cache' => ['max-age' => 0],
       '#attached' => array(
         'library' => array('swedishamerican_animation_banner/swedishamerican-animation-banner'),
         ),
