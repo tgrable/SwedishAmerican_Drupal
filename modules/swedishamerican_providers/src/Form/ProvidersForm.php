@@ -90,15 +90,15 @@ class ProvidersForm extends FormBase {
       '#default_value' => $providerGender
     );
 
-    $form['wrapper']['submit'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Search'),
-    );
-
     $form['wrapper']['sag'] = array(
       '#type' => 'checkbox',
       '#title' => $this->getCheckBoxMarkup(),
       '#default_value' => $providerSwedes
+    );
+
+    $form['wrapper']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Search'),
     );
 
       return $form;
