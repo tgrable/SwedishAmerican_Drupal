@@ -61,7 +61,7 @@
 }
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eeeeee;
+  border: solid 0.08em #eee;
   border-radius: .1em;
 }
 .fa-pull-left {
@@ -176,7 +176,7 @@
   font-size: 2em;
 }
 .fa-inverse {
-  color: #ffffff;
+  color: #fff;
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
@@ -2352,7 +2352,7 @@ button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
 }
 button.button.js-form-submit.form-submit.btn-primary.btn.icon-only .glyphicon-search:before {
   content: "\e003";
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-size: 18px;
 }
 @font-face {
@@ -2402,7 +2402,7 @@ hr.front {
   margin: 45px 0 60px 0;
 }
 hr {
-  color: #bebebe;
+  color: #BEBEBE;
   margin: 15px 0;
 }
 p {
@@ -2410,7 +2410,7 @@ p {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -2423,7 +2423,7 @@ p {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -2433,7 +2433,7 @@ p {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -2443,7 +2443,7 @@ p {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
 }
 h1 {
   font-family: 'AvenirNext-DemiBold';
@@ -2451,7 +2451,7 @@ h1 {
   font-style: normal;
   font-size: 40px;
   text-transform: uppercase;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.0em;
   margin: 0;
 }
@@ -2461,7 +2461,7 @@ h2 {
   font-style: normal;
   font-size: 18px;
   text-transform: uppercase;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.4em;
   margin: 15px 0;
 }
@@ -2471,7 +2471,7 @@ h3 {
   font-style: normal;
   font-size: 18px;
   text-transform: uppercase;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.4em;
   margin-bottom: 0.6em;
 }
@@ -2489,7 +2489,7 @@ ul {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.6em;
 }
 li {
@@ -2530,20 +2530,20 @@ header#navbar {
   height: 7px;
 }
 .yt-red {
-  background-color: #c52631;
+  background-color: #C52631;
 }
 .ig-blue {
-  background-color: #507aae;
+  background-color: #507AAE;
 }
 .fb-blue {
-  background-color: #413cc8;
+  background-color: #413CC8;
 }
 .subnav {
   font-family: 'AvenirNextCondensed-Regular';
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   margin-bottom: 1.5em;
 }
 .subnav .hover .active {
@@ -2551,7 +2551,7 @@ header#navbar {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   margin-bottom: 1.5em;
 }
 .related-title {
@@ -2559,7 +2559,7 @@ header#navbar {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   margin-bottom: 0.6em;
 }
 .related-sum {
@@ -2567,7 +2567,7 @@ header#navbar {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   margin-bottom: 1.5em;
 }
 .related-link {
@@ -2575,7 +2575,7 @@ header#navbar {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   margin-bottom: 1.5em;
   text-decoration: none;
 }
@@ -2584,7 +2584,7 @@ header#navbar {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   margin-bottom: 1.5em;
   text-decoration: none;
 }
@@ -2593,7 +2593,7 @@ header#navbar {
   font-weight: normal;
   font-style: italic;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
 }
 /* use standard material specs for raised button with the following exceptions:*/
 .btn:hover,
@@ -2605,7 +2605,7 @@ header#navbar {
 .btn-default,
 .btn-info,
 .btn-primary {
-  background-color: #92318f;
+  background-color: #92318F;
   color: #ffffff;
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
@@ -2647,7 +2647,7 @@ button.btn.btn-primary.btn-floating {
   text-align: right;
 }
 #preheader a {
-  color: #3f3f3f;
+  color: #3F3F3F;
 }
 #postheader {
   display: none;
@@ -2660,18 +2660,18 @@ button.btn.btn-primary.btn-floating {
   font-weight: normal;
   font-style: normal;
   font-size: 20px;
-  color: #bebebe;
+  color: #BEBEBE;
   text-transform: uppercase;
   padding: 16px 15px 14px 15px;
 }
 .search-icon {
   font-size: 23px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   padding: 16px 15px 14px 15px;
 }
 .phone-header {
   font-size: 18px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   padding: 16px 15px 14px 15px;
 }
 .navbar-header .region-navigation {
@@ -2685,13 +2685,13 @@ input#edit-keys::-webkit-input-placeholder {
   text-transform: uppercase;
 }
 div#block-swedishamerican-search {
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
   padding-right: 30px;
 }
 /* FOOTER */
 #footer-container {
   padding: 60px 30px;
-  background-color: #92318f;
+  background-color: #92318F;
 }
 .footer-content {
   font-family: 'AvenirNext-Regular';
@@ -2706,7 +2706,7 @@ div#block-swedishamerican-search {
   font-weight: normal;
   font-style: normal;
   font-size: 12px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   text-transform: uppercase;
   padding: 30px;
 }
@@ -2719,27 +2719,27 @@ div#block-swedishamerican-search {
   margin-left: 15px;
 }
 .social .email {
-  background-color: #92318f;
+  background-color: #92318F;
   padding: 11px 12px;
 }
 .social .fb {
-  background-color: #413cc8;
+  background-color: #413CC8;
   padding: 10px 15px;
 }
 .social .tw {
-  background-color: #368fe2;
+  background-color: #368FE2;
   padding: 11px 13px;
 }
 .social .ig {
-  background-color: #507aae;
+  background-color: #507AAE;
   padding: 11px 14px;
 }
 .social .li {
-  background-color: #406ace;
+  background-color: #406ACE;
   padding: 11px 14px;
 }
 .social .yt {
-  background-color: #c52631;
+  background-color: #C52631;
   padding: 11px 14px;
 }
 .block_body {
@@ -2836,7 +2836,7 @@ section#block-swedishamericanclinicaltrials .trial-id {
   font-size: 16px;
 }
 .btn-cta {
-  background-color: #92318f;
+  background-color: #92318F;
   color: white !important;
 }
 .btn-cta:hover,
@@ -2854,9 +2854,9 @@ section#block-swedishamericanclinicaltrials .trial-id {
 .btn-default:focus,
 .btn-primary:focus {
   outline: 5px auto #7f2b7c;
-  background-image: -webkit-radial-gradient(circle, #92318f 10%, #7f2b7c 11%);
-  background-image: -o-radial-gradient(circle, #92318f 10%, #7f2b7c 11%);
-  background-image: radial-gradient(circle, #92318f 10%, #7f2b7c 11%);
+  background-image: -webkit-radial-gradient(circle, #92318F 10%, #7f2b7c 11%);
+  background-image: -o-radial-gradient(circle, #92318F 10%, #7f2b7c 11%);
+  background-image: radial-gradient(circle, #92318F 10%, #7f2b7c 11%);
 }
 .field--name-field-opportunity-location,
 .field--name-field-start-date,
@@ -2903,8 +2903,8 @@ input[type=number]:focus,
 [type=email].form-control:focus,
 [type=tel].form-control:focus,
 [contenteditable].form-control:focus {
-  -webkit-box-shadow: inset 0 -2px 0 #92318f;
-  box-shadow: inset 0 -2px 0 #92318f;
+  -webkit-box-shadow: inset 0 -2px 0 #92318F;
+  box-shadow: inset 0 -2px 0 #92318F;
 }
 .form-required:after {
   margin-left: 5px;
@@ -2988,11 +2988,11 @@ header {
   font-size: 16px;
   color: #ffffff;
   text-transform: uppercase;
-  border-bottom: 2px solid #92318f;
+  border-bottom: 2px solid #92318F;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover {
-  color: #3f3f3f;
+  color: #3F3F3F;
 }
 ul.menu.nav.navbar-nav {
   margin-left: 115px;
@@ -3008,43 +3008,43 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   padding: 0px 15px;
   z-index: 1;
-  border-top: 2px solid #92318f;
+  border-top: 2px solid #92318F;
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-size: 16px;
 }
 .dropdown-content-featured {
   font-family: 'AvenirNextCondensed-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #92318f;
+  color: #92318F;
   font-size: 16px;
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
 }
 .dropdown-menu > li {
   list-style-type: none;
 }
 .dropdown-menu > li > a,
 .dropdown-menu > li > a:hover {
-  color: #3f3f3f;
+  color: #3F3F3F;
 }
 .dropdown-menu > li > a:hover {
   text-decoration: underline;
 }
 a.brand-primary,
 a.brand-primary:hover {
-  color: #92318f !important;
+  color: #92318F !important;
 }
 ul.menu.dropdown-menu:hover {
-  border-top: 2px solid #92318f;
+  border-top: 2px solid #92318F;
 }
 ul.menu.dropdown-menu {
   padding-top: 15px;
 }
 .bs-menu {
-  border-left: 1px solid #bebebe;
+  border-left: 1px solid #BEBEBE;
   padding: 0 15px;
   margin: 15px 0 45px 0;
 }
@@ -3099,7 +3099,7 @@ li.extra-services {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.0em;
   margin-top: 0;
   margin-bottom: 0;
@@ -3110,7 +3110,7 @@ li.extra-services {
   background-color: #ffffff;
 }
 .region-sidebar-first nav li.active a {
-  color: #92318f;
+  color: #92318F;
 }
 .region-sidebar-first nav li.active::before {
   font-family: FontAwesome;
@@ -3127,7 +3127,7 @@ li.extra-services {
   font-style: normal;
   font-size: 18px;
   text-transform: uppercase;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.4em;
   margin: 0 0 15px 0;
 }
@@ -3136,7 +3136,7 @@ li.extra-services {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.0em;
   margin-top: 0;
   margin-bottom: 0;
@@ -3164,7 +3164,7 @@ li.extra-services {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.0em;
   margin-top: 0;
   margin-bottom: 0;
@@ -3216,7 +3216,7 @@ li.extra-services {
   width: 285px;
   margin-right: 15px;
   min-height: 645px;
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
   padding-right: 30px;
 }
 .view-front-cards .view-header h1 {
@@ -3241,7 +3241,7 @@ li.extra-services {
   margin: 0 auto 72px auto;
 }
 .view-header-body {
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
   padding: 0 30px 30px 0;
 }
 .social-block .header-title {
@@ -3264,7 +3264,7 @@ section#block-socialheader {
   margin-top: 60px;
 }
 footer {
-  background-color: #92318f;
+  background-color: #92318F;
   margin-top: 60px;
   padding-top: 30px !important;
   padding-bottom: 60px !important;
@@ -3337,7 +3337,7 @@ footer .footer-content-short p {
   font-style: normal;
   font-size: 16px;
   text-transform: uppercase;
-  color: #3f3f3f;
+  color: #3F3F3F;
   text-align: center;
   padding: 30px 0px 20px 0px;
 }
@@ -3348,7 +3348,7 @@ footer .footer-content-short p {
   font-weight: normal;
   font-style: normal;
   font-size: 18px;
-  color: #92318f;
+  color: #92318F;
 }
 .video-sum {
   font-family: 'AvenirNext-Regular';
@@ -3381,7 +3381,7 @@ footer .footer-content-short p {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   padding-top: 15px;
 }
 .card-provider-title-uw {
@@ -3405,7 +3405,7 @@ footer .footer-content-short p {
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   margin-bottom: 0.6em;
 }
 .card-provider-location-name {
@@ -3413,20 +3413,20 @@ footer .footer-content-short p {
   font-weight: bold;
   font-style: normal;
   font-size: 14px;
-  color: #3f3f3f;
+  color: #3F3F3F;
 }
 .card-provider-location-info {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
-  color: #3f3f3f;
+  color: #3F3F3F;
 }
 .card-provider-btn-group {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  background-color: #92318f;
+  background-color: #92318F;
   text-align: right;
   padding: 10px;
   font-size: 14px;
@@ -3480,7 +3480,7 @@ footer .footer-content-short p {
 }
 .card-image {
   border-radius: 50px;
-  background-color: #bebebe;
+  background-color: #BEBEBE;
   padding: 0px;
   width: 100px;
   height: 100px;
@@ -3506,11 +3506,11 @@ footer .footer-content-short p {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
 }
 /* CARDS:Accordion */
 .accordion-card {
-  border-bottom: 1px solid #bebebe;
+  border-bottom: 1px solid #BEBEBE;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -3574,14 +3574,14 @@ footer .footer-content-short p {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
 }
 .social-title {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
 }
 .twitter-container {
   width: 215px;
@@ -3654,7 +3654,7 @@ footer .footer-content-short p {
   vertical-align: top;
 }
 .youtube-container {
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
   margin-right: 30px;
 }
 .ig-content {
@@ -3721,7 +3721,7 @@ section#block-youtubepostfeed {
   width: 255px;
   margin-right: 30px;
   min-height: 150px;
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
 }
 .social-block-heading .header-title h1 {
   text-align: right;
@@ -3749,7 +3749,7 @@ section#block-twitterpostfeed {
   font-style: normal;
   font-size: 30px;
   text-transform: uppercase;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 36px;
 }
 .location-address .field {
@@ -3776,7 +3776,7 @@ section#block-twitterpostfeed {
   margin: 45px 30px 0 45px;
   padding-right: 30px;
   padding-bottom: 30px;
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
 }
 .location-container .term-contact-container div {
   vertical-align: top;
@@ -3792,7 +3792,7 @@ section#block-twitterpostfeed {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   margin: 5px 0;
 }
 .location-container .term-services-container {
@@ -3804,7 +3804,7 @@ section#block-twitterpostfeed {
   margin-top: 0;
 }
 .view-id-locations .views-row {
-  border-bottom: 1px solid #bebebe;
+  border-bottom: 1px solid #BEBEBE;
 }
 .view-id-locations .view-content {
   width: 25%;
@@ -3851,7 +3851,7 @@ section#block-twitterpostfeed {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   padding: 30px 0 15px 0;
   display: block;
 }
@@ -3891,7 +3891,7 @@ section#block-twitterpostfeed {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -3902,7 +3902,7 @@ section#block-twitterpostfeed {
   font-style: normal;
   font-size: 18px;
   text-transform: uppercase;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.4em;
   margin: 0 0 15px 0;
 }
@@ -3925,7 +3925,7 @@ section#block-twitterpostfeed {
 }
 .provider-container .provider-image-container .provider-image .horizontal-divider {
   height: 1px;
-  background-color: #bebebe;
+  background-color: #BEBEBE;
   width: 30%;
   margin: 0 auto 15px auto;
 }
@@ -3967,7 +3967,7 @@ section#block-twitterpostfeed {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
 }
 .provider-container .provider-details-container .field--name-field-location-reference,
 .provider-container .provider-details-container .field--name-field-map {
@@ -3979,7 +3979,7 @@ section#block-twitterpostfeed {
   font-style: normal;
   font-size: 18px;
   text-transform: uppercase;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.4em;
   margin-bottom: 0.6em;
   margin-top: 30px;
@@ -3989,7 +3989,7 @@ section#block-twitterpostfeed {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -4062,16 +4062,18 @@ section#block-twitterpostfeed {
 .select-wrapper:after {
   font-size: 0;
 }
+label[for=edit-sag] {
+  margin-top: 10px;
+}
 .form-item-sag input[type="checkbox"] {
-  margin-right: 15px;
-  float: right;
+  float: left;
 }
 .form-item-sag input[type="checkbox"]:after {
   border: 1px solid #666666;
 }
 .form-item-sag input[type="checkbox"]:checked:after {
-  background-color: #92318f;
-  border-color: #92318f;
+  background-color: #92318F;
+  border-color: #92318F;
 }
 .form-item-sag .sag-markup {
   float: left;
@@ -4096,7 +4098,7 @@ section#block-twitterpostfeed {
 }
 .dependant-fields-footer .icon {
   font-size: 28px;
-  color: #92318f;
+  color: #92318F;
   margin: 23px 15px 0 0;
   vertical-align: top;
 }
@@ -4109,7 +4111,7 @@ section#block-twitterpostfeed {
 }
 .filter-item-container .filter-object.inline {
   padding: 10px 15px;
-  background-color: #92318f;
+  background-color: #92318F;
   color: #ffffff;
   font-size: 14px;
   margin: 15px 15px 30px 15px;
@@ -4126,7 +4128,7 @@ section#block-twitterpostfeed {
 .top-bar {
   height: 60px;
   margin-bottom: 45px;
-  border-bottom: 1px solid #bebebe;
+  border-bottom: 1px solid #BEBEBE;
 }
 .providers-container {
   display: inline-block;
@@ -4158,7 +4160,7 @@ section#block-twitterpostfeed {
   font-weight: bold;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   text-align: center;
   padding: 5px;
 }
@@ -4167,7 +4169,7 @@ section#block-twitterpostfeed {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   text-align: center;
   padding: 5px;
 }
@@ -4208,10 +4210,11 @@ form#swedishamerican-provider-email-share-form input {
   vertical-align: top;
 }
 .service-container .phone-email {
-  border-right: 1px solid #bebebe;
+  border-right: 1px solid #BEBEBE;
   padding-right: 30px;
-  margin: 0 30px 30px 0;
+  margin-right: 30px;
   vertical-align: top;
+  max-width: 41%;
 }
 .service-container .phone-email .phone-email-container {
   padding-bottom: 15px;
@@ -4245,7 +4248,7 @@ form#swedishamerican-provider-email-share-form input {
   font-weight: bold;
   font-style: normal;
   text-transform: none;
-  color: #3f3f3f;
+  color: #3F3F3F;
 }
 .service-container .address h2 {
   margin-top: 0;
@@ -4283,12 +4286,12 @@ form#swedishamerican-provider-email-share-form input {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-size: 16px;
 }
 .view-id-blogs .view-content .views-row {
   margin-bottom: 15px;
-  border-bottom: 1px solid #bebebe;
+  border-bottom: 1px solid #BEBEBE;
   padding-bottom: 15px;
 }
 .view-id-blog_categories .view-content div,
@@ -4302,7 +4305,7 @@ form#swedishamerican-provider-email-share-form input {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-size: 16px;
   text-decoration: none;
 }
@@ -4311,16 +4314,16 @@ form#swedishamerican-provider-email-share-form input {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
   font-style: normal;
-  color: #92318f;
+  color: #92318F;
 }
 .pagination li a,
 .pagination li a:hover {
-  color: #92318f;
+  color: #92318F;
 }
 .pagination .active a,
 .pagination .active a:hover {
-  background-color: #92318f;
-  border-color: #92318f;
+  background-color: #92318F;
+  border-color: #92318F;
 }
 h1 span {
   margin-bottom: 15px;
@@ -4331,7 +4334,7 @@ h1 span {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-size: 16px;
 }
 .field--name-field-date-2 {
@@ -4341,7 +4344,7 @@ h1 span {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-size: 16px;
   text-decoration: none;
 }
@@ -4356,7 +4359,7 @@ h1 span {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #3f3f3f;
+  color: #3F3F3F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -4366,7 +4369,7 @@ h1 span {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
-  color: #92318f;
+  color: #92318F;
   line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 0.6em;
@@ -4537,9 +4540,6 @@ h1 span {
       visibility: visible;
     }
   }
-  @-ms-keyframes donothing {
-    
-  }
 }
 @media only screen and (max-width: 1500px) {
   .inline-collapse {
@@ -4559,7 +4559,7 @@ h1 span {
     width: 70%;
   }
   .view-id-locations .views-row {
-    border-bottom: 1px solid #bebebe;
+    border-bottom: 1px solid #BEBEBE;
   }
   .view-id-locations .view-content {
     width: 30%;
@@ -4901,7 +4901,7 @@ h1 span {
   }
   .navbar-inverse .navbar-collapse,
   .navbar-inverse .navbar-form {
-    border: 1px solid #92318f;
+    border: 1px solid #92318F;
     background-color: #ffffff;
     margin-top: -22px;
   }
@@ -4914,7 +4914,7 @@ h1 span {
   .navbar-inverse .navbar-nav > li > a,
   .navbar-inverse .navbar-nav > li > a:hover,
   .navbar-inverse .navbar-nav > li > a:focus {
-    color: #3f3f3f;
+    color: #3F3F3F;
   }
   .dropdown-menu {
     box-shadow: none;
@@ -5152,7 +5152,7 @@ h1 span {
     margin: 0;
     box-shadow: none;
     transition: none;
-    border-bottom: 1px solid #bebebe;
+    border-bottom: 1px solid #BEBEBE;
   }
   .card-provider:hover {
     box-shadow: none;
@@ -5298,7 +5298,7 @@ h1 span {
     margin: 0;
     box-shadow: none;
     transition: none;
-    border-bottom: 1px solid #bebebe;
+    border-bottom: 1px solid #BEBEBE;
   }
   .provider-container {
     width: 100%;
