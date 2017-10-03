@@ -310,18 +310,19 @@ class ProvidersForm extends FormBase {
             }
           }
 
+          //Moved these above image so I could use $title in the alt tag
+          $name = $node->get('field_provider_name')->getValue();
+          $label = $node->get('title')->getValue();
+          $title = (count($name) > 0) ? $name : $label;
+
           if ($node->get('field_image')->getValue() != null) {
             $markup .= '<div class="' . $provider_image_container . '">';
                 $markup .= '<div class="field-content">';
-                    $markup .= '<img src="' .file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" class="img-responsive">';
+                $markup .= '<img data-src="' . file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" alt="' . $title[0]['value'] . '" class="lazy img-responsive">';
                 $markup .= '</div>';
             $markup .= '</div>';
           }
 
-          $name = $node->get('field_provider_name')->getValue();
-          $label = $node->get('title')->getValue();
-          $title = (count($name) > 0) ? $name : $label;
-          
           $specialty = '';
           $termmarkup = '';
 
