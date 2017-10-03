@@ -3,3 +3,5 @@ type: module
 core: '8.x'
 description: 'Alters the formatting of the response messages sent after submission of contact forms'
 package: custom
+
+
