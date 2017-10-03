@@ -1,0 +1,115 @@
+<?php 
+/**
+  * Implementation of hook_mail_alter()
+  */
+
+function contact_message_alter_mail_alter(&$message) {
+
+  // only alter contact forms
+  if (!empty($message['id']) && $message['id'] == 'contact_page_mail') {
+
+    // Check for specific contact form
+    if ($message['params']['contact_form']->id() == 'volunteer_opportunities') {
+
+      /* @var \Drupal\contact\Entity\Message $contact_message */
+      $contact_message = $message['params']['contact_message'];
+
+      // set message body to empty array
+      $message['body'] = [];
+
+      // set variables to order fields displayed in email message
+      $first_name = $contact_message->get('field_first_name')->getString();
+      $last_name = $contact_message->get('field_last_name')->getString();
+      $over_18 = $contact_message->get('field_over_18')->getString();
+      $age_14_17 = $contact_message->get('field_14_to_17')->getString();
+      $city_of_birth = $contact_message->get('field_city_of_birth')->getString();
+      $address = $contact_message->get('field_city')->getString();
+      $current_city = $contact_message->get('field_city')->getString();
+      $state = $contact_message->get('field_state')->getString();
+      $zip = $contact_message->get('field_zip')->getString();
+      $phone = $contact_message->get('field_phone')->getString();
+      $interests = $contact_message->get('field_volunteer_interests')->getString();
+
+      // set $age_14_17 to 'N/A' if 'N/A' is selected due to value being null.
+      if ($age_14_17 == NULL || $age_14_17 == 'undefined') {
+        $age_14_17 = 'N/A';
+      }
+
+      // new body to fill the message[body] array
+      $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . PHP_EOL . PHP_EOL . PHP_EOL);
+      $new_body .= t('FIRST NAME:' . PHP_EOL . $first_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('LAST NAME:' . PHP_EOL . $last_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('ARE YOU 18 OR OLDER?' . PHP_EOL . $over_18 . PHP_EOL . PHP_EOL);
+      $new_body .= t('IF NOT, ARE YOU BETWEEN THE AGES OF 14-17?' . PHP_EOL . $age_14_17 . PHP_EOL . PHP_EOL);
+      $new_body .= t('CITY OF BIRTH:' . PHP_EOL . $city_of_birth . PHP_EOL . PHP_EOL);
+      $new_body .= t('ADDRESS:' . PHP_EOL . $address . PHP_EOL . PHP_EOL);
+      $new_body .= t('CITY:' . PHP_EOL . $current_city . PHP_EOL . PHP_EOL);
+      $new_body .= t('STATE:' . PHP_EOL . $state . PHP_EOL . PHP_EOL);
+      $new_body .= t('ZIP:' . PHP_EOL . $zip . PHP_EOL . PHP_EOL);
+      $new_body .= t('PHONE:' . PHP_EOL . $phone . PHP_EOL . PHP_EOL);
+      $new_body .= t('VOLUNTEER INTERESTS:' . PHP_EOL . $interests . PHP_EOL . PHP_EOL);
+
+
+      // assign the $new_body varaible to the message['body'] to create the new message that is sent to the recipient.
+      $message['body'][] = $new_body;
+    }
+
+    // Check for specific contact form
+    if ($message['params']['contact_form']->id() == 'educational_experience_request') {
+      
+      /* @var \Drupal\contact\Entity\Message $contact_message */
+      $contact_message = $message['params']['contact_message'];
+
+      // set message body to empty array
+      $message['body'] = [];
+
+      // set variables to order fields displayed in email message
+      $first_name = $contact_message->get('field_first_name')->getString();
+      $last_name = $contact_message->get('field_last_name')->getString();
+      $email = $contact_message->get('field_email')->getString();
+      $phone = $contact_message->get('field_phone')->getString();
+      $experience = $contact_message->get('field_which_experience_type_best')->getString();
+      $additional_details = $contact_message->get('field_additional_details')->getString();
+
+      // new body that will fill the message[body] array
+      $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . PHP_EOL . PHP_EOL . PHP_EOL);
+      $new_body .= t('FIRST NAME:' . PHP_EOL . $first_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('LAST NAME:' . PHP_EOL . $last_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('EMAIL:' . PHP_EOL . $email . PHP_EOL .PHP_EOL);
+      $new_body .= t('PHONE:' . PHP_EOL . $phone . PHP_EOL . PHP_EOL);
+      $new_body .= t('WHICH EXPERIENCE TYPE BEST DESCRIBES WHAT YOU ARE LOOKING FOR?' . PHP_EOL . $experience . PHP_EOL . PHP_EOL);
+      $new_body .= t('PLEASE PROVIDE ADDITIONAL DETAILS REGARDING THIS EXPERIENCE:' . PHP_EOL . $additional_details . PHP_EOL . PHP_EOL);
+
+
+
+      // assign the $new_body varaible to the message['body'] to create the new message that is sent to the recipient.
+      $message['body'][] = $new_body;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+/* The code below can be used to loop through fields if we can figure out how to sort the values by weight/the order they appear on the form.
+
+// $fields = $contact_message->getFields();
+
+// // start new body message
+// $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . PHP_EOL . PHP_EOL);
+
+// // loop through fields and get each fields label and value
+// foreach ($fields as $field_key => $field_value) {
+//   if (get_class($field_value->getFieldDefinition()) == 'Drupal\field\Entity\FieldConfig' && strlen($field_value->getString()) > 0 ) {
+//       $new_body .=  $field_value->getFieldDefinition()->label() . ':' . PHP_EOL;
+//       $new_body .=  $contact_message->get($field_key)->getString() . PHP_EOL . PHP_EOL;
+//   }
+// }
+
+*/
+
+

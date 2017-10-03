@@ -1,0 +1,5 @@
+name: Contact Message Alter
+type: module
+core: '8.x'
+description: 'Alters the html output of response messages sent after submission of contact forms'
+package: custom
