@@ -208,6 +208,13 @@
 		};
 		mainController.init();
 
+		var lazyLoad ={
+			init: function(){
+                $(".lazy").lazy();
+			}
+
+		};
+		lazyLoad.init();
 		var mobileNavigation = {
 			init: function() {
 				if (navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS)/)) {
