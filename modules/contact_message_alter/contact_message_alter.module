@@ -36,18 +36,18 @@ function contact_message_alter_mail_alter(&$message) {
       }
 
       // new body to fill the message[body] array
-      $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . '<br />' . '<br />' . '<br />');
-      $new_body .= t('FIRST NAME:' . '<br />' . $first_name . '<br />' . '<br />');
-      $new_body .= t('LAST NAME:' . '<br />' . $last_name . '<br />' . '<br />');
-      $new_body .= t('ARE YOU 18 OR OLDER?' . '<br />' . $over_18 . '<br />' . '<br />');
-      $new_body .= t('IF NOT, ARE YOU BETWEEN THE AGES OF 14-17?' . '<br />' . $age_14_17 . '<br />' . '<br />');
-      $new_body .= t('CITY OF BIRTH:' . '<br />' . $city_of_birth . '<br />' . '<br />');
-      $new_body .= t('ADDRESS:' . '<br />' . $address . '<br />' . '<br />');
-      $new_body .= t('CITY:' . '<br />' . $current_city . '<br />' . '<br />');
-      $new_body .= t('STATE:' . '<br />' . $state . '<br />' . '<br />');
-      $new_body .= t('ZIP:' . '<br />' . $zip . '<br />' . '<br />');
-      $new_body .= t('PHONE:' . '<br />' . $phone . '<br />' . '<br />');
-      $new_body .= t('VOLUNTEER INTERESTS:' . '<br />' . $interests . '<br />' . '<br />');
+      $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . PHP_EOL . PHP_EOL . PHP_EOL);
+      $new_body .= t('FIRST NAME:' . PHP_EOL . $first_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('LAST NAME:' . PHP_EOL . $last_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('ARE YOU 18 OR OLDER?' . PHP_EOL . $over_18 . PHP_EOL . PHP_EOL);
+      $new_body .= t('IF NOT, ARE YOU BETWEEN THE AGES OF 14-17?' . PHP_EOL . $age_14_17 . PHP_EOL . PHP_EOL);
+      $new_body .= t('CITY OF BIRTH:' . PHP_EOL . $city_of_birth . PHP_EOL . PHP_EOL);
+      $new_body .= t('ADDRESS:' . PHP_EOL . $address . PHP_EOL . PHP_EOL);
+      $new_body .= t('CITY:' . PHP_EOL . $current_city . PHP_EOL . PHP_EOL);
+      $new_body .= t('STATE:' . PHP_EOL . $state . PHP_EOL . PHP_EOL);
+      $new_body .= t('ZIP:' . PHP_EOL . $zip . PHP_EOL . PHP_EOL);
+      $new_body .= t('PHONE:' . PHP_EOL . $phone . PHP_EOL . PHP_EOL);
+      $new_body .= t('VOLUNTEER INTERESTS:' . PHP_EOL . $interests . PHP_EOL . PHP_EOL);
 
 
       // assign the $new_body varaible to the message['body'] to create the new message that is sent to the recipient.
@@ -72,13 +72,13 @@ function contact_message_alter_mail_alter(&$message) {
       $additional_details = $contact_message->get('field_additional_details')->getString();
 
       // new body that will fill the message[body] array
-      $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . '<br />' . '<br />' . '<br />');
-      $new_body .= t('FIRST NAME:' . '<br />' . $first_name . '<br />' . '<br />');
-      $new_body .= t('LAST NAME:' . '<br />' . $last_name . '<br />' . '<br />');
-      $new_body .= t('EMAIL:' . '<br />' . $email . '<br />' .'<br />');
-      $new_body .= t('PHONE:' . '<br />' . $phone . '<br />' . '<br />');
-      $new_body .= t('WHICH EXPERIENCE TYPE BEST DESCRIBES WHAT YOU ARE LOOKING FOR?' . '<br />' . $experience . '<br />' . '<br />');
-      $new_body .= t('PLEASE PROVIDE ADDITIONAL DETAILS REGARDING THIS EXPERIENCE:' . '<br />' . $additional_details . '<br />' . '<br />');
+      $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . PHP_EOL . PHP_EOL . PHP_EOL);
+      $new_body .= t('FIRST NAME:' . PHP_EOL . $first_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('LAST NAME:' . PHP_EOL . $last_name . PHP_EOL . PHP_EOL);
+      $new_body .= t('EMAIL:' . PHP_EOL . $email . PHP_EOL .PHP_EOL);
+      $new_body .= t('PHONE:' . PHP_EOL . $phone . PHP_EOL . PHP_EOL);
+      $new_body .= t('WHICH EXPERIENCE TYPE BEST DESCRIBES WHAT YOU ARE LOOKING FOR?' . PHP_EOL . $experience . PHP_EOL . PHP_EOL);
+      $new_body .= t('PLEASE PROVIDE ADDITIONAL DETAILS REGARDING THIS EXPERIENCE:' . PHP_EOL . $additional_details . PHP_EOL . PHP_EOL);
 
 
 
@@ -100,13 +100,13 @@ function contact_message_alter_mail_alter(&$message) {
 // $fields = $contact_message->getFields();
 
 // // start new body message
-// $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . '<br />' . '<br />');
+// $new_body = t('There is a new submission from the ' . $contact_message->getContactForm()->label() . ' form.' . PHP_EOL . PHP_EOL);
 
 // // loop through fields and get each fields label and value
 // foreach ($fields as $field_key => $field_value) {
 //   if (get_class($field_value->getFieldDefinition()) == 'Drupal\field\Entity\FieldConfig' && strlen($field_value->getString()) > 0 ) {
-//       $new_body .=  $field_value->getFieldDefinition()->label() . ':' . '<br />';
-//       $new_body .=  $contact_message->get($field_key)->getString() . '<br />' . '<br />';
+//       $new_body .=  $field_value->getFieldDefinition()->label() . ':' . PHP_EOL;
+//       $new_body .=  $contact_message->get($field_key)->getString() . PHP_EOL . PHP_EOL;
 //   }
 // }
 
