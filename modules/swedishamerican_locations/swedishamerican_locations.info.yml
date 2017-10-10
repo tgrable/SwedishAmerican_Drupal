@@ -1,0 +1,5 @@
+name: SwedishAmerican Locations List
+type: module
+description: Creates a block to display SwedishAmerican Locations
+package: Custom
+core: 8.x

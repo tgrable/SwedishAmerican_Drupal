@@ -8,10 +8,6 @@
 			url: window.location.href,    // Returns full URL
 			
 			init: function() {
-				$( window ).resize(function() {
-					console.log($(window).width());
-				});
-
 				if (!$('.extra-services').length) {
 					var main = [];
 					var extra = [];
@@ -89,6 +85,12 @@
 					
 					$('.event-image').each(function() {
 						var urlpath = $(this).attr("data-event");
+						$(this).css('background-image', "url('" + urlpath + "')");
+					});
+				}
+				else if (window.location.href.indexOf("new-location") >= 0) {
+					$('.location-image').each(function() {
+						var urlpath = $(this).attr("data-location");
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
 				}
@@ -208,13 +210,6 @@
 		};
 		mainController.init();
 
-		var lazyLoad ={
-			init: function(){
-                $(".lazy").lazy();
-			}
-
-		};
-		lazyLoad.init();
 		var mobileNavigation = {
 			init: function() {
 				if (navigator.userAgent.match(/(Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS)/)) {

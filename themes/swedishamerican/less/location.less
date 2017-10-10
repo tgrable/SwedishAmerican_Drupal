@@ -207,3 +207,150 @@
     line-height: 1.4em;
     margin: 0 0 15px 0;
 }
+
+// New Locations Page
+div#location-form-wrapper {
+    width: 100%;
+}
+
+.form-type-select {
+    display: inline-block;
+    width: 42%;
+}
+
+.form-text {
+    .avenirNextDemiBold;
+    text-transform: uppercase;
+    color: @text-color;
+    line-height: 1.4em;
+    margin: 0px 20px;
+}
+
+#swedishamerican-locations-form {
+    button#edit-submit--2 {
+        margin-left: 20px;
+    }
+    
+}
+
+.emerengcy-container {
+    margin-top: 30px;
+}
+
+.emerengcy-container-header {
+    background: @brand-primary;
+    padding: 8px 15px;
+    color: @white;
+    .avenirNextDemiBold;
+    text-transform: uppercase;
+}
+
+.emerengcy-container-inner {
+    background-color: #EDECED;
+}
+
+.emerengcy-container-location {
+    width: 50%;
+    padding: 15px;
+    vertical-align: top;
+
+    .image-container {
+        width: 45%;
+        vertical-align: top;
+        padding-right: 30px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .emerengcy-container-details {
+        width: 55%;
+
+        
+    
+        
+    
+        span.hours-header {
+            display: block;
+            .avenirNextDemiBold;
+            font-size: 16px;
+            color: @brand-primary;
+            margin-top: 8px;
+            line-height: 1.4em;
+        }
+    }
+}
+
+.filtered-location-name,
+.emerengcy-container-name {
+    .avenirNextDemiBold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: @brand-primary;
+    line-height: 1.4em;
+}
+
+.results-container {
+    .avenirNextDemiBold;
+    font-size: 16px;
+    color: @brand-primary;
+    line-height: 1.4em;
+}
+
+.emerengcy-container-address, 
+.emerengcy-container-hours {
+    .avenirNextRegular;
+    font-size: 14px;
+    color: @text-color;
+    line-height: 1.4em;
+    margin-top: 0px;
+}
+
+a.btn.btn-info {
+    color: white;
+    font-size: 12px;
+    margin: 8px 8px 0 0;
+    padding: 8px 24px;
+}
+
+a.btn.btn-directions {
+    color: white;
+    background-color: @directions;
+    font-size: 12px;
+    margin: 8px 0 0 0;
+    padding: 8px 25px;
+}
+a.btn.btn-directions:hover {
+    background-color: @directions-hover;
+}
+
+.filtered-location-card {
+    position: relative;
+    width: 31%;
+    height: 225px;
+    vertical-align: top;
+    margin: 1% 1% 1% 0;
+
+    .filtered-location-details-container,
+    .filtered-location-image-container {
+        width: 50%;
+        height: 100%;
+        vertical-align: top;
+
+        .location-image {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    a.btn.btn-info.inline {
+        position: absolute;
+        bottom: 8px;
+    }
+
+    .filtered-location-details-container {
+        padding: 8px;
+    }
+}
