@@ -46,10 +46,6 @@ class LocationsForm extends FormBase {
             '#default_value' => $eventKeyword
         );
 
-        $form['wrapper']['or'] = array (
-            '#markup' => '<span class="form-text">OR</span>'
-        );
-
         $form['wrapper']['service'] = array (
             '#type' => 'select',
             '#empty_option' => t('Service'),
@@ -68,11 +64,7 @@ class LocationsForm extends FormBase {
     /**
     * {@inheritdoc}
     */
-    public function validateForm(array &$form, FormStateInterface $form_state) {
-        if ($form_state->getValue('city') != null && $form_state->getValue('service') != null) {
-            drupal_set_message("Please select a city or service.", 'error');
-        }
-    }
+    public function validateForm(array &$form, FormStateInterface $form_state) { }
 
     /**
     * {@inheritdoc}
@@ -106,6 +98,11 @@ class LocationsForm extends FormBase {
     */
     private function _queryAndFilterLocationNodes(FormStateInterface $form_state) {
         $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('Locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
+        $terms = array();
+        foreach ($tree as $value) {
+            $term = taxonomy_term_load($value->tid);
+            array_push($terms, $term);
+        }
 
         # retrieve query param
         $cityKeyword = \Drupal::request()->query->get('city');
@@ -119,46 +116,29 @@ class LocationsForm extends FormBase {
             $filteredTerms = array();
 
             if(!empty($_REQUEST['city']) && !empty($_REQUEST['service'])) {
-                drupal_set_message("Please select a city or service.", 'error');
-                return $this->buildDefaultMarkup($tree);
+                if (isset($this->serviceNodes[$eventCategory])) {
+                    $filteredTerms = $this->filterTerms($terms, 'city', $cityKeyword);
+                    $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
+    
+                    $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
+                    $searchString = $cityKeyword . ' and ' . $this->serviceNodes[$eventCategory];
+                    return $this->buildFilteredMarkup($filteredTerms, $locationString, $searchString);
+                }
             }
             else if (empty($_REQUEST['city']) && empty($_REQUEST['service'])) {
-                foreach ($tree as $value) {
-                    $term = taxonomy_term_load($value->tid);
-                    array_push($filteredTerms, $term);
-                }
-                return $this->buildFilteredMarkup($filteredTerms, '', '');
+                return $this->buildFilteredMarkup($terms, '', '');
             }
             else {
                 if(!empty($_REQUEST['city'])) {
-                    foreach ($tree as $value) {
-                        $term = taxonomy_term_load($value->tid);
-                        $city_array = $term->get('field_city')->getValue();
-                        if (count($city_array) > 0) {
-                            $cityValue = $city_array[0]['value'];
-                            if ($cityValue == $cityKeyword) {
-                                array_push($filteredTerms, $term);
-                            }
-                        }
-                    }
-                    $locationString = (count($filteredTerms) > 1) ? 'Locations for ' : 'Location for ';
+                    $filteredTerms = $this->filterTerms($terms, 'city', $cityKeyword);
+                    $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
                     return $this->buildFilteredMarkup($filteredTerms, $locationString, $cityKeyword);
                 }
                 
                 if(!empty($_REQUEST['service'])) {
-                    foreach ($tree as $value) {
-                        $term = taxonomy_term_load($value->tid);
-                        $service_array = $term->get('field_service_reference')->getValue();
-                        if (count($service_array) > 0) {
-                            $serviceValue = $service_array[0]['target_id'];
-                            if ($serviceValue == $eventCategory) {
-                                array_push($filteredTerms, $term);
-                            }
-                        }
-                    }
-
-                    $locationString = (count($filteredTerms) > 1) ? 'Locations for ' : 'Location for ';
                     if (isset($this->serviceNodes[$eventCategory])) {
+                        $filteredTerms = $this->filterTerms($terms, 'service', $eventCategory);
+                        $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
                         return $this->buildFilteredMarkup($filteredTerms, $locationString, $this->serviceNodes[$eventCategory]);
                     }
                 } 
@@ -177,7 +157,7 @@ class LocationsForm extends FormBase {
                 foreach ($tree as $value) {
                     $term = taxonomy_term_load($value->tid);
                     if ($count < 4) {
-                        $markup .= '<div class="emerengcy-container-location inline">';
+                        $markup .= '<div class="emerengcy-container-location inline-desktop">';
                             $markup .= '<div class="image-container inline">';
                                 $term_image = $term->get('field_image')->getValue();
                                 if (count($term_image) > 0) {
@@ -239,7 +219,8 @@ class LocationsForm extends FormBase {
     }
 
     private function buildFilteredMarkup($filteredTerms, $serachType, $searchValue) {
-        $markup = '<div class="filtered-location-container">';
+        $markup = '<div class="divider-container"><hr /></div>';
+        $markup .= '<div class="filtered-location-container">';
             $markup .= '<div class="results-container">RESULTS: ' . count($filteredTerms) . ' ' . $serachType . $searchValue;
             $markup .= '<div class="filtered-location-inner">';
                 foreach ($filteredTerms as $term) {
@@ -251,7 +232,7 @@ class LocationsForm extends FormBase {
                                 $markup .= '<hr />';
                             $markup .= '</div>';
 
-                            $markup .= '<div class="emerengcy-container-address">';
+                            $markup .= '<div class="filtered-container-address">';
                                 $term_address = $term->get('field_address')->getValue();
                                 $markup .= $term_address[0]['value'] . '<br />';
 
@@ -315,6 +296,31 @@ class LocationsForm extends FormBase {
             $nodes[$node->id()] = $node->getTitle();
         }
         return $nodes;
+    }
+
+    private function filterTerms($terms, $filerType, $checkValue) {
+        $filteredTerms = array();
+        foreach ($terms as $term) {
+            $check_array = array();
+            $check_field = '';
+            if ($filerType == 'city') {
+                $check_array = $term->get('field_city')->getValue();
+                $check_field = 'value';
+            }
+            else {
+                $check_array = $term->get('field_service_reference')->getValue();
+                $check_field = 'target_id';
+            }
+
+            if (count($check_array) > 0) {
+                $itemValue = $check_array[0][$check_field];
+                if ($itemValue == $checkValue) {
+                    array_push($filteredTerms, $term);
+                }
+            }
+        }
+
+        return $filteredTerms;
     }
 
     private function getSearchTerm($queryString, $formValue) {

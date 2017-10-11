@@ -3773,8 +3773,8 @@ section#block-twitterpostfeed {
   width: 102%px;
 }
 .location-container .term-content-container {
-  width: 70%;
-  margin: 45px 30px 0 45px;
+  width: 75%;
+  margin: 45px 30px 0 0;
   padding-right: 30px;
   padding-bottom: 30px;
   border-right: 1px solid #bebebe;
@@ -3907,14 +3907,15 @@ section#block-twitterpostfeed {
   line-height: 1.4em;
   margin: 0 0 15px 0;
 }
-div#location-form-wrapper {
+#swedishamerican-locations-form div#location-form-wrapper {
   width: 100%;
 }
-.form-type-select {
+#swedishamerican-locations-form .form-type-select {
   display: inline-block;
   width: 42%;
+  margin: 0 30px 0 0;
 }
-.form-text {
+#swedishamerican-locations-form .form-text {
   font-family: 'AvenirNext-DemiBold';
   font-weight: bold;
   font-style: normal;
@@ -3965,7 +3966,7 @@ div#location-form-wrapper {
   font-size: 16px;
   color: #92318f;
   margin-top: 8px;
-  line-height: 1.4em;
+  line-height: 1.1em;
 }
 .filtered-location-name,
 .emerengcy-container-name {
@@ -3975,7 +3976,7 @@ div#location-form-wrapper {
   font-size: 16px;
   text-transform: uppercase;
   color: #92318f;
-  line-height: 1.4em;
+  line-height: 1.1em;
 }
 .results-container {
   font-family: 'AvenirNext-DemiBold';
@@ -3983,16 +3984,24 @@ div#location-form-wrapper {
   font-style: normal;
   font-size: 16px;
   color: #92318f;
-  line-height: 1.4em;
+  line-height: 1.1em;
 }
-.emerengcy-container-address,
-.emerengcy-container-hours {
+.emerengcy-container-address {
   font-family: 'AvenirNext-Regular';
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
   color: #3f3f3f;
-  line-height: 1.4em;
+  line-height: 1.1em;
+  margin-top: 0px;
+}
+.emerengcy-container-hours {
+  font-family: 'AvenirNextCondensed-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  color: #3f3f3f;
+  line-height: 1.1em;
   margin-top: 0px;
 }
 a.btn.btn-info {
@@ -4011,9 +4020,12 @@ a.btn.btn-directions {
 a.btn.btn-directions:hover {
   background-color: #6a6a6a;
 }
+.divider-container {
+  margin: 30px 30px 30px 0;
+}
 .filtered-location-card {
   position: relative;
-  width: 31%;
+  width: 32%;
   height: 225px;
   vertical-align: top;
   margin: 1% 1% 1% 0;
@@ -4036,6 +4048,15 @@ a.btn.btn-directions:hover {
 }
 .filtered-location-card .filtered-location-details-container {
   padding: 8px;
+}
+.filtered-location-card .filtered-location-details-container .filtered-container-address {
+  font-family: 'AvenirNextCondensed-Regular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  color: #3f3f3f;
+  line-height: 1.1em;
+  margin-top: 0px;
 }
 .provider-container h1,
 .provider-container h2 {
@@ -4855,6 +4876,16 @@ h1 span {
   #swedishamerican-providers-form .markup-area {
     width: 70%;
   }
+  .filtered-location-card .filtered-location-details-container {
+    padding: 6px;
+  }
+  .filtered-location-card .filtered-location-details-container .filtered-location-name,
+  .filtered-location-card .filtered-location-details-container .emerengcy-container-name {
+    font-size: 14px;
+  }
+  a.btn.btn-info {
+    padding: 8px 20px;
+  }
 }
 @media only screen and (max-width: 992px) {
   #preheader .search {
@@ -4927,6 +4958,21 @@ h1 span {
   }
   #swedishamerican-eventslist-form .markup-area {
     width: 65%;
+  }
+  .form-type-select {
+    width: 100%;
+  }
+  .form-text {
+    margin: 20px 0;
+  }
+  #swedishamerican-locations-form button#edit-submit--2 {
+    margin: 20px 0;
+  }
+  .emerengcy-container-location {
+    width: 100%;
+  }
+  .filtered-location-card {
+    width: 49%;
   }
 }
 @media only screen and (max-width: 834px) {
@@ -5481,6 +5527,12 @@ h1 span {
     text-align: center;
     margin-bottom: 30px;
   }
+  #swedishamerican-locations-form .form-type-select {
+    margin: 0 15px 0 0;
+  }
+  .divider-container {
+    margin: 0;
+  }
 }
 /* ----------- Nexus 5X (Landscape) ----------- */
 @media only screen and (max-width: 684px) {
@@ -5528,6 +5580,13 @@ h1 span {
     width: 315px;
     height: 240px;
   }
+  #swedishamerican-locations-form .form-type-select {
+    width: 40%;
+  }
+  .filtered-location-card .filtered-location-details-container .filtered-location-name,
+  .filtered-location-card .filtered-location-details-container .emerengcy-container-name {
+    font-size: 13px;
+  }
 }
 /* ----------- iPhone 5 (Landscape) ----------- */
 @media only screen and (max-width: 568px) {
@@ -5547,6 +5606,13 @@ h1 span {
   .locations-container .location-container .map-image-container iframe {
     width: 280px;
     height: 213px;
+  }
+  .filtered-location-card .filtered-location-details-container .filtered-location-name,
+  .filtered-location-card .filtered-location-details-container .emerengcy-container-name {
+    font-size: 12px;
+  }
+  a.btn.btn-info {
+    padding: 8px 10px;
   }
 }
 /* ----------- iPhone 6-7 Plus & Nexus 6P (portrait) ----------- */
@@ -5612,6 +5678,23 @@ h1 span {
   .event-title {
     max-width: 100%;
   }
+  a.btn.btn-info,
+  a.btn.btn-directions {
+    width: 100%;
+  }
+  .filtered-location-card {
+    width: 100%;
+  }
+  .filtered-location-card a.btn.btn-info {
+    width: 45%;
+  }
+  #swedishamerican-locations-form .form-type-select {
+    width: 100%;
+    margin: 8px 0;
+  }
+  .filtered-location-card {
+    height: 175px;
+  }
 }
 /* ----------- iPhone 6-7 (portrait) ----------- */
 @media only screen and (max-width: 375px) {
@@ -5666,6 +5749,9 @@ h1 span {
   .locations-container .location-container .map-image-container iframe {
     width: 175px;
     height: 135px;
+  }
+  a.btn.btn-directions {
+    padding: 8px 23px;
   }
   .image {
     width: 50%;
@@ -5733,5 +5819,8 @@ h1 span {
   }
   .senior-position {
     font-size: 14px;
+  }
+  a.btn.btn-directions {
+    padding: 8px;
   }
 }

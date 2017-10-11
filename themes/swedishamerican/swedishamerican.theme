@@ -28,7 +28,7 @@ function swedishamerican_preprocess_page(array &$variables) {
     $term = \Drupal\taxonomy\Entity\Term::load($term_id);
     if (strcmp ($term->getVocabularyId(), 'locations') === 0) {
       $variables['term_page'] = $term_id;
-      $variables['content_width'] = 'overlay';
+      // $variables['content_width'] = 'overlay';
 
       $block = \Drupal\block\Entity\Block::load('swedishamericanlocationproviders');
       $variables['block_output'] = \Drupal::entityTypeManager()

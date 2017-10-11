@@ -253,6 +253,21 @@
             width: 70%;
         }
     }
+
+    .filtered-location-card {
+        .filtered-location-details-container {
+            padding: 6px;
+
+            .filtered-location-name, 
+            .emerengcy-container-name {
+                font-size: 14px;
+            }
+        }
+    } 
+
+    a.btn.btn-info {
+        padding: 8px 20px;
+    }
 }
 
 @media only screen and (max-width : 992px) {
@@ -358,6 +373,26 @@
             width: 65%;
         }
     }
+
+    .form-type-select {
+        width: 100%;
+    }
+
+    .form-text {
+        margin: 20px 0;
+    }
+
+    #swedishamerican-locations-form button#edit-submit--2 {
+        margin: 20px 0;
+    }
+
+    .emerengcy-container-location {
+        width: 100%;
+    }
+
+    .filtered-location-card {
+        width: 49%;
+    }
 }
 @media only screen and (max-width : 834px) {
     ul.menu.nav.navbar-nav {
@@ -381,29 +416,6 @@
 /* ----------- iPads (portrait) ----------- */
 @media only screen and (max-width : 767px) {
     /*************************** Global Styles ***************************/
-    // #preheader {
-    //     .search {
-    //         width: 62%;
-    //     }
-    // }
-    // .navbar-header nav {
-    //     width: 768px;
-    // }
-
-    // .bs-menu {
-    //     ul {
-    //         li {
-    //             width: 110px;
-    //             margin-right: 0px;
-
-    //             a {
-    //                 padding: 3px 0px;
-    //                 white-space: normal;
-    //             }
-    //         }
-    //     }
-    // }
-
     #preheader {
         // width: 678px;
         height: 52px;
@@ -762,179 +774,6 @@
         border-bottom: none;
     }
 
-    // #preheader {
-    //     // width: 678px;
-    //     height: 52px;
-    //     margin: 0;
-    //     float: left;
-    //     position: relative;
-    //     z-index: 51;
-
-    //     .logo {
-    //         margin: 0 15px 0 30px;
-
-    //         img {
-    //             height: 52px;
-    //         }
-    //     }
-
-    //     .search {
-    //         // width: 564px;
-    //         margin-right: 0;
-
-    //         form#search-block-form input {
-    //             height: 52px;
-    //         }
-
-    //         .form-group {
-    //             margin-bottom: 0;
-    //         }
-    //     }
-
-    //     .phone {
-    //         display: none;
-    //     }
-    // }
-
-    // ul.menu.nav.navbar-nav {
-    //     margin-top: 88px;
-    // }
-
-    // ul.nav li.dropdown:hover > ul.dropdown-menu {
-    //     display: block;
-    //     width: 100%;
-    // }
-
-    // .navbar-header nav {
-    //     width: auto;
-    // }
-
-    // .bs-menu {
-    //     border-left: none;
-    //     padding: 0 15px;
-    //     margin: 0 0 0 5px;
-
-    //     ul {
-    //         column-count: 1;
-    //     }
-    // }
-
-    // li.extra-services {
-    //     margin: 0;
-    // } 
-
-
-    // // Header Region
-    // #block-servicebanner,
-    // #block-cancercarebanner,
-    // #block-allergybanner,
-    // #block-audiologybanner,
-    // #block-breastcarebanner,
-    // #block-nutritionbanner,
-    // #block-emergencybanner,
-    // #block-migrainesbanner,
-    // #block-heartcarebanner,
-    // #block-holisticbanner,
-    // #block-homecarebanner,
-    // #block-imagingbanner,
-    // #block-kidscarebanner,
-    // #block-mentalhealthbanner,
-    // #block-orthopedicsbanner,
-    // #block-physicaltherapybanner,
-    // #block-sleepdisordersbanner,
-    // #block-surgerybanner,
-    // #block-wellnessbanner,
-    // #block-woundcarebanner,
-    // #block-blogbanner,
-    // #block-aboutbanner,
-    // #block-patientsbanner,
-    // #block-visitorsbanner,
-    // #block-swedishamericananimationbanner {
-    //     display: none;
-    // }
-
-
-    // #postheader {
-    //     display: block;
-    //     background: rgba(63, 63, 63, 1);
-        
-    //     .phone {
-    //         font-size: 18px;
-    //         padding: 5px;
-    //         color: @white;
-    //         text-align: center;
-    //     }
-    // }
-
-    // .navbar-inverse .navbar-collapse, 
-    // .navbar-inverse .navbar-form {
-    //     border: 1px solid @brand-primary;
-    //     background-color: @white;
-    //     margin-top: -22px;
-    // }
-
-    // .navbar-inverse .navbar-nav > li > a:hover {
-    //     border-bottom: none;
-    // }
-
-    // .navbar-inverse .navbar-nav > .active > a, 
-    // .navbar-inverse .navbar-nav > .active > a:hover, 
-    // .navbar-inverse .navbar-nav > .active > a:focus,
-    // .navbar-inverse .navbar-nav > li > a,
-    // .navbar-inverse .navbar-nav > li > a:hover,
-    // .navbar-inverse .navbar-nav > li > a:focus {
-    //     color: @text-color;
-    // }
-
-    // .dropdown-menu {
-    //     box-shadow: none;
-    // }
-
-    // .navbar-header {
-    //     background: @white;
-    //     background-color: transparent;
-
-    //     .region-navigation {
-    //         display: inline-block;
-    //         width: 84%;
-
-    //         .logo {
-    //             padding-right: 0;
-    //             padding-left: 0;
-    //             margin-right: 15px; 
-
-    //             img {
-    //                 height: 52px;
-    //             }
-    //         }
-    //         .block-search-form-block {
-    //             .input-group {
-    //                 height: 52px;
-    //             }
-    //             input#edit-keys--2 {
-    //                 box-shadow: none;
-    //                 padding-top: 15px;
-    //             }
-    //         }
-    //     }
-    //     .navbar-toggle {
-    //         display: inline-block;
-    //         margin-top: 10px;
-    //         margin-bottom: 10px;
-    //     }
-    // }
-
-    // .view-front-cards .view-header,
-    // #block-socialheader,
-    // #block-facebookpostfeed,
-    // #block-instagrampostfeed,
-    // #block-youtubepostfeed,
-    // #block-twitterpostfeed,
-    // .top-bar-location,
-    // footer {
-    //     display: none;
-    // }
-
     .view-front-cards {
         .flip-container,
         .card {
@@ -1276,6 +1115,16 @@
         text-align: center;
         margin-bottom: 30px;
     }
+
+    #swedishamerican-locations-form {
+        .form-type-select {
+            margin: 0 15px 0 0;
+        }
+    }
+
+    .divider-container {
+        margin: 0;
+    }
 }
 
 /* ----------- Nexus 5X (Landscape) ----------- */
@@ -1351,6 +1200,21 @@
             }
         }
     }
+
+    #swedishamerican-locations-form {
+        .form-type-select {
+            width: 40%;
+        }
+    }
+
+    .filtered-location-card {
+        .filtered-location-details-container {
+            .filtered-location-name, 
+            .emerengcy-container-name {
+                font-size: 13px;
+            }
+        }
+    } 
 }
 
 /* ----------- iPhone 5 (Landscape) ----------- */
@@ -1382,6 +1246,19 @@
                 }
             }
         }
+    }
+
+    .filtered-location-card {
+        .filtered-location-details-container {
+            .filtered-location-name, 
+            .emerengcy-container-name {
+                font-size: 12px;
+            }
+        }
+    }
+
+    a.btn.btn-info {
+        padding: 8px 10px;
     }
 }
 
@@ -1477,6 +1354,30 @@
     }
     .event-title {
         max-width: 100%;
+    }
+
+    a.btn.btn-info,
+    a.btn.btn-directions {
+        width: 100%;
+    }
+
+    .filtered-location-card {
+        width: 100%;
+
+        a.btn.btn-info {
+            width: 45%;
+        }
+    }
+
+    #swedishamerican-locations-form {
+        .form-type-select {
+            width: 100%;
+            margin: 8px 0;
+        }
+    }
+
+    .filtered-location-card {
+        height: 175px;
     }
 }
 
@@ -1578,6 +1479,10 @@
                 }
             }
         }
+    }
+
+    a.btn.btn-directions {
+        padding: 8px 23px;
     }
 
     .location-container .map-image-container 
@@ -1684,5 +1589,9 @@
 
     .senior-position {
         font-size: 14px;
+    }
+
+    a.btn.btn-directions {
+        padding: 8px;
     }
 }

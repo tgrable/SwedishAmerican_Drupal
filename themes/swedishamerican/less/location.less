@@ -40,8 +40,8 @@
     }
     
     .term-content-container {
-        width: 70%;
-        margin: 45px 30px 0 45px;
+        width: 75%;
+        margin: 45px 30px 0 0;
         padding-right: 30px;
         padding-bottom: 30px;
         border-right: 1px solid @gray-rules;
@@ -209,28 +209,27 @@
 }
 
 // New Locations Page
-div#location-form-wrapper {
-    width: 100%;
-}
-
-.form-type-select {
-    display: inline-block;
-    width: 42%;
-}
-
-.form-text {
-    .avenirNextDemiBold;
-    text-transform: uppercase;
-    color: @text-color;
-    line-height: 1.4em;
-    margin: 0px 20px;
-}
-
 #swedishamerican-locations-form {
-    button#edit-submit--2 {
-        margin-left: 20px;
+    div#location-form-wrapper {
+        width: 100%;
     }
     
+    .form-type-select {
+        display: inline-block;
+        width: 42%;
+        margin: 0 30px 0 0;
+    }
+    
+    .form-text {
+        .avenirNextDemiBold;
+        text-transform: uppercase;
+        color: @text-color;
+        line-height: 1.4em;
+        margin: 0px 20px;
+    }
+    button#edit-submit--2 {
+        margin-left: 20px;
+    }    
 }
 
 .emerengcy-container {
@@ -267,17 +266,13 @@ div#location-form-wrapper {
     .emerengcy-container-details {
         width: 55%;
 
-        
-    
-        
-    
         span.hours-header {
             display: block;
             .avenirNextDemiBold;
             font-size: 16px;
             color: @brand-primary;
             margin-top: 8px;
-            line-height: 1.4em;
+            line-height: 1.1em;
         }
     }
 }
@@ -288,22 +283,29 @@ div#location-form-wrapper {
     font-size: 16px;
     text-transform: uppercase;
     color: @brand-primary;
-    line-height: 1.4em;
+    line-height: 1.1em;
 }
 
 .results-container {
     .avenirNextDemiBold;
     font-size: 16px;
     color: @brand-primary;
-    line-height: 1.4em;
+    line-height: 1.1em;
 }
 
-.emerengcy-container-address, 
-.emerengcy-container-hours {
+.emerengcy-container-address {
     .avenirNextRegular;
     font-size: 14px;
     color: @text-color;
-    line-height: 1.4em;
+    line-height: 1.1em;
+    margin-top: 0px;
+}
+
+.emerengcy-container-hours {
+    .avenirNextCondensedRegular;
+    font-size: 14px;
+    color: @text-color;
+    line-height: 1.1em;
     margin-top: 0px;
 }
 
@@ -325,9 +327,13 @@ a.btn.btn-directions:hover {
     background-color: @directions-hover;
 }
 
+.divider-container {
+    margin: 30px 30px 30px 0;
+}
+
 .filtered-location-card {
     position: relative;
-    width: 31%;
+    width: 32%;
     height: 225px;
     vertical-align: top;
     margin: 1% 1% 1% 0;
@@ -352,5 +358,13 @@ a.btn.btn-directions:hover {
 
     .filtered-location-details-container {
         padding: 8px;
+
+        .filtered-container-address {
+            .avenirNextCondensedRegular;
+            font-size: 14px;
+            color: @text-color;
+            line-height: 1.1em;
+            margin-top: 0px;
+        }
     }
 }
