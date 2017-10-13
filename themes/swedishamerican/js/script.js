@@ -46,7 +46,11 @@
 						$('article').addClass('provider-article-padding-left');
 					}
 
+					var page = $('html, body');
+
 					$(window).scroll(function() {
+						page.stop();
+
 						if ($(window).scrollTop() > 400) {
 							$('#scrollToTopBtn').css('display', 'block');
 						}
@@ -58,7 +62,7 @@
 					  $('#scrollToTopBtn').on('click', function() {
 						if (!$(this).hasClass('isAnimating')) {
 							$(this).addClass('isAnimating');
-							$('html, body').animate({scrollTop:0}, 2500, function(){
+							page.animate({scrollTop:0}, 2500, function(){
 								$('#scrollToTopBtn').removeClass('isAnimating');
 							});
 						}
@@ -354,11 +358,15 @@
 							
 							var urlpath = "/locations?";
 							if ($('#location-search-form-name').val() != "location") {
-								urlpath = urlpath + "name_1=" + $('#location-search-form-name').val() + "&";
+								urlpath = urlpath + "location=" + $('#location-search-form-name').val() + "&";
 							}
 
-							if (city.length > 0) {
-								urlpath = urlpath + "field_city_value=" + city + "&";
+							if ($('#location-search-form-city').val() != "city") {
+								urlpath = urlpath + "city=" + $('#location-search-form-city').val() + "&";
+							}
+
+							if ($('#location-search-form-service').val() != "service") {
+								urlpath = urlpath + "service=" + $('#location-search-form-service').val() + "&";
 							}
 
 							var lastChar = urlpath[urlpath.length -1];

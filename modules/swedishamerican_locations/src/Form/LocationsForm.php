@@ -31,12 +31,21 @@ class LocationsForm extends FormBase {
         $this->termTree = $this->getLocationTerms();
 
         # retrieve query param
+        $eventLocation = \Drupal::request()->query->get('location');
         $eventKeyword = \Drupal::request()->query->get('city');
         $eventCategory = \Drupal::request()->query->get('service');
+
 
         $form['wrapper'] = array(
             '#prefix' => '<div id="location-form-wrapper" class="locations-wrapper inline">',
             '#suffix' => '<div class="markup-area">' . $this->_queryAndFilterLocationNodes($form_state) . '</div>'
+        );
+
+        $form['wrapper']['location'] = array (
+            '#type' => 'select',
+            '#empty_option' => t('Location'),
+            '#options' => $this->getLocationNames(),
+            '#default_value' => $eventLocation
         );
 
         $form['wrapper']['city'] = array (
@@ -71,6 +80,9 @@ class LocationsForm extends FormBase {
     */
     public function submitForm(array &$form, FormStateInterface $form_state) {
         # retrieve query param
+        $locationKeyword = \Drupal::request()->query->get('location');
+        $location = $this->getSearchTerm($locationKeyword, $form_state->getValue('location'));
+
         $eventKeyword = \Drupal::request()->query->get('city');
         $keyword = $this->getSearchTerm($eventKeyword, $form_state->getValue('city'));
 
@@ -79,6 +91,7 @@ class LocationsForm extends FormBase {
 
         $option = [
             'query' => [
+                'location' => $location,
                 'city' => $keyword,
                 'service' => $category
             ],
@@ -105,43 +118,55 @@ class LocationsForm extends FormBase {
         }
 
         # retrieve query param
+        $locationKeyword = \Drupal::request()->query->get('location');
         $cityKeyword = \Drupal::request()->query->get('city');
-        $city = $this->getSearchTerm($cityKeyword, $form_state->getValue('city')); // TODO: check if these are doing anything
-
         $eventCategory = \Drupal::request()->query->get('service');
-        $category = $this->getSearchTerm($eventCategory, $form_state->getValue('service')); // TODO: check if these are doing anything
+        $category = $this->getSearchTerm($eventCategory, $form_state->getValue('service'));
 
-        if (isset($_REQUEST['city']) || isset($_REQUEST['service'])) {
+        if (isset($_REQUEST['location']) || isset($_REQUEST['city']) || isset($_REQUEST['service'])) {
             // param was set in the query string
             $filteredTerms = array();
 
-            if(!empty($_REQUEST['city']) && !empty($_REQUEST['service'])) {
+            if(!empty($_REQUEST['location']) && !empty($_REQUEST['city']) && !empty($_REQUEST['service'])) {
                 if (isset($this->serviceNodes[$eventCategory])) {
-                    $filteredTerms = $this->filterTerms($terms, 'city', $cityKeyword);
+                    $filteredTerms = $this->filterTerms($terms, 'location', $locationKeyword);
+                    $filteredTerms = $this->filterTerms($filteredTerms, 'city', $cityKeyword);
                     $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
     
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                    $searchString = $cityKeyword . ' and ' . $this->serviceNodes[$eventCategory];
+                    $searchString = $locationKeyword . ' and ' . $cityKeyword . ' and ' . $this->serviceNodes[$eventCategory];
                     return $this->buildFilteredMarkup($filteredTerms, $locationString, $searchString);
                 }
             }
-            else if (empty($_REQUEST['city']) && empty($_REQUEST['service'])) {
+            else if (empty($_REQUEST['location']) && empty($_REQUEST['city']) && empty($_REQUEST['service'])) {
                 return $this->buildFilteredMarkup($terms, '', '');
             }
             else {
-                if(!empty($_REQUEST['city'])) {
-                    $filteredTerms = $this->filterTerms($terms, 'city', $cityKeyword);
+                $searchValue = '';
+                $locationString = '';
+                $filteredTerms = $terms;
+
+                if(!empty($_REQUEST['location'])) {
+                    $filteredTerms = $this->filterTerms($filteredTerms, 'location', $locationKeyword);
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                    return $this->buildFilteredMarkup($filteredTerms, $locationString, $cityKeyword);
+                    $searchValue .= (!empty($_REQUEST['city']) || !empty($_REQUEST['service'])) ? $locationKeyword . ' and ' : $locationKeyword;
                 }
-                
+
+                if(!empty($_REQUEST['city'])) {
+                    $filteredTerms = $this->filterTerms($filteredTerms, 'city', $cityKeyword);
+                    $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
+                    $searchValue .= (!empty($_REQUEST['service'])) ? $cityKeyword . ' and ' : $cityKeyword;
+                }
+
                 if(!empty($_REQUEST['service'])) {
                     if (isset($this->serviceNodes[$eventCategory])) {
-                        $filteredTerms = $this->filterTerms($terms, 'service', $eventCategory);
+                        $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
                         $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                        return $this->buildFilteredMarkup($filteredTerms, $locationString, $this->serviceNodes[$eventCategory]);
+                        $searchValue .= $this->serviceNodes[$eventCategory];
                     }
-                } 
+                }
+
+                return $this->buildFilteredMarkup($filteredTerms, $locationString, $searchValue);
             }
         }
         else {
@@ -283,6 +308,20 @@ class LocationsForm extends FormBase {
         return $location_cities;
     }
 
+    private function getLocationNames() {
+        $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('Locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
+        $terms = array();
+        foreach ($tree as $value) {
+            $term = taxonomy_term_load($value->tid);
+            $name = $term->get('name')->getValue();
+            if (count($term) > 0) {
+                $terms[$name[0]['value']] = $name[0]['value'];
+            }
+        }
+
+        return $terms;
+    }
+
     private function getServiceNodes() {
         $query = \Drupal::entityQuery('node');
         $query->condition('status', 1);
@@ -303,7 +342,11 @@ class LocationsForm extends FormBase {
         foreach ($terms as $term) {
             $check_array = array();
             $check_field = '';
-            if ($filerType == 'city') {
+            if ($filerType == 'location') {
+                $check_array = $term->get('name')->getValue();
+                $check_field = 'value';
+            }
+            else if ($filerType == 'city') {
                 $check_array = $term->get('field_city')->getValue();
                 $check_field = 'value';
             }
