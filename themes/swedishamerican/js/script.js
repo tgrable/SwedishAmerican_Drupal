@@ -48,10 +48,10 @@
 
 					$(window).scroll(function() {
 						if ($(window).scrollTop() > 400) {
-							$('#myBtn').css('display', 'block');
+							$('#scrollToTopBtn').css('display', 'block');
 						}
 						else {
-							$('#myBtn').css('display', 'none');
+							$('#scrollToTopBtn').css('display', 'none');
 						}
 					  });
 					  
