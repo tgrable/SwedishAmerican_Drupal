@@ -63,6 +63,12 @@ class ProvidersForm extends FormBase {
         '#suffix' => '<div class="markup-area inline">' . $this->_queryAndFilterProviderNodes($form_state) . '</div>' . $this->getFormFooterMarkup() . '</div>'
     );
 
+    $form['wrapper']['sag'] = array(
+        '#type' => 'checkbox',
+        '#field_prefix' => $this->getCheckBoxMarkup(),
+        '#default_value' => $providerSwedes
+    );  
+
     $form['wrapper']['name'] = array (
       '#type' => 'textfield',
       '#placeholder' => 'Name',
@@ -90,18 +96,12 @@ class ProvidersForm extends FormBase {
       '#default_value' => $providerGender
     );
 
-    $form['wrapper']['sag'] = array(
-      '#type' => 'checkbox',
-      '#title' => $this->getCheckBoxMarkup(),
-      '#default_value' => $providerSwedes
-    );
-
     $form['wrapper']['submit'] = array(
       '#type' => 'submit',
-      '#value' => $this->t('Search'),
+      '#value' => $this->t('Apply'),
     );
 
-      return $form;
+    return $form;
   }
 
   /**
@@ -201,25 +201,15 @@ class ProvidersForm extends FormBase {
     $query = \Drupal::entityQuery('node');
     $query->condition('status', 1);
     $query->condition('type', 'provider');
-
+    
     if ($groupState == 1) {
-        $provider_group = $query->orConditionGroup()
-            ->condition('field_provider_type', 'Swedes Provider')
-            ->condition('field_provider_type', 'UW Doctor');
-
-        $query->condition($provider_group);
+      $query->condition('field_provider_type', 'Swedes Provider');
     }
     
-//    if ($groupState == 1) {
-//      $query->condition('field_provider_type', 'Swedes Provider');
-//    }
-
-
-
     if ($keyword != null) {
       $group = $query->orConditionGroup()
-        //->condition('field_specialty', $keyword, 'CONTAINS')
-        ->condition('field_provider_name', $keyword, 'CONTAINS');
+        // ->condition('field_specialty', $keyword, 'CONTAINS')
+        ->condition('title', $keyword, 'CONTAINS');
 
       $query->condition($group);
     }
@@ -250,6 +240,7 @@ class ProvidersForm extends FormBase {
     // return $nodes;
 
     $markup = '<div class="providers-container">';
+      $markup .= '<a href="#" id="scrollToTopBtn" title="Go to top">Top</a>';
   
     if (count($entity_ids) > 0) {
       foreach($entity_ids as $nid) {
@@ -257,7 +248,7 @@ class ProvidersForm extends FormBase {
         $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
 
         $markup .= '<div class="lightBox inline">';
-          $markup .= '<div class="card-provider" data-tag="' . $alias . ' #node_' . $node->id() . '">';
+          $markup .= '<div class="card-provider lazytest" data-tag="' . $alias . ' #node_' . $node->id() . '">';
 
           if ($node->get('field_provider_type')->getValue() != null) {
             $swedes_provider = $node->get('field_provider_type')->getValue();
@@ -310,19 +301,18 @@ class ProvidersForm extends FormBase {
             }
           }
 
-          //Moved these above image so I could use $title in the alt tag
-          $name = $node->get('field_provider_name')->getValue();
-          $label = $node->get('title')->getValue();
-          $title = (count($name) > 0) ? $name : $label;
-
           if ($node->get('field_image')->getValue() != null) {
             $markup .= '<div class="' . $provider_image_container . '">';
                 $markup .= '<div class="field-content">';
-                $markup .= '<img data-src="' . file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" alt="' . $title[0]['value'] . '" class="lazy img-responsive">';
+                    $markup .= '<img src="' .file_create_url($node->field_image->entity->getFileUri()) . '" typeof="foaf:Image" class="img-responsive">';
                 $markup .= '</div>';
             $markup .= '</div>';
           }
 
+          $name = $node->get('field_provider_name')->getValue();
+          $label = $node->get('title')->getValue();
+          $title = (count($name) > 0) ? $name : $label;
+          
           $specialty = '';
           $termmarkup = '';
 
@@ -386,40 +376,32 @@ class ProvidersForm extends FormBase {
     return $markup;
   }
 
-    private function getCheckBoxMarkup() {
-        $markup = '<div class="sag-markup">';
-        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican and UW Health providers. Uncheck to search all providers who are independent or employed by another organization, but are members of our active and courtesy medical staff.</span>';
-        $markup .= '</div>';
+  private function getCheckBoxMarkup() {
+    $markup = '<div class="sag-markup">';
+      $markup .= '<div class="image inline">';
+        $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" />';
+      $markup .= '</div>';
+      $markup .= '<div class="text inline">';
+        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican Medical Group providers. Uncheck to search all providers.</span>';
+        
+      $markup .= '</div>';
+    $markup .= '</div>';
+
     return $markup;
-    }
-//
-//  private function getCheckBoxMarkup() {
-//    $markup = '<div class="sag-markup">';
-//      $markup .= '<div class="image inline">';
-//        $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" />';
-//      $markup .= '</div>';
-//      $markup .= '<div class="text inline">';
-//        $markup .= '<span>Show <strong>ONLY</strong> SwedishAmerican Medical Group providers. Uncheck to search all providers.</span>';
-//
-//      $markup .= '</div>';
-//    $markup .= '</div>';
-//
-//    return $markup;
-//  }
+  }
 
   private function getFormFooterMarkup() {
-      return '';
-//    $markup = '<div class="dependant-fields-footer">';
-//      $markup .= '<div class="icon inline">';
-//        $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" alt="" title="" />';
-//      $markup .= '</div>';
-//      $markup .= '<div class="text inline">';
-//        $markup .= '<h2>SwedishAmerican Medical Group Providers</h2>';
-//        $markup .= '<span>By selecting "SwedishAmerican Medical Group Providers," your search results will <strong>ONLY</strong> display providers directly employed by SwedishAmerican Medical Group, as opposed to providers who are independent or employed by another organization, but are members of our active medical staff with admitting privileges at SwedishAmerican Hospital.</span>';
-//      $markup .= '</div>';
-//    $markup .= '</div>';
-//
-//    return $markup;
+    $markup = '<div class="dependant-fields-footer">';
+      $markup .= '<div class="icon inline">';
+        $markup .= '<img src="/themes/swedishamerican/images/ico-pinwheel.png" alt="" title="" />';
+      $markup .= '</div>';
+      $markup .= '<div class="text inline">';
+        $markup .= '<h2>SwedishAmerican Medical Group Providers</h2>';
+        $markup .= '<span>By selecting "SwedishAmerican Medical Group Providers," your search results will <strong>ONLY</strong> display providers directly employed by SwedishAmerican Medical Group, as opposed to providers who are independent or employed by another organization, but are members of our active medical staff with admitting privileges at SwedishAmerican Hospital.</span>';
+      $markup .= '</div>';
+    $markup .= '</div>';
+
+    return $markup;
   }
 
   private function getNodeContent() {

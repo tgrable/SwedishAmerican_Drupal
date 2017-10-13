@@ -45,6 +45,24 @@
 						$('.markup-area').detach().appendTo('#swedishamerican-providers-form');
 						$('article').addClass('provider-article-padding-left');
 					}
+
+					$(window).scroll(function() {
+						if ($(window).scrollTop() > 400) {
+							$('#myBtn').css('display', 'block');
+						}
+						else {
+							$('#myBtn').css('display', 'none');
+						}
+					  });
+					  
+					  $('#scrollToTopBtn').on('click', function() {
+						if (!$(this).hasClass('isAnimating')) {
+							$(this).addClass('isAnimating');
+							$('html, body').animate({scrollTop:0}, 2500, function(){
+								$('#scrollToTopBtn').removeClass('isAnimating');
+							});
+						}
+					  }); 
 				}
 				else if (window.location.href.indexOf("provider/") >= 0) {
 					$('.facebook-share').on('click', function(e) {
