@@ -4339,7 +4339,7 @@ form#swedishamerican-provider-email-share-form input {
 .mobile-provider-contact {
   display: none;
 }
-#myBtn {
+#scrollToTopBtn {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -4353,7 +4353,7 @@ form#swedishamerican-provider-email-share-form input {
   padding: 15px;
   border-radius: 10px;
 }
-#myBtn:hover {
+#scrollToTopBtn:hover {
   background-color: #7f2b7c;
 }
 .service-container h1 {
