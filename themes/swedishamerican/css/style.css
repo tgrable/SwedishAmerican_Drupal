@@ -3924,9 +3924,6 @@ section#block-twitterpostfeed {
   line-height: 1.4em;
   margin: 0px 20px;
 }
-#swedishamerican-locations-form button#edit-submit--2 {
-  margin-left: 20px;
-}
 .emerengcy-container {
   margin-top: 30px;
 }
@@ -4058,6 +4055,7 @@ a.btn.btn-directions:hover {
   line-height: 1.1em;
   margin-top: 0px;
 }
+.emerengcy-container,
 .filtered-location-container {
   margin-bottom: 30px;
 }
@@ -4902,10 +4900,13 @@ h1 span {
   }
   .filtered-location-card .filtered-location-details-container .filtered-location-name,
   .filtered-location-card .filtered-location-details-container .emerengcy-container-name {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  .results-container a {
+    font-size: 12px;
   }
   a.btn.btn-info {
-    padding: 8px 20px;
+    padding: 8px 15px;
   }
   a.btn.btn-directions {
     padding: 8px 8px;
