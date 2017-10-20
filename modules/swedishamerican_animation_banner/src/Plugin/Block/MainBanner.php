@@ -18,9 +18,11 @@ class MainBanner extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    // Add '#cache' => ['max-age' => 0], in for testing
     return [
       '#theme' => 'main_banner',
       '#nodes' => null,
+      '#cache' => ['max-age' => 0],
       '#attached' => array(
         'library' => array('swedishamerican_animation_banner/swedishamerican-animation-banner'),
         ),
