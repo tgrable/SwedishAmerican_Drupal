@@ -240,7 +240,7 @@ class ProvidersForm extends FormBase {
     // return $nodes;
 
     $markup = '<div class="providers-container">';
-      $markup .= '<a href="#" id="scrollToTopBtn" title="Go to top">Top</a>';
+      // $markup .= '<a href="#" id="scrollToTopBtn" title="Go to top">Top</a>';
   
     if (count($entity_ids) > 0) {
       foreach($entity_ids as $nid) {
@@ -248,7 +248,7 @@ class ProvidersForm extends FormBase {
         $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
 
         $markup .= '<div class="lightBox inline">';
-          $markup .= '<div class="card-provider lazytest" data-tag="' . $alias . ' #node_' . $node->id() . '">';
+          $markup .= '<div class="card-provider" data-tag="' . $alias . ' #node_' . $node->id() . '">';
 
           if ($node->get('field_provider_type')->getValue() != null) {
             $swedes_provider = $node->get('field_provider_type')->getValue();
