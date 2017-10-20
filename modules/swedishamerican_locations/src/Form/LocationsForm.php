@@ -25,7 +25,7 @@ class LocationsForm extends FormBase {
     * {@inheritdoc}
     */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        $form['#cache'] = ['contexts' => ['url.query_args:city', 'url.query_args:service']];
+        $form['#cache'] = ['contexts' => ['url.query_args:location', 'url.query_args:city', 'url.query_args:service']];
 
         $this->serviceNodes = $this->getServiceNodes();
         $this->termTree = $this->getLocationTerms();
