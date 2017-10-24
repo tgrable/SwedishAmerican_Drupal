@@ -4212,12 +4212,14 @@ a.btn.btn-directions:hover {
 .providers-wrapper {
   margin: -150px 0 15px 15px;
 }
+label[for=edit-sag] {
+  margin-top: 10px;
+}
 .select-wrapper:after {
   font-size: 0;
 }
 .form-item-sag input[type="checkbox"] {
-  margin-right: 15px;
-  float: right;
+  float: left;
 }
 .form-item-sag input[type="checkbox"]:after {
   border: 1px solid #666666;

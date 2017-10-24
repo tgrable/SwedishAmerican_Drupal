@@ -200,6 +200,10 @@
 //     // left: 15px;
 // }
 
+label[for=edit-sag] {
+    margin-top: 10px;
+}
+
 .select-wrapper:after {
     font-size: 0;
 }
@@ -208,13 +212,19 @@
     // .input-group-addon {
     //     padding: 0 60px 0 0;
     // }
-    input[type="checkbox"] {
-        margin-right: 15px;
-        float: right;
+    // input[type="checkbox"] {
+    //     margin-right: 15px;
+    //     float: right;
+    // }
+
+    input[type="checkbox"]{
+        float: left;
     }
+    
     input[type="checkbox"]:after {
         border: 1px solid #666666;
     }
+    
     input[type="checkbox"]:checked:after {
         background-color: @brand-primary;
         border-color: @brand-primary;
