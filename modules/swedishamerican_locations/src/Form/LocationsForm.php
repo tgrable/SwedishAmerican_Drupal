@@ -29,7 +29,7 @@ class LocationsForm extends FormBase {
         $form['#cache'] = ['contexts' => ['url.query_args:location', 'url.query_args:city', 'url.query_args:service']];
 
         $this->serviceNodes = $this->getServiceNodes();
-        $this->termTree = $this->getTaxonomyTerms('location'); //$this->getLocationTerms();
+        $this->termTree = $this->getLocationTerms();
         $this->locationTypes = $this->getTaxonomyTerms('location_type');
 
         # retrieve query param
@@ -130,13 +130,13 @@ class LocationsForm extends FormBase {
             $filteredTerms = array();
 
             if(!empty($_REQUEST['location']) && !empty($_REQUEST['city']) && !empty($_REQUEST['service'])) {
-                if (isset($this->serviceNodes[$eventCategory])) {
+                if (isset($this->locationTypes[$eventCategory])) {
                     $filteredTerms = $this->filterTerms($terms, 'location', $locationKeyword);
                     $filteredTerms = $this->filterTerms($filteredTerms, 'city', $cityKeyword);
                     $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
     
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                    $searchString = $locationKeyword . ' and ' . $cityKeyword . ' and ' . $this->serviceNodes[$eventCategory];
+                    $searchString = $locationKeyword . ' and ' . $cityKeyword . ' and ' . $this->locationTypes[$eventCategory];
                     return $this->buildFilteredMarkup($filteredTerms, $locationString, $searchString);
                 }
             }
@@ -164,7 +164,7 @@ class LocationsForm extends FormBase {
                     if (isset($this->locationTypes[$eventCategory])) {
                         $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
                         $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                        $searchValue .= $eventCategory;
+                        $searchValue .= $this->locationTypes[$eventCategory];
                     }
                 }
 
