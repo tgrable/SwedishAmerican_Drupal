@@ -13,6 +13,7 @@ use Drupal\Core\Url;
 class LocationsForm extends FormBase {
     private $termTree;
     private $serviceNodes;
+    private $locationTypes;
 
     /**
     * {@inheritdoc}
@@ -28,12 +29,13 @@ class LocationsForm extends FormBase {
         $form['#cache'] = ['contexts' => ['url.query_args:location', 'url.query_args:city', 'url.query_args:service']];
 
         $this->serviceNodes = $this->getServiceNodes();
-        $this->termTree = $this->getLocationTerms();
+        $this->termTree = $this->getTaxonomyTerms('location'); //$this->getLocationTerms();
+        $this->locationTypes = $this->getTaxonomyTerms('location_type');
 
         # retrieve query param
         $eventLocation = \Drupal::request()->query->get('location');
         $eventKeyword = \Drupal::request()->query->get('city');
-        $eventCategory = \Drupal::request()->query->get('service');
+        $locationTypeQuery = \Drupal::request()->query->get('service');
 
 
         $form['wrapper'] = array(
@@ -57,9 +59,9 @@ class LocationsForm extends FormBase {
 
         $form['wrapper']['service'] = array (
             '#type' => 'select',
-            '#empty_option' => t('Service'),
-            '#options' => $this->serviceNodes,
-            '#default_value' => $eventCategory
+            '#empty_option' => t('Location Type'),
+            '#options' => $this->locationTypes,
+            '#default_value' => $locationTypeQuery
         );
 
         $form['wrapper']['submit'] = array(
@@ -159,10 +161,10 @@ class LocationsForm extends FormBase {
                 }
 
                 if(!empty($_REQUEST['service'])) {
-                    if (isset($this->serviceNodes[$eventCategory])) {
+                    if (isset($this->locationTypes[$eventCategory])) {
                         $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
                         $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                        $searchValue .= $this->serviceNodes[$eventCategory];
+                        $searchValue .= $eventCategory;
                     }
                 }
 
@@ -322,6 +324,25 @@ class LocationsForm extends FormBase {
         return $terms;
     }
 
+    private function getTaxonomyTerms($taxonomy) {
+        $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($taxonomy, $parent = 0, $max_depth = 1, $load_entities = FALSE);
+        $terms = array();
+        foreach ($tree as $value) {
+            $term = taxonomy_term_load($value->tid);
+            $name = $term->get('name')->getValue();
+            if (count($term) > 0) {
+                if ($taxonomy == 'location_type') {
+                    $terms[$value->tid] = $name[0]['value'];
+                }
+                else {
+                    $terms[$name[0]['value']] = $name[0]['value'];
+                }
+            }
+        }
+
+        return $terms;
+    }
+
     private function getServiceNodes() {
         $query = \Drupal::entityQuery('node');
         $query->condition('status', 1);
@@ -344,19 +365,19 @@ class LocationsForm extends FormBase {
             $check_field = '';
             if ($filerType == 'location') {
                 $check_array = $term->get('name')->getValue();
-                $check_field = 'value';
+                $subscriptValue = 'value';
             }
             else if ($filerType == 'city') {
                 $check_array = $term->get('field_city')->getValue();
-                $check_field = 'value';
+                $subscriptValue = 'value';
             }
             else {
-                $check_array = $term->get('field_service_reference')->getValue();
-                $check_field = 'target_id';
+                $check_array = $term->get('field_location_type')->getValue();
+                $subscriptValue = 'target_id';
             }
 
             if (count($check_array) > 0) {
-                $itemValue = $check_array[0][$check_field];
+                $itemValue = $check_array[0][$subscriptValue];
                 if ($itemValue == $checkValue) {
                     array_push($filteredTerms, $term);
                 }
