@@ -369,16 +369,24 @@
 							
 							var urlpath = "/locations?";
 							if ($('#location-search-form-name').val() != "location") {
-								urlpath = urlpath + "location=" + $('#location-search-form-name').val() + "&";
+								urlpath = urlpath + "name_1=" + $('#location-search-form-name').val() + "&";
 							}
 
 							if ($('#location-search-form-city').val() != "city") {
-								urlpath = urlpath + "city=" + $('#location-search-form-city').val() + "&";
+								urlpath = urlpath + "field_city_value=" + $('#location-search-form-city').val() + "&";
 							}
 
-							if ($('#location-search-form-service').val() != "service") {
-								urlpath = urlpath + "service=" + $('#location-search-form-service').val() + "&";
-							}
+							// if ($('#location-search-form-name').val() != "location") {
+							// 	urlpath = urlpath + "location=" + $('#location-search-form-name').val() + "&";
+							// }
+
+							// if ($('#location-search-form-city').val() != "city") {
+							// 	urlpath = urlpath + "city=" + $('#location-search-form-city').val() + "&";
+							// }
+
+							// if ($('#location-search-form-service').val() != "service") {
+							// 	urlpath = urlpath + "service=" + $('#location-search-form-service').val() + "&";
+							// }
 
 							var lastChar = urlpath[urlpath.length -1];
 							if (lastChar == "&") {
