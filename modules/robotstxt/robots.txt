@@ -59,3 +59,12 @@ Disallow: /index.php/user/password/
 Disallow: /index.php/user/register/
 Disallow: /index.php/user/login/
 Disallow: /index.php/user/logout/
+Disallow: /sites/default/files/
+# Custom - Don't want Google crawling categories and archives.
+Disallow: /categories/
+Disallow: /archives/
+Disallow: /share-provider
+Noindex: /categories/
+Noindex: /archives/
+
+Sitemap: https://www.swedishamerican.org/sitemap.xml
