@@ -377,9 +377,11 @@ class LocationsForm extends FormBase {
             }
 
             if (count($check_array) > 0) {
-                $itemValue = $check_array[0][$subscriptValue];
-                if ($itemValue == $checkValue) {
-                    array_push($filteredTerms, $term);
+                for($i = 0; $i < count($check_array); $i++) {
+                    $itemValue = $check_array[$i][$subscriptValue];
+                    if ($itemValue == $checkValue) {
+                        array_push($filteredTerms, $term);
+                    }
                 }
             }
         }
