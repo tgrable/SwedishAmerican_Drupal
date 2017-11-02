@@ -123,6 +123,10 @@
 						var urlpath = $(this).attr("data-location");
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
+
+					$( "#edit-location" ).change(function() {
+						window.location.href = $( "#edit-location" ).val();
+					});
 				}
 				else if (window.location.href.indexOf("locations")  >= 0) {
 					$('.navbar-header').addClass('full-alpha');
@@ -133,6 +137,10 @@
 						var urlpath = $(this).attr("data-location");
 						$(this).css('background-image', "url('" + urlpath + "')");
 					});
+
+					// $( "#edit-location" ).change(function() {
+					// 	window.location.href = $( "#edit-location" ).val();
+					// });
 
 					$('.footer').css("margin-top", "0");
 					$('.navbar-header').addClass('full-alpha');

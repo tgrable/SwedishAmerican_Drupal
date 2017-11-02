@@ -178,7 +178,7 @@ class LocationsForm extends FormBase {
 
     private function buildDefaultMarkup($tree) {
         $count = 0;
-        $markup = '<div class="emerengcy-container">';
+        $markup = '<div class="emerengcy-container inline">';
             $markup .= '<div class="emerengcy-container-header">If you need emergency or immediate care</div>';
             $markup .= '<div class="emerengcy-container-inner">';
                 foreach ($tree as $value) {
@@ -300,6 +300,8 @@ class LocationsForm extends FormBase {
         $tree = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('Locations', $parent = 0, $max_depth = 1, $load_entities = FALSE);
         foreach ($tree as $value) {
             $term = taxonomy_term_load($value->tid);
+            $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/taxonomy/term/'.$term->id());
+            
             $city = $term->get('field_city')->getValue();
             if (count($city) > 0) {
                 $location_cities[$city[0]['value']] = $city[0]['value'];
@@ -315,9 +317,10 @@ class LocationsForm extends FormBase {
         $terms = array();
         foreach ($tree as $value) {
             $term = taxonomy_term_load($value->tid);
+            $alias = \Drupal::service('path.alias_manager')->getAliasByPath('/taxonomy/term/'.$term->id());
             $name = $term->get('name')->getValue();
             if (count($term) > 0) {
-                $terms[$name[0]['value']] = $name[0]['value'];
+                $terms[$alias] = $name[0]['value'];
             }
         }
 
