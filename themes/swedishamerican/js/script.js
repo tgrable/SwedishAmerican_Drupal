@@ -125,7 +125,13 @@
 					});
 
 					$( "#edit-location" ).change(function() {
-						console.log($( "#edit-location" ).val());
+						if ($( "#edit-location" ).val().length > 0) {
+							console.log($( "#edit-location" ).val());
+						}
+						else {
+							console.log("length < 0");
+						}
+						
 						window.location.href = $( "#edit-location" ).val();
 					});
 				}
