@@ -82,9 +82,6 @@ class LocationsForm extends FormBase {
     */
     public function submitForm(array &$form, FormStateInterface $form_state) {
         # retrieve query param
-        $locationKeyword = \Drupal::request()->query->get('location');
-        $location = $this->getSearchTerm($locationKeyword, $form_state->getValue('location'));
-
         $eventKeyword = \Drupal::request()->query->get('city');
         $keyword = $this->getSearchTerm($eventKeyword, $form_state->getValue('city'));
 
@@ -120,7 +117,6 @@ class LocationsForm extends FormBase {
         }
 
         # retrieve query param
-        $locationKeyword = \Drupal::request()->query->get('location');
         $cityKeyword = \Drupal::request()->query->get('city');
         $eventCategory = \Drupal::request()->query->get('service');
         $category = $this->getSearchTerm($eventCategory, $form_state->getValue('service'));
@@ -135,7 +131,7 @@ class LocationsForm extends FormBase {
                     $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
     
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                    $searchString = $locationKeyword . ' and ' . $cityKeyword . ' and ' . $this->locationTypes[$eventCategory];
+                    $searchString = $cityKeyword . ' and ' . $this->locationTypes[$eventCategory];
                     return $this->buildFilteredMarkup($filteredTerms, $locationString, $searchString);
                 }
             }
@@ -147,12 +143,6 @@ class LocationsForm extends FormBase {
                 $locationString = '';
                 $filteredTerms = $terms;
 
-                // if(!empty($_REQUEST['location'])) {
-                //     $filteredTerms = $this->filterTerms($filteredTerms, 'location', $locationKeyword);
-                //     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
-                //     $searchValue .= (!empty($_REQUEST['city']) || !empty($_REQUEST['service'])) ? $locationKeyword . ' and ' : $locationKeyword;
-                // }
-                
                 if(!empty($_REQUEST['city'])) {
                     $filteredTerms = $this->filterTerms($filteredTerms, 'city', $cityKeyword);
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
