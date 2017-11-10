@@ -126,13 +126,8 @@
 
 					$( "#edit-location" ).change(function() {
 						if ($( "#edit-location" ).val().length > 0) {
-							console.log($( "#edit-location" ).val());
-						}
-						else {
-							console.log("length < 0");
-						}
-						
-						window.location.href = $( "#edit-location" ).val();
+							window.location.href = $( "#edit-location" ).val();
+						}						
 					});
 				}
 				else if (window.location.href.indexOf("locations")  >= 0) {
