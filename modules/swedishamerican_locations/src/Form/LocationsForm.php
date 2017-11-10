@@ -88,7 +88,6 @@ class LocationsForm extends FormBase {
 
         $option = [
             'query' => [
-                'location' => $location,
                 'city' => $keyword,
                 'service' => $category
             ],
@@ -123,12 +122,8 @@ class LocationsForm extends FormBase {
             // param was set in the query string
             $filteredTerms = array();
 
-            dsm("1");
-
             if(!empty($_REQUEST['city']) && !empty($_REQUEST['service'])) {
-                dsm("1a");
                 if (isset($this->locationTypes[$eventCategory])) {
-                    dsm("1a-1");
                     $filteredTerms = $this->filterTerms($terms, 'city', $cityKeyword);
                     $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
     
@@ -138,24 +133,20 @@ class LocationsForm extends FormBase {
                 }
             }
             else if (empty($_REQUEST['city']) && empty($_REQUEST['service'])) {
-                dsm("1b");
                 return $this->buildFilteredMarkup($terms, '', '');
             }
             else {
-                dsm("1c");
                 $searchValue = '';
                 $locationString = '';
                 $filteredTerms = $terms;
 
                 if(!empty($_REQUEST['city'])) {
-                    dsm("1c-1");
                     $filteredTerms = $this->filterTerms($filteredTerms, 'city', $cityKeyword);
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
                     $searchValue .= (!empty($_REQUEST['service'])) ? $cityKeyword . ' and ' : $cityKeyword;
                 }
 
                 if(!empty($_REQUEST['service'])) {
-                    dsm("1c-2");
                     if (isset($this->locationTypes[$eventCategory])) {
                         $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
                         $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
