@@ -158,7 +158,6 @@ class LocationsForm extends FormBase {
             }
         }
         else {
-            dsm("2");
             return $this->buildDefaultMarkup($tree);
         }
     }
