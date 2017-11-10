@@ -131,7 +131,7 @@ class LocationsForm extends FormBase {
                 dsm("1a");
                 if (isset($this->locationTypes[$eventCategory])) {
                     dsm("1a-1");
-                    $filteredTerms = $this->filterTerms($filteredTerms, 'city', $cityKeyword);
+                    $filteredTerms = $this->filterTerms($terms, 'city', $cityKeyword);
                     $filteredTerms = $this->filterTerms($filteredTerms, 'service', $eventCategory);
     
                     $locationString = (count($filteredTerms) != 1) ? 'Locations for ' : 'Location for ';
