@@ -33,7 +33,6 @@ class LocationsForm extends FormBase {
         $this->locationTypes = $this->getTaxonomyTerms('location_type');
 
         # retrieve query param
-        $eventLocation = \Drupal::request()->query->get('location');
         $eventKeyword = \Drupal::request()->query->get('city');
         $locationTypeQuery = \Drupal::request()->query->get('service');
 
@@ -46,8 +45,7 @@ class LocationsForm extends FormBase {
         $form['wrapper']['location'] = array (
             '#type' => 'select',
             '#empty_option' => t('Location'),
-            '#options' => $this->getLocationNames(),
-            '#default_value' => $eventLocation
+            '#options' => $this->getLocationNames()
         );
 
         $form['wrapper']['city'] = array (
