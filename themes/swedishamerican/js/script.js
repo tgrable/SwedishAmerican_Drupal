@@ -125,6 +125,7 @@
 					});
 
 					$( "#edit-location" ).change(function() {
+						console.log($( "#edit-location" ).val());
 						window.location.href = $( "#edit-location" ).val();
 					});
 				}
